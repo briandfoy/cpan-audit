@@ -18,7 +18,10 @@ GetOptions(
     'no-corelist' => \$opts{no_corelist},
     'quiet|q'     => \$opts{quiet},
     'verbose|v'   => \$opts{verbose},
-) or die("Error in command line arguments\n");
+) or do {
+	warn "Error in command line arguments\n";
+	exit 2
+	};
 
 pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script ) if $opts{help};
 
