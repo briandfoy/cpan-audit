@@ -43,6 +43,38 @@ my $module    = __PACKAGE__;
 my $github    = 'https://github.com/briandfoy/cpan-audit';
 my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
+my $advisory_repo = "git@github.com:briandfoy/cpan-security-advisory.git";
+
+sub MY::postamble {
+	my $file = __FILE__;
+    return <<"POSTAMBLE";
+
+######################################################################
+# Postamble from $file
+.gitmodules:
+\tgit submodule add $advisory_repo
+
+cpan-security-advisory/LICENSE: .gitmodules
+\tgit submodule init
+
+lib/CPAN/Audit/DB.pm: util/generate cpan-security-advisory/cpansa/*.yml
+\tgit submodule update --remote
+\tperl -Ilib util/generate cpan-security-advisory/cpansa/*.yml > \$\@
+
+.PHONY:
+generate: submodules
+\tgit submodule update --remote
+\tperl -Ilib util/generate cpan-security-advisory/cpansa/*.yml > \$\@
+
+.PHONY: submodules
+submodules: .gitmodules
+
+# End postamble
+######################################################################
+
+POSTAMBLE
+}
+
 my %WriteMakefile = (
 	'MIN_PERL_VERSION' => 5.008,
 
@@ -105,6 +137,7 @@ sub do_it {
 			||
 		"$MM 6.64";
 	eval "use $MM_version; 1" or die "Could not load $MM_version: $@";
+		'PerlIO::gzip'          => '0',
 	eval "use Test::Manifest 1.21"
 		if -e File::Spec->catfile( qw(t test_manifest) );
 
