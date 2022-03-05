@@ -3,12 +3,13 @@
 use strict;
 use warnings;
 
-use JSON ();
-use File::Basename qw(basename);
-use YAML::Tiny;
-use HTTP::Tiny;
-use Data::Dumper;
 use CPAN::DistnameInfo;
+use Data::Dumper;
+use File::Basename qw(basename);
+use HTTP::Tiny;
+use JSON ();
+use PerlIO::gzip;
+use YAML::Tiny;
 
 local $Data::Dumper::Sortkeys = 1;
 
