@@ -57,7 +57,7 @@ sub provides {
     my $ua = HTTP::Tiny->new;
 
     my $details_file = '/tmp/02packages.details.txt.gz';
-    $ua->mirror( 'http://www.cpan.org//modules/02packages.details.txt.gz',
+    $ua->mirror( 'http://www.cpan.org/modules/02packages.details.txt.gz',
         $details_file );
 
     open my $fh, '<:gzip', $details_file
