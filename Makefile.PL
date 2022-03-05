@@ -105,6 +105,7 @@ my %WriteMakefile = (
 		'CPAN::DistnameInfo'    => '0',
 		'Module::CoreList'      => '5.20181020',
 		'Module::CPANfile'      => '0',
+		'PerlIO::gzip'          => '0',
 		'Pod::Usage'            => '1.69',
 		},
 
@@ -137,7 +138,6 @@ sub do_it {
 			||
 		"$MM 6.64";
 	eval "use $MM_version; 1" or die "Could not load $MM_version: $@";
-		'PerlIO::gzip'          => '0',
 	eval "use Test::Manifest 1.21"
 		if -e File::Spec->catfile( qw(t test_manifest) );
 
