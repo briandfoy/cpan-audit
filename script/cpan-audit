@@ -12,13 +12,12 @@ use CPAN::Audit;
 my %opts;
 
 GetOptions(
+    'ascii'       => \$opts{ascii},
+    'help|h'      => \$opts{help},
     'no-color'    => \$opts{no_color},
     'no-corelist' => \$opts{no_corelist},
-    'ascii'       => \$opts{ascii},
-    'verbose|v'   => \$opts{verbose},
     'quiet|q'     => \$opts{quiet},
-    'help|h'      => \$opts{help},
-    'db'          => \$opts{db_source},
+    'verbose|v'   => \$opts{verbose},
 ) or die("Error in command line arguments\n");
 
 pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script ) if $opt_help;
@@ -32,7 +31,6 @@ if ( !$command ) {
 my $audit = CPAN::Audit->new(
     %opts,
     interactive => is_interactive(),
-    db          => $opt_db,
 );
 
 exit $audit->command( $command, @ARGV );
@@ -57,12 +55,12 @@ Commands:
 
 Options:
 
+    --ascii       use ascii output
+    --help|h      help message
     --no-color    switch off colors
     --no-corelist ignore modules bundled with perl version
-    --ascii       use ascii output
     --quiet       be quiet
     --verbose     be verbose
-    --help|h      help message
 
 Examples:
 
