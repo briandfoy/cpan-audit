@@ -17,7 +17,7 @@ sub new {
 
 	my @allowed_keys = qw(ascii db interactive no_corelist no_color quiet verbose);
 
-    my %args = { %params->@{@allowed_keys} };
+    my %args = %params->@{@allowed_keys};
     my $self = bless \%args, $class;
 
     if ( !$self->{interactive} ) {
