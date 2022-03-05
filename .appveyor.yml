@@ -1,16 +1,38 @@
-version: '{build}'
+# brian's standard Appveyor config for Perl 5 modules
+# https://github.com/briandfoy/brians_perl_modules_appveyor_config
+# This file is licensed under the Artistic License 2.0
+
+image:
+  - Visual Studio 2019
+  - Visual Studio 2022
+  - ubuntu1804
+  - ubuntu2004
+
+environment:
+  PERL5LIB: /home/appveyor/perl5/lib/perl5
+
+platform: x64
+
+branches:
+  only:
+    - master
+    - appveyor
+
+skip_tags: true
+
 install:
-- cmd: >-
-    choco install -y --allow-empty-checksums strawberryperl -version 5.28.0.1
+  - cmd: if not exist "C:\strawberry" cinst strawberryperl
+  - cmd: set PATH=C:\strawberry\perl\bin;C:\strawberry\perl\site\bin;C:\strawberry\c\bin;%PATH%
+  - cmd: cd %APPVEYOR_BUILD_FOLDER%
+  - sh: sudo apt-get update
+  - sh: sudo env DEBIAN_FRONTEND=noninteractive apt-get -yq install build-essential git libssl-dev
+  - sh: sudo apt-get install -y perl
+  - sh: export PATH=/home/appveyor/perl5/bin:$PATH
+  - perl -v
+  - cpan -M https://www.cpan.org -T App::cpanminus ExtUtils::MakeMaker
+  - cpanm --notest --installdeps .
 
-    SET PATH=C:\strawberry\c\bin;C:\strawberry\perl\site\bin;C:\strawberry\perl\bin;%PATH%
-
-    cpanm --notest --quiet --installdeps .
-build: off
-cache:
-  - C:\strawberry -> .appveyor.yml
-  - C:\ProgramData\chocolatey\bin -> .appveyor.yml
-  - C:\ProgramData\chocolatey\lib -> .appveyor.yml
-  - C:\Users\appveyor\AppData\Local\Temp\1\chocolatey\ -> .appveyor.yml
-test_script:
-- cmd: prove -l -r t/
+build_script:
+  - perl Makefile.PL
+  - cmd: gmake test
+  - sh: make test
