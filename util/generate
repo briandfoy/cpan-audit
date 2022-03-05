@@ -38,12 +38,23 @@ my $dump = Dumper( \%db );
 $dump =~ s{^\$VAR1\s*=\s*}{};
 $dump =~ s{}{};
 
+my $submodule_dir = 'cpan-security-advisory';
+
+my( $commit ) = split /\s+/, join '', grep { /\Q$submodule_dir/ } `git submodule status`;
+
+my( $year, $month, $day ) = (localtime)[5,4,3];
+my( $version ) = sprintf '%4d%02d%02d', $year + 1900, $month + 1, $day;
+
 print <<"EOF";
 # created by $0 at @{[ scalar localtime]}
+# $submodule_dir $commit
+#
 package CPAN::Audit::DB;
 
 use strict;
 use warnings;
+
+our \$VERSION = '$version';
 
 sub db {
     $dump
