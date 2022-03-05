@@ -66,9 +66,10 @@ my %WriteMakefile = (
 		},
 
 	'PREREQ_PM'     => {
-		'File::Spec::Functions' => '0',
-		'Test::Harness'         => '0',
-		'File::Spec'            => '0',
+		'CPAN::DistnameInfo'    => '0',
+		'Module::CoreList'      => '5.20181020',
+		'Module::CPANfile'      => '0',
+		'Pod::Usage'            => '1.69',
 		},
 
 	'META_MERGE' => {
