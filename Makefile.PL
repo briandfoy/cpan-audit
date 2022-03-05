@@ -43,7 +43,7 @@ my $module    = __PACKAGE__;
 my $github    = 'https://github.com/briandfoy/cpan-audit';
 my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
-my $advisory_repo = "git@github.com:briandfoy/cpan-security-advisory.git";
+my $advisory_repo = 'git@github.com:briandfoy/cpan-security-advisory.git';
 
 sub MY::postamble {
 	my $file = __FILE__;
@@ -62,9 +62,7 @@ lib/CPAN/Audit/DB.pm: util/generate cpan-security-advisory/cpansa/*.yml
 \tperl -Ilib util/generate cpan-security-advisory/cpansa/*.yml > \$\@
 
 .PHONY:
-generate: submodules
-\tgit submodule update --remote
-\tperl -Ilib util/generate cpan-security-advisory/cpansa/*.yml > \$\@
+generate: submodules lib/CPAN/Audit/DB.pm
 
 .PHONY: submodules
 submodules: .gitmodules
