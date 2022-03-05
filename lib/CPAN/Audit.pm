@@ -13,18 +13,12 @@ use Module::CoreList;
 our $VERSION = "0.15";
 
 sub new {
-    my $class = shift;
-    my (%params) = @_;
+    my( $class, %params ) = @_;
 
-    my $self = {};
-    bless $self, $class;
+	my @allowed_keys = qw(ascii db interactive no_corelist no_color quiet verbose);
 
-    $self->{ascii}       = $params{ascii};
-    $self->{verbose}     = $params{verbose};
-    $self->{quiet}       = $params{quiet};
-    $self->{no_color}    = $params{no_color};
-    $self->{no_corelist} = $params{no_corelist};
-    $self->{interactive} = $params{interactive};
+    my %args = { %params->@{@allowed_keys} };
+    my $self = bless \%args, $class;
 
     if ( !$self->{interactive} ) {
         $self->{ascii}    = 1;
@@ -32,6 +26,7 @@ sub new {
     }
 
     $self->{db}       = CPAN::Audit::DB->db;
+
     $self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
     $self->{discover} = CPAN::Audit::Discover->new( db => $self->{db} );
 
@@ -281,8 +276,8 @@ CPAN::Audit - Audit CPAN distributions for known vulnerabilities
 
 =head1 DESCRIPTION
 
-CPAN::Audit is a module and a database at the same time. It is used by L<cpan-audit> command line application to query
-for vulnerabilities.
+CPAN::Audit is a module and a database at the same time. It is used by
+L<cpan-audit> command line application to query for vulnerabilities.
 
 =head1 LICENSE
 
