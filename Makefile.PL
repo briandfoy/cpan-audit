@@ -53,11 +53,11 @@ sub MY::postamble {
 # Postamble from $file
 .gitmodules:
 \tgit submodule add $advisory_repo
-
-cpan-security-advisory/LICENSE: .gitmodules
 \tgit submodule init
 
-lib/CPAN/Audit/DB.pm: util/generate cpan-security-advisory/cpansa/*.yml
+cpan-security-advisory/LICENSE: .gitmodules
+
+lib/CPAN/Audit/DB.pm: util/generate cpan-security-advisory/LICENSE
 \tgit submodule update --remote
 \tperl -Ilib util/generate cpan-security-advisory/cpansa/*.yml > \$\@
 
