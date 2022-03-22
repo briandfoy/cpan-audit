@@ -55,12 +55,8 @@ jobs:
             image: perl:${{ matrix.perl-version }}
         steps:
             - uses: actions/checkout@v3
-            - name: Checkout submodules
-              run: |
-                perl Makefile.PL
-                make submodules
-                git submodule update --remote
-                make generate
+              with:
+                submodules: true
             - name: Platform check
               run: uname -a
             - name: Perl version check

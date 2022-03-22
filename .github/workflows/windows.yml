@@ -39,12 +39,8 @@ jobs:
                 - windows-2022
         steps:
             - uses: actions/checkout@v3
-            - name: Checkout submodules
-              run: |
-                perl Makefile.PL
-                make submodules
-                git submodule update --remote
-                make generate
+              with:
+                submodules: true
             - name: Set up Perl
               run: |
                 choco install strawberryperl
