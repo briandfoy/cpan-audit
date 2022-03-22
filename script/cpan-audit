@@ -20,7 +20,7 @@ GetOptions(
     'verbose|v'   => \$opts{verbose},
 ) or die("Error in command line arguments\n");
 
-pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script ) if $opt_help;
+pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script ) if $opts{help};
 
 my ($command) = shift @ARGV;
 
