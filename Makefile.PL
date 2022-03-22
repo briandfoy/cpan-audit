@@ -90,9 +90,9 @@ my %WriteMakefile = (
 	'BUILD_REQUIRES' => {
 		},
 
-  'EXE_FILES' => [
-    'script/cpan-audit',
-  ],
+	'EXE_FILES' => [
+		'script/cpan-audit',
+		],
 
 	'TEST_REQUIRES' => {
 		'Test::More'    => '0.98',
