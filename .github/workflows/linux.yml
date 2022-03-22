@@ -55,7 +55,7 @@ jobs:
             image: perl:${{ matrix.perl-version }}
         steps:
 # checkout needs a later git version to use submodules
-            - uses: update git
+            - name: update git
               run: |
                 apt-get install git
             - uses: actions/checkout@v3
