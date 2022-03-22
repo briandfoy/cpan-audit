@@ -76,7 +76,7 @@ POSTAMBLE
 my %WriteMakefile = (
 	'MIN_PERL_VERSION' => 5.008,
 
-	'NAME'	        => $module,
+	'NAME'          => $module,
 	'AUTHOR'        => 'brian d foy <bdfoy@cpan.org>',
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
