@@ -87,7 +87,8 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                cpanm --installdeps --with-develop --with-test .
+                cpanm --installdeps --with-develop .
+                cpanm --installdeps --with-test .
             - name: Run tests
               run: |
                 perl Makefile.PL
