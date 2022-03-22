@@ -55,6 +55,12 @@ jobs:
             image: perl:${{ matrix.perl-version }}
         steps:
             - uses: actions/checkout@v2
+            - name: Checkout submodules
+              run: |
+                perl Makefile.PL
+                make submodules
+                git submodule update --remote
+                make generate
             - name: Platform check
               run: uname -a
             - name: Perl version check
@@ -82,12 +88,6 @@ jobs:
             - name: Install dependencies
               run: |
                 cpan -M https://www.cpan.org -T .
-            - name: Checkout submodules
-              run: |
-                perl Makefile.PL
-                make submodules
-                git submodule update --remote
-                make generate
             - name: Run tests
               run: |
                 perl Makefile.PL

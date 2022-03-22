@@ -33,6 +33,12 @@ jobs:
         runs-on: macOS-latest
         steps:
             - uses: actions/checkout@v2
+            - name: Checkout submodules
+              run: |
+                perl Makefile.PL
+                make submodules
+                git submodule update --remote
+                make generate
             - name: Platform check
               run: uname -a
             - name: Set up Perl
@@ -62,12 +68,6 @@ jobs:
             - name: Install dependencies
               run: |
                 cpan -M https://www.cpan.org -T .
-            - name: Checkout submodules
-              run: |
-                perl Makefile.PL
-                make submodules
-                git submodule update --remote
-                make generate
             - name: Run tests
               run: |
                 perl Makefile.PL
