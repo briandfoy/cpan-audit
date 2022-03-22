@@ -9,8 +9,10 @@ requires 'Pod::Usage',       '1.69';
 requires 'version';
 
 on 'test' => sub {
-    requires 'Test::More', '0.98';
     requires 'Capture::Tiny';
+    requires 'Test::CPAN::Changes';
+    requires 'Test::Manifest';
+    requires 'Test::More', '0.98';
 };
 
 on 'development' => {
