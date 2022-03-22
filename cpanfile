@@ -12,3 +12,10 @@ on 'test' => sub {
     requires 'Test::More', '0.98';
     requires 'Capture::Tiny';
 };
+
+on 'development' => {
+    requires 'HTTP::Tiny';
+    requires 'JSON';
+    requires 'Data::Dumper';
+    requires 'File::Basename';
+};
