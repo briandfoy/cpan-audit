@@ -54,8 +54,8 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                cpan -M https://www.cpan.org -T .
-                cpan -M https://www.cpan.org -T Test::Manifest
+                cpan -M https://www.cpan.org -T App::cpanminus
+                cpanm --installdeps --with-develop --with-test .
             - name: Run tests
               run: |
                 perl Makefile.PL
