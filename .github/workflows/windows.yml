@@ -54,6 +54,12 @@ jobs:
               run: |
                 cpan -M https://www.cpan.org -T .
                 cpan -M https://www.cpan.org -T Test::Manifest
+            - name: Checkout submodules
+              run: |
+                perl Makefile.PL
+                make submodules
+                git submodule update --remote
+                make generate
             - name: Run tests
               run: |
                 perl Makefile.PL
