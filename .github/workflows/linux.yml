@@ -73,8 +73,7 @@ jobs:
 # Need HTTP::Tiny 0.055 or later.
             - name: Install cpanm and multiple modules
               run: |
-                git clone https://github.com/briandfoy/cpanminus.git
-                (cd cpanminus/App-cpanminus && git checkout briandfoy/devel && cpan . )
+                curl -L https://cpanmin.us | perl - App::cpanminus
                 cpanm --notest IO::Socket::SSL App::Cpan HTTP::Tiny
                 cpan -M https://www.cpan.org -T ExtUtils::MakeMaker Test::Manifest
 # Install the dependencies, again not testing them. This installs the
@@ -82,7 +81,9 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                cpanm --installdeps --notest --with-develop -with-test .
+                perl Makefile.PL
+                perl -e '$a=(require q(./Makefile.PL) )->arguments->{PREREQ_PM}; print join q( ), keys $a->%*' | xargs cpan -M https://www.cpan.org -T
+                perl -e '$a=(require q(./Makefile.PL) )->arguments->{TEST_REQUIRES}; print join q( ), keys $a->%*' | xargs cpan -M https://www.cpan.org -T
             - name: Run tests
               run: |
                 perl Makefile.PL
