@@ -63,8 +63,7 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                perl -e '$a=(require q(./Makefile.PL))->arguments->{PREREQ_PM}; print join q( ), keys $a->%*' | xargs cpan -M https://www.cpan.org -T
-                perl -e '$a=(require q(./Makefile.PL))->arguments->{TEST_REQUIRES}; print join q( ), keys $a->%*' | xargs cpan -M https://www.cpan.org -T
+                perl -e "print join q( ), (require q(./Makefile.PL))->all_modules" | xargs cpan -M https://www.cpan.org -T
             - name: Run tests
               run: |
                 perl Makefile.PL
