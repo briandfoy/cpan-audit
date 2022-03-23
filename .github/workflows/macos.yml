@@ -19,7 +19,7 @@ on:
             # list all the files which are irrelevant to the tests
             # non-code, support files, docs, etc
             - '.appveyor.yml'
-            - '.github/workflows/ubuntu.yml'
+            - '.github/workflows/linux.yml'
             - '.github/workflows/windows.yml'
             - '.gitignore'
             - '.releaserc'
