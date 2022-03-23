@@ -13,7 +13,7 @@ use YAML::Tiny;
 
 local $Data::Dumper::Sortkeys = 1;
 
-my @files = @ARGV;
+my @files = my @args = ($^O eq 'MSWin32') ? map { glob } @ARGV : @ARGV;
 die "Usage: <files>\n" unless @files;
 
 my %db;
