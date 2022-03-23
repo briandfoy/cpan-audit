@@ -75,10 +75,10 @@ my %WriteMakefile = (
 	'MIN_PERL_VERSION' => 5.008,
 
 	'NAME'          => $module,
-	'AUTHOR'        => 'brian d foy <bdfoy@cpan.org>',
+	'AUTHOR'        => 'Viacheslav Tykhanovskyi <viacheslav.t@gmail.com>',
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
-	'LICENSE'       => 'artistic_2',
+	'LICENSE'       => 'perl5',
 
 	'CONFIGURE_REQUIRES' => {
 		'ExtUtils::MakeMaker'   => '6.64',
