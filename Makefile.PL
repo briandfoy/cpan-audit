@@ -51,6 +51,10 @@ sub MY::postamble {
 
 ######################################################################
 # Postamble from $file
+
+cpan-security-advisory:
+\t- git submodule add $advisory_repo
+
 cpan-security-advisory/LICENSE: submodules
 
 lib/CPAN/Audit/DB.pm: util/generate cpan-security-advisory/LICENSE
@@ -60,8 +64,7 @@ lib/CPAN/Audit/DB.pm: util/generate cpan-security-advisory/LICENSE
 generate: submodules lib/CPAN/Audit/DB.pm
 
 .PHONY: submodules
-submodules: .gitmodules
-\t- git submodule add $advisory_repo
+submodules: cpan-security-advisory
 \t- git submodule init
 \tgit submodule update --remote
 
