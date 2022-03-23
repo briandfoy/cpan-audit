@@ -54,9 +54,8 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                cpan -M https://www.cpan.org -T App::cpanminus
-                cpanm --installdeps --with-develop .
-                cpanm --installdeps --with-test .
+                perl -e "$a=(require q(./Makefile.PL))->arguments->{PREREQ_PM}; print join q( ), keys $a->%*" | xargs cpan -M https://www.cpan.org -T
+                perl -e "$a=(require q(./Makefile.PL))->arguments->{TEST_REQUIRES}; print join q( ), keys $a->%*" | xargs cpan -M https://www.cpan.org -T
             - name: Run tests
               run: |
                 perl Makefile.PL
