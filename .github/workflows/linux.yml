@@ -74,7 +74,7 @@ jobs:
             - name: Install cpanm and multiple modules
               run: |
                 git clone https://github.com/briandfoy/cpanminus.git
-                (cd cpanminus && git checkout briandfoy/devel && cpan . )
+                (cd cpanminus/App-cpanminus && git checkout briandfoy/devel && cpan . )
                 cpanm --notest IO::Socket::SSL App::Cpan HTTP::Tiny
                 cpan -M https://www.cpan.org -T ExtUtils::MakeMaker Test::Manifest
 # Install the dependencies, again not testing them. This installs the
