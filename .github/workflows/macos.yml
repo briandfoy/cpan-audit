@@ -63,8 +63,9 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                cpan -M https://www.cpan.org -T App::cpanminus
-                cpanm --installdeps --with-develop --with-feature=test .
+                git clone https://github.com/briandfoy/cpanminus.git
+                (cd cpanminus/App-cpanminus && git checkout briandfoy/devel && cpan . )
+                cpanm --installdeps --with-develop --with-test .
             - name: Run tests
               run: |
                 perl Makefile.PL
