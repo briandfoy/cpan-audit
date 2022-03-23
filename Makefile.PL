@@ -97,10 +97,11 @@ my %WriteMakefile = (
 		],
 
 	'TEST_REQUIRES' => {
-		'Capture::Tiny' => '0',
-		'HTTP::Tiny'    => '0',
-		'JSON'          => '0',
-		'Test::More'    => '0.98',
+		'Capture::Tiny'   => '0',
+		'HTTP::Tiny'      => '0',
+		'IO::Interactive' => '0',
+		'JSON'            => '0',
+		'Test::More'      => '0.98',
 		},
 
 	'PREREQ_PM'     => {
