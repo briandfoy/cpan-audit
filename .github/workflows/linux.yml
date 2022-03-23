@@ -57,7 +57,7 @@ jobs:
 # checkout needs a later git version to use submodules
             - name: update git
               run: |
-                apt-get upgrade
+                apt-get update
                 apt-get install git
             - uses: actions/checkout@v3
               with:
