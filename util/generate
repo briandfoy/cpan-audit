@@ -18,6 +18,7 @@ die "Usage: <files>\n" unless @files;
 
 my %db;
 foreach my $file (@files) {
+	print STDERR "Processing $file...\n";
     my $yaml = YAML::Tiny->read($file)->[0];
 
     my $dist = basename $file;
@@ -69,8 +70,11 @@ sub provides {
     my $ua = HTTP::Tiny->new;
 
     my $details_file = '/tmp/02packages.details.txt.gz';
+	print STDERR "Downloading 02packages.details.txt.gz (this may take awhile)\n";
     $ua->mirror( 'http://www.cpan.org/modules/02packages.details.txt.gz',
         $details_file );
+	print STDERR "Downloaded 02packages.details.txt.gz\n";
+	print STDERR "Digesting 02packages.details.txt.gz (this may take awhile)\n";
 
     open my $fh, '<:gzip', $details_file
       or die "Can't open '$details_file': $!";
