@@ -55,6 +55,7 @@ jobs:
             - name: Install dependencies
               run: |
                 perl -e "print join q( ), (require q(./Makefile.PL))->all_modules" | xargs cpan -M https://www.cpan.org -T
+                cpan -M https://www.cpan.org -T Test::Manifest
             - name: Run tests
               run: |
                 perl Makefile.PL
