@@ -33,7 +33,6 @@ sub find {
         {
             wanted => sub {
                 my $path = $File::Find::name;
-
                 if ( $path && -f $path && m/\.pm$/ ) {
                     return unless my $module = module_from_file($path);
 
@@ -68,38 +67,17 @@ sub find {
     return @deps;
 }
 
-# https://metacpan.org/source/ABELTJE/V-0.13/V.pm
 sub module_version {
-    my ($parsefile) = @_;
+	require Module::Extract::VERSION;
+    my( $file ) = @_;
 
-    open my $mod, '<', $parsefile or die $!;
+	my $version = Module::Extract::VERSION->parse_version_safely( $file );
 
-    my $inpod = 0;
-    my $result;
-    local $_;
-    while (<$mod>) {
-        $inpod = /^=(?!cut)/ ? 1 : /^=cut/ ? 0 : $inpod;
-        next if $inpod || /^\s*#/;
+	if( eval { $version->can('numify') } ) {
+		$version = $version->numify;
+	}
 
-        chomp;
-        next unless m/([\$*])(([\w\:\']*)\bVERSION)\b.*\=/;
-        my $eval = qq{
-            package CPAN::Audit::_version;
-            no strict;
-
-            local $1$2;
-            \$$2=undef; do {
-                $_
-            }; \$$2
-        };
-        local $^W = 0;
-        $result = eval($eval);
-        warn "Could not eval '$eval' in $parsefile: $@" if $@;
-        $result = "undef" unless defined $result;
-        last;
-    }
-    close $mod;
-    return $result;
+    return "$version";
 }
 
 sub module_from_file {

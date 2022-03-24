@@ -99,11 +99,12 @@ my %WriteMakefile = (
 		},
 
 	'PREREQ_PM'     => {
-		'CPAN::DistnameInfo'    => '0',
-		'Module::CoreList'      => '5.20181020',
-		'Module::CPANfile'      => '0',
-		'PerlIO::gzip'          => '0',
-		'Pod::Usage'            => '1.69',
+		'CPAN::DistnameInfo'       => '0',
+		'Module::CoreList'         => '5.20181020',
+		'Module::CPANfile'         => '0',
+		'Module::Extract::VERSION' => '0',
+		'PerlIO::gzip'             => '0',
+		'Pod::Usage'               => '1.69',
 		},
 
 	'META_MERGE' => {
