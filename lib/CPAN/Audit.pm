@@ -131,7 +131,7 @@ sub command {
                 }
               )
             : ()
-        )->find(@ARGV);
+        )->find(@args);
 
         foreach my $dep (@deps) {
             my $dist = $dep->{dist}
