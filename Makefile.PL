@@ -133,11 +133,9 @@ my %WriteMakefile = (
 sub arguments { \%WriteMakefile }
 
 sub all_modules {
-		my @keys = qw(CONFIGURE_REQUIRES BUILD_REQUIRES PREREQ_PM TEST_REQUIRES);
+	my @keys = qw(CONFIGURE_REQUIRES BUILD_REQUIRES PREREQ_PM TEST_REQUIRES);
 
-		my @modules =
-			map { keys $_->%* }
-			@WriteMakefile{@keys};
+	my @modules = map { keys %$_ } @WriteMakefile{@keys};
 	}
 
 do_it() unless caller;
