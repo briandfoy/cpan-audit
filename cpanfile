@@ -1,6 +1,7 @@
 requires 'perl', '5.008001';
 
 requires 'CPAN::DistnameInfo';
+requires 'Encode', '3.12';
 requires 'IO::Interactive';
 requires 'Module::CPANfile';
 requires 'Module::CoreList', '5.20181020';
@@ -9,7 +10,7 @@ requires 'Pod::Usage',       '1.69';
 requires 'version';
 
 on 'test' => sub {
-    requires 'Capture::Tiny';
+    requires 'Capture::Tiny', '0.24';
     requires 'Test::CPAN::Changes';
     requires 'Test::Manifest';
     requires 'Test::More', '0.98';
