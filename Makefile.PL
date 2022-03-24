@@ -81,7 +81,7 @@ my %WriteMakefile = (
 	'AUTHOR'        => 'Viacheslav Tykhanovskyi <viacheslav.t@gmail.com>',
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
-	'LICENSE'       => 'perl5',
+	'LICENSE'       => 'perl_5',
 
 	'CONFIGURE_REQUIRES' => {
 		'ExtUtils::MakeMaker'   => '6.64',
