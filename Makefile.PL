@@ -57,12 +57,6 @@ cpan-security-advisory:
 
 cpan-security-advisory/LICENSE: submodules
 
-lib/CPAN/Audit/DB.pm: util/generate cpan-security-advisory/LICENSE
-\tperl -Ilib util/generate cpan-security-advisory/cpansa/*.yml > \$\@
-
-.PHONY:
-generate: submodules lib/CPAN/Audit/DB.pm
-
 .PHONY: submodules
 submodules: cpan-security-advisory
 \t- git submodule init
