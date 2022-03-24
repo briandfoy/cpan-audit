@@ -2,41 +2,72 @@
 use strict;
 use warnings;
 
-use FindBin;
-use Getopt::Long;
 use IO::Interactive qw(is_interactive);
-use Pod::Usage;
 
 use CPAN::Audit;
 
-my %opts;
+our $VERSION = "1.001";
 
-GetOptions(
-    'ascii'       => \$opts{ascii},
-    'help|h'      => \$opts{help},
-    'no-color'    => \$opts{no_color},
-    'no-corelist' => \$opts{no_corelist},
-    'quiet|q'     => \$opts{quiet},
-    'verbose|v'   => \$opts{verbose},
-) or do {
-	warn "Error in command line arguments\n";
-	exit 2
-	};
+__PACKAGE__->run( @ARGV ) unless caller;
 
-pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script ) if $opts{help};
+use constant EXIT_NORMAL => 0;
+use constant EXIT_USAGE  => 2;
 
-my ($command) = shift @ARGV;
+sub run {
+	my( $class, @args ) = @_;
 
-if ( !$command ) {
-    pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script );
-}
+	my( $opts ) = $class->process_options( \@args );
 
-my $audit = CPAN::Audit->new(
-    %opts,
-    interactive => is_interactive(),
-);
+	$class->usage(EXIT_NORMAL) if $opts->{help};
 
-exit $audit->command( $command, @ARGV );
+	if( $opts->{version} ) {
+		print "$0 version $VERSION using:\n\tCPAN::Audit     @{[ CPAN::Audit->VERSION ]}\n\tCPAN::Audit::DB @{[ CPAN::Audit::DB->VERSION ]}\n";
+		exit(EXIT_NORMAL);
+		}
+
+	my $command = shift @args;
+	$class->usage(EXIT_USAGE) unless defined $command;
+
+	my %extra = (
+		interactive => is_interactive(),
+		);
+
+	my $audit = CPAN::Audit->new( %$opts, %extra );
+
+	exit $audit->command( $command, @args );
+	}
+
+sub process_options {
+	my( $class, $args ) = @_;
+	require Getopt::Long;
+
+	my $options = {};
+
+	my %params;
+	my $params = {
+		'ascii'       => \$params{ascii},
+		'help|h'      => \$params{help},
+		'no-color'    => \$params{no_color},
+		'no-corelist' => \$params{no_corelist},
+		'quiet|q'     => \$params{quiet},
+		'verbose|v'   => \$params{verbose},
+		'version'     => \$params{version},
+		};
+
+	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params ) or $class->usage(EXIT_USAGE);
+
+	\%params;
+	}
+
+sub usage {
+	require Pod::Usage;
+	require FindBin;
+
+	my( $exit_code ) = @_;
+	no warnings qw(once);
+	Pod::Usage::pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script );
+	exit( $exit_code );
+	}
 
 __END__
 
@@ -46,7 +77,7 @@ cpan-audit - Audit CPAN modules
 
 =head1 SYNOPSIS
 
-cpan-audit [command] [options...]
+cpan-audit [options] [command]
 
 Commands:
 
@@ -59,11 +90,12 @@ Commands:
 Options:
 
     --ascii       use ascii output
-    --help|h      help message
+    --help|h      show the help message and exit
     --no-color    switch off colors
     --no-corelist ignore modules bundled with perl version
     --quiet       be quiet
     --verbose     be verbose
+	--version     show the version and exit
 
 Examples:
 
