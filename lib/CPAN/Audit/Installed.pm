@@ -27,7 +27,7 @@ sub find {
     @inc = grep { defined && -d $_ } map { Cwd::realpath($_) } @inc;
 
     my %seen;
-    my @deps;
+    my @deps = ( { dist => 'perl', version => $] } );
 
     File::Find::find(
         {
@@ -82,7 +82,6 @@ sub module_version {
 
 sub module_from_file {
     my ($path) = @_;
-
     my $module;
 
     open my $fh, '<', $path or return;

@@ -1,5 +1,5 @@
 # created by util/generate at Wed Mar 23 17:42:54 2022
-# cpan-security-advisory 
+# cpan-security-advisory
 #
 package CPAN::Audit::DB;
 
@@ -42548,7 +42548,7 @@ sub db {
                                                        'severity' => 'critical'
                                                      }
                                                    ],
-                                   'main_module' => 'utf8',
+                                   'main_module' => 'perl',
                                    'versions' => [
                                                    {
                                                      'date' => '1996-02-03T07:48:14',

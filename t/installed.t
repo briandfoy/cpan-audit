@@ -23,6 +23,10 @@ subtest 'installed' => sub {
     is_deeply \@deps,
       [
         {
+            'dist'    => 'perl',
+            'version' => $],
+        },
+        {
             'dist'    => 'Catalyst-Runtime',
             'version' => '5.0'
         },

@@ -150,16 +150,18 @@ sub command {
     if (%dists) {
         my $query = $self->{query};
 
+		my $note = $command eq 'installed' ? 'have' : 'requires';
+
         foreach my $distname ( sort keys %dists ) {
             my $version_range = $dists{$distname};
-
             my @advisories = $query->advisories_for( $distname, $version_range );
 
             $version_range = 'Any'
               if $version_range eq '' || $version_range eq '0';
 
             if (@advisories) {
-                $self->message( '__RED__%s (requires %s) has %d advisories__RESET__',
+            	my $inflect = scalar(@advisories) == 1 ? 'y' : 'ies';
+                $self->message( "__RED__%s ($note %s) has %d advisor${inflect}__RESET__",
                     $distname, $version_range, scalar(@advisories) );
 
                 foreach my $advisory (@advisories) {
