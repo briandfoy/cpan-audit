@@ -60,7 +60,7 @@ jobs:
             - name: Get submodule
               run: |
                 rm -rf cpan-security-advisory
-                git checkout https://github.com/briandfoy/cpan-security-advisory.git
+                git clone https://github.com/briandfoy/cpan-security-advisory.git
             - name: Platform check
               run: uname -a
             - name: Perl version check
