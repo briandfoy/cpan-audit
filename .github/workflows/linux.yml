@@ -55,6 +55,12 @@ jobs:
         steps:
 # checkout needs a later git version to use submodules
             - uses: actions/checkout@v3
+# The ubuntu runners are weird in a way I haven't figured out. They
+# can't easily get a version of git that can handle submodules.
+            - name: Get submodule
+              run: |
+                rm -rf cpan-security-advisory
+                git checkout https://github.com/briandfoy/cpan-security-advisory.git
             - name: Platform check
               run: uname -a
             - name: Perl version check
