@@ -4,6 +4,8 @@ use warnings;
 use CPAN::Audit::Discover::Cpanfile;
 use CPAN::Audit::Discover::CpanfileSnapshot;
 
+our $VERSION = "1.001";
+
 sub new {
     my $class = shift;
 

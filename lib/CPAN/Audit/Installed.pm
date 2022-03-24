@@ -4,6 +4,8 @@ use warnings;
 use File::Find ();
 use Cwd        ();
 
+our $VERSION = "1.001";
+
 sub new {
     my $class = shift;
     my (%params) = @_;

@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use version;
 
+our $VERSION = "1.001";
+
 sub new {
     my $class = shift;
 

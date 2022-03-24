@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use Module::CPANfile;
 
+our $VERSION = "1.001";
+
 sub new {
     my $class = shift;
 

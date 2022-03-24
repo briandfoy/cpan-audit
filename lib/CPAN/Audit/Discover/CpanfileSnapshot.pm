@@ -3,6 +3,8 @@ use strict;
 use warnings;
 use CPAN::DistnameInfo;
 
+our $VERSION = "1.001";
+
 sub new {
     my $class = shift;
 
