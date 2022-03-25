@@ -35,6 +35,9 @@ foreach my $dist ( keys %{ $db{dists} } ) {
     $db{dists}->{$dist}->{main_module} = release($dist)->{main_module};
 }
 
+# XXX: need to investigate why this shows up as utf8
+$db{dists}->{'perl'}->{main_module} = 'perl';
+
 my $dump = Dumper( \%db );
 $dump =~ s{^\$VAR1\s*=\s*}{};
 $dump =~ s{}{};
