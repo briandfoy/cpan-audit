@@ -4,8 +4,7 @@ use warnings;
 use Capture::Tiny qw(capture);
 
 sub command {
-    shift;
-    my @args = @_;
+    my( $class, @args ) = @_;
 
     my ( $stdout, $stderr, $exit ) = capture {
         system $^X, 'script/cpan-audit', '--no-corelist', @args;

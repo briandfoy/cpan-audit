@@ -7,16 +7,8 @@ use Cwd        ();
 our $VERSION = "1.001";
 
 sub new {
-    my $class = shift;
-    my (%params) = @_;
-
-    my $self = {};
-    bless $self, $class;
-
-    $self->{db} = $params{db};
-    $self->{cb} = $params{cb};
-
-    return $self;
+    my( $class, %params ) = @_;
+    bless \%params, $class;
 }
 
 sub find {
@@ -27,7 +19,8 @@ sub find {
     @inc = grep { defined && -d $_ } map { Cwd::realpath($_) } @inc;
 
     my %seen;
-    my @deps = ( { dist => 'perl', version => $] } );
+    my @deps;
+    push @deps, { dist => 'perl', version => $] } if $self->{include_perl};
 
     File::Find::find(
         {

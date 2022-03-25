@@ -10,8 +10,9 @@ our $VERSION = "1.001";
 
 __PACKAGE__->run( @ARGV ) unless caller;
 
-use constant EXIT_NORMAL => 0;
-use constant EXIT_USAGE  => 2;
+use constant EXIT_NORMAL =>  0;
+use constant EXIT_USAGE  =>  2;
+use constant EXIT_BASE   => 64;
 
 sub run {
 	my( $class, @args ) = @_;
@@ -34,7 +35,14 @@ sub run {
 
 	my $audit = CPAN::Audit->new( %$opts, %extra );
 
-	exit $audit->command( $command, @args );
+	my $advisory_count = $audit->command( $command, @args );
+
+	my $exit_code = do {
+		   if( $advisory_count == 0 ) { EXIT_NORMAL }
+		elsif( $advisory_count > 0  ) { EXIT_BASE + $advisory_count }
+		};
+
+	exit( $exit_code );
 	}
 
 sub process_options {
@@ -49,6 +57,7 @@ sub process_options {
 		'help|h'      => \$params{help},
 		'no-color'    => \$params{no_color},
 		'no-corelist' => \$params{no_corelist},
+		'perl'        => \$params{include_perl},
 		'quiet|q'     => \$params{quiet},
 		'verbose|v'   => \$params{verbose},
 		'version'     => \$params{version},
@@ -93,6 +102,7 @@ Options:
     --help|h      show the help message and exit
     --no-color    switch off colors
     --no-corelist ignore modules bundled with perl version
+    --perl        include perl advisories
     --quiet       be quiet
     --verbose     be verbose
 	--version     show the version and exit
@@ -142,6 +152,22 @@ Parses C<cpanfile> taking into account the required versions.
 It is assumed that if the required version of the module is less than
 a version of a release with a known vulnerability fix, then the module
 is considered affected.
+
+=head2 Exit values
+
+In prior versions, C<cpan-audit> exited with the number of advisories
+it found. Starting with 1.001, if there are advisories found, C<cpan-audit>
+exits with 64 added to that number.
+
+=over 4
+
+=item * 0 - normal operation
+
+=item * 2 - problem with program invocation, such as bad switches or values
+
+=item * 64+n - advisories found. Subtract 64 to get the advisory count
+
+=back
 
 =head1 LICENSE
 
