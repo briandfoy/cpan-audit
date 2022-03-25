@@ -15,7 +15,6 @@ sub new {
 }
 
 BEGIN {
-use Mojo::Util qw(dumper);
 use version;
 my $ops = {
 	'<'  => sub { $_[0] <  0 },
