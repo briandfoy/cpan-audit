@@ -1,5 +1,5 @@
 package CPAN::Audit;
-use 5.008001;
+use v5.10.1;
 use strict;
 use warnings;
 use version;
