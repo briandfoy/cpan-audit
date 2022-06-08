@@ -1,16 +1,136 @@
-# created by util/generate at Wed Mar 23 17:42:54 2022
-# cpan-security-advisory
+# created by util/generate at Wed Jun  8 08:45:18 2022
+# cpan-security-advisory +b21b6c6a83103879a9a4ccf6f9d2fb83c3cd6c00
 #
 package CPAN::Audit::DB;
 
 use strict;
 use warnings;
 
-our $VERSION = '20220323';
+our $VERSION = '20220608';
 
 sub db {
     {
           'dists' => {
+                       'ActivePerl' => {
+                                         'advisories' => [
+                                                           {
+                                                             'affected_versions' => '5.16.1.1601',
+                                                             'cves' => [
+                                                                         'CVE-2012-5377'
+                                                                       ],
+                                                             'description' => 'Untrusted search path vulnerability in the installation functionality in ActivePerl 5.16.1.1601, when installed in the top-level C:\\ directory, allows local users to gain privileges via a Trojan horse DLL in the C:\\Perl\\Site\\bin directory, which is added to the PATH system environment variable, as demonstrated by a Trojan horse wlbsctrl.dll file used by the "IKE and AuthIP IPsec Keying Modules" system service in Windows Vista SP1, Windows Server 2008 SP2, Windows 7 SP1, and Windows 8 Release Preview.',
+                                                             'distribution' => 'ActivePerl',
+                                                             'fixed_versions' => undef,
+                                                             'id' => 'CPANSA-ActivePerl-2012-5377',
+                                                             'references' => [
+                                                                               'https://www.htbridge.com/advisory/HTB23108',
+                                                                               'http://osvdb.org/86177'
+                                                                             ],
+                                                             'reported' => '2012-10-11',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => '5.8.8.817',
+                                                             'cves' => [
+                                                                         'CVE-2006-2856'
+                                                                       ],
+                                                             'description' => 'ActiveState ActivePerl 5.8.8.817 for Windows configures the site/lib directory with "Users" group permissions for changing files, which allows local users to gain privileges by creating a malicious sitecustomize.pl file in that directory.  NOTE: The provenance of this information is unknown; the details are obtained solely from third party information.',
+                                                             'distribution' => 'ActivePerl',
+                                                             'fixed_versions' => undef,
+                                                             'id' => 'CPANSA-ActivePerl-2006-2856',
+                                                             'references' => [
+                                                                               'http://secunia.com/advisories/20328',
+                                                                               'http://www.securityfocus.com/bid/18269',
+                                                                               'http://www.osvdb.org/25974',
+                                                                               'http://www.vupen.com/english/advisories/2006/2140',
+                                                                               'https://exchange.xforce.ibmcloud.com/vulnerabilities/26915'
+                                                                             ],
+                                                             'reported' => '2006-06-06',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => undef,
+                                                             'cves' => [
+                                                                         'CVE-2004-2286'
+                                                                       ],
+                                                             'description' => 'Integer overflow in the duplication operator in ActivePerl allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a large multiplier, which may trigger a buffer overflow.',
+                                                             'distribution' => 'ActivePerl',
+                                                             'fixed_versions' => undef,
+                                                             'id' => 'CPANSA-ActivePerl-2004-2286',
+                                                             'references' => [
+                                                                               'http://archives.neohapsis.com/archives/fulldisclosure/2004-05/0878.html',
+                                                                               'http://www.securityfocus.com/bid/10380',
+                                                                               'https://exchange.xforce.ibmcloud.com/vulnerabilities/16224'
+                                                                             ],
+                                                             'reported' => '2004-12-31',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<5.10',
+                                                             'cves' => [
+                                                                         'CVE-2004-2022'
+                                                                       ],
+                                                             'description' => 'ActivePerl 5.8.x and others, and Larry Wall\'s Perl 5.6.1 and others, when running on Windows systems, allows attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long argument to the system command, which leads to a stack-based buffer overflow.  NOTE: it is unclear whether this bug is in Perl or the OS API that is used by Perl.',
+                                                             'distribution' => 'ActivePerl',
+                                                             'fixed_versions' => undef,
+                                                             'id' => 'CPANSA-ActivePerl-2004-2022',
+                                                             'references' => [
+                                                                               'http://www.oliverkarow.de/research/ActivePerlSystemBOF.txt',
+                                                                               'http://www.perlmonks.org/index.pl?node_id=354145',
+                                                                               'http://www.securityfocus.com/bid/10375',
+                                                                               'http://archives.neohapsis.com/archives/fulldisclosure/2004-05/0905.html',
+                                                                               'http://marc.info/?l=full-disclosure&m=108489112131099&w=2',
+                                                                               'http://marc.info/?l=full-disclosure&m=108482796105922&w=2',
+                                                                               'http://marc.info/?l=full-disclosure&m=108483058514596&w=2',
+                                                                               'http://marc.info/?l=bugtraq&m=108489894009025&w=2',
+                                                                               'https://exchange.xforce.ibmcloud.com/vulnerabilities/16169'
+                                                                             ],
+                                                             'reported' => '2004-12-31',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => undef,
+                                                             'cves' => [
+                                                                         'CVE-2004-0377'
+                                                                       ],
+                                                             'description' => 'Buffer overflow in the win32_stat function for (1) ActiveState\'s ActivePerl and (2) Larry Wall\'s Perl before 5.8.3 allows local or remote attackers to execute arbitrary commands via filenames that end in a backslash character.',
+                                                             'distribution' => 'ActivePerl',
+                                                             'fixed_versions' => undef,
+                                                             'id' => 'CPANSA-ActivePerl-2004-0377',
+                                                             'references' => [
+                                                                               'http://www.kb.cert.org/vuls/id/722414',
+                                                                               'http://lists.grok.org.uk/pipermail/full-disclosure/2004-April/019794.html',
+                                                                               'http://public.activestate.com/cgi-bin/perlbrowse?patch=22552',
+                                                                               'http://www.idefense.com/application/poi/display?id=93&type=vulnerabilities',
+                                                                               'http://marc.info/?l=bugtraq&m=108118694327979&w=2',
+                                                                               'https://exchange.xforce.ibmcloud.com/vulnerabilities/15732'
+                                                                             ],
+                                                             'reported' => '2004-05-04',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<=5.6.1.629',
+                                                             'cves' => [
+                                                                         'CVE-2001-0815'
+                                                                       ],
+                                                             'description' => 'Buffer overflow in PerlIS.dll in Activestate ActivePerl 5.6.1.629 and earlier allows remote attackers to execute arbitrary code via an HTTP request for a long filename that ends in a .pl extension.',
+                                                             'distribution' => 'ActivePerl',
+                                                             'fixed_versions' => undef,
+                                                             'id' => 'CPANSA-ActivePerl-2001-0815',
+                                                             'references' => [
+                                                                               'http://bugs.activestate.com/show_bug.cgi?id=18062',
+                                                                               'http://www.securityfocus.com/bid/3526',
+                                                                               'http://www.osvdb.org/678',
+                                                                               'http://marc.info/?l=bugtraq&m=100583978302585&w=2',
+                                                                               'https://exchange.xforce.ibmcloud.com/vulnerabilities/7539'
+                                                                             ],
+                                                             'reported' => '2001-12-06',
+                                                             'severity' => undef
+                                                           }
+                                                         ],
+                                         'main_module' => undef,
+                                         'versions' => []
+                                       },
                        'Apache-AuthCAS' => {
                                              'advisories' => [
                                                                {
@@ -287,7 +407,7 @@ sub db {
                                                                 'description' => 'The App::cpanminus package 1.7044 for Perl allows Signature Verification Bypass.
 ',
                                                                 'distribution' => 'App-cpanminus',
-                                                                'fixed_versions' => '',
+                                                                'fixed_versions' => undef,
                                                                 'id' => 'CPANSA-App-cpanminus-2020-01',
                                                                 'references' => [
                                                                                   'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DENFY4CRTIZL5WYYUYUM4VKCJNXO4QIW/',
@@ -1362,6 +1482,10 @@ sub db {
                                                             {
                                                               'date' => '2022-01-27T03:05:02',
                                                               'version' => '1.7045'
+                                                            },
+                                                            {
+                                                              'date' => '2022-04-27T06:01:26',
+                                                              'version' => '1.7046'
                                                             }
                                                           ]
                                           },
@@ -5909,6 +6033,18 @@ sub db {
                                                    {
                                                      'date' => '2022-01-21T04:09:07',
                                                      'version' => '2.33-TRIAL'
+                                                   },
+                                                   {
+                                                     'date' => '2022-03-27T17:53:47',
+                                                     'version' => '2.33'
+                                                   },
+                                                   {
+                                                     'date' => '2022-04-03T19:19:13',
+                                                     'version' => '2.34-TRIAL'
+                                                   },
+                                                   {
+                                                     'date' => '2022-04-17T17:40:25',
+                                                     'version' => '2.34'
                                                    }
                                                  ]
                                  },
@@ -7444,6 +7580,139 @@ sub db {
                                                                }
                                                              ]
                                              },
+                       'Clipboard' => {
+                                        'advisories' => [
+                                                          {
+                                                            'affected_versions' => '<0.16',
+                                                            'cves' => [
+                                                                        'CVE-2014-5509'
+                                                                      ],
+                                                            'description' => 'clipedit in the Clipboard module for Perl allows local users to delete arbitrary files via a symlink attack on /tmp/clipedit$$.',
+                                                            'distribution' => '',
+                                                            'fixed_versions' => undef,
+                                                            'id' => 'CPANSA-Clipboard-2014-5509',
+                                                            'references' => [
+                                                                              'https://rt.cpan.org/Public/Bug/Display.html?id=98435',
+                                                                              'https://bugzilla.redhat.com/show_bug.cgi?id=1135624',
+                                                                              'http://www.securityfocus.com/bid/69473',
+                                                                              'http://www.openwall.com/lists/oss-security/2014/08/30/2'
+                                                                            ],
+                                                            'reported' => '2018-01-08',
+                                                            'severity' => 'medium'
+                                                          }
+                                                        ],
+                                        'main_module' => 'Clipboard',
+                                        'versions' => [
+                                                        {
+                                                          'date' => '2005-05-01T17:19:57',
+                                                          'version' => '0.01'
+                                                        },
+                                                        {
+                                                          'date' => '2005-05-02T06:17:33',
+                                                          'version' => '0.02'
+                                                        },
+                                                        {
+                                                          'date' => '2005-05-04T06:17:44',
+                                                          'version' => '0.03'
+                                                        },
+                                                        {
+                                                          'date' => '2005-05-08T05:54:44',
+                                                          'version' => '0.04'
+                                                        },
+                                                        {
+                                                          'date' => '2005-06-01T17:00:34',
+                                                          'version' => '0.06'
+                                                        },
+                                                        {
+                                                          'date' => '2005-06-02T05:06:37',
+                                                          'version' => '0.07'
+                                                        },
+                                                        {
+                                                          'date' => '2005-06-22T17:05:15',
+                                                          'version' => '0.08'
+                                                        },
+                                                        {
+                                                          'date' => '2005-11-19T06:12:48',
+                                                          'version' => '0.09'
+                                                        },
+                                                        {
+                                                          'date' => '2010-10-07T01:39:10',
+                                                          'version' => '0.10'
+                                                        },
+                                                        {
+                                                          'date' => '2010-10-07T04:49:39',
+                                                          'version' => '0.11'
+                                                        },
+                                                        {
+                                                          'date' => '2010-10-11T06:13:22',
+                                                          'version' => '0.12'
+                                                        },
+                                                        {
+                                                          'date' => '2010-10-13T04:46:50',
+                                                          'version' => '0.13'
+                                                        },
+                                                        {
+                                                          'date' => '2019-01-30T10:47:45',
+                                                          'version' => '0.14'
+                                                        },
+                                                        {
+                                                          'date' => '2019-01-30T11:00:22',
+                                                          'version' => '0.15'
+                                                        },
+                                                        {
+                                                          'date' => '2019-01-30T11:22:23',
+                                                          'version' => '0.16'
+                                                        },
+                                                        {
+                                                          'date' => '2019-01-30T14:00:52',
+                                                          'version' => '0.17'
+                                                        },
+                                                        {
+                                                          'date' => '2019-01-30T20:12:11',
+                                                          'version' => '0.18'
+                                                        },
+                                                        {
+                                                          'date' => '2019-01-31T11:00:20',
+                                                          'version' => '0.19'
+                                                        },
+                                                        {
+                                                          'date' => '2019-04-17T20:55:35',
+                                                          'version' => '0.20'
+                                                        },
+                                                        {
+                                                          'date' => '2019-12-02T06:04:27',
+                                                          'version' => '0.21'
+                                                        },
+                                                        {
+                                                          'date' => '2020-01-28T18:10:34',
+                                                          'version' => '0.22'
+                                                        },
+                                                        {
+                                                          'date' => '2020-03-06T15:43:11',
+                                                          'version' => '0.23'
+                                                        },
+                                                        {
+                                                          'date' => '2020-03-07T08:25:07',
+                                                          'version' => '0.24'
+                                                        },
+                                                        {
+                                                          'date' => '2020-05-14T06:33:28',
+                                                          'version' => '0.25'
+                                                        },
+                                                        {
+                                                          'date' => '2020-05-16T07:56:58',
+                                                          'version' => '0.26'
+                                                        },
+                                                        {
+                                                          'date' => '2021-02-13T18:13:34',
+                                                          'version' => '0.27'
+                                                        },
+                                                        {
+                                                          'date' => '2021-02-23T07:47:20',
+                                                          'version' => '0.28'
+                                                        }
+                                                      ]
+                                      },
                        'Cmd-Dwarf' => {
                                         'advisories' => [
                                                           {
@@ -7981,6 +8250,10 @@ sub db {
                                                                  {
                                                                    'date' => '2021-02-20T14:08:53',
                                                                    'version' => '2.101'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2022-04-03T19:48:28',
+                                                                   'version' => '2.103'
                                                                  }
                                                                ]
                                                },
@@ -8003,6 +8276,23 @@ sub db {
                                                                                       'https://metacpan.org/changes/distribution/Compress-Raw-Zlib'
                                                                                     ],
                                                                     'reported' => '2017-11-14'
+                                                                  },
+                                                                  {
+                                                                    'affected_versions' => '>=2.075,<2.103',
+                                                                    'cves' => [
+                                                                                'CVE-2018-25032'
+                                                                              ],
+                                                                    'description' => 'zlib 1.2.11 allows memory corruption when deflating (i.e., when compressing) if the input has many distant matches.
+',
+                                                                    'distribution' => 'Compress-Raw-Zlib',
+                                                                    'fixed_versions' => '>=2.103',
+                                                                    'id' => 'CPANSA-Compress-Raw-Zlib-2018-25032',
+                                                                    'references' => [
+                                                                                      'https://metacpan.org/changes/distribution/Compress-Raw-Zlib',
+                                                                                      'https://github.com/advisories/GHSA-jc36-42cf-vqwj',
+                                                                                      'https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-25032'
+                                                                                    ],
+                                                                    'reported' => '2022-03-25'
                                                                   },
                                                                   {
                                                                     'affected_versions' => '<2.017',
@@ -8394,6 +8684,18 @@ sub db {
                                                                 {
                                                                   'date' => '2021-02-20T14:10:43',
                                                                   'version' => '2.101'
+                                                                },
+                                                                {
+                                                                  'date' => '2022-04-03T19:48:50',
+                                                                  'version' => '2.103'
+                                                                },
+                                                                {
+                                                                  'date' => '2022-05-13T06:30:30',
+                                                                  'version' => '2.104'
+                                                                },
+                                                                {
+                                                                  'date' => '2022-05-14T14:24:32',
+                                                                  'version' => '2.105'
                                                                 }
                                                               ]
                                               },
@@ -9894,6 +10196,10 @@ sub db {
                                                            {
                                                              'date' => '2022-01-13T16:42:50',
                                                              'version' => '2.149'
+                                                           },
+                                                           {
+                                                             'date' => '2022-05-08T15:10:12',
+                                                             'version' => '2.150'
                                                            }
                                                          ]
                                          },
@@ -10684,6 +10990,14 @@ sub db {
                                                              {
                                                                'date' => '2021-10-14T19:19:01',
                                                                'version' => '4.27'
+                                                             },
+                                                             {
+                                                               'date' => '2022-05-05T14:46:07',
+                                                               'version' => '4.28'
+                                                             },
+                                                             {
+                                                               'date' => '2022-05-27T15:32:51',
+                                                               'version' => '4.29'
                                                              }
                                                            ]
                                            },
@@ -11702,6 +12016,10 @@ sub db {
                                                           {
                                                             'date' => '2019-02-27T11:08:40',
                                                             'version' => '1.21'
+                                                          },
+                                                          {
+                                                            'date' => '2022-04-21T23:16:33',
+                                                            'version' => '1.22'
                                                           }
                                                         ]
                                         },
@@ -19148,6 +19466,10 @@ sub db {
                                                      {
                                                        'date' => '2021-10-13T08:39:09',
                                                        'version' => '3.16'
+                                                     },
+                                                     {
+                                                       'date' => '2022-04-07T03:18:23',
+                                                       'version' => '3.17'
                                                      }
                                                    ]
                                    },
@@ -20879,6 +21201,10 @@ sub db {
                                                                  {
                                                                    'date' => '2021-12-17T19:24:34',
                                                                    'version' => '7.64'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2022-05-30T10:07:14',
+                                                                   'version' => '7.65_01'
                                                                  }
                                                                ]
                                                },
@@ -21815,7 +22141,7 @@ sub db {
                                                                       ],
                                                             'description' => 'Race condition in the rmtree and remove_tree functions allows attackers to set the mode on arbitrary files via vectors involving directory-permission loosening logic.
 ',
-                                                            'distribution' => 'Fake-Encode',
+                                                            'distribution' => 'File-Path',
                                                             'fixed_versions' => '>=2.13',
                                                             'id' => 'CPANSA-File-Path-2017-01',
                                                             'references' => [
@@ -23397,6 +23723,10 @@ sub db {
                                                           {
                                                             'date' => '2022-03-14T22:12:49',
                                                             'version' => '3.77'
+                                                          },
+                                                          {
+                                                            'date' => '2022-03-28T15:23:23',
+                                                            'version' => '3.78'
                                                           }
                                                         ]
                                         },
@@ -25756,6 +26086,397 @@ sub db {
                                                              }
                                                            ]
                                            },
+                       'Image-ExifTool' => {
+                                             'advisories' => [
+                                                               {
+                                                                 'affected_versions' => '<=12.37',
+                                                                 'cves' => [
+                                                                             'CVE-2022-23935'
+                                                                           ],
+                                                                 'description' => 'lib/Image/ExifTool.pm in ExifTool before 12.38 mishandles a $file =~ /\\|$/ check, leading to command injection.',
+                                                                 'distribution' => '',
+                                                                 'fixed_versions' => '>12.38',
+                                                                 'id' => 'CPANSA-Image-ExifTool-2022-23935',
+                                                                 'references' => [
+                                                                                   'https://github.com/exiftool/exiftool/commit/74dbab1d2766d6422bb05b033ac6634bf8d1f582',
+                                                                                   'https://gist.github.com/ert-plus/1414276e4cb5d56dd431c2f0429e4429'
+                                                                                 ],
+                                                                 'reported' => '2022-01-25',
+                                                                 'severity' => 'critical'
+                                                               }
+                                                             ],
+                                             'main_module' => 'Image::ExifTool',
+                                             'versions' => [
+                                                             {
+                                                               'date' => '2004-10-04T15:37:06',
+                                                               'version' => '3.60'
+                                                             },
+                                                             {
+                                                               'date' => '2004-11-02T12:46:54',
+                                                               'version' => '3.72'
+                                                             },
+                                                             {
+                                                               'date' => '2004-11-05T12:41:52',
+                                                               'version' => '3.74'
+                                                             },
+                                                             {
+                                                               'date' => '2004-11-11T18:24:18',
+                                                               'version' => '3.82'
+                                                             },
+                                                             {
+                                                               'date' => '2004-11-24T18:42:42',
+                                                               'version' => '3.93'
+                                                             },
+                                                             {
+                                                               'date' => '2004-11-25T16:34:47',
+                                                               'version' => '3.94'
+                                                             },
+                                                             {
+                                                               'date' => '2005-01-24T13:15:55',
+                                                               'version' => '4.36'
+                                                             },
+                                                             {
+                                                               'date' => '2005-02-07T15:56:43',
+                                                               'version' => '4.53'
+                                                             },
+                                                             {
+                                                               'date' => '2005-02-18T00:42:59',
+                                                               'version' => '4.64'
+                                                             },
+                                                             {
+                                                               'date' => '2005-03-01T19:23:29',
+                                                               'version' => '4.73'
+                                                             },
+                                                             {
+                                                               'date' => '2005-03-15T12:09:56',
+                                                               'version' => '4.87'
+                                                             },
+                                                             {
+                                                               'date' => '2005-04-02T19:46:41',
+                                                               'version' => '4.93'
+                                                             },
+                                                             {
+                                                               'date' => '2005-04-20T12:41:30',
+                                                               'version' => '5.05'
+                                                             },
+                                                             {
+                                                               'date' => '2005-05-16T15:54:07',
+                                                               'version' => '5.18'
+                                                             },
+                                                             {
+                                                               'date' => '2005-06-03T19:21:17',
+                                                               'version' => '5.25'
+                                                             },
+                                                             {
+                                                               'date' => '2005-06-15T17:21:33',
+                                                               'version' => '5.32'
+                                                             },
+                                                             {
+                                                               'date' => '2005-07-19T18:16:02',
+                                                               'version' => '5.46'
+                                                             },
+                                                             {
+                                                               'date' => '2005-08-24T14:58:18',
+                                                               'version' => '5.55'
+                                                             },
+                                                             {
+                                                               'date' => '2005-10-13T13:15:01',
+                                                               'version' => '5.67'
+                                                             },
+                                                             {
+                                                               'date' => '2005-11-18T13:04:29',
+                                                               'version' => '5.77'
+                                                             },
+                                                             {
+                                                               'date' => '2005-12-22T16:42:56',
+                                                               'version' => '5.87'
+                                                             },
+                                                             {
+                                                               'date' => '2006-02-19T20:26:14',
+                                                               'version' => '6.00'
+                                                             },
+                                                             {
+                                                               'date' => '2006-05-12T12:10:32',
+                                                               'version' => '6.17'
+                                                             },
+                                                             {
+                                                               'date' => '2006-07-24T13:18:05',
+                                                               'version' => '6.29'
+                                                             },
+                                                             {
+                                                               'date' => '2006-09-06T20:26:16',
+                                                               'version' => '6.36'
+                                                             },
+                                                             {
+                                                               'date' => '2006-09-21T15:39:52',
+                                                               'version' => '6.42'
+                                                             },
+                                                             {
+                                                               'date' => '2006-11-20T13:52:55',
+                                                               'version' => '6.57'
+                                                             },
+                                                             {
+                                                               'date' => '2006-12-20T13:07:23',
+                                                               'version' => '6.66'
+                                                             },
+                                                             {
+                                                               'date' => '2007-02-14T13:28:50',
+                                                               'version' => '6.75'
+                                                             },
+                                                             {
+                                                               'date' => '2007-02-16T13:21:27',
+                                                               'version' => '6.76'
+                                                             },
+                                                             {
+                                                               'date' => '2007-05-10T18:53:15',
+                                                               'version' => '6.90'
+                                                             },
+                                                             {
+                                                               'date' => '2007-10-24T11:39:52',
+                                                               'version' => '7.00'
+                                                             },
+                                                             {
+                                                               'date' => '2008-02-05T17:21:39',
+                                                               'version' => '7.15'
+                                                             },
+                                                             {
+                                                               'date' => '2008-03-12T12:24:57',
+                                                               'version' => '7.21'
+                                                             },
+                                                             {
+                                                               'date' => '2008-04-18T13:09:00',
+                                                               'version' => '7.25'
+                                                             },
+                                                             {
+                                                               'date' => '2008-05-31T11:39:35',
+                                                               'version' => '7.30'
+                                                             },
+                                                             {
+                                                               'date' => '2008-10-26T19:00:34',
+                                                               'version' => '7.50'
+                                                             },
+                                                             {
+                                                               'date' => '2008-10-27T13:48:39',
+                                                               'version' => '7.51'
+                                                             },
+                                                             {
+                                                               'date' => '2009-01-06T13:48:18',
+                                                               'version' => '7.60'
+                                                             },
+                                                             {
+                                                               'date' => '2009-02-09T14:25:12',
+                                                               'version' => '7.67'
+                                                             },
+                                                             {
+                                                               'date' => '2009-07-02T15:42:38',
+                                                               'version' => '7.82'
+                                                             },
+                                                             {
+                                                               'date' => '2009-08-18T01:30:53',
+                                                               'version' => '7.88'
+                                                             },
+                                                             {
+                                                               'date' => '2009-08-18T12:03:19',
+                                                               'version' => '7.89'
+                                                             },
+                                                             {
+                                                               'date' => '2009-11-20T19:06:24',
+                                                               'version' => '8.00'
+                                                             },
+                                                             {
+                                                               'date' => '2010-02-08T20:49:00',
+                                                               'version' => '8.10'
+                                                             },
+                                                             {
+                                                               'date' => '2010-03-18T14:09:58',
+                                                               'version' => '8.15'
+                                                             },
+                                                             {
+                                                               'date' => '2010-07-13T12:35:33',
+                                                               'version' => '8.25'
+                                                             },
+                                                             {
+                                                               'date' => '2010-11-21T21:29:00',
+                                                               'version' => '8.40'
+                                                             },
+                                                             {
+                                                               'date' => '2011-03-01T12:43:02',
+                                                               'version' => '8.50'
+                                                             },
+                                                             {
+                                                               'date' => '2011-06-27T11:52:50',
+                                                               'version' => '8.60'
+                                                             },
+                                                             {
+                                                               'date' => '2011-09-24T10:53:29',
+                                                               'version' => '8.65'
+                                                             },
+                                                             {
+                                                               'date' => '2012-01-08T13:48:19',
+                                                               'version' => '8.75'
+                                                             },
+                                                             {
+                                                               'date' => '2012-01-27T14:19:10',
+                                                               'version' => '8.77'
+                                                             },
+                                                             {
+                                                               'date' => '2012-03-25T12:07:06',
+                                                               'version' => '8.85'
+                                                             },
+                                                             {
+                                                               'date' => '2012-04-28T12:06:48',
+                                                               'version' => '8.90'
+                                                             },
+                                                             {
+                                                               'date' => '2012-08-25T12:28:04',
+                                                               'version' => '9.01'
+                                                             },
+                                                             {
+                                                               'date' => '2012-11-03T16:37:48',
+                                                               'version' => '9.04'
+                                                             },
+                                                             {
+                                                               'date' => '2013-01-02T21:07:34',
+                                                               'version' => '9.11'
+                                                             },
+                                                             {
+                                                               'date' => '2013-01-03T01:49:33',
+                                                               'version' => '9.12'
+                                                             },
+                                                             {
+                                                               'date' => '2013-01-10T15:05:11',
+                                                               'version' => '9.13'
+                                                             },
+                                                             {
+                                                               'date' => '2013-04-06T11:38:39',
+                                                               'version' => '9.25'
+                                                             },
+                                                             {
+                                                               'date' => '2013-04-15T11:20:13',
+                                                               'version' => '9.27'
+                                                             },
+                                                             {
+                                                               'date' => '2014-01-11T22:58:56',
+                                                               'version' => '9.46'
+                                                             },
+                                                             {
+                                                               'date' => '2014-02-22T14:40:30',
+                                                               'version' => '9.53'
+                                                             },
+                                                             {
+                                                               'date' => '2014-05-11T13:34:36',
+                                                               'version' => '9.60'
+                                                             },
+                                                             {
+                                                               'date' => '2014-09-03T12:19:55',
+                                                               'version' => '9.70'
+                                                             },
+                                                             {
+                                                               'date' => '2014-11-15T15:14:24',
+                                                               'version' => '9.76'
+                                                             },
+                                                             {
+                                                               'date' => '2015-03-14T11:33:58',
+                                                               'version' => '9.90'
+                                                             },
+                                                             {
+                                                               'date' => '2015-08-18T13:30:08',
+                                                               'version' => '10.00'
+                                                             },
+                                                             {
+                                                               'date' => '2016-01-22T15:51:06',
+                                                               'version' => '10.10'
+                                                             },
+                                                             {
+                                                               'date' => '2016-04-20T13:25:01',
+                                                               'version' => '10.15'
+                                                             },
+                                                             {
+                                                               'date' => '2016-06-13T14:05:58',
+                                                               'version' => '10.20'
+                                                             },
+                                                             {
+                                                               'date' => '2016-11-24T16:55:55',
+                                                               'version' => '10.36'
+                                                             },
+                                                             {
+                                                               'date' => '2017-01-13T16:02:53',
+                                                               'version' => '10.39'
+                                                             },
+                                                             {
+                                                               'date' => '2017-01-14T17:30:45',
+                                                               'version' => '10.40'
+                                                             },
+                                                             {
+                                                               'date' => '2017-04-20T12:54:29',
+                                                               'version' => '10.50'
+                                                             },
+                                                             {
+                                                               'date' => '2017-06-05T14:41:23',
+                                                               'version' => '10.55'
+                                                             },
+                                                             {
+                                                               'date' => '2018-02-22T13:27:40',
+                                                               'version' => '10.80'
+                                                             },
+                                                             {
+                                                               'date' => '2018-06-07T11:44:16',
+                                                               'version' => '11.00'
+                                                             },
+                                                             {
+                                                               'date' => '2018-06-11T12:18:41',
+                                                               'version' => '11.01'
+                                                             },
+                                                             {
+                                                               'date' => '2018-09-28T01:34:43',
+                                                               'version' => '11.11'
+                                                             },
+                                                             {
+                                                               'date' => '2019-03-06T15:14:28',
+                                                               'version' => '11.30'
+                                                             },
+                                                             {
+                                                               'date' => '2019-06-11T15:29:41',
+                                                               'version' => '11.50'
+                                                             },
+                                                             {
+                                                               'date' => '2019-10-10T13:04:36',
+                                                               'version' => '11.70'
+                                                             },
+                                                             {
+                                                               'date' => '2020-01-28T15:40:58',
+                                                               'version' => '11.85'
+                                                             },
+                                                             {
+                                                               'date' => '2020-06-11T20:36:48',
+                                                               'version' => '12.00'
+                                                             },
+                                                             {
+                                                               'date' => '2021-01-18T14:03:50',
+                                                               'version' => '12.15'
+                                                             },
+                                                             {
+                                                               'date' => '2021-01-21T17:51:28',
+                                                               'version' => '12.16'
+                                                             },
+                                                             {
+                                                               'date' => '2021-05-21T00:37:46',
+                                                               'version' => '12.26'
+                                                             },
+                                                             {
+                                                               'date' => '2021-08-12T13:13:43',
+                                                               'version' => '12.30'
+                                                             },
+                                                             {
+                                                               'date' => '2022-06-07T11:39:06',
+                                                               'version' => '12.42'
+                                                             },
+                                                             {
+                                                               'date' => '2022-06-07T20:05:13',
+                                                               'version' => '12.42'
+                                                             }
+                                                           ]
+                                           },
                        'Image-Info' => {
                                          'advisories' => [
                                                            {
@@ -25766,7 +26487,7 @@ sub db {
                                                              'description' => 'perl-Image-Info: When parsing an SVG file, external entity expansion (XXE) was not disabled. An attacker could craft an SVG file which, when processed by an application using perl-Image-Info, could cause denial of service or, potentially, information disclosure.
 ',
                                                              'distribution' => 'CPAN-Checksums',
-                                                             'fixed_versions' => '',
+                                                             'fixed_versions' => undef,
                                                              'id' => 'CPANSA-Image-Info-2016-01',
                                                              'references' => [
                                                                                'http://www.securityfocus.com/bid/94220',
@@ -26652,6 +27373,18 @@ sub db {
                                                      {
                                                        'date' => '2020-06-14T03:26:02',
                                                        'version' => '1.012'
+                                                     },
+                                                     {
+                                                       'date' => '2022-04-27T05:18:23',
+                                                       'version' => '1.013'
+                                                     },
+                                                     {
+                                                       'date' => '2022-04-28T07:22:51',
+                                                       'version' => '1.014'
+                                                     },
+                                                     {
+                                                       'date' => '2022-05-07T04:35:16',
+                                                       'version' => '1.015'
                                                      }
                                                    ]
                                    },
@@ -27461,6 +28194,14 @@ sub db {
                                                               {
                                                                 'date' => '2020-01-20T05:04:23',
                                                                 'version' => '1.29'
+                                                              },
+                                                              {
+                                                                'date' => '2022-04-01T19:18:30',
+                                                                'version' => '1.30'
+                                                              },
+                                                              {
+                                                                'date' => '2022-04-14T21:18:43',
+                                                                'version' => '1.31'
                                                               }
                                                             ]
                                             },
@@ -27823,6 +28564,30 @@ sub db {
                                                       }
                                                     ]
                                     },
+                       'MT' => {
+                                 'advisories' => [
+                                                   {
+                                                     'affected_versions' => '>=4.20,<=4.38',
+                                                     'cves' => [
+                                                                 'CVE-2013-0209'
+                                                               ],
+                                                     'description' => 'lib/MT/Upgrade.pm in mt-upgrade.cgi in Movable Type 4.2x and 4.3x through 4.38 does not require authentication for requests to database-migration functions, which allows remote attackers to conduct eval injection and SQL injection attacks via crafted parameters, as demonstrated by an eval injection attack against the core_drop_meta_for_table function, leading to execution of arbitrary Perl code.',
+                                                     'distribution' => '',
+                                                     'fixed_versions' => undef,
+                                                     'id' => 'CPANSA-MT-2013-0209',
+                                                     'references' => [
+                                                                       'http://www.sec-1.com/blog/wp-content/uploads/2013/01/movabletype_upgrade_exec.rb_.txt',
+                                                                       'http://www.movabletype.org/2013/01/movable_type_438_patch.html',
+                                                                       'http://openwall.com/lists/oss-security/2013/01/22/3',
+                                                                       'http://www.sec-1.com/blog/?p=402'
+                                                                     ],
+                                                     'reported' => '2013-01-23',
+                                                     'severity' => undef
+                                                   }
+                                                 ],
+                                 'main_module' => undef,
+                                 'versions' => []
+                               },
                        'Mail-Audit' => {
                                          'advisories' => [
                                                            {
@@ -31841,6 +32606,22 @@ sub db {
                                                           {
                                                             'date' => '2021-10-21T11:53:53',
                                                             'version' => '9.22'
+                                                          },
+                                                          {
+                                                            'date' => '2022-03-25T11:37:40',
+                                                            'version' => '9.23'
+                                                          },
+                                                          {
+                                                            'date' => '2022-04-18T18:28:00',
+                                                            'version' => '9.24'
+                                                          },
+                                                          {
+                                                            'date' => '2022-04-28T15:21:32',
+                                                            'version' => '9.25'
+                                                          },
+                                                          {
+                                                            'date' => '2022-05-23T15:17:22',
+                                                            'version' => '9.26'
                                                           }
                                                         ]
                                         },
@@ -33244,6 +34025,14 @@ sub db {
                                                       {
                                                         'date' => '2021-12-16T12:22:39',
                                                         'version' => '1.33'
+                                                      },
+                                                      {
+                                                        'date' => '2022-05-21T10:05:03',
+                                                        'version' => '1.33_01'
+                                                      },
+                                                      {
+                                                        'date' => '2022-05-30T13:39:34',
+                                                        'version' => '1.34'
                                                       }
                                                     ]
                                     },
@@ -33745,6 +34534,31 @@ sub db {
                                                                              'http://www.gentoo.org/security/en/glsa/glsa-200509-05.xml'
                                                                            ],
                                                            'reported' => '2005-09-07',
+                                                           'severity' => undef
+                                                         },
+                                                         {
+                                                           'affected_versions' => '<=5.7.3',
+                                                           'cves' => [
+                                                                       'CVE-2014-2285'
+                                                                     ],
+                                                           'description' => 'The perl_trapd_handler function in perl/TrapReceiver/TrapReceiver.xs in Net-SNMP 5.7.3.pre3 and earlier, when using certain Perl versions, allows remote attackers to cause a denial of service (snmptrapd crash) via an empty community string in an SNMP trap, which triggers a NULL pointer dereference within the newSVpv function in Perl.',
+                                                           'distribution' => '',
+                                                           'fixed_versions' => undef,
+                                                           'id' => 'CPANSA-Net-SNMP-2014-2285',
+                                                           'references' => [
+                                                                             'http://lists.opensuse.org/opensuse-updates/2014-03/msg00060.html',
+                                                                             'http://comments.gmane.org/gmane.comp.security.oss.general/12284',
+                                                                             'https://bugzilla.redhat.com/show_bug.cgi?id=1072778',
+                                                                             'http://sourceforge.net/p/net-snmp/patches/1275/',
+                                                                             'http://www.nntp.perl.org/group/perl.perl5.porters/2006/09/msg116250.html',
+                                                                             'https://bugzilla.redhat.com/show_bug.cgi?id=1072044',
+                                                                             'http://lists.opensuse.org/opensuse-updates/2014-03/msg00061.html',
+                                                                             'http://secunia.com/advisories/59974',
+                                                                             'http://www.gentoo.org/security/en/glsa/glsa-201409-02.xml',
+                                                                             'https://rhn.redhat.com/errata/RHSA-2014-0322.html',
+                                                                             'http://kb.juniper.net/InfoCenter/index?page=content&id=JSA10705'
+                                                                           ],
+                                                           'reported' => '2014-04-27',
                                                            'severity' => undef
                                                          }
                                                        ],
@@ -36159,6 +36973,163 @@ sub db {
                                                            }
                                                          ]
                                          },
+                       'Perlbal' => {
+                                      'advisories' => [
+                                                        {
+                                                          'affected_versions' => '<1.70',
+                                                          'cves' => [
+                                                                      'CVE-2008-1652'
+                                                                    ],
+                                                          'description' => 'Directory traversal vulnerability in the _serve_request_multiple function in lib/Perlbal/ClientHTTPBase.pm in Perlbal before 1.70, when concat get is enabled, allows remote attackers to read arbitrary files in a parent directory via a directory traversal sequence in an unspecified parameter.  NOTE: some of these details are obtained from third party information.',
+                                                          'distribution' => '',
+                                                          'fixed_versions' => 'Perlbal',
+                                                          'id' => 'CPANSA-Perlbal-2008-1652',
+                                                          'references' => [
+                                                                            'http://search.cpan.org/src/BRADFITZ/Perlbal-1.70/CHANGES',
+                                                                            'http://secunia.com/advisories/29565',
+                                                                            'http://www.vupen.com/english/advisories/2008/1045/references',
+                                                                            'https://exchange.xforce.ibmcloud.com/vulnerabilities/41540'
+                                                                          ],
+                                                          'reported' => '2008-04-02',
+                                                          'severity' => undef
+                                                        }
+                                                      ],
+                                      'main_module' => 'Perlbal',
+                                      'versions' => [
+                                                      {
+                                                        'date' => '2005-07-26T20:21:09',
+                                                        'version' => '1.3'
+                                                      },
+                                                      {
+                                                        'date' => '2005-08-17T06:04:13',
+                                                        'version' => '1.35'
+                                                      },
+                                                      {
+                                                        'date' => '2005-08-19T17:27:29',
+                                                        'version' => '1.36'
+                                                      },
+                                                      {
+                                                        'date' => '2005-10-19T16:57:48',
+                                                        'version' => '1.38'
+                                                      },
+                                                      {
+                                                        'date' => '2006-02-06T19:25:44',
+                                                        'version' => '1.41'
+                                                      },
+                                                      {
+                                                        'date' => '2006-08-04T04:56:17',
+                                                        'version' => '1.42'
+                                                      },
+                                                      {
+                                                        'date' => '2006-08-09T18:09:23',
+                                                        'version' => '1.43'
+                                                      },
+                                                      {
+                                                        'date' => '2006-08-10T21:49:57',
+                                                        'version' => '1.44'
+                                                      },
+                                                      {
+                                                        'date' => '2006-08-10T23:04:14',
+                                                        'version' => '1.45'
+                                                      },
+                                                      {
+                                                        'date' => '2006-08-10T23:55:32',
+                                                        'version' => '1.46'
+                                                      },
+                                                      {
+                                                        'date' => '2006-08-15T23:17:40',
+                                                        'version' => '1.47'
+                                                      },
+                                                      {
+                                                        'date' => '2006-09-08T20:42:55',
+                                                        'version' => '1.50'
+                                                      },
+                                                      {
+                                                        'date' => '2006-10-04T18:55:28',
+                                                        'version' => '1.51'
+                                                      },
+                                                      {
+                                                        'date' => '2006-11-13T18:01:56',
+                                                        'version' => '1.52'
+                                                      },
+                                                      {
+                                                        'date' => '2006-12-05T09:32:56',
+                                                        'version' => '1.53'
+                                                      },
+                                                      {
+                                                        'date' => '2007-02-05T20:00:01',
+                                                        'version' => '1.54'
+                                                      },
+                                                      {
+                                                        'date' => '2007-03-21T07:32:33',
+                                                        'version' => '1.55'
+                                                      },
+                                                      {
+                                                        'date' => '2007-04-16T21:02:13',
+                                                        'version' => '1.56'
+                                                      },
+                                                      {
+                                                        'date' => '2007-04-26T20:37:24',
+                                                        'version' => '1.57'
+                                                      },
+                                                      {
+                                                        'date' => '2007-05-11T18:20:57',
+                                                        'version' => '1.58'
+                                                      },
+                                                      {
+                                                        'date' => '2007-05-22T17:31:31',
+                                                        'version' => '1.59'
+                                                      },
+                                                      {
+                                                        'date' => '2007-10-24T04:09:35',
+                                                        'version' => '1.60'
+                                                      },
+                                                      {
+                                                        'date' => '2008-03-09T04:28:27',
+                                                        'version' => '1.70'
+                                                      },
+                                                      {
+                                                        'date' => '2008-09-14T00:41:35',
+                                                        'version' => '1.71'
+                                                      },
+                                                      {
+                                                        'date' => '2008-09-22T01:40:20',
+                                                        'version' => '1.72'
+                                                      },
+                                                      {
+                                                        'date' => '2009-10-05T20:51:59',
+                                                        'version' => '1.73'
+                                                      },
+                                                      {
+                                                        'date' => '2010-03-20T07:59:03',
+                                                        'version' => '1.74'
+                                                      },
+                                                      {
+                                                        'date' => '2010-04-02T22:32:03',
+                                                        'version' => '1.75'
+                                                      },
+                                                      {
+                                                        'date' => '2010-06-18T01:52:54',
+                                                        'version' => '1.76'
+                                                      },
+                                                      {
+                                                        'date' => '2011-01-16T05:20:16',
+                                                        'version' => '1.77'
+                                                      },
+                                                      {
+                                                        'date' => '2011-01-23T05:33:07',
+                                                        'version' => '1.78'
+                                                      },
+                                                      {
+                                                        'date' => '2011-06-15T23:59:19',
+                                                        'version' => '1.79'
+                                                      },
+                                                      {
+                                                        'date' => '2012-02-27T07:02:28',
+                                                        'version' => '1.80'
+                                                      }
+                                                    ]
+                                    },
                        'PlRPC' => {
                                     'advisories' => [
                                                       {
@@ -37782,6 +38753,10 @@ sub db {
                                                        {
                                                          'date' => '2020-10-09T01:36:59',
                                                          'version' => '0.42'
+                                                       },
+                                                       {
+                                                         'date' => '2022-05-21T14:32:05',
+                                                         'version' => '0.43'
                                                        }
                                                      ]
                                      },
@@ -41859,6 +42834,26 @@ sub db {
                                                           {
                                                             'date' => '2022-01-21T21:44:31',
                                                             'version' => '6.61'
+                                                          },
+                                                          {
+                                                            'date' => '2022-04-05T01:05:20',
+                                                            'version' => '6.62'
+                                                          },
+                                                          {
+                                                            'date' => '2022-04-25T15:25:43',
+                                                            'version' => '6.63'
+                                                          },
+                                                          {
+                                                            'date' => '2022-04-26T13:17:45',
+                                                            'version' => '6.64'
+                                                          },
+                                                          {
+                                                            'date' => '2022-05-09T18:42:27',
+                                                            'version' => '6.65'
+                                                          },
+                                                          {
+                                                            'date' => '2022-05-18T16:57:21',
+                                                            'version' => '6.66'
                                                           }
                                                         ]
                                         },
@@ -42546,6 +43541,935 @@ sub db {
                                                                        ],
                                                        'reported' => '2017-02-07',
                                                        'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.14.2',
+                                                       'cves' => [
+                                                                   'CVE-2011-2728'
+                                                                 ],
+                                                       'description' => 'The bsd_glob function in the File::Glob module for Perl before 5.14.2 allows context-dependent attackers to cause a denial of service (crash) via a glob expression with the GLOB_ALTDIRFUNC flag, which triggers an uninitialized pointer dereference.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2011-2728',
+                                                       'references' => [
+                                                                         'http://lists.fedoraproject.org/pipermail/package-announce/2011-November/069752.html',
+                                                                         'http://www.securityfocus.com/bid/49858',
+                                                                         'http://cpansearch.perl.org/src/FLORA/perl-5.14.2/pod/perldelta.pod',
+                                                                         'http://perl5.git.perl.org/perl.git/commit/1af4051e077438976a4c12a0622feaf6715bec77',
+                                                                         'http://secunia.com/advisories/46172',
+                                                                         'https://blogs.oracle.com/sunsecurity/entry/cve_2011_2728_denial_of1',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=742987'
+                                                                       ],
+                                                       'reported' => '2012-12-21',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.30.3',
+                                                       'cves' => [
+                                                                   'CVE-2020-12723'
+                                                                 ],
+                                                       'description' => 'regcomp.c in Perl before 5.30.3 allows a buffer overflow via a crafted regular expression because of recursive S_study_chunk calls.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.30.3',
+                                                       'id' => 'CPANSA-perl-2020-12723',
+                                                       'references' => [
+                                                                         'https://github.com/Perl/perl5/compare/v5.30.2...v5.30.3',
+                                                                         'https://github.com/Perl/perl5/blob/blead/pod/perl5303delta.pod',
+                                                                         'https://github.com/Perl/perl5/issues/16947',
+                                                                         'https://github.com/perl/perl5/commit/66bbb51b93253a3f87d11c2695cfb7bdb782184a',
+                                                                         'https://github.com/Perl/perl5/issues/17743',
+                                                                         'https://security.netapp.com/advisory/ntap-20200611-0001/',
+                                                                         'https://security.gentoo.org/glsa/202006-03',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IN3TTBO5KSGWE5IRIKDJ5JSQRH7ANNXE/',
+                                                                         'http://lists.opensuse.org/opensuse-security-announce/2020-06/msg00044.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujan2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                         'https://www.oracle.com//security-alerts/cpujul2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuoct2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujan2022.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuapr2022.html'
+                                                                       ],
+                                                       'reported' => '2020-06-05',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.30.3',
+                                                       'cves' => [
+                                                                   'CVE-2020-10878'
+                                                                 ],
+                                                       'description' => 'Perl before 5.30.3 has an integer overflow related to mishandling of a "PL_regkind[OP(n)] == NOTHING" situation. A crafted regular expression could lead to malformed bytecode with a possibility of instruction injection.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.30.3',
+                                                       'id' => 'CPANSA-perl-2020-10878',
+                                                       'references' => [
+                                                                         'https://github.com/Perl/perl5/compare/v5.30.2...v5.30.3',
+                                                                         'https://github.com/perl/perl5/commit/3295b48defa0f8570114877b063fe546dd348b3c',
+                                                                         'https://github.com/perl/perl5/commit/0a320d753fe7fca03df259a4dfd8e641e51edaa8',
+                                                                         'https://github.com/Perl/perl5/blob/blead/pod/perl5303delta.pod',
+                                                                         'https://security.netapp.com/advisory/ntap-20200611-0001/',
+                                                                         'https://security.gentoo.org/glsa/202006-03',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IN3TTBO5KSGWE5IRIKDJ5JSQRH7ANNXE/',
+                                                                         'http://lists.opensuse.org/opensuse-security-announce/2020-06/msg00044.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujan2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                         'https://www.oracle.com//security-alerts/cpujul2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuoct2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujan2022.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuapr2022.html'
+                                                                       ],
+                                                       'reported' => '2020-06-05',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.30.3',
+                                                       'cves' => [
+                                                                   'CVE-2020-10543'
+                                                                 ],
+                                                       'description' => 'Perl before 5.30.3 on 32-bit platforms allows a heap-based buffer overflow because nested regular expression quantifiers have an integer overflow.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.30.3',
+                                                       'id' => 'CPANSA-perl-2020-10543',
+                                                       'references' => [
+                                                                         'https://github.com/Perl/perl5/compare/v5.30.2...v5.30.3',
+                                                                         'https://github.com/perl/perl5/commit/897d1f7fd515b828e4b198d8b8bef76c6faf03ed',
+                                                                         'https://github.com/Perl/perl5/blob/blead/pod/perl5303delta.pod',
+                                                                         'https://security.netapp.com/advisory/ntap-20200611-0001/',
+                                                                         'https://security.gentoo.org/glsa/202006-03',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IN3TTBO5KSGWE5IRIKDJ5JSQRH7ANNXE/',
+                                                                         'http://lists.opensuse.org/opensuse-security-announce/2020-06/msg00044.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujan2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                         'https://www.oracle.com//security-alerts/cpujul2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuoct2021.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujan2022.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuapr2022.html'
+                                                                       ],
+                                                       'reported' => '2020-06-05',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '>=5.22.0,<5.28',
+                                                       'cves' => [
+                                                                   'CVE-2018-6798'
+                                                                 ],
+                                                       'description' => 'An issue was discovered in Perl 5.22 through 5.26. Matching a crafted locale dependent regular expression can cause a heap-based buffer over-read and potentially information disclosure.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.28',
+                                                       'id' => 'CPANSA-perl-2018-6798',
+                                                       'references' => [
+                                                                         'https://www.debian.org/security/2018/dsa-4172',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=132063',
+                                                                         'http://www.securitytracker.com/id/1040681',
+                                                                         'https://access.redhat.com/errata/RHSA-2018:1192',
+                                                                         'https://usn.ubuntu.com/3625-1/',
+                                                                         'https://security.gentoo.org/glsa/201909-01',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2018-04-17',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '>=5.18,<5.28',
+                                                       'cves' => [
+                                                                   'CVE-2018-6797'
+                                                                 ],
+                                                       'description' => 'An issue was discovered in Perl 5.18 through 5.26. A crafted regular expression can cause a heap-based buffer overflow, with control over the bytes written.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.28',
+                                                       'id' => 'CPANSA-perl-2018-6797',
+                                                       'references' => [
+                                                                         'https://www.debian.org/security/2018/dsa-4172',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=132227',
+                                                                         'http://www.securitytracker.com/id/1040681',
+                                                                         'https://access.redhat.com/errata/RHSA-2018:1192',
+                                                                         'https://usn.ubuntu.com/3625-1/',
+                                                                         'http://www.securitytracker.com/id/1042004',
+                                                                         'https://security.gentoo.org/glsa/201909-01',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2018-04-17',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.26.2',
+                                                       'cves' => [
+                                                                   'CVE-2018-6913'
+                                                                 ],
+                                                       'description' => 'Heap-based buffer overflow in the pack function in Perl before 5.26.2 allows context-dependent attackers to execute arbitrary code via a large item count.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.26.2',
+                                                       'id' => 'CPANSA-perl-2018-6913',
+                                                       'references' => [
+                                                                         'https://www.debian.org/security/2018/dsa-4172',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=131844',
+                                                                         'https://lists.debian.org/debian-lts-announce/2018/04/msg00009.html',
+                                                                         'http://www.securitytracker.com/id/1040681',
+                                                                         'https://usn.ubuntu.com/3625-2/',
+                                                                         'https://usn.ubuntu.com/3625-1/',
+                                                                         'http://www.securityfocus.com/bid/103953',
+                                                                         'https://security.gentoo.org/glsa/201909-01',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2018-04-17',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.26.3',
+                                                       'cves' => [
+                                                                   'CVE-2018-18314'
+                                                                 ],
+                                                       'description' => 'Perl before 5.26.3 has a buffer overflow via a crafted regular expression that triggers invalid write operations.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.26.3',
+                                                       'id' => 'CPANSA-perl-2018-18314',
+                                                       'references' => [
+                                                                         'https://www.debian.org/security/2018/dsa-4347',
+                                                                         'https://rt.perl.org/Ticket/Display.html?id=131649',
+                                                                         'https://metacpan.org/changes/release/SHAY/perl-5.26.3',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RWQGEB543QN7SSBRKYJM6PSOC3RLYGSM/',
+                                                                         'https://github.com/Perl/perl5/commit/19a498a461d7c81ae3507c450953d1148efecf4f',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=1646751',
+                                                                         'http://www.securitytracker.com/id/1042181',
+                                                                         'https://usn.ubuntu.com/3834-1/',
+                                                                         'http://www.securityfocus.com/bid/106145',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0010',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0001',
+                                                                         'https://security.netapp.com/advisory/ntap-20190221-0003/',
+                                                                         'https://security.gentoo.org/glsa/201909-01',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2018-12-07',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.26.3',
+                                                       'cves' => [
+                                                                   'CVE-2018-18313'
+                                                                 ],
+                                                       'description' => 'Perl before 5.26.3 has a buffer over-read via a crafted regular expression that triggers disclosure of sensitive information from process memory.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.26.3',
+                                                       'id' => 'CPANSA-perl-2018-18313',
+                                                       'references' => [
+                                                                         'https://www.debian.org/security/2018/dsa-4347',
+                                                                         'https://usn.ubuntu.com/3834-2/',
+                                                                         'https://rt.perl.org/Ticket/Display.html?id=133192',
+                                                                         'https://metacpan.org/changes/release/SHAY/perl-5.26.3',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RWQGEB543QN7SSBRKYJM6PSOC3RLYGSM/',
+                                                                         'https://github.com/Perl/perl5/commit/43b2f4ef399e2fd7240b4eeb0658686ad95f8e62',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=1646738',
+                                                                         'http://www.securitytracker.com/id/1042181',
+                                                                         'https://usn.ubuntu.com/3834-1/',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0010',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0001',
+                                                                         'https://security.netapp.com/advisory/ntap-20190221-0003/',
+                                                                         'https://support.apple.com/kb/HT209600',
+                                                                         'https://seclists.org/bugtraq/2019/Mar/42',
+                                                                         'http://seclists.org/fulldisclosure/2019/Mar/49',
+                                                                         'https://security.gentoo.org/glsa/201909-01',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2018-12-07',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.28.1',
+                                                       'cves' => [
+                                                                   'CVE-2018-18312'
+                                                                 ],
+                                                       'description' => 'Perl before 5.26.3 and 5.28.0 before 5.28.1 has a buffer overflow via a crafted regular expression that triggers invalid write operations.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.28.1',
+                                                       'id' => 'CPANSA-perl-2018-18312',
+                                                       'references' => [
+                                                                         'https://www.debian.org/security/2018/dsa-4347',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=133423',
+                                                                         'https://metacpan.org/changes/release/SHAY/perl-5.28.1',
+                                                                         'https://metacpan.org/changes/release/SHAY/perl-5.26.3',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RWQGEB543QN7SSBRKYJM6PSOC3RLYGSM/',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=1646734',
+                                                                         'http://www.securitytracker.com/id/1042181',
+                                                                         'https://usn.ubuntu.com/3834-1/',
+                                                                         'http://www.securityfocus.com/bid/106179',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0010',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0001',
+                                                                         'https://security.netapp.com/advisory/ntap-20190221-0003/',
+                                                                         'https://security.gentoo.org/glsa/201909-01',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2018-12-05',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.28.1',
+                                                       'cves' => [
+                                                                   'CVE-2018-18311'
+                                                                 ],
+                                                       'description' => 'Perl before 5.26.3 and 5.28.x before 5.28.1 has a buffer overflow via a crafted regular expression that triggers invalid write operations.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.28.1',
+                                                       'id' => 'CPANSA-perl-2018-18311',
+                                                       'references' => [
+                                                                         'https://www.debian.org/security/2018/dsa-4347',
+                                                                         'https://usn.ubuntu.com/3834-2/',
+                                                                         'https://rt.perl.org/Ticket/Display.html?id=133204',
+                                                                         'https://metacpan.org/changes/release/SHAY/perl-5.28.1',
+                                                                         'https://metacpan.org/changes/release/SHAY/perl-5.26.3',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RWQGEB543QN7SSBRKYJM6PSOC3RLYGSM/',
+                                                                         'https://lists.debian.org/debian-lts-announce/2018/11/msg00039.html',
+                                                                         'https://github.com/Perl/perl5/commit/34716e2a6ee2af96078d62b065b7785c001194be',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=1646730',
+                                                                         'http://www.securitytracker.com/id/1042181',
+                                                                         'https://usn.ubuntu.com/3834-1/',
+                                                                         'http://www.securityfocus.com/bid/106145',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0010',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0001',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:0109',
+                                                                         'https://security.netapp.com/advisory/ntap-20190221-0003/',
+                                                                         'https://support.apple.com/kb/HT209600',
+                                                                         'https://seclists.org/bugtraq/2019/Mar/42',
+                                                                         'http://seclists.org/fulldisclosure/2019/Mar/49',
+                                                                         'https://kc.mcafee.com/corporate/index?page=content&id=SB10278',
+                                                                         'https://access.redhat.com/errata/RHBA-2019:0327',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:1790',
+                                                                         'https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:1942',
+                                                                         'https://access.redhat.com/errata/RHSA-2019:2400',
+                                                                         'https://security.gentoo.org/glsa/201909-01',
+                                                                         'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2018-12-07',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.26.1',
+                                                       'cves' => [
+                                                                   'CVE-2017-12883'
+                                                                 ],
+                                                       'description' => 'Buffer overflow in the S_grok_bslash_N function in regcomp.c in Perl 5 before 5.24.3-RC1 and 5.26.x before 5.26.1-RC1 allows remote attackers to disclose sensitive information or cause a denial of service (application crash) via a crafted regular expression with an invalid \'\\N{U+...}\' escape.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.26.1',
+                                                       'id' => 'CPANSA-perl-2017-12883',
+                                                       'references' => [
+                                                                         'https://perl5.git.perl.org/perl.git/log/refs/tags/v5.26.1-RC1',
+                                                                         'https://perl5.git.perl.org/perl.git/log/refs/tags/v5.24.3-RC1',
+                                                                         'https://perl5.git.perl.org/perl.git/commitdiff/2be4edede4ae226e2eebd4eff28cedd2041f300f#patch1',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=1492093',
+                                                                         'http://www.securityfocus.com/bid/100852',
+                                                                         'http://mirror.cucumberlinux.com/cucumber/cucumber-1.0/source/lang-base/perl/patches/CVE-2017-12883.patch',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=131598',
+                                                                         'http://www.debian.org/security/2017/dsa-3982',
+                                                                         'https://security.netapp.com/advisory/ntap-20180426-0001/',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2017-09-19',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.26.1',
+                                                       'cves' => [
+                                                                   'CVE-2017-12837'
+                                                                 ],
+                                                       'description' => 'Heap-based buffer overflow in the S_regatom function in regcomp.c in Perl 5 before 5.24.3-RC1 and 5.26.x before 5.26.1-RC1 allows remote attackers to cause a denial of service (out-of-bounds write) via a regular expression with a \'\\N{}\' escape and the case-insensitive modifier.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.28.1',
+                                                       'id' => 'CPANSA-perl-2017-12837',
+                                                       'references' => [
+                                                                         'https://perl5.git.perl.org/perl.git/log/refs/tags/v5.26.1-RC1',
+                                                                         'https://perl5.git.perl.org/perl.git/log/refs/tags/v5.24.3-RC1',
+                                                                         'https://perl5.git.perl.org/perl.git/commitdiff/96c83ed78aeea1a0496dd2b2d935869a822dc8a5',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=1492091',
+                                                                         'http://www.securityfocus.com/bid/100860',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=131582',
+                                                                         'http://www.debian.org/security/2017/dsa-3982',
+                                                                         'https://security.netapp.com/advisory/ntap-20180426-0001/',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2017-09-19',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.24.0',
+                                                       'cves' => [
+                                                                   'CVE-2015-8853'
+                                                                 ],
+                                                       'description' => 'The (1) S_reghop3, (2) S_reghop4, and (3) S_reghopmaybe3 functions in regexec.c in Perl before 5.24.0 allow context-dependent attackers to cause a denial of service (infinite loop) via crafted utf-8 data, as demonstrated by "a\\x80."',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.24.0',
+                                                       'id' => 'CPANSA-perl-2015-8853',
+                                                       'references' => [
+                                                                         'http://lists.fedoraproject.org/pipermail/package-announce/2016-May/183592.html',
+                                                                         'http://www.openwall.com/lists/oss-security/2016/04/20/7',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=1329106',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=123562',
+                                                                         'http://www.openwall.com/lists/oss-security/2016/04/20/5',
+                                                                         'http://perl5.git.perl.org/perl.git/commitdiff/22b433eff9a1ffa2454e18405a56650f07b385b5',
+                                                                         'https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05240731',
+                                                                         'http://www.oracle.com/technetwork/topics/security/bulletinjul2016-3090568.html',
+                                                                         'http://www.oracle.com/technetwork/topics/security/bulletinapr2016-2952098.html',
+                                                                         'http://www.securityfocus.com/bid/86707',
+                                                                         'https://security.gentoo.org/glsa/201701-75',
+                                                                         'https://usn.ubuntu.com/3625-2/',
+                                                                         'https://usn.ubuntu.com/3625-1/'
+                                                                       ],
+                                                       'reported' => '2016-05-25',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.18.0',
+                                                       'cves' => [
+                                                                   'CVE-2013-1667'
+                                                                 ],
+                                                       'description' => 'The rehash mechanism in Perl 5.8.2 through 5.16.x allows context-dependent attackers to cause a denial of service (memory consumption and crash) via a crafted hash key.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.26.1',
+                                                       'id' => 'CPANSA-perl-2013-1667',
+                                                       'references' => [
+                                                                         'http://www.securityfocus.com/bid/58311',
+                                                                         'http://perl5.git.perl.org/perl.git/commitdiff/d59e31f',
+                                                                         'http://perl5.git.perl.org/perl.git/commitdiff/9d83adc',
+                                                                         'http://www.nntp.perl.org/group/perl.perl5.porters/2013/03/msg199755.html',
+                                                                         'http://www.debian.org/security/2013/dsa-2641',
+                                                                         'http://secunia.com/advisories/52499',
+                                                                         'http://secunia.com/advisories/52472',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=912276',
+                                                                         'http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=702296',
+                                                                         'http://perl5.git.perl.org/perl.git/commitdiff/6e79fe5',
+                                                                         'http://osvdb.org/90892',
+                                                                         'http://www.ubuntu.com/usn/USN-1770-1',
+                                                                         'http://rhn.redhat.com/errata/RHSA-2013-0685.html',
+                                                                         'http://lists.apple.com/archives/security-announce/2013/Oct/msg00004.html',
+                                                                         'http://marc.info/?l=bugtraq&m=137891988921058&w=2',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDVSA-2013:113',
+                                                                         'https://wiki.mageia.org/en/Support/Advisories/MGASA-2013-0094',
+                                                                         'http://www.oracle.com/technetwork/topics/security/ovmbulletinjul2016-3090546.html',
+                                                                         'http://kb.juniper.net/InfoCenter/index?page=content&id=JSA10735',
+                                                                         'http://kb.juniper.net/InfoCenter/index?page=content&id=JSA10705',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/82598',
+                                                                         'https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A18771'
+                                                                       ],
+                                                       'reported' => '2013-03-14',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '>=5.10.0,<5.12',
+                                                       'cves' => [
+                                                                   'CVE-2011-0761'
+                                                                 ],
+                                                       'description' => 'Perl 5.10.x allows context-dependent attackers to cause a denial of service (NULL pointer dereference and application crash) by leveraging an ability to inject arguments into a (1) getpeername, (2) readdir, (3) closedir, (4) getsockname, (5) rewinddir, (6) tell, or (7) telldir function call.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.12',
+                                                       'id' => 'CPANSA-perl-2011-0761',
+                                                       'references' => [
+                                                                         'http://www.securityfocus.com/bid/47766',
+                                                                         'http://securitytracker.com/id?1025507',
+                                                                         'http://www.toucan-system.com/advisories/tssa-2011-03.txt',
+                                                                         'http://securityreason.com/securityalert/8248',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/67355',
+                                                                         'http://www.securityfocus.com/archive/1/517916/100/0/threaded'
+                                                                       ],
+                                                       'reported' => '2011-05-13',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<=5.14.0',
+                                                       'cves' => [
+                                                                   'CVE-2010-4777'
+                                                                 ],
+                                                       'description' => 'The Perl_reg_numbered_buff_fetch function in Perl 5.10.0, 5.12.0, 5.14.0, and other versions, when running with debugging enabled, allows context-dependent attackers to cause a denial of service (assertion failure and application exit) via crafted input that is not properly handled when using certain regular expressions, as demonstrated by causing SpamAssassin and OCSInventory to crash.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>5.14.0',
+                                                       'id' => 'CPANSA-perl-2010-4777',
+                                                       'references' => [
+                                                                         'http://lists.opensuse.org/opensuse-updates/2011-05/msg00025.html',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=694166',
+                                                                         'http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=628836',
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=76538',
+                                                                         'https://listi.jpberlin.de/pipermail/postfixbuch-users/2011-February/055885.html',
+                                                                         'http://lists.opensuse.org/opensuse-security-announce/2011-05/msg00005.html',
+                                                                         'http://forums.ocsinventory-ng.org/viewtopic.php?id=7215'
+                                                                       ],
+                                                       'reported' => '2014-02-10',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.10.0',
+                                                       'cves' => [
+                                                                   'CVE-2010-1158'
+                                                                 ],
+                                                       'description' => 'Integer overflow in the regular expression engine in Perl 5.8.x allows context-dependent attackers to cause a denial of service (stack consumption and application crash) by matching a crafted regular expression against a long string.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.10.0',
+                                                       'id' => 'CPANSA-perl-2010-1158',
+                                                       'references' => [
+                                                                         'http://bugs.gentoo.org/show_bug.cgi?id=313565',
+                                                                         'http://www.openwall.com/lists/oss-security/2010/04/14/3',
+                                                                         'http://perldoc.perl.org/perl5100delta.html',
+                                                                         'http://www.openwall.com/lists/oss-security/2010/04/08/9',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=580605',
+                                                                         'http://secunia.com/advisories/55314'
+                                                                       ],
+                                                       'reported' => '2010-04-20',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<=5.10.1',
+                                                       'cves' => [
+                                                                   'CVE-2009-3626'
+                                                                 ],
+                                                       'description' => 'Perl 5.10.1 allows context-dependent attackers to cause a denial of service (application crash) via a UTF-8 character with a large, invalid codepoint, which is not properly handled during a regular-expression match.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2009-3626',
+                                                       'references' => [
+                                                                         'http://securitytracker.com/id?1023077',
+                                                                         'http://www.vupen.com/english/advisories/2009/3023',
+                                                                         'http://perl5.git.perl.org/perl.git/commit/0abd0d78a73da1c4d13b1c700526b7e5d03b32d4',
+                                                                         'http://www.securityfocus.com/bid/36812',
+                                                                         'https://issues.apache.org/SpamAssassin/show_bug.cgi?id=6225',
+                                                                         'http://rt.perl.org/rt3/Ticket/Attachment/617489/295383/',
+                                                                         'http://www.osvdb.org/59283',
+                                                                         'http://www.openwall.com/lists/oss-security/2009/10/23/8',
+                                                                         'http://secunia.com/advisories/37144',
+                                                                         'http://rt.perl.org/rt3/Public/Bug/Display.html?id=69973',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/53939'
+                                                                       ],
+                                                       'reported' => '2009-10-29',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<=5.8.8',
+                                                       'cves' => [
+                                                                   'CVE-2008-1927'
+                                                                 ],
+                                                       'description' => 'Double free vulnerability in Perl 5.8.8 allows context-dependent attackers to cause a denial of service (memory corruption and crash) via a crafted regular expression containing UTF8 characters.  NOTE: this issue might only be present on certain operating systems.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2008-1927',
+                                                       'references' => [
+                                                                         'http://rt.perl.org/rt3/Public/Bug/Display.html?id=48156',
+                                                                         'http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=454792',
+                                                                         'http://www.debian.org/security/2008/dsa-1556',
+                                                                         'https://www.redhat.com/archives/fedora-package-announce/2008-April/msg00601.html',
+                                                                         'https://www.redhat.com/archives/fedora-package-announce/2008-April/msg00607.html',
+                                                                         'http://www.gentoo.org/security/en/glsa/glsa-200805-17.xml',
+                                                                         'http://www.securityfocus.com/bid/28928',
+                                                                         'http://secunia.com/advisories/29948',
+                                                                         'http://secunia.com/advisories/30025',
+                                                                         'http://secunia.com/advisories/30326',
+                                                                         'http://www.securitytracker.com/id?1020253',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2008-0522.html',
+                                                                         'http://secunia.com/advisories/30624',
+                                                                         'http://support.avaya.com/elmodocs2/security/ASA-2008-317.htm',
+                                                                         'http://support.avaya.com/elmodocs2/security/ASA-2008-361.htm',
+                                                                         'http://www.ipcop.org/index.php?name=News&file=article&sid=41',
+                                                                         'http://secunia.com/advisories/31467',
+                                                                         'http://lists.opensuse.org/opensuse-security-announce/2008-08/msg00006.html',
+                                                                         'http://secunia.com/advisories/31604',
+                                                                         'http://secunia.com/advisories/31208',
+                                                                         'http://secunia.com/advisories/31328',
+                                                                         'http://www.vmware.com/security/advisories/VMSA-2008-0013.html',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2008-0532.html',
+                                                                         'http://secunia.com/advisories/31687',
+                                                                         'http://osvdb.org/44588',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDVSA-2008:100',
+                                                                         'http://www.ubuntu.com/usn/usn-700-1',
+                                                                         'http://secunia.com/advisories/33314',
+                                                                         'http://wiki.rpath.com/Advisories:rPSA-2009-0011',
+                                                                         'http://www.ubuntu.com/usn/usn-700-2',
+                                                                         'http://lists.apple.com/archives/security-announce/2009/Feb/msg00000.html',
+                                                                         'http://secunia.com/advisories/33937',
+                                                                         'http://support.apple.com/kb/HT3438',
+                                                                         'http://www.vupen.com/english/advisories/2009/0422',
+                                                                         'http://www.vupen.com/english/advisories/2008/2361',
+                                                                         'http://www.vupen.com/english/advisories/2008/2424',
+                                                                         'http://www.vupen.com/english/advisories/2008/2265/references',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/41996',
+                                                                         'https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A10579',
+                                                                         'http://www.securityfocus.com/archive/1/500210/100/0/threaded'
+                                                                       ],
+                                                       'reported' => '2008-04-24',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.10.0',
+                                                       'cves' => [
+                                                                   'CVE-2005-3962'
+                                                                 ],
+                                                       'description' => 'Integer overflow in the format string functionality (Perl_sv_vcatpvfn) in Perl 5.9.2 and 5.8.6 Perl allows attackers to overwrite arbitrary memory and possibly execute arbitrary code via format string specifiers with large values, which causes an integer wrap and leads to a buffer overflow, as demonstrated using format string vulnerabilities in Perl applications.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2005-3962',
+                                                       'references' => [
+                                                                         'http://www.dyadsecurity.com/perl-0002.html',
+                                                                         'http://www.kb.cert.org/vuls/id/948385',
+                                                                         'http://www.securityfocus.com/bid/15629',
+                                                                         'http://secunia.com/advisories/17802',
+                                                                         'http://secunia.com/advisories/17844',
+                                                                         'http://secunia.com/advisories/17762',
+                                                                         'http://www.openpkg.org/security/OpenPKG-SA-2005.025-perl.html',
+                                                                         'http://www.gentoo.org/security/en/glsa/glsa-200512-01.xml',
+                                                                         'http://www.trustix.org/errata/2005/0070',
+                                                                         'http://secunia.com/advisories/17941',
+                                                                         'http://secunia.com/advisories/17952',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2005-880.html',
+                                                                         'http://www.novell.com/linux/security/advisories/2005_71_perl.html',
+                                                                         'http://secunia.com/advisories/18183',
+                                                                         'http://secunia.com/advisories/18187',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2005-881.html',
+                                                                         'http://secunia.com/advisories/18075',
+                                                                         'http://www.openbsd.org/errata37.html#perl',
+                                                                         'http://secunia.com/advisories/18295',
+                                                                         'ftp://ftp.openbsd.org/pub/OpenBSD/patches/3.8/common/001_perl.patch',
+                                                                         'http://www.osvdb.org/21345',
+                                                                         'http://www.osvdb.org/22255',
+                                                                         'ftp://patches.sgi.com/support/free/security/advisories/20060101-01-U',
+                                                                         'http://secunia.com/advisories/18517',
+                                                                         'http://secunia.com/advisories/17993',
+                                                                         'https://www.redhat.com/archives/fedora-legacy-announce/2006-February/msg00008.html',
+                                                                         'http://sunsolve.sun.com/search/document.do?assetkey=1-26-102192-1',
+                                                                         'http://secunia.com/advisories/19041',
+                                                                         'http://www.debian.org/security/2006/dsa-943',
+                                                                         'http://secunia.com/advisories/18413',
+                                                                         'http://distro.conectiva.com.br/atualizacoes/?id=a&anuncio=001056',
+                                                                         'http://support.avaya.com/elmodocs2/security/ASA-2006-081.htm',
+                                                                         'http://www.novell.com/linux/security/advisories/2005_29_sr.html',
+                                                                         'http://secunia.com/advisories/20894',
+                                                                         'http://docs.info.apple.com/article.html?artnum=304829',
+                                                                         'http://lists.apple.com/archives/security-announce/2006/Nov/msg00001.html',
+                                                                         'http://www.us-cert.gov/cas/techalerts/TA06-333A.html',
+                                                                         'http://secunia.com/advisories/23155',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDKSA-2005:225',
+                                                                         'http://www.ipcop.org/index.php?name=News&file=article&sid=41',
+                                                                         'http://secunia.com/advisories/31208',
+                                                                         'http://www.vupen.com/english/advisories/2006/2613',
+                                                                         'http://www.vupen.com/english/advisories/2006/0771',
+                                                                         'http://www.vupen.com/english/advisories/2006/4750',
+                                                                         'ftp://ftp.openbsd.org/pub/OpenBSD/patches/3.7/common/007_perl.patch',
+                                                                         'http://www.vupen.com/english/advisories/2005/2688',
+                                                                         'http://marc.info/?l=full-disclosure&m=113342788118630&w=2',
+                                                                         'https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A1074',
+                                                                         'https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A10598',
+                                                                         'https://usn.ubuntu.com/222-1/',
+                                                                         'http://www.securityfocus.com/archive/1/438726/100/0/threaded',
+                                                                         'http://www.securityfocus.com/archive/1/418333/100/0/threaded'
+                                                                       ],
+                                                       'reported' => '2005-12-01',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '5.8.0',
+                                                       'cves' => [
+                                                                   'CVE-2005-0156'
+                                                                 ],
+                                                       'description' => 'Buffer overflow in the PerlIO implementation in Perl 5.8.0, when installed with setuid support (sperl), allows local users to execute arbitrary code by setting the PERLIO_DEBUG variable and executing a Perl script whose full pathname contains a long directory tree.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2005-0156',
+                                                       'references' => [
+                                                                         'http://www.gentoo.org/security/en/glsa/glsa-200502-13.xml',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2005-103.html',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2005-105.html',
+                                                                         'http://www.trustix.org/errata/2005/0003/',
+                                                                         'http://www.securityfocus.com/bid/12426',
+                                                                         'http://secunia.com/advisories/14120',
+                                                                         'http://fedoranews.org/updates/FEDORA--.shtml',
+                                                                         'http://distro.conectiva.com.br/atualizacoes/?id=a&anuncio=001056',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDKSA-2005:031',
+                                                                         'http://secunia.com/advisories/55314',
+                                                                         'http://marc.info/?l=bugtraq&m=110737149402683&w=2',
+                                                                         'http://marc.info/?l=full-disclosure&m=110779721503111&w=2',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/19208',
+                                                                         'https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A10803',
+                                                                         'http://www.digitalmunition.com/DMA[2005-0131b].txt'
+                                                                       ],
+                                                       'reported' => '2005-02-07',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '5.8.0',
+                                                       'cves' => [
+                                                                   'CVE-2005-0155'
+                                                                 ],
+                                                       'description' => 'The PerlIO implementation in Perl 5.8.0, when installed with setuid support (sperl), allows local users to create arbitrary files via the PERLIO_DEBUG variable.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2005-0155',
+                                                       'references' => [
+                                                                         'http://www.gentoo.org/security/en/glsa/glsa-200502-13.xml',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2005-103.html',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2005-105.html',
+                                                                         'http://www.trustix.org/errata/2005/0003/',
+                                                                         'http://www.securityfocus.com/bid/12426',
+                                                                         'http://secunia.com/advisories/14120',
+                                                                         'http://fedoranews.org/updates/FEDORA--.shtml',
+                                                                         'http://distro.conectiva.com.br/atualizacoes/?id=a&anuncio=001056',
+                                                                         'http://support.avaya.com/elmodocs2/security/ASA-2006-163.htm',
+                                                                         'http://secunia.com/advisories/21646',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDKSA-2005:031',
+                                                                         'http://marc.info/?l=bugtraq&m=110737149402683&w=2',
+                                                                         'http://marc.info/?l=full-disclosure&m=110779723332339&w=2',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/19207',
+                                                                         'https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A10404',
+                                                                         'http://www.digitalmunition.com/DMA[2005-0131a].txt'
+                                                                       ],
+                                                       'reported' => '2005-05-02',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<=5.8.8',
+                                                       'cves' => [
+                                                                   'CVE-2007-5116'
+                                                                 ],
+                                                       'description' => 'Buffer overflow in the polymorphic opcode support in the Regular Expression Engine (regcomp.c) in Perl 5.8 allows context-dependent attackers to execute arbitrary code by switching from byte to Unicode (UTF) characters in a regular expression.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2007-5116',
+                                                       'references' => [
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=323571',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDKSA-2007:207',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2007-0966.html',
+                                                                         'http://www.redhat.com/support/errata/RHSA-2007-1011.html',
+                                                                         'http://www.securityfocus.com/bid/26350',
+                                                                         'http://secunia.com/advisories/27531',
+                                                                         'http://secunia.com/advisories/27546',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=378131',
+                                                                         'https://issues.rpath.com/browse/RPL-1813',
+                                                                         'http://www.debian.org/security/2007/dsa-1400',
+                                                                         'http://www.gentoo.org/security/en/glsa/glsa-200711-28.xml',
+                                                                         'http://www.openpkg.com/security/advisories/OpenPKG-SA-2007.023.html',
+                                                                         'http://www.novell.com/linux/security/advisories/2007_24_sr.html',
+                                                                         'http://www.ubuntu.com/usn/usn-552-1',
+                                                                         'http://securitytracker.com/id?1018899',
+                                                                         'http://secunia.com/advisories/27479',
+                                                                         'http://secunia.com/advisories/27515',
+                                                                         'http://secunia.com/advisories/27548',
+                                                                         'http://secunia.com/advisories/27613',
+                                                                         'http://secunia.com/advisories/27570',
+                                                                         'http://secunia.com/advisories/27936',
+                                                                         'http://docs.info.apple.com/article.html?artnum=307179',
+                                                                         'ftp://aix.software.ibm.com/aix/efixes/security/README',
+                                                                         'http://www-1.ibm.com/support/docview.wss?uid=isg1IZ10220',
+                                                                         'http://www-1.ibm.com/support/docview.wss?uid=isg1IZ10244',
+                                                                         'http://lists.apple.com/archives/security-announce/2007/Dec/msg00002.html',
+                                                                         'http://www.us-cert.gov/cas/techalerts/TA07-352A.html',
+                                                                         'http://secunia.com/advisories/28167',
+                                                                         'http://lists.vmware.com/pipermail/security-announce/2008/000002.html',
+                                                                         'http://support.avaya.com/elmodocs2/security/ASA-2008-014.htm',
+                                                                         'http://secunia.com/advisories/28368',
+                                                                         'http://secunia.com/advisories/28387',
+                                                                         'http://secunia.com/advisories/27756',
+                                                                         'http://www.vmware.com/security/advisories/VMSA-2008-0001.html',
+                                                                         'http://sunsolve.sun.com/search/document.do?assetkey=1-26-31524-1',
+                                                                         'http://secunia.com/advisories/28993',
+                                                                         'http://secunia.com/advisories/29074',
+                                                                         'http://sunsolve.sun.com/search/document.do?assetkey=1-66-231524-1',
+                                                                         'http://secunia.com/advisories/31208',
+                                                                         'http://www.ipcop.org/index.php?name=News&file=article&sid=41',
+                                                                         'http://sunsolve.sun.com/search/document.do?assetkey=1-77-1018985.1-1',
+                                                                         'http://www.vupen.com/english/advisories/2007/4238',
+                                                                         'http://www.vupen.com/english/advisories/2008/0064',
+                                                                         'http://www.vupen.com/english/advisories/2008/0641',
+                                                                         'http://www.vupen.com/english/advisories/2007/3724',
+                                                                         'http://www.vupen.com/english/advisories/2007/4255',
+                                                                         'http://marc.info/?l=bugtraq&m=120352263023774&w=2',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/38270',
+                                                                         'https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A10669',
+                                                                         'http://www.securityfocus.com/archive/1/486859/100/0/threaded',
+                                                                         'http://www.securityfocus.com/archive/1/485936/100/0/threaded',
+                                                                         'http://www.securityfocus.com/archive/1/483584/100/0/threaded',
+                                                                         'http://www.securityfocus.com/archive/1/483563/100/0/threaded'
+                                                                       ],
+                                                       'reported' => '2007-11-07',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.16',
+                                                       'cves' => [
+                                                                   'CVE-2012-5195'
+                                                                 ],
+                                                       'description' => 'Heap-based buffer overflow in the Perl_repeatcpy function in util.c in Perl 5.12.x before 5.12.5, 5.14.x before 5.14.3, and 5.15.x before 15.15.5 allows context-dependent attackers to cause a denial of service (memory consumption and crash) or possibly execute arbitrary code via the \'x\' string repeat operator.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.16',
+                                                       'id' => 'CPANSA-perl-2012-5195',
+                                                       'references' => [
+                                                                         'http://perl5.git.perl.org/perl.git/commit/2709980d5a193ce6f3a16f0d19879a6560dcde44',
+                                                                         'http://www.nntp.perl.org/group/perl.perl5.porters/2012/10/msg193886.html',
+                                                                         'http://www.securityfocus.com/bid/56287',
+                                                                         'http://www.openwall.com/lists/oss-security/2012/10/27/1',
+                                                                         'http://secunia.com/advisories/51457',
+                                                                         'http://www.openwall.com/lists/oss-security/2012/10/26/2',
+                                                                         'http://www.ubuntu.com/usn/USN-1643-1',
+                                                                         'http://www.debian.org/security/2012/dsa-2586',
+                                                                         'http://rhn.redhat.com/errata/RHSA-2013-0685.html',
+                                                                         'http://secunia.com/advisories/55314',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDVSA-2013:113',
+                                                                         'https://wiki.mageia.org/en/Support/Advisories/MGASA-2012-0352',
+                                                                         'http://www.oracle.com/technetwork/topics/security/ovmbulletinjul2016-3090546.html',
+                                                                         'http://kb.juniper.net/InfoCenter/index?page=content&id=JSA10735',
+                                                                         'http://kb.juniper.net/InfoCenter/index?page=content&id=JSA10705',
+                                                                         'http://kb.juniper.net/InfoCenter/index?page=content&id=JSA10673'
+                                                                       ],
+                                                       'reported' => '2012-12-18',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => undef,
+                                                       'cves' => [
+                                                                   'CVE-2016-2381'
+                                                                 ],
+                                                       'description' => 'Perl might allow context-dependent attackers to bypass the taint protection mechanism in a child process via duplicate environment variables in envp.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2016-2381',
+                                                       'references' => [
+                                                                         'http://www.gossamer-threads.com/lists/perl/porters/326387',
+                                                                         'http://www.debian.org/security/2016/dsa-3501',
+                                                                         'http://perl5.git.perl.org/perl.git/commitdiff/ae37b791a73a9e78dedb89fb2429d2628cf58076',
+                                                                         'https://h20566.www2.hpe.com/portal/site/hpsc/public/kb/docDisplay?docId=emr_na-c05240731',
+                                                                         'http://www.oracle.com/technetwork/topics/security/bulletinjul2016-3090568.html',
+                                                                         'http://www.securityfocus.com/bid/83802',
+                                                                         'http://www.ubuntu.com/usn/USN-2916-1',
+                                                                         'http://lists.opensuse.org/opensuse-updates/2016-03/msg00112.html',
+                                                                         'https://security.gentoo.org/glsa/201701-75',
+                                                                         'http://www.oracle.com/technetwork/security-advisory/cpujul2017-3236622.html',
+                                                                         'http://www.oracle.com/technetwork/security-advisory/cpuoct2017-3236626.html',
+                                                                         'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2016-04-08',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.25.2',
+                                                       'cves' => [
+                                                                   'CVE-2016-6185'
+                                                                 ],
+                                                       'description' => 'The XSLoader::load method in XSLoader in Perl does not properly locate .so files when called in a string eval, which might allow local users to execute arbitrary code via a Trojan horse library under the current working directory.',
+                                                       'distribution' => 'XSLoader-load',
+                                                       'fixed_versions' => '>=5.25.2',
+                                                       'id' => 'CPANSA-XSLoader-load-2016-6185',
+                                                       'references' => [
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5RFDMASVZLFZYBB2GNTZXU6I76E4NA4V/',
+                                                                         'http://perl5.git.perl.org/perl.git/commitdiff/08e3451d7',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PRIPTDA6XINBVEJXI2NGLKVEINBREHTN/',
+                                                                         'http://www.openwall.com/lists/oss-security/2016/07/07/1',
+                                                                         'http://www.openwall.com/lists/oss-security/2016/07/08/5',
+                                                                         'https://rt.cpan.org/Public/Bug/Display.html?id=115808',
+                                                                         'http://www.debian.org/security/2016/dsa-3628',
+                                                                         'http://www.securitytracker.com/id/1036260',
+                                                                         'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ITYZJXQH24X2F2LAOQEQAC5KXLYJTJ76/',
+                                                                         'http://www.oracle.com/technetwork/topics/security/bulletinjul2016-3090568.html',
+                                                                         'http://www.securityfocus.com/bid/91685',
+                                                                         'https://security.gentoo.org/glsa/201701-75',
+                                                                         'https://usn.ubuntu.com/3625-2/',
+                                                                         'https://usn.ubuntu.com/3625-1/'
+                                                                       ],
+                                                       'reported' => '2016-08-02',
+                                                       'severity' => 'high'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '5.8.1',
+                                                       'cves' => [
+                                                                   'CVE-2003-0900'
+                                                                 ],
+                                                       'description' => 'Perl 5.8.1 on Fedora Core does not properly initialize the random number generator when forking, which makes it easier for attackers to predict random numbers.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2003-0900',
+                                                       'references' => [
+                                                                         'https://bugzilla.redhat.com/bugzilla/long_list.cgi?buglist=108711'
+                                                                       ],
+                                                       'reported' => '2003-12-31',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.20',
+                                                       'cves' => [
+                                                                   'CVE-2013-7422'
+                                                                 ],
+                                                       'description' => 'Integer underflow in regcomp.c in Perl before 5.20, as used in Apple OS X before 10.10.5 and other products, allows context-dependent attackers to execute arbitrary code or cause a denial of service (application crash) via a long digit string associated with an invalid backreference within a regular expression.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2013-7422',
+                                                       'references' => [
+                                                                         'http://lists.apple.com/archives/security-announce/2015/Aug/msg00001.html',
+                                                                         'https://support.apple.com/kb/HT205031',
+                                                                         'http://perl5.git.perl.org/perl.git/commit/0c2990d652e985784f095bba4bc356481a66aa06',
+                                                                         'http://www.securityfocus.com/bid/75704',
+                                                                         'http://www.ubuntu.com/usn/USN-2916-1',
+                                                                         'https://security.gentoo.org/glsa/201507-11'
+                                                                       ],
+                                                       'reported' => '2015-08-16',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.22.2',
+                                                       'cves' => [
+                                                                   'CVE-2015-8608'
+                                                                 ],
+                                                       'description' => 'The VDir::MapPathA and VDir::MapPathW functions in Perl 5.22 allow remote attackers to cause a denial of service (out-of-bounds read) and possibly execute arbitrary code via a crafted (1) drive letter or (2) pInName argument.',
+                                                       'distribution' => 'VDir-MapPathA',
+                                                       'fixed_versions' => '>=5.22.2',
+                                                       'id' => 'CPANSA-VDir-MapPathA-2015-8608',
+                                                       'references' => [
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=126755',
+                                                                         'https://packetstormsecurity.com/files/136649/Perl-5.22-VDir-MapPathA-W-Out-Of-Bounds-Reads-Buffer-Over-Reads.html',
+                                                                         'http://www.oracle.com/technetwork/security-advisory/cpujul2017-3236622.html',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2017-02-07',
+                                                       'severity' => 'critical'
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.14',
+                                                       'cves' => [
+                                                                   'CVE-2011-1487'
+                                                                 ],
+                                                       'description' => 'The (1) lc, (2) lcfirst, (3) uc, and (4) ucfirst functions in Perl 5.10.x, 5.11.x, and 5.12.x through 5.12.3, and 5.13.x through 5.13.11, do not apply the taint attribute to the return value upon processing tainted input, which might allow context-dependent attackers to bypass the taint protection mechanism via a crafted string.',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => '>=5.14',
+                                                       'id' => 'CPANSA-perl-2011-1487',
+                                                       'references' => [
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=692844',
+                                                                         'http://openwall.com/lists/oss-security/2011/04/01/3',
+                                                                         'http://openwall.com/lists/oss-security/2011/04/04/35',
+                                                                         'https://bugzilla.redhat.com/show_bug.cgi?id=692898',
+                                                                         'http://rt.perl.org/rt3/Public/Bug/Display.html?id=87336',
+                                                                         'http://secunia.com/advisories/43921',
+                                                                         'http://www.securityfocus.com/bid/47124',
+                                                                         'http://perl5.git.perl.org/perl.git/commit/539689e74a3bcb04d29e4cd9396de91a81045b99',
+                                                                         'http://lists.fedoraproject.org/pipermail/package-announce/2011-April/057971.html',
+                                                                         'http://lists.fedoraproject.org/pipermail/package-announce/2011-April/057891.html',
+                                                                         'http://secunia.com/advisories/44168',
+                                                                         'http://www.debian.org/security/2011/dsa-2265',
+                                                                         'http://www.mandriva.com/security/advisories?name=MDVSA-2011:091',
+                                                                         'http://lists.opensuse.org/opensuse-security-announce/2011-05/msg00005.html',
+                                                                         'https://exchange.xforce.ibmcloud.com/vulnerabilities/66528'
+                                                                       ],
+                                                       'reported' => '2011-04-11',
+                                                       'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '<5.4.4',
+                                                       'cves' => [
+                                                                   'CVE-1999-1386'
+                                                                 ],
+                                                       'description' => 'Perl 5.004_04 and earlier follows symbolic links when running with the -e option, which allows local users to overwrite arbitrary files via a symlink attack on the /tmp/perl-eaXXXXX file.',
+                                                       'distribution' => '',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-1999-1386',
+                                                       'references' => [
+                                                                         'http://www.redhat.com/support/errata/rh50-errata-general.html#perl',
+                                                                         'http://www.iss.net/security_center/static/7243.php',
+                                                                         'http://marc.info/?l=bugtraq&m=88932165406213&w=2'
+                                                                       ],
+                                                       'reported' => '1999-12-31',
+                                                       'severity' => undef
                                                      }
                                                    ],
                                    'main_module' => 'perl',
@@ -44429,9 +46353,86 @@ sub db {
                                                    {
                                                      'date' => '2022-03-20T18:33:42',
                                                      'version' => '5.035010'
+                                                   },
+                                                   {
+                                                     'date' => '2022-04-20T20:33:20',
+                                                     'version' => '5.035011'
+                                                   },
+                                                   {
+                                                     'date' => '2022-05-21T00:12:21',
+                                                     'version' => '5.036000'
+                                                   },
+                                                   {
+                                                     'date' => '2022-05-22T19:36:07',
+                                                     'version' => '5.036000'
+                                                   },
+                                                   {
+                                                     'date' => '2022-05-28T00:26:10',
+                                                     'version' => '5.036000'
+                                                   },
+                                                   {
+                                                     'date' => '2022-05-28T02:33:40',
+                                                     'version' => '5.037000'
                                                    }
                                                  ]
-                                 }
+                                 },
+                       'sperl' => {
+                                    'advisories' => [
+                                                      {
+                                                        'affected_versions' => undef,
+                                                        'cves' => [
+                                                                    'CVE-1999-0034'
+                                                                  ],
+                                                        'description' => 'Buffer overflow in suidperl (sperl), Perl 4.x and 5.x.',
+                                                        'distribution' => '',
+                                                        'fixed_versions' => undef,
+                                                        'id' => 'CPANSA-sperl-1999-0034',
+                                                        'references' => [],
+                                                        'reported' => '1997-05-29',
+                                                        'severity' => undef
+                                                      },
+                                                      {
+                                                        'affected_versions' => undef,
+                                                        'cves' => [
+                                                                    'CVE-1999-0462'
+                                                                  ],
+                                                        'description' => 'suidperl in Linux Perl does not check the nosuid mount option on file systems, allowing local users to gain root access by placing a setuid script in a mountable file system, e.g. a CD-ROM or floppy disk.',
+                                                        'distribution' => '',
+                                                        'fixed_versions' => undef,
+                                                        'id' => 'CPANSA-sperl-1999-0462',
+                                                        'references' => [
+                                                                          'http://www.securityfocus.com/bid/339'
+                                                                        ],
+                                                        'reported' => '1999-03-17',
+                                                        'severity' => undef
+                                                      },
+                                                      {
+                                                        'affected_versions' => undef,
+                                                        'cves' => [
+                                                                    'CVE-2000-0703'
+                                                                  ],
+                                                        'description' => 'suidperl (aka sperl) does not properly cleanse the escape sequence "~!" before calling /bin/mail to send an error report, which allows local users to gain privileges by setting the "interactive" environmental variable and calling suidperl with a filename that contains the escape sequence.',
+                                                        'distribution' => '',
+                                                        'fixed_versions' => undef,
+                                                        'id' => 'CPANSA-sperl-2000-0703',
+                                                        'references' => [
+                                                                          'http://archives.neohapsis.com/archives/bugtraq/2000-08/0022.html',
+                                                                          'http://www.calderasystems.com/support/security/advisories/CSSA-2000-026.0.txt',
+                                                                          'http://www.securityfocus.com/bid/1547',
+                                                                          'http://www.novell.com/linux/security/advisories/suse_security_announce_59.html',
+                                                                          'http://www.redhat.com/support/errata/RHSA-2000-048.html',
+                                                                          'http://www.turbolinux.com/pipermail/tl-security-announce/2000-August/000017.html',
+                                                                          'http://archives.neohapsis.com/archives/bugtraq/2000-08/0153.html',
+                                                                          'http://archives.neohapsis.com/archives/bugtraq/2000-08/0086.html',
+                                                                          'http://archives.neohapsis.com/archives/bugtraq/2000-08/0113.html'
+                                                                        ],
+                                                        'reported' => '2000-10-20',
+                                                        'severity' => undef
+                                                      }
+                                                    ],
+                                    'main_module' => undef,
+                                    'versions' => []
+                                  }
                      },
           'module2dist' => {
                              'APR' => 'mod_perl',
@@ -44915,6 +46916,11 @@ sub db {
                              'CatalystX::Controller::OpenSearch' => 'Search-OpenSearch-Server',
                              'Class::Struct' => 'perl',
                              'Class::Struct::Tie_ISA' => 'perl',
+                             'Clipboard' => 'Clipboard',
+                             'Clipboard::MacPasteboard' => 'Clipboard',
+                             'Clipboard::Pb' => 'Clipboard',
+                             'Clipboard::Win32' => 'Clipboard',
+                             'Clipboard::Xclip' => 'Clipboard',
                              'Cmd::Dwarf' => 'Cmd-Dwarf',
                              'Compress::LZ4' => 'Compress-LZ4',
                              'Compress::Raw::Bunzip2' => 'Compress-Raw-Bzip2',
@@ -45487,6 +47493,7 @@ sub db {
                              'File::Find' => 'perl',
                              'File::Glob' => 'perl',
                              'File::Path' => 'File-Path',
+                             'File::RandomAccess' => 'Image-ExifTool',
                              'File::Spec' => 'PathTools',
                              'File::Spec::AmigaOS' => 'PathTools',
                              'File::Spec::Cygwin' => 'PathTools',
@@ -45514,6 +47521,7 @@ sub db {
                              'GPIB::ni' => 'GPIB',
                              'GPIB::rmt' => 'GPIB',
                              'Getopt::Std' => 'perl',
+                             'GitUtils' => 'perl',
                              'HTML::EP' => 'HTML-EP',
                              'HTML::EP::CGIEncryptForm' => 'HTML-EP',
                              'HTML::EP::EditTable' => 'HTML-EP',
@@ -45582,6 +47590,176 @@ sub db {
                              'IPC::Open2' => 'perl',
                              'IPC::Open3' => 'perl',
                              'IPTables::Parse' => 'IPTables-Parse',
+                             'Image::ExifTool' => 'Image-ExifTool',
+                             'Image::ExifTool::AES' => 'Image-ExifTool',
+                             'Image::ExifTool::AFCP' => 'Image-ExifTool',
+                             'Image::ExifTool::AIFF' => 'Image-ExifTool',
+                             'Image::ExifTool::APE' => 'Image-ExifTool',
+                             'Image::ExifTool::APP12' => 'Image-ExifTool',
+                             'Image::ExifTool::ASF' => 'Image-ExifTool',
+                             'Image::ExifTool::Apple' => 'Image-ExifTool',
+                             'Image::ExifTool::Audible' => 'Image-ExifTool',
+                             'Image::ExifTool::BMP' => 'Image-ExifTool',
+                             'Image::ExifTool::BPG' => 'Image-ExifTool',
+                             'Image::ExifTool::BZZ' => 'Image-ExifTool',
+                             'Image::ExifTool::BigTIFF' => 'Image-ExifTool',
+                             'Image::ExifTool::BuildTagLookup' => 'Image-ExifTool',
+                             'Image::ExifTool::CBOR' => 'Image-ExifTool',
+                             'Image::ExifTool::Canon' => 'Image-ExifTool',
+                             'Image::ExifTool::CanonCustom' => 'Image-ExifTool',
+                             'Image::ExifTool::CanonRaw' => 'Image-ExifTool',
+                             'Image::ExifTool::CanonVRD' => 'Image-ExifTool',
+                             'Image::ExifTool::CaptureOne' => 'Image-ExifTool',
+                             'Image::ExifTool::Casio' => 'Image-ExifTool',
+                             'Image::ExifTool::Charset' => 'Image-ExifTool',
+                             'Image::ExifTool::DICOM' => 'Image-ExifTool',
+                             'Image::ExifTool::DJI' => 'Image-ExifTool',
+                             'Image::ExifTool::DNG' => 'Image-ExifTool',
+                             'Image::ExifTool::DPX' => 'Image-ExifTool',
+                             'Image::ExifTool::DV' => 'Image-ExifTool',
+                             'Image::ExifTool::DarwinCore' => 'Image-ExifTool',
+                             'Image::ExifTool::DjVu' => 'Image-ExifTool',
+                             'Image::ExifTool::EXE' => 'Image-ExifTool',
+                             'Image::ExifTool::Exif' => 'Image-ExifTool',
+                             'Image::ExifTool::FITS' => 'Image-ExifTool',
+                             'Image::ExifTool::FLAC' => 'Image-ExifTool',
+                             'Image::ExifTool::FLIF' => 'Image-ExifTool',
+                             'Image::ExifTool::FLIR' => 'Image-ExifTool',
+                             'Image::ExifTool::Fixup' => 'Image-ExifTool',
+                             'Image::ExifTool::Flash' => 'Image-ExifTool',
+                             'Image::ExifTool::FlashPix' => 'Image-ExifTool',
+                             'Image::ExifTool::Font' => 'Image-ExifTool',
+                             'Image::ExifTool::FotoStation' => 'Image-ExifTool',
+                             'Image::ExifTool::FujiFilm' => 'Image-ExifTool',
+                             'Image::ExifTool::GE' => 'Image-ExifTool',
+                             'Image::ExifTool::GIF' => 'Image-ExifTool',
+                             'Image::ExifTool::GIMP' => 'Image-ExifTool',
+                             'Image::ExifTool::GPS' => 'Image-ExifTool',
+                             'Image::ExifTool::GeoTiff' => 'Image-ExifTool',
+                             'Image::ExifTool::Geotag' => 'Image-ExifTool',
+                             'Image::ExifTool::GoPro' => 'Image-ExifTool',
+                             'Image::ExifTool::H264' => 'Image-ExifTool',
+                             'Image::ExifTool::HP' => 'Image-ExifTool',
+                             'Image::ExifTool::HTML' => 'Image-ExifTool',
+                             'Image::ExifTool::HtmlDump' => 'Image-ExifTool',
+                             'Image::ExifTool::ICC_Profile' => 'Image-ExifTool',
+                             'Image::ExifTool::ID3' => 'Image-ExifTool',
+                             'Image::ExifTool::IPTC' => 'Image-ExifTool',
+                             'Image::ExifTool::ISO' => 'Image-ExifTool',
+                             'Image::ExifTool::ITC' => 'Image-ExifTool',
+                             'Image::ExifTool::Import' => 'Image-ExifTool',
+                             'Image::ExifTool::InDesign' => 'Image-ExifTool',
+                             'Image::ExifTool::JPEG' => 'Image-ExifTool',
+                             'Image::ExifTool::JPEGDigest' => 'Image-ExifTool',
+                             'Image::ExifTool::JSON' => 'Image-ExifTool',
+                             'Image::ExifTool::JVC' => 'Image-ExifTool',
+                             'Image::ExifTool::Jpeg2000' => 'Image-ExifTool',
+                             'Image::ExifTool::Kodak' => 'Image-ExifTool',
+                             'Image::ExifTool::KyoceraRaw' => 'Image-ExifTool',
+                             'Image::ExifTool::LIF' => 'Image-ExifTool',
+                             'Image::ExifTool::LNK' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::cs' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::de' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::en_ca' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::en_gb' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::es' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::fi' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::fr' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::it' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::ja' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::ko' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::nl' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::pl' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::ru' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::sv' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::tr' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::zh_cn' => 'Image-ExifTool',
+                             'Image::ExifTool::Lang::zh_tw' => 'Image-ExifTool',
+                             'Image::ExifTool::Leaf' => 'Image-ExifTool',
+                             'Image::ExifTool::Lytro' => 'Image-ExifTool',
+                             'Image::ExifTool::M2TS' => 'Image-ExifTool',
+                             'Image::ExifTool::MIE' => 'Image-ExifTool',
+                             'Image::ExifTool::MIFF' => 'Image-ExifTool',
+                             'Image::ExifTool::MNG' => 'Image-ExifTool',
+                             'Image::ExifTool::MOI' => 'Image-ExifTool',
+                             'Image::ExifTool::MPC' => 'Image-ExifTool',
+                             'Image::ExifTool::MPEG' => 'Image-ExifTool',
+                             'Image::ExifTool::MPF' => 'Image-ExifTool',
+                             'Image::ExifTool::MRC' => 'Image-ExifTool',
+                             'Image::ExifTool::MWG' => 'Image-ExifTool',
+                             'Image::ExifTool::MXF' => 'Image-ExifTool',
+                             'Image::ExifTool::MacOS' => 'Image-ExifTool',
+                             'Image::ExifTool::MakerNotes' => 'Image-ExifTool',
+                             'Image::ExifTool::Matroska' => 'Image-ExifTool',
+                             'Image::ExifTool::Microsoft' => 'Image-ExifTool',
+                             'Image::ExifTool::Minolta' => 'Image-ExifTool',
+                             'Image::ExifTool::MinoltaRaw' => 'Image-ExifTool',
+                             'Image::ExifTool::Motorola' => 'Image-ExifTool',
+                             'Image::ExifTool::Nikon' => 'Image-ExifTool',
+                             'Image::ExifTool::NikonCapture' => 'Image-ExifTool',
+                             'Image::ExifTool::NikonCustom' => 'Image-ExifTool',
+                             'Image::ExifTool::NikonSettings' => 'Image-ExifTool',
+                             'Image::ExifTool::Nintendo' => 'Image-ExifTool',
+                             'Image::ExifTool::OOXML' => 'Image-ExifTool',
+                             'Image::ExifTool::Ogg' => 'Image-ExifTool',
+                             'Image::ExifTool::Olympus' => 'Image-ExifTool',
+                             'Image::ExifTool::OpenEXR' => 'Image-ExifTool',
+                             'Image::ExifTool::Opus' => 'Image-ExifTool',
+                             'Image::ExifTool::Other' => 'Image-ExifTool',
+                             'Image::ExifTool::PCX' => 'Image-ExifTool',
+                             'Image::ExifTool::PDF' => 'Image-ExifTool',
+                             'Image::ExifTool::PGF' => 'Image-ExifTool',
+                             'Image::ExifTool::PICT' => 'Image-ExifTool',
+                             'Image::ExifTool::PLIST' => 'Image-ExifTool',
+                             'Image::ExifTool::PLUS' => 'Image-ExifTool',
+                             'Image::ExifTool::PNG' => 'Image-ExifTool',
+                             'Image::ExifTool::PPM' => 'Image-ExifTool',
+                             'Image::ExifTool::PSP' => 'Image-ExifTool',
+                             'Image::ExifTool::Palm' => 'Image-ExifTool',
+                             'Image::ExifTool::Panasonic' => 'Image-ExifTool',
+                             'Image::ExifTool::PanasonicRaw' => 'Image-ExifTool',
+                             'Image::ExifTool::Parrot' => 'Image-ExifTool',
+                             'Image::ExifTool::Pentax' => 'Image-ExifTool',
+                             'Image::ExifTool::PhaseOne' => 'Image-ExifTool',
+                             'Image::ExifTool::PhotoCD' => 'Image-ExifTool',
+                             'Image::ExifTool::PhotoMechanic' => 'Image-ExifTool',
+                             'Image::ExifTool::Photoshop' => 'Image-ExifTool',
+                             'Image::ExifTool::PostScript' => 'Image-ExifTool',
+                             'Image::ExifTool::PrintIM' => 'Image-ExifTool',
+                             'Image::ExifTool::Qualcomm' => 'Image-ExifTool',
+                             'Image::ExifTool::QuickTime' => 'Image-ExifTool',
+                             'Image::ExifTool::RIFF' => 'Image-ExifTool',
+                             'Image::ExifTool::RSRC' => 'Image-ExifTool',
+                             'Image::ExifTool::RTF' => 'Image-ExifTool',
+                             'Image::ExifTool::Radiance' => 'Image-ExifTool',
+                             'Image::ExifTool::Rawzor' => 'Image-ExifTool',
+                             'Image::ExifTool::Real' => 'Image-ExifTool',
+                             'Image::ExifTool::Reconyx' => 'Image-ExifTool',
+                             'Image::ExifTool::Red' => 'Image-ExifTool',
+                             'Image::ExifTool::Ricoh' => 'Image-ExifTool',
+                             'Image::ExifTool::Samsung' => 'Image-ExifTool',
+                             'Image::ExifTool::Sanyo' => 'Image-ExifTool',
+                             'Image::ExifTool::Scalado' => 'Image-ExifTool',
+                             'Image::ExifTool::Shortcuts' => 'Image-ExifTool',
+                             'Image::ExifTool::Sigma' => 'Image-ExifTool',
+                             'Image::ExifTool::SigmaRaw' => 'Image-ExifTool',
+                             'Image::ExifTool::Sony' => 'Image-ExifTool',
+                             'Image::ExifTool::SonyIDC' => 'Image-ExifTool',
+                             'Image::ExifTool::Stim' => 'Image-ExifTool',
+                             'Image::ExifTool::TagInfoXML' => 'Image-ExifTool',
+                             'Image::ExifTool::TagLookup' => 'Image-ExifTool',
+                             'Image::ExifTool::Text' => 'Image-ExifTool',
+                             'Image::ExifTool::Theora' => 'Image-ExifTool',
+                             'Image::ExifTool::Torrent' => 'Image-ExifTool',
+                             'Image::ExifTool::Unknown' => 'Image-ExifTool',
+                             'Image::ExifTool::VCard' => 'Image-ExifTool',
+                             'Image::ExifTool::Validate' => 'Image-ExifTool',
+                             'Image::ExifTool::Vorbis' => 'Image-ExifTool',
+                             'Image::ExifTool::WTV' => 'Image-ExifTool',
+                             'Image::ExifTool::XMP' => 'Image-ExifTool',
+                             'Image::ExifTool::ZIP' => 'Image-ExifTool',
+                             'Image::ExifTool::ZISRAW' => 'Image-ExifTool',
+                             'Image::ExifTool::iWork' => 'Image-ExifTool',
                              'Image::Info' => 'Image-Info',
                              'Image::Info::BMP' => 'Image-Info',
                              'Image::Info::GIF' => 'Image-Info',
@@ -45635,6 +47813,7 @@ sub db {
                              'Imager::Test' => 'Imager',
                              'Imager::Test::OverUtf8' => 'Imager',
                              'Imager::Transform' => 'Imager',
+                             'Imager::TrimColorList' => 'Imager',
                              'JNI' => 'perl',
                              'JPL::AutoLoader' => 'perl',
                              'JPL::Class' => 'perl',
@@ -46423,6 +48602,8 @@ sub db {
                              'POSIX::SigAction' => 'perl',
                              'POSIX::SigRt' => 'perl',
                              'POSIX::SigSet' => 'perl',
+                             'PalImg' => 'Perlbal',
+                             'PaletteModify' => 'Perlbal',
                              'Parallel::ForkManager' => 'Parallel-ForkManager',
                              'Parallel::ForkManager::Child' => 'Parallel-ForkManager',
                              'Perl::Version' => 'Perl-Version',
@@ -46431,6 +48612,56 @@ sub db {
                              'PerlIO::mmap' => 'perl',
                              'PerlIO::scalar' => 'perl',
                              'PerlIO::via' => 'perl',
+                             'Perlbal' => 'Perlbal',
+                             'Perlbal::AIO' => 'Perlbal',
+                             'Perlbal::BackendHTTP' => 'Perlbal',
+                             'Perlbal::Cache' => 'Perlbal',
+                             'Perlbal::ChunkedUploadState' => 'Perlbal',
+                             'Perlbal::ClientHTTP' => 'Perlbal',
+                             'Perlbal::ClientHTTPBase' => 'Perlbal',
+                             'Perlbal::ClientManage' => 'Perlbal',
+                             'Perlbal::ClientProxy' => 'Perlbal',
+                             'Perlbal::CommandContext' => 'Perlbal',
+                             'Perlbal::Fields' => 'Perlbal',
+                             'Perlbal::HTTPHeaders' => 'Perlbal',
+                             'Perlbal::ManageCommand' => 'Perlbal',
+                             'Perlbal::Plugin::AccessControl' => 'Perlbal',
+                             'Perlbal::Plugin::AutoRemoveLeadingDir' => 'Perlbal',
+                             'Perlbal::Plugin::Cgilike' => 'Perlbal',
+                             'Perlbal::Plugin::Cgilike::Request' => 'Perlbal',
+                             'Perlbal::Plugin::EchoService' => 'Perlbal',
+                             'Perlbal::Plugin::EchoService::Client' => 'Perlbal',
+                             'Perlbal::Plugin::FlvStreaming' => 'Perlbal',
+                             'Perlbal::Plugin::Highpri' => 'Perlbal',
+                             'Perlbal::Plugin::Include' => 'Perlbal',
+                             'Perlbal::Plugin::LazyCDN' => 'Perlbal',
+                             'Perlbal::Plugin::MaxContentLength' => 'Perlbal',
+                             'Perlbal::Plugin::NotModified' => 'Perlbal',
+                             'Perlbal::Plugin::Palimg' => 'Perlbal',
+                             'Perlbal::Plugin::Queues' => 'Perlbal',
+                             'Perlbal::Plugin::Redirect' => 'Perlbal',
+                             'Perlbal::Plugin::Stats' => 'Perlbal',
+                             'Perlbal::Plugin::Stats::Storage' => 'Perlbal',
+                             'Perlbal::Plugin::Throttle' => 'Perlbal',
+                             'Perlbal::Plugin::Throttle::Store' => 'Perlbal',
+                             'Perlbal::Plugin::Throttle::Store::Memcached' => 'Perlbal',
+                             'Perlbal::Plugin::Throttle::Store::Memory' => 'Perlbal',
+                             'Perlbal::Plugin::Vhosts' => 'Perlbal',
+                             'Perlbal::Plugin::Vpaths' => 'Perlbal',
+                             'Perlbal::Plugin::XFFExtras' => 'Perlbal',
+                             'Perlbal::Pool' => 'Perlbal',
+                             'Perlbal::ReproxyManager' => 'Perlbal',
+                             'Perlbal::Service' => 'Perlbal',
+                             'Perlbal::Socket' => 'Perlbal',
+                             'Perlbal::SocketSSL' => 'Perlbal',
+                             'Perlbal::SocketSSL2' => 'Perlbal',
+                             'Perlbal::TCPListener' => 'Perlbal',
+                             'Perlbal::Test' => 'Perlbal',
+                             'Perlbal::Test::WebClient' => 'Perlbal',
+                             'Perlbal::Test::WebServer' => 'Perlbal',
+                             'Perlbal::UploadListener' => 'Perlbal',
+                             'Perlbal::Util' => 'Perlbal',
+                             'PhonyClipboard' => 'Clipboard',
                              'Plack::Middleware::Session' => 'Plack-Middleware-Session',
                              'Plack::Middleware::Session::Cookie' => 'Plack-Middleware-Session',
                              'Plack::Session' => 'Plack-Middleware-Session',
@@ -46443,6 +48674,7 @@ sub db {
                              'Plack::Session::Store::File' => 'Plack-Middleware-Session',
                              'Plack::Session::Store::Null' => 'Plack-Middleware-Session',
                              'Pod::Html' => 'perl',
+                             'Pod::Html::Util' => 'perl',
                              'Pod::Simple::XHTML::LocalPodLinks' => 'perl',
                              'Proc::Daemon' => 'Proc-Daemon',
                              'Proc::Killall' => 'Proc-ProcessTable',
@@ -46793,6 +49025,7 @@ sub db {
                              'attrs' => 'perl',
                              'back_tick_a_command' => 'PAR',
                              'blib' => 'perl',
+                             'builtin' => 'perl',
                              'bytes' => 'perl',
                              'charnames' => 'perl',
                              'deprecate' => 'perl',
