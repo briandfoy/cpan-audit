@@ -71,4 +71,7 @@ hacks/
 Build.PL
 minil.toml
 
+.gitmodules
+cpan-security-advisory/
+
 

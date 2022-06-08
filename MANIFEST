@@ -1,4 +1,5 @@
 Changes
+CONTRIBUTING.md
 cpanfile
 lib/CPAN/Audit.pm
 lib/CPAN/Audit/DB.pm
@@ -29,5 +30,6 @@ t/discover/cpanfile_snapshot.t
 t/installed.t
 t/lib/TestCommand.pm
 t/query.t
+t/test_manifest
 t/version.t
 util/generate
