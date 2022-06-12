@@ -1,12 +1,12 @@
-# created by util/generate at Wed Jun  8 08:45:18 2022
-# cpan-security-advisory +b21b6c6a83103879a9a4ccf6f9d2fb83c3cd6c00
+# created by util/generate at Sun Jun 12 14:59:41 2022
+# cpan-security-advisory +3c3c009b42e6049f081bd1b13fd6e4fc60610c47
 #
 package CPAN::Audit::DB;
 
 use strict;
 use warnings;
 
-our $VERSION = '20220608';
+our $VERSION = '20220612';
 
 sub db {
     {
@@ -18,7 +18,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2012-5377'
                                                                        ],
-                                                             'description' => 'Untrusted search path vulnerability in the installation functionality in ActivePerl 5.16.1.1601, when installed in the top-level C:\\ directory, allows local users to gain privileges via a Trojan horse DLL in the C:\\Perl\\Site\\bin directory, which is added to the PATH system environment variable, as demonstrated by a Trojan horse wlbsctrl.dll file used by the "IKE and AuthIP IPsec Keying Modules" system service in Windows Vista SP1, Windows Server 2008 SP2, Windows 7 SP1, and Windows 8 Release Preview.',
+                                                             'description' => 'Untrusted search path vulnerability in the installation functionality in ActivePerl 5.16.1.1601, when installed in the top-level C:\\ directory, allows local users to gain privileges via a Trojan horse DLL in the C:\\Perl\\Site\\bin directory, which is added to the PATH system environment variable, as demonstrated by a Trojan horse wlbsctrl.dll file used by the "IKE and AuthIP IPsec Keying Modules" system service in Windows Vista SP1, Windows Server 2008 SP2, Windows 7 SP1, and Windows 8 Release Preview.
+',
                                                              'distribution' => 'ActivePerl',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-ActivePerl-2012-5377',
@@ -34,7 +35,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2006-2856'
                                                                        ],
-                                                             'description' => 'ActiveState ActivePerl 5.8.8.817 for Windows configures the site/lib directory with "Users" group permissions for changing files, which allows local users to gain privileges by creating a malicious sitecustomize.pl file in that directory.  NOTE: The provenance of this information is unknown; the details are obtained solely from third party information.',
+                                                             'description' => 'ActiveState ActivePerl 5.8.8.817 for Windows configures the site/lib directory with "Users" group permissions for changing files, which allows local users to gain privileges by creating a malicious sitecustomize.pl file in that directory.  NOTE: The provenance of this information is unknown; the details are obtained solely from third party information.
+',
                                                              'distribution' => 'ActivePerl',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-ActivePerl-2006-2856',
@@ -53,7 +55,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2004-2286'
                                                                        ],
-                                                             'description' => 'Integer overflow in the duplication operator in ActivePerl allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a large multiplier, which may trigger a buffer overflow.',
+                                                             'description' => 'Integer overflow in the duplication operator in ActivePerl allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a large multiplier, which may trigger a buffer overflow.
+',
                                                              'distribution' => 'ActivePerl',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-ActivePerl-2004-2286',
@@ -70,7 +73,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2004-2022'
                                                                        ],
-                                                             'description' => 'ActivePerl 5.8.x and others, and Larry Wall\'s Perl 5.6.1 and others, when running on Windows systems, allows attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long argument to the system command, which leads to a stack-based buffer overflow.  NOTE: it is unclear whether this bug is in Perl or the OS API that is used by Perl.',
+                                                             'description' => 'ActivePerl 5.8.x and others, and Larry Wall\'s Perl 5.6.1 and others, when running on Windows systems, allows attackers to cause a denial of service (crash) and possibly execute arbitrary code via a long argument to the system command, which leads to a stack-based buffer overflow.  NOTE: it is unclear whether this bug is in Perl or the OS API that is used by Perl.
+',
                                                              'distribution' => 'ActivePerl',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-ActivePerl-2004-2022',
@@ -93,7 +97,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2004-0377'
                                                                        ],
-                                                             'description' => 'Buffer overflow in the win32_stat function for (1) ActiveState\'s ActivePerl and (2) Larry Wall\'s Perl before 5.8.3 allows local or remote attackers to execute arbitrary commands via filenames that end in a backslash character.',
+                                                             'description' => 'Buffer overflow in the win32_stat function for (1) ActiveState\'s ActivePerl and (2) Larry Wall\'s Perl before 5.8.3 allows local or remote attackers to execute arbitrary commands via filenames that end in a backslash character.
+',
                                                              'distribution' => 'ActivePerl',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-ActivePerl-2004-0377',
@@ -113,7 +118,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2001-0815'
                                                                        ],
-                                                             'description' => 'Buffer overflow in PerlIS.dll in Activestate ActivePerl 5.6.1.629 and earlier allows remote attackers to execute arbitrary code via an HTTP request for a long filename that ends in a .pl extension.',
+                                                             'description' => 'Buffer overflow in PerlIS.dll in Activestate ActivePerl 5.6.1.629 and earlier allows remote attackers to execute arbitrary code via an HTTP request for a long filename that ends in a .pl extension.
+',
                                                              'distribution' => 'ActivePerl',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-ActivePerl-2001-0815',
@@ -182,7 +188,8 @@ sub db {
                                                                     'cves' => [
                                                                                 'CVE-2010-3845'
                                                                               ],
-                                                                    'description' => 'libapache-authenhook-perl 2.00-04 stores usernames and passwords in plaintext in the vhost error log.',
+                                                                    'description' => 'libapache-authenhook-perl 2.00-04 stores usernames and passwords in plaintext in the vhost error log.
+',
                                                                     'distribution' => 'Apache-AuthenHook',
                                                                     'fixed_versions' => undef,
                                                                     'id' => 'CPANSA-Apache-AuthenHook-2010-3845',
@@ -216,7 +223,7 @@ sub db {
                                                                 {
                                                                   'affected_versions' => '<2.01',
                                                                   'cves' => [],
-                                                                  'description' => 'Problem in session_id validation, which allows createtion of session with invalid ids.
+                                                                  'description' => 'Problem in session_id validation, which allows creation of session with invalid ids.
 ',
                                                                   'distribution' => 'Apache-SessionX',
                                                                   'fixed_versions' => '>=2.01',
@@ -250,7 +257,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2012-6141'
                                                                         ],
-                                                              'description' => 'The App::Context module 0.01 through 0.968 for Perl does not properly use the Storable::thaw function, which allows remote attackers to execute arbitrary code via a crafted request to (1) App::Session::Cookie or (2) App::Session::HTMLHidden, which is not properly handled when it is deserialized.',
+                                                              'description' => 'The App::Context module 0.01 through 0.968 for Perl does not properly use the Storable::thaw function, which allows remote attackers to execute arbitrary code via a crafted request to (1) App::Session::Cookie or (2) App::Session::HTMLHidden, which is not properly handled when it is deserialized.
+',
                                                               'distribution' => 'App-Context',
                                                               'fixed_versions' => '>0.968',
                                                               'id' => 'CPANSA-App-Context-2012-6141',
@@ -1512,7 +1520,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2007-4829'
                                                                         ],
-                                                              'description' => 'Directory traversal vulnerability in the Archive::Tar Perl module 1.36 and earlier allows user-assisted remote attackers to overwrite arbitrary files via a TAR archive that contains a file whose name is an absolute path or has ".." sequences.',
+                                                              'description' => 'Directory traversal vulnerability in the Archive::Tar Perl module 1.36 and earlier allows user-assisted remote attackers to overwrite arbitrary files via a TAR archive that contains a file whose name is an absolute path or has ".." sequences.
+',
                                                               'distribution' => 'Archive-Tar',
                                                               'fixed_versions' => '>1.36',
                                                               'id' => 'CPANSA-Archive-Tar-2007-4829',
@@ -1952,7 +1961,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2004-1096'
                                                                         ],
-                                                              'description' => 'Archive::Zip Perl module before 1.14, when used by antivirus programs such as amavisd-new, allows remote attackers to bypass antivirus protection via a compressed file with both local and global headers set to zero, which does not prevent the compressed file from being opened on a target system.',
+                                                              'description' => 'Archive::Zip Perl module before 1.14, when used by antivirus programs such as amavisd-new, allows remote attackers to bypass antivirus protection via a compressed file with both local and global headers set to zero, which does not prevent the compressed file from being opened on a target system.
+',
                                                               'distribution' => 'Archive-Zip',
                                                               'fixed_versions' => undef,
                                                               'id' => 'CPANSA-Archive-Zip-2004-1096',
@@ -2308,7 +2318,8 @@ sub db {
                                                                  'cves' => [
                                                                              'CVE-2011-4117'
                                                                            ],
-                                                                 'description' => 'The Batch::BatchRun module 1.03 for Perl does not properly handle temporary files.',
+                                                                 'description' => 'The Batch::BatchRun module 1.03 for Perl does not properly handle temporary files.
+',
                                                                  'distribution' => 'Batch-BatchRun',
                                                                  'fixed_versions' => undef,
                                                                  'id' => 'CPANSA-Batch-BatchRun-2011-4117',
@@ -2331,7 +2342,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2012-5526'
                                                                 ],
-                                                      'description' => 'CGI.pm module before 3.63 for Perl does not properly escape newlines in (1) Set-Cookie or (2) P3P headers, which might allow remote attackers to inject arbitrary headers into responses from applications that use CGI.pm.',
+                                                      'description' => 'CGI.pm module before 3.63 for Perl does not properly escape newlines in (1) Set-Cookie or (2) P3P headers, which might allow remote attackers to inject arbitrary headers into responses from applications that use CGI.pm.
+',
                                                       'distribution' => 'CGI',
                                                       'fixed_versions' => '>=3.63',
                                                       'id' => 'CPANSA-CGI-2012-5526',
@@ -2393,7 +2405,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2010-4411'
                                                                 ],
-                                                      'description' => 'Unspecified vulnerability in CGI.pm 3.50 and earlier allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via unknown vectors.  NOTE: this issue exists because of an incomplete fix for CVE-2010-2761.',
+                                                      'description' => 'Unspecified vulnerability in CGI.pm 3.50 and earlier allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via unknown vectors.  NOTE: this issue exists because of an incomplete fix for CVE-2010-2761.
+',
                                                       'distribution' => 'CGI',
                                                       'fixed_versions' => '>=3.50',
                                                       'id' => 'CPANSA-CGI-2010-4411',
@@ -2422,7 +2435,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2010-2761'
                                                                 ],
-                                                      'description' => 'The multipart_init function in (1) CGI.pm before 3.50 and (2) Simple.pm in CGI::Simple 1.112 and earlier uses a hardcoded value of the MIME boundary string in multipart/x-mixed-replace content, which allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via crafted input that contains this value, a different vulnerability than CVE-2010-3172.',
+                                                      'description' => 'The multipart_init function in (1) CGI.pm before 3.50 and (2) Simple.pm in CGI::Simple 1.112 and earlier uses a hardcoded value of the MIME boundary string in multipart/x-mixed-replace content, which allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via crafted input that contains this value, a different vulnerability than CVE-2010-3172.
+',
                                                       'distribution' => 'CGI',
                                                       'fixed_versions' => '>=3.50',
                                                       'id' => 'CPANSA-CGI-2010-2761',
@@ -3414,7 +3428,8 @@ sub db {
                                                                   'cves' => [
                                                                               'CVE-2013-7329'
                                                                             ],
-                                                                  'description' => 'The CGI::Application module before 4.50_50 and 4.50_51 for Perl, when run modes are not specified, allows remote attackers to obtain sensitive information (web queries and environment details) via vectors related to the dump_html function.',
+                                                                  'description' => 'The CGI::Application module before 4.50_50 and 4.50_51 for Perl, when run modes are not specified, allows remote attackers to obtain sensitive information (web queries and environment details) via vectors related to the dump_html function.
+',
                                                                   'distribution' => 'CGI-Application',
                                                                   'fixed_versions' => undef,
                                                                   'id' => 'CPANSA-CGI-Application-2013-7329',
@@ -4044,7 +4059,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2006-1279'
                                                                         ],
-                                                              'description' => 'CGI::Session 4.03-1 allows local users to overwrite arbitrary files via a symlink attack on temporary files used by (1) Driver::File, (2) Driver::db_file, and possibly (3) Driver::sqlite.',
+                                                              'description' => 'CGI::Session 4.03-1 allows local users to overwrite arbitrary files via a symlink attack on temporary files used by (1) Driver::File, (2) Driver::db_file, and possibly (3) Driver::sqlite.
+',
                                                               'distribution' => 'CGI-Session',
                                                               'fixed_versions' => undef,
                                                               'id' => 'CPANSA-CGI-Session-2006-1279',
@@ -4062,7 +4078,8 @@ sub db {
                                                             {
                                                               'affected_versions' => '<4.12',
                                                               'cves' => [],
-                                                              'description' => 'possible SQL injection attack',
+                                                              'description' => 'possible SQL injection attack
+',
                                                               'distribution' => 'CGI-Session',
                                                               'fixed_versions' => '>=4.12',
                                                               'id' => 'CPANSA-CGI-Session-2006-01',
@@ -4415,7 +4432,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2010-2761'
                                                                        ],
-                                                             'description' => 'The multipart_init function in (1) CGI.pm before 3.50 and (2) Simple.pm in CGI::Simple 1.112 and earlier uses a hardcoded value of the MIME boundary string in multipart/x-mixed-replace content, which allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via crafted input that contains this value, a different vulnerability than CVE-2010-3172.',
+                                                             'description' => 'The multipart_init function in (1) CGI.pm before 3.50 and (2) Simple.pm in CGI::Simple 1.112 and earlier uses a hardcoded value of the MIME boundary string in multipart/x-mixed-replace content, which allows remote attackers to inject arbitrary HTTP headers and conduct HTTP response splitting attacks via crafted input that contains this value, a different vulnerability than CVE-2010-3172.
+',
                                                              'distribution' => 'CGI-Simple',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-CGI-Simple-2010-2761',
@@ -6055,7 +6073,8 @@ sub db {
                                                                  'cves' => [
                                                                              'CVE-2020-16155'
                                                                            ],
-                                                                 'description' => 'The CPAN::Checksums package 2.12 for Perl does not uniquely define signed data.',
+                                                                 'description' => 'The CPAN::Checksums package 2.12 for Perl does not uniquely define signed data.
+',
                                                                  'distribution' => 'CPAN-Checksums',
                                                                  'fixed_versions' => undef,
                                                                  'id' => 'CPANSA-CPAN-Checksums-2020-16155',
@@ -6210,7 +6229,8 @@ sub db {
                                                                'cves' => [
                                                                            'CVE-2014-1875'
                                                                          ],
-                                                               'description' => 'The Capture::Tiny module before 0.24 for Perl allows local users to write to arbitrary files via a symlink attack on a temporary file.',
+                                                               'description' => 'The Capture::Tiny module before 0.24 for Perl allows local users to write to arbitrary files via a symlink attack on a temporary file.
+',
                                                                'distribution' => 'Capture-Tiny',
                                                                'fixed_versions' => undef,
                                                                'id' => 'CPANSA-Capture-Tiny-2014-1875',
@@ -7587,8 +7607,9 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2014-5509'
                                                                       ],
-                                                            'description' => 'clipedit in the Clipboard module for Perl allows local users to delete arbitrary files via a symlink attack on /tmp/clipedit$$.',
-                                                            'distribution' => '',
+                                                            'description' => 'clipedit in the Clipboard module for Perl allows local users to delete arbitrary files via a symlink attack on /tmp/clipedit$$.
+',
+                                                            'distribution' => 'Clipboard',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-Clipboard-2014-5509',
                                                             'references' => [
@@ -7927,6 +7948,30 @@ sub db {
                                                                                        'https://metacpan.org/changes/distribution/Compress-Raw-Bzip2'
                                                                                      ],
                                                                      'reported' => '2010-01-27'
+                                                                   },
+                                                                   {
+                                                                     'affected_versions' => '<2.018',
+                                                                     'cves' => [
+                                                                                 'CVE-2009-1884'
+                                                                               ],
+                                                                     'description' => 'Off-by-one error in the bzinflate function in Bzip2.xs in the Compress-Raw-Bzip2 module before 2.018 for Perl allows context-dependent attackers to cause a denial of service (application hang or crash) via a crafted bzip2 compressed stream that triggers a buffer overflow, a related issue to CVE-2009-1391.
+',
+                                                                     'distribution' => 'Compress-Raw-Bzip2',
+                                                                     'fixed_versions' => '>=2.018',
+                                                                     'id' => 'CPANSA-Compress-Raw-Bzip2-2009-1884',
+                                                                     'references' => [
+                                                                                       'http://security.gentoo.org/glsa/glsa-200908-07.xml',
+                                                                                       'https://bugs.gentoo.org/show_bug.cgi?id=281955',
+                                                                                       'https://www.redhat.com/archives/fedora-package-announce/2009-August/msg00999.html',
+                                                                                       'https://www.redhat.com/archives/fedora-package-announce/2009-August/msg00982.html',
+                                                                                       'http://www.securityfocus.com/bid/36082',
+                                                                                       'http://secunia.com/advisories/36386',
+                                                                                       'https://bugzilla.redhat.com/show_bug.cgi?id=518278',
+                                                                                       'http://secunia.com/advisories/36415',
+                                                                                       'https://exchange.xforce.ibmcloud.com/vulnerabilities/52628'
+                                                                                     ],
+                                                                     'reported' => '2009-08-19',
+                                                                     'severity' => undef
                                                                    }
                                                                  ],
                                                  'main_module' => 'Compress::Raw::Bzip2',
@@ -8299,7 +8344,8 @@ sub db {
                                                                     'cves' => [
                                                                                 'CVE-2009-1391'
                                                                               ],
-                                                                    'description' => 'Off-by-one error in the inflate function in Zlib.xs in Compress::Raw::Zlib Perl module before 2.017, as used in AMaViS, SpamAssassin, and possibly other products, allows context-dependent attackers to cause a denial of service (hang or crash) via a crafted zlib compressed stream that triggers a heap-based buffer overflow, as exploited in the wild by Trojan.Downloader-71014 in June 2009.',
+                                                                    'description' => 'Off-by-one error in the inflate function in Zlib.xs in Compress::Raw::Zlib Perl module before 2.017, as used in AMaViS, SpamAssassin, and possibly other products, allows context-dependent attackers to cause a denial of service (hang or crash) via a crafted zlib compressed stream that triggers a heap-based buffer overflow, as exploited in the wild by Trojan.Downloader-71014 in June 2009.
+',
                                                                     'distribution' => 'Compress-Raw-Zlib',
                                                                     'fixed_versions' => undef,
                                                                     'id' => 'CPANSA-Compress-Raw-Zlib-2009-1391',
@@ -8706,7 +8752,8 @@ sub db {
                                                                   'cves' => [
                                                                               'CVE-2012-2451'
                                                                             ],
-                                                                  'description' => 'The Config::IniFiles module before 2.71 for Perl creates temporary files with predictable names, which allows local users to overwrite arbitrary files via a symlink attack.  NOTE: some of these details are obtained from third party information.  NOTE: it has been reported that this might only be exploitable by writing in the same directory as the .ini file. If this is the case, then this issue might not cross privilege boundaries.',
+                                                                  'description' => 'The Config::IniFiles module before 2.71 for Perl creates temporary files with predictable names, which allows local users to overwrite arbitrary files via a symlink attack.  NOTE: some of these details are obtained from third party information.  NOTE: it has been reported that this might only be exploitable by writing in the same directory as the .ini file. If this is the case, then this issue might not cross privilege boundaries.
+',
                                                                   'distribution' => 'Config-IniFiles',
                                                                   'fixed_versions' => undef,
                                                                   'id' => 'CPANSA-Config-IniFiles-2012-2451',
@@ -10210,7 +10257,8 @@ sub db {
                                                                'cves' => [
                                                                            'CVE-2013-7488'
                                                                          ],
-                                                               'description' => 'perl-Convert-ASN1 (aka the Convert::ASN1 module for Perl) through 0.27 allows remote attackers to cause an infinite loop via unexpected input.',
+                                                               'description' => 'perl-Convert-ASN1 (aka the Convert::ASN1 module for Perl) through 0.27 allows remote attackers to cause an infinite loop via unexpected input.
+',
                                                                'distribution' => 'Convert-ASN1',
                                                                'fixed_versions' => undef,
                                                                'id' => 'CPANSA-Convert-ASN1-2013-7488',
@@ -10354,7 +10402,8 @@ sub db {
                                                                 'cves' => [
                                                                             'CVE-2005-1349'
                                                                           ],
-                                                                'description' => 'Buffer overflow in Convert-UUlib (Convert::UUlib) before 1.051 allows remote attackers to execute arbitrary code via a malformed parameter to a read operation.',
+                                                                'description' => 'Buffer overflow in Convert-UUlib (Convert::UUlib) before 1.051 allows remote attackers to execute arbitrary code via a malformed parameter to a read operation.
+',
                                                                 'distribution' => 'Convert-UUlib',
                                                                 'fixed_versions' => undef,
                                                                 'id' => 'CPANSA-Convert-UUlib-2005-1349',
@@ -11008,7 +11057,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2006-0898'
                                                                       ],
-                                                            'description' => 'Crypt::CBC Perl module 2.16 and earlier, when running in RandomIV mode, uses an initialization vector (IV) of 8 bytes, which results in weaker encryption when used with a cipher that requires a larger block size than 8 bytes, such as Rijndael.',
+                                                            'description' => 'Crypt::CBC Perl module 2.16 and earlier, when running in RandomIV mode, uses an initialization vector (IV) of 8 bytes, which results in weaker encryption when used with a cipher that requires a larger block size than 8 bytes, such as Rijndael.
+',
                                                             'distribution' => 'Crypt-CBC',
                                                             'fixed_versions' => '>=2.17',
                                                             'id' => 'CPANSA-Crypt-CBC-2006-0898',
@@ -11196,7 +11246,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2011-3599'
                                                                       ],
-                                                            'description' => 'The Crypt::DSA (aka Crypt-DSA) module 1.17 and earlier for Perl, when /dev/random is absent, uses the Data::Random module, which makes it easier for remote attackers to spoof a signature, or determine the signing key of a signed message, via a brute-force attack.',
+                                                            'description' => 'The Crypt::DSA (aka Crypt-DSA) module 1.17 and earlier for Perl, when /dev/random is absent, uses the Data::Random module, which makes it easier for remote attackers to spoof a signature, or determine the signing key of a signed message, via a brute-force attack.
+',
                                                             'distribution' => 'Crypt-DSA',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-Crypt-DSA-2011-3599',
@@ -12030,7 +12081,8 @@ sub db {
                                                          'cves' => [
                                                                      'CVE-2012-1151'
                                                                    ],
-                                                         'description' => 'Multiple format string vulnerabilities in dbdimp.c in DBD::Pg (aka DBD-Pg or libdbd-pg-perl) module before 2.19.0 for Perl allow remote PostgreSQL database servers to cause a denial of service (process crash) via format string specifiers in (1) a crafted database warning to the pg_warn function or (2) a crafted DBD statement to the dbd_st_prepare function.',
+                                                         'description' => 'Multiple format string vulnerabilities in dbdimp.c in DBD::Pg (aka DBD-Pg or libdbd-pg-perl) module before 2.19.0 for Perl allow remote PostgreSQL database servers to cause a denial of service (process crash) via format string specifiers in (1) a crafted database warning to the pg_warn function or (2) a crafted DBD statement to the dbd_st_prepare function.
+',
                                                          'distribution' => 'DBD-Pg',
                                                          'fixed_versions' => undef,
                                                          'id' => 'CPANSA-DBD-Pg-2012-1151',
@@ -12059,7 +12111,8 @@ sub db {
                                                          'cves' => [
                                                                      'CVE-2009-0663'
                                                                    ],
-                                                         'description' => 'Heap-based buffer overflow in the DBD::Pg (aka DBD-Pg or libdbd-pg-perl) module 1.49 for Perl might allow context-dependent attackers to execute arbitrary code via unspecified input to an application that uses the getline and pg_getline functions to read database rows.',
+                                                         'description' => 'Heap-based buffer overflow in the DBD::Pg (aka DBD-Pg or libdbd-pg-perl) module 1.49 for Perl might allow context-dependent attackers to execute arbitrary code via unspecified input to an application that uses the getline and pg_getline functions to read database rows.
+',
                                                          'distribution' => 'DBD-Pg',
                                                          'fixed_versions' => undef,
                                                          'id' => 'CPANSA-DBD-Pg-2009-0663',
@@ -12085,7 +12138,8 @@ sub db {
                                                          'cves' => [
                                                                      'CVE-2009-1341'
                                                                    ],
-                                                         'description' => 'Memory leak in the dequote_bytea function in quote.c in the DBD::Pg (aka DBD-Pg or libdbd-pg-perl) module before 2.0.0 for Perl allows context-dependent attackers to cause a denial of service (memory consumption) by fetching data with BYTEA columns.',
+                                                         'description' => 'Memory leak in the dequote_bytea function in quote.c in the DBD::Pg (aka DBD-Pg or libdbd-pg-perl) module before 2.0.0 for Perl allows context-dependent attackers to cause a denial of service (memory consumption) by fetching data with BYTEA columns.
+',
                                                          'distribution' => 'DBD-Pg',
                                                          'fixed_versions' => '>=2.0.0',
                                                          'id' => 'CPANSA-DBD-Pg-2009-1341',
@@ -13815,7 +13869,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2014-10402'
                                                                 ],
-                                                      'description' => 'An issue was discovered in the DBI module through 1.643 for Perl. DBD::File drivers can open files from folders other than those specifically passed via the f_dir attribute in the data source name (DSN). NOTE: this issue exists because of an incomplete fix for CVE-2014-10401.',
+                                                      'description' => 'An issue was discovered in the DBI module through 1.643 for Perl. DBD::File drivers can open files from folders other than those specifically passed via the f_dir attribute in the data source name (DSN). NOTE: this issue exists because of an incomplete fix for CVE-2014-10401.
+',
                                                       'distribution' => 'DBI',
                                                       'fixed_versions' => undef,
                                                       'id' => 'CPANSA-DBI-2014-10402',
@@ -13830,7 +13885,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2014-10401'
                                                                 ],
-                                                      'description' => 'An issue was discovered in the DBI module before 1.632 for Perl. DBD::File drivers can open files from folders other than those specifically passed via the f_dir attribute.',
+                                                      'description' => 'An issue was discovered in the DBI module before 1.632 for Perl. DBD::File drivers can open files from folders other than those specifically passed via the f_dir attribute.
+',
                                                       'distribution' => 'DBI',
                                                       'fixed_versions' => undef,
                                                       'id' => 'CPANSA-DBI-2014-10401',
@@ -13848,7 +13904,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2013-7491'
                                                                 ],
-                                                      'description' => 'An issue was discovered in the DBI module before 1.628 for Perl. Stack corruption occurs when a user-defined function requires a non-trivial amount of memory and the Perl stack gets reallocated.',
+                                                      'description' => 'An issue was discovered in the DBI module before 1.628 for Perl. Stack corruption occurs when a user-defined function requires a non-trivial amount of memory and the Perl stack gets reallocated.
+',
                                                       'distribution' => 'DBI',
                                                       'fixed_versions' => undef,
                                                       'id' => 'CPANSA-DBI-2013-7491',
@@ -13865,7 +13922,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2013-7490'
                                                                 ],
-                                                      'description' => 'An issue was discovered in the DBI module before 1.632 for Perl. Using many arguments to methods for Callbacks may lead to memory corruption.',
+                                                      'description' => 'An issue was discovered in the DBI module before 1.632 for Perl. Using many arguments to methods for Callbacks may lead to memory corruption.
+',
                                                       'distribution' => 'DBI',
                                                       'fixed_versions' => undef,
                                                       'id' => 'CPANSA-DBI-2013-7490',
@@ -16968,7 +17026,8 @@ sub db {
                                                                      'cves' => [
                                                                                  'CVE-2011-2201'
                                                                                ],
-                                                                     'description' => 'The Data::FormValidator module 4.66 and earlier for Perl, when untaint_all_constraints is enabled, does not properly preserve the taint attribute of data, which might allow remote attackers to bypass the taint protection mechanism via form input.',
+                                                                     'description' => 'The Data::FormValidator module 4.66 and earlier for Perl, when untaint_all_constraints is enabled, does not properly preserve the taint attribute of data, which might allow remote attackers to bypass the taint protection mechanism via form input.
+',
                                                                      'distribution' => 'Data-FormValidator',
                                                                      'fixed_versions' => '>4.66',
                                                                      'id' => 'CPANSA-Data-FormValidator-2011-2201',
@@ -17333,7 +17392,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2013-4184'
                                                                       ],
-                                                            'description' => 'Perl module Data::UUID from CPAN version 1.219 vulnerable to symlink attacks',
+                                                            'description' => 'Perl module Data::UUID from CPAN version 1.219 vulnerable to symlink attacks
+',
                                                             'distribution' => 'Data-UUID',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-Data-UUID-2013-4184',
@@ -17680,7 +17740,8 @@ sub db {
                                                                    'cves' => [
                                                                                'CVE-2008-3502'
                                                                              ],
-                                                                   'description' => 'Unspecified vulnerability in Best Practical Solutions RT 3.0.0 through 3.6.6 allows remote authenticated users to cause a denial of service (CPU or memory consumption) via unspecified vectors related to the Devel::StackTrace module for Perl.',
+                                                                   'description' => 'Unspecified vulnerability in Best Practical Solutions RT 3.0.0 through 3.6.6 allows remote authenticated users to cause a denial of service (CPU or memory consumption) via unspecified vectors related to the Devel::StackTrace module for Perl.
+',
                                                                    'distribution' => 'Devel-StackTrace',
                                                                    'fixed_versions' => '>=1.19',
                                                                    'id' => 'CPANSA-Devel-StackTrace-2008-3502',
@@ -18026,7 +18087,8 @@ sub db {
                                                          'cves' => [
                                                                      'CVE-2011-3597'
                                                                    ],
-                                                         'description' => 'Eval injection vulnerability in the Digest module before 1.17 for Perl allows context-dependent attackers to execute arbitrary commands via the new constructor.',
+                                                         'description' => 'Eval injection vulnerability in the Digest module before 1.17 for Perl allows context-dependent attackers to execute arbitrary commands via the new constructor.
+',
                                                          'distribution' => 'Digest',
                                                          'fixed_versions' => '>=0.17',
                                                          'id' => 'CPANSA-Digest-2011-3597',
@@ -18145,7 +18207,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2002-0703'
                                                                        ],
-                                                             'description' => 'An interaction between the Perl MD5 module (perl-Digest-MD5) and Perl could produce incorrect MD5 checksums for UTF-8 data, which could prevent a system from properly verifying the integrity of the data.',
+                                                             'description' => 'An interaction between the Perl MD5 module (perl-Digest-MD5) and Perl could produce incorrect MD5 checksums for UTF-8 data, which could prevent a system from properly verifying the integrity of the data.
+',
                                                              'distribution' => 'Digest-MD5',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-Digest-MD5-2002-0703',
@@ -18466,7 +18529,8 @@ sub db {
                                                                 'cves' => [
                                                                             'CVE-2014-4720'
                                                                           ],
-                                                                'description' => 'Email::Address module before 1.904 for Perl uses an inefficient regular expression, which allows remote attackers to cause a denial of service (CPU consumption) via vectors related to "backtracking into the phrase," a different vulnerability than CVE-2014-0477.',
+                                                                'description' => 'Email::Address module before 1.904 for Perl uses an inefficient regular expression, which allows remote attackers to cause a denial of service (CPU consumption) via vectors related to "backtracking into the phrase," a different vulnerability than CVE-2014-0477.
+',
                                                                 'distribution' => 'Email-Address',
                                                                 'fixed_versions' => '>=1.904',
                                                                 'id' => 'CPANSA-Email-Address-2014-4720',
@@ -18707,7 +18771,8 @@ sub db {
                                                          'cves' => [
                                                                      'CVE-2011-2939'
                                                                    ],
-                                                         'description' => 'Off-by-one error in the decode_xs function in Unicode/Unicode.xs in the Encode module before 2.44, as used in Perl before 5.15.6, might allow context-dependent attackers to cause a denial of service (memory corruption) via a crafted Unicode string, which triggers a heap-based buffer overflow.',
+                                                         'description' => 'Off-by-one error in the decode_xs function in Unicode/Unicode.xs in the Encode module before 2.44, as used in Perl before 5.15.6, might allow context-dependent attackers to cause a denial of service (memory corruption) via a crafted Unicode string, which triggers a heap-based buffer overflow.
+',
                                                          'distribution' => 'Encode',
                                                          'fixed_versions' => '>=2.44',
                                                          'id' => 'CPANSA-Encode-2011-2939',
@@ -22112,7 +22177,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2011-2728'
                                                                       ],
-                                                            'description' => 'The bsd_glob function in the File::Glob module for Perl before 5.14.2 allows context-dependent attackers to cause a denial of service (crash) via a glob expression with the GLOB_ALTDIRFUNC flag, which triggers an uninitialized pointer dereference.',
+                                                            'description' => 'The bsd_glob function in the File::Glob module for Perl before 5.14.2 allows context-dependent attackers to cause a denial of service (crash) via a glob expression with the GLOB_ALTDIRFUNC flag, which triggers an uninitialized pointer dereference.
+',
                                                             'distribution' => 'File-Glob',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-File-Glob-2011-2728',
@@ -22155,7 +22221,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2008-5303'
                                                                       ],
-                                                            'description' => 'Race condition in the rmtree function in File::Path 1.08 (lib/File/Path.pm) in Perl 5.8.8 allows local users to to delete arbitrary files via a symlink attack, a different vulnerability than CVE-2005-0448, CVE-2004-0452, and CVE-2008-2827. NOTE: this is a regression error related to CVE-2005-0448. It is different from CVE-2008-5302 due to affected versions.',
+                                                            'description' => 'Race condition in the rmtree function in File::Path 1.08 (lib/File/Path.pm) in Perl 5.8.8 allows local users to to delete arbitrary files via a symlink attack, a different vulnerability than CVE-2005-0448, CVE-2004-0452, and CVE-2008-2827. NOTE: this is a regression error related to CVE-2005-0448. It is different from CVE-2008-5302 due to affected versions.
+',
                                                             'distribution' => 'File-Path',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-File-Path-2008-5303',
@@ -22190,7 +22257,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2008-5302'
                                                                       ],
-                                                            'description' => 'Race condition in the rmtree function in File::Path 1.08 and 2.07 (lib/File/Path.pm) in Perl 5.8.8 and 5.10.0 allows local users to create arbitrary setuid binaries via a symlink attack, a different vulnerability than CVE-2005-0448, CVE-2004-0452, and CVE-2008-2827. NOTE: this is a regression error related to CVE-2005-0448.  It is different from CVE-2008-5303 due to affected versions.',
+                                                            'description' => 'Race condition in the rmtree function in File::Path 1.08 and 2.07 (lib/File/Path.pm) in Perl 5.8.8 and 5.10.0 allows local users to create arbitrary setuid binaries via a symlink attack, a different vulnerability than CVE-2005-0448, CVE-2004-0452, and CVE-2008-2827. NOTE: this is a regression error related to CVE-2005-0448.  It is different from CVE-2008-5303 due to affected versions.
+',
                                                             'distribution' => 'File-Path',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-File-Path-2008-5302',
@@ -22226,7 +22294,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2008-2827'
                                                                       ],
-                                                            'description' => 'The rmtree function in lib/File/Path.pm in Perl 5.10 does not properly check permissions before performing a chmod, which allows local users to modify the permissions of arbitrary files via a symlink attack, a different vulnerability than CVE-2005-0448 and CVE-2004-0452.',
+                                                            'description' => 'The rmtree function in lib/File/Path.pm in Perl 5.10 does not properly check permissions before performing a chmod, which allows local users to modify the permissions of arbitrary files via a symlink attack, a different vulnerability than CVE-2005-0448 and CVE-2004-0452.
+',
                                                             'distribution' => 'File-Path',
                                                             'fixed_versions' => '>=2.07',
                                                             'id' => 'CPANSA-File-Path-2008-2827',
@@ -22251,7 +22320,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2005-0448'
                                                                       ],
-                                                            'description' => 'Race condition in the rmtree function in File::Path.pm in Perl before 5.8.4 allows local users to create arbitrary setuid binaries in the tree being deleted, a different vulnerability than CVE-2004-0452.',
+                                                            'description' => 'Race condition in the rmtree function in File::Path.pm in Perl before 5.8.4 allows local users to create arbitrary setuid binaries in the tree being deleted, a different vulnerability than CVE-2004-0452.
+',
                                                             'distribution' => 'File-Path',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-File-Path-2005-0448',
@@ -22283,7 +22353,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2004-0452'
                                                                       ],
-                                                            'description' => 'Race condition in the rmtree function in the File::Path module in Perl 5.6.1 and 5.8.4 sets read/write permissions for the world, which allows local users to delete arbitrary files and directories, and possibly read files and directories, via a symlink attack.',
+                                                            'description' => 'Race condition in the rmtree function in the File::Path module in Perl 5.6.1 and 5.8.4 sets read/write permissions for the world, which allows local users to delete arbitrary files and directories, and possibly read files and directories, via a symlink attack.
+',
                                                             'distribution' => 'File-Path',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-File-Path-2004-0452',
@@ -22530,7 +22601,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2011-4116'
                                                                       ],
-                                                            'description' => '_is_safe in the File::Temp module for Perl does not properly handle symlinks.',
+                                                            'description' => '_is_safe in the File::Temp module for Perl does not properly handle symlinks.
+',
                                                             'distribution' => 'File-Temp',
                                                             'fixed_versions' => undef,
                                                             'id' => 'CPANSA-File-Temp-2011-4116',
@@ -22672,7 +22744,8 @@ sub db {
                                                                           'cves' => [
                                                                                       'CVE-2008-3285'
                                                                                     ],
-                                                                          'description' => 'The Filesys::SmbClientParser module 2.7 and earlier for Perl allows remote SMB servers to execute arbitrary code via a folder name containing shell metacharacters.',
+                                                                          'description' => 'The Filesys::SmbClientParser module 2.7 and earlier for Perl allows remote SMB servers to execute arbitrary code via a folder name containing shell metacharacters.
+',
                                                                           'distribution' => 'Filesys-SmbClientParser',
                                                                           'fixed_versions' => undef,
                                                                           'id' => 'CPANSA-Filesys-SmbClientParser-2008-3285',
@@ -22756,7 +22829,7 @@ sub db {
 ',
                                                           'distribution' => 'GBrowse',
                                                           'fixed_versions' => '>=2.56',
-                                                          'id' => 'CPANSA-GBrowser-2017-01',
+                                                          'id' => 'CPANSA-GBrowse-2017-01',
                                                           'references' => [
                                                                             'https://metacpan.org/changes/distribution/GBrowse'
                                                                           ],
@@ -22769,7 +22842,7 @@ sub db {
 ',
                                                           'distribution' => 'GBrowse',
                                                           'fixed_versions' => '>=1.62',
-                                                          'id' => 'CPANSA-GBrowser-2004-01',
+                                                          'id' => 'CPANSA-GBrowse-2004-01',
                                                           'references' => [
                                                                             'https://metacpan.org/changes/distribution/GBrowse'
                                                                           ],
@@ -22782,7 +22855,7 @@ sub db {
 ',
                                                           'distribution' => 'GBrowse',
                                                           'fixed_versions' => '>=1.54',
-                                                          'id' => 'CPANSA-GBrowser-2003-01',
+                                                          'id' => 'CPANSA-GBrowse-2003-01',
                                                           'references' => [
                                                                             'https://metacpan.org/changes/distribution/GBrowse'
                                                                           ],
@@ -23112,7 +23185,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2006-1565'
                                                                  ],
-                                                       'description' => 'Untrusted search path vulnerability in libgpib-perl 3.2.06-2 in Debian GNU/Linux includes an RPATH value under the /tmp/buildd directory for the LinuxGpib.so module, which might allow local users to gain privileges by installing malicious libraries in that directory.',
+                                                       'description' => 'Untrusted search path vulnerability in libgpib-perl 3.2.06-2 in Debian GNU/Linux includes an RPATH value under the /tmp/buildd directory for the LinuxGpib.so module, which might allow local users to gain privileges by installing malicious libraries in that directory.
+',
                                                        'distribution' => 'GPIB',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-GPIB-2006-1565',
@@ -23133,6 +23207,223 @@ sub db {
                                                    }
                                                  ]
                                  },
+                       'Graphics-ColorNames' => {
+                                                  'advisories' => [
+                                                                    {
+                                                                      'affected_versions' => '>=v2.0_01,<=v3.1.2',
+                                                                      'cves' => [],
+                                                                      'description' => 'A specially-named file may lead to HTML injection attacks.
+',
+                                                                      'distribution' => 'Graphics-ColorNames',
+                                                                      'fixed_versions' => '>3.1.2',
+                                                                      'id' => 'CPANSA-Graphics-ColorNames-2010-02',
+                                                                      'references' => [
+                                                                                        'https://metacpan.org/changes/distribution/Graphics-ColorNames',
+                                                                                        'https://rt.cpan.org/Public/Bug/Display.html?id=54500'
+                                                                                      ],
+                                                                      'reported' => '2010-02-11'
+                                                                    }
+                                                                  ],
+                                                  'main_module' => 'Graphics::ColorNames',
+                                                  'versions' => [
+                                                                  {
+                                                                    'date' => '2001-02-20T03:47:48',
+                                                                    'version' => '0.10'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2001-04-12T02:32:22',
+                                                                    'version' => '0.20'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2001-04-13T04:37:27',
+                                                                    'version' => '0.21'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2001-04-15T14:26:41',
+                                                                    'version' => '0.22'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2001-04-18T03:13:51',
+                                                                    'version' => '0.23'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2001-04-28T16:09:48',
+                                                                    'version' => '0.24'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2001-10-05T02:42:20',
+                                                                    'version' => '0.30'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2002-10-24T01:17:51',
+                                                                    'version' => '0.31'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2002-12-05T03:07:24',
+                                                                    'version' => '0.32'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-07-22T00:41:35',
+                                                                    'version' => '0.3901'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-07-22T20:01:47',
+                                                                    'version' => '0.39_02'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-07-23T01:52:58',
+                                                                    'version' => '0.39_03'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-07-26T06:36:47',
+                                                                    'version' => '0.39_04'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-08-01T01:21:33',
+                                                                    'version' => '1.00'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-08-18T20:32:07',
+                                                                    'version' => '1.01'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-08-24T15:53:20',
+                                                                    'version' => '1.02'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-08-26T21:51:46',
+                                                                    'version' => '1.03'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-09-03T06:56:23',
+                                                                    'version' => '1.04'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2004-09-03T07:00:16',
+                                                                    'version' => '1.05'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2005-03-29T23:06:41',
+                                                                    'version' => '1.06'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2005-04-04T15:17:24',
+                                                                    'version' => '2.0_01'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2005-04-07T16:08:52',
+                                                                    'version' => '2.0_02'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2005-04-08T16:48:24',
+                                                                    'version' => '2.0_03'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2006-10-24T13:58:29',
+                                                                    'version' => '2.0_04'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2007-12-16T15:33:27',
+                                                                    'version' => '2.01'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2007-12-16T16:04:00',
+                                                                    'version' => '2.02'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2007-12-17T12:49:37',
+                                                                    'version' => '2.03'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2007-12-17T20:01:53',
+                                                                    'version' => '2.04'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2007-12-20T16:01:35',
+                                                                    'version' => '2.10_01'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2008-01-04T15:55:53',
+                                                                    'version' => '2.10_02'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2008-01-05T13:14:32',
+                                                                    'version' => '2.10_03'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2008-01-06T21:52:18',
+                                                                    'version' => '2.10_04'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2008-01-08T16:20:38',
+                                                                    'version' => '2.10_05'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2008-01-10T21:43:53',
+                                                                    'version' => '2.11'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-09-27T23:02:17',
+                                                                    'version' => 'v3.0.0'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-09-28T12:40:06',
+                                                                    'version' => 'v3.0.1'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-09-28T16:56:39',
+                                                                    'version' => 'v3.0.2'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-09-30T12:37:45',
+                                                                    'version' => 'v3.1.0'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-01T16:51:16',
+                                                                    'version' => 'v3.1.1'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-01T22:15:39',
+                                                                    'version' => 'v3.1.2'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-03T23:36:26',
+                                                                    'version' => 'v3.2.0'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-06T10:00:38',
+                                                                    'version' => 'v3.2.1'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-23T20:30:22',
+                                                                    'version' => 'v3.3.0'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-24T15:03:58',
+                                                                    'version' => 'v3.3.1'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-27T16:33:30',
+                                                                    'version' => 'v3.3.2'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-10-27T18:31:44',
+                                                                    'version' => 'v3.3.3'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-11-11T15:13:51',
+                                                                    'version' => 'v3.3.4'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2018-11-18T19:13:42',
+                                                                    'version' => 'v3.4.0'
+                                                                  },
+                                                                  {
+                                                                    'date' => '2019-06-06T20:30:43',
+                                                                    'version' => 'v3.5.0'
+                                                                  }
+                                                                ]
+                                                },
                        'HTML-EP' => {
                                       'advisories' => [
                                                         {
@@ -23140,7 +23431,8 @@ sub db {
                                                           'cves' => [
                                                                       'CVE-2012-6142'
                                                                     ],
-                                                          'description' => 'HTML::EP::Session::Cookie in the HTML::EP module 0.2011 for Perl does not properly use the Storable::thaw function, which allows remote attackers to execute arbitrary code via a crafted request, which is not properly handled when it is deserialized.',
+                                                          'description' => 'HTML::EP::Session::Cookie in the HTML::EP module 0.2011 for Perl does not properly use the Storable::thaw function, which allows remote attackers to execute arbitrary code via a crafted request, which is not properly handled when it is deserialized.
+',
                                                           'distribution' => 'HTML-EP',
                                                           'fixed_versions' => undef,
                                                           'id' => 'CPANSA-HTML-EP-2012-6142',
@@ -23316,7 +23608,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2009-3627'
                                                                         ],
-                                                              'description' => 'The decode_entities function in util.c in HTML-Parser before 3.63 allows context-dependent attackers to cause a denial of service (infinite loop) via an incomplete SGML numeric character reference, which triggers generation of an invalid UTF-8 character.',
+                                                              'description' => 'The decode_entities function in util.c in HTML-Parser before 3.63 allows context-dependent attackers to cause a denial of service (infinite loop) via an incomplete SGML numeric character reference, which triggers generation of an invalid UTF-8 character.
+',
                                                               'distribution' => 'HTML-Parser',
                                                               'fixed_versions' => undef,
                                                               'id' => 'CPANSA--2009-3627',
@@ -23909,7 +24202,8 @@ sub db {
                                                                 'cves' => [
                                                                             'CVE-2015-5667'
                                                                           ],
-                                                                'description' => 'Cross-site scripting (XSS) vulnerability in the HTML-Scrubber module before 0.15 for Perl, when the comment feature is enabled, allows remote attackers to inject arbitrary web script or HTML via a crafted comment.',
+                                                                'description' => 'Cross-site scripting (XSS) vulnerability in the HTML-Scrubber module before 0.15 for Perl, when the comment feature is enabled, allows remote attackers to inject arbitrary web script or HTML via a crafted comment.
+',
                                                                 'distribution' => 'HTML-Scrubber',
                                                                 'fixed_versions' => '>=0.15',
                                                                 'id' => 'CPANSA-HTML-Scrubber-2015-5667',
@@ -24008,7 +24302,8 @@ sub db {
                                                                     'cves' => [
                                                                                 'CVE-2011-4616'
                                                                               ],
-                                                                    'description' => 'Cross-site scripting (XSS) vulnerability in the HTML-Template-Pro module before 0.9507 for Perl allows remote attackers to inject arbitrary web script or HTML via template parameters, related to improper handling of > (greater than) and < (less than) characters.',
+                                                                    'description' => 'Cross-site scripting (XSS) vulnerability in the HTML-Template-Pro module before 0.9507 for Perl allows remote attackers to inject arbitrary web script or HTML via template parameters, related to improper handling of > (greater than) and < (less than) characters.
+',
                                                                     'distribution' => 'HTML-Template-Pro',
                                                                     'fixed_versions' => undef,
                                                                     'id' => 'CPANSA-HTML-Template-Pro-2011-4616',
@@ -24854,7 +25149,8 @@ sub db {
                                                                 'cves' => [
                                                                             'CVE-2010-4334'
                                                                           ],
-                                                                'description' => 'The IO::Socket::SSL module 1.35 for Perl, when verify_mode is not VERIFY_NONE, fails open to VERIFY_NONE instead of throwing an error when a ca_file/ca_path cannot be verified, which allows remote attackers to bypass intended certificate restrictions.',
+                                                                'description' => 'The IO::Socket::SSL module 1.35 for Perl, when verify_mode is not VERIFY_NONE, fails open to VERIFY_NONE instead of throwing an error when a ca_file/ca_path cannot be verified, which allows remote attackers to bypass intended certificate restrictions.
+',
                                                                 'distribution' => 'IO-Socket-SSL',
                                                                 'fixed_versions' => undef,
                                                                 'id' => 'CPANSA-IO-Socket-SSL-2010-4334',
@@ -24879,7 +25175,8 @@ sub db {
                                                                 'cves' => [
                                                                             'CVE-2009-3024'
                                                                           ],
-                                                                'description' => 'The verify_hostname_of_cert function in the certificate checking feature in IO-Socket-SSL (IO::Socket::SSL) 1.14 through 1.25 only matches the prefix of a hostname when no wildcard is used, which allows remote attackers to bypass the hostname check for a certificate.',
+                                                                'description' => 'The verify_hostname_of_cert function in the certificate checking feature in IO-Socket-SSL (IO::Socket::SSL) 1.14 through 1.25 only matches the prefix of a hostname when no wildcard is used, which allows remote attackers to bypass the hostname check for a certificate.
+',
                                                                 'distribution' => 'IO-Socket-SSL',
                                                                 'fixed_versions' => undef,
                                                                 'id' => 'CPANSA-IO-Socket-SSL-2009-3024',
@@ -26024,7 +26321,8 @@ sub db {
                                                                  'cves' => [
                                                                              'CVE-2015-8326'
                                                                            ],
-                                                                 'description' => 'The IPTables-Parse module before 1.6 for Perl allows local users to write to arbitrary files owned by the current user.',
+                                                                 'description' => 'The IPTables-Parse module before 1.6 for Perl allows local users to write to arbitrary files owned by the current user.
+',
                                                                  'distribution' => 'IPTables-Parse',
                                                                  'fixed_versions' => undef,
                                                                  'id' => 'CPANSA-IPTables-Parse-2015-8326',
@@ -26093,7 +26391,8 @@ sub db {
                                                                  'cves' => [
                                                                              'CVE-2022-23935'
                                                                            ],
-                                                                 'description' => 'lib/Image/ExifTool.pm in ExifTool before 12.38 mishandles a $file =~ /\\|$/ check, leading to command injection.',
+                                                                 'description' => 'lib/Image/ExifTool.pm in ExifTool before 12.38 mishandles a $file =~ /\\|$/ check, leading to command injection.
+',
                                                                  'distribution' => '',
                                                                  'fixed_versions' => '>12.38',
                                                                  'id' => 'CPANSA-Image-ExifTool-2022-23935',
@@ -26486,7 +26785,7 @@ sub db {
                                                                        ],
                                                              'description' => 'perl-Image-Info: When parsing an SVG file, external entity expansion (XXE) was not disabled. An attacker could craft an SVG file which, when processed by an application using perl-Image-Info, could cause denial of service or, potentially, information disclosure.
 ',
-                                                             'distribution' => 'CPAN-Checksums',
+                                                             'distribution' => 'Image-Info',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-Image-Info-2016-01',
                                                              'references' => [
@@ -26878,7 +27177,8 @@ sub db {
                                                          'cves' => [
                                                                      'CVE-2006-0053'
                                                                    ],
-                                                         'description' => 'Imager (libimager-perl) before 0.50 allows user-assisted attackers to cause a denial of service (segmentation fault) by writing a 2- or 4-channel JPEG image (or a 2-channel TGA image) to a scalar, which triggers a NULL pointer dereference.',
+                                                         'description' => 'Imager (libimager-perl) before 0.50 allows user-assisted attackers to cause a denial of service (segmentation fault) by writing a 2- or 4-channel JPEG image (or a 2-channel TGA image) to a scalar, which triggers a NULL pointer dereference.
+',
                                                          'distribution' => 'Imager',
                                                          'fixed_versions' => '>=0.50',
                                                          'id' => 'CPANSA-Imager-2006-0053',
@@ -27385,6 +27685,10 @@ sub db {
                                                      {
                                                        'date' => '2022-05-07T04:35:16',
                                                        'version' => '1.015'
+                                                     },
+                                                     {
+                                                       'date' => '2022-06-12T05:27:23',
+                                                       'version' => '1.016'
                                                      }
                                                    ]
                                    },
@@ -27520,7 +27824,8 @@ sub db {
                                                                      'cves' => [
                                                                                  'CVE-2014-3230'
                                                                                ],
-                                                                     'description' => 'The libwww-perl LWP::Protocol::https module 6.04 through 6.06 for Perl, when using IO::Socket::SSL as the SSL socket class, allows attackers to disable server certificate validation via the (1) HTTPS_CA_DIR or (2) HTTPS_CA_FILE environment variable.',
+                                                                     'description' => 'The libwww-perl LWP::Protocol::https module 6.04 through 6.06 for Perl, when using IO::Socket::SSL as the SSL socket class, allows attackers to disable server certificate validation via the (1) HTTPS_CA_DIR or (2) HTTPS_CA_FILE environment variable.
+',
                                                                      'distribution' => 'LWP-Protocol-https',
                                                                      'fixed_versions' => undef,
                                                                      'id' => 'CPANSA-LWP-Protocol-https-2014-3230',
@@ -28026,7 +28331,8 @@ sub db {
                                                                   'cves' => [
                                                                               'CVE-2012-6329'
                                                                             ],
-                                                                  'description' => 'The _compile function in Maketext.pm in the Locale::Maketext implementation in Perl before 5.17.7 does not properly handle backslashes and fully qualified method names during compilation of bracket notation, which allows context-dependent attackers to execute arbitrary commands via crafted input to an application that accepts translation strings from users, as demonstrated by the TWiki application before 5.1.3, and the Foswiki application 1.0.x through 1.0.10 and 1.1.x through 1.1.6.',
+                                                                  'description' => 'The _compile function in Maketext.pm in the Locale::Maketext implementation in Perl before 5.17.7 does not properly handle backslashes and fully qualified method names during compilation of bracket notation, which allows context-dependent attackers to execute arbitrary commands via crafted input to an application that accepts translation strings from users, as demonstrated by the TWiki application before 5.1.3, and the Foswiki application 1.0.x through 1.0.10 and 1.1.x through 1.1.6.
+',
                                                                   'distribution' => 'Locale-Maketext',
                                                                   'fixed_versions' => undef,
                                                                   'id' => 'CPANSA-Locale-Maketext-2012-6329',
@@ -28212,7 +28518,8 @@ sub db {
                                                                 'cves' => [
                                                                             'CVE-2014-1626'
                                                                           ],
-                                                                'description' => 'XML External Entity (XXE) vulnerability in MARC::File::XML module before 1.0.2 for Perl, as used in Evergreen, Koha, perl4lib, and possibly other products, allows context-dependent attackers to read arbitrary files via a crafted XML file.',
+                                                                'description' => 'XML External Entity (XXE) vulnerability in MARC::File::XML module before 1.0.2 for Perl, as used in Evergreen, Koha, perl4lib, and possibly other products, allows context-dependent attackers to read arbitrary files via a crafted XML file.
+',
                                                                 'distribution' => 'MARC-File-XML',
                                                                 'fixed_versions' => undef,
                                                                 'id' => 'CPANSA--2014-1626',
@@ -28245,7 +28552,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2009-0912'
                                                                        ],
-                                                             'description' => 'perl-MDK-Common 1.1.11 and 1.1.24, 1.2.9 through 1.2.14, and possibly other versions, in Mandriva Linux does not properly handle strings when writing them to configuration files, which allows attackers to gain privileges via "special characters" in unspecified vectors.',
+                                                             'description' => 'perl-MDK-Common 1.1.11 and 1.1.24, 1.2.9 through 1.2.14, and possibly other versions, in Mandriva Linux does not properly handle strings when writing them to configuration files, which allows attackers to gain privileges via "special characters" in unspecified vectors.\'
+',
                                                              'distribution' => 'MDK-Common',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-MDK-Common-2009-0912',
@@ -28571,8 +28879,9 @@ sub db {
                                                      'cves' => [
                                                                  'CVE-2013-0209'
                                                                ],
-                                                     'description' => 'lib/MT/Upgrade.pm in mt-upgrade.cgi in Movable Type 4.2x and 4.3x through 4.38 does not require authentication for requests to database-migration functions, which allows remote attackers to conduct eval injection and SQL injection attacks via crafted parameters, as demonstrated by an eval injection attack against the core_drop_meta_for_table function, leading to execution of arbitrary Perl code.',
-                                                     'distribution' => '',
+                                                     'description' => 'lib/MT/Upgrade.pm in mt-upgrade.cgi in Movable Type 4.2x and 4.3x through 4.38 does not require authentication for requests to database-migration functions, which allows remote attackers to conduct eval injection and SQL injection attacks via crafted parameters, as demonstrated by an eval injection attack against the core_drop_meta_for_table function, leading to execution of arbitrary Perl code.
+',
+                                                     'distribution' => 'MT',
                                                      'fixed_versions' => undef,
                                                      'id' => 'CPANSA-MT-2013-0209',
                                                      'references' => [
@@ -28595,7 +28904,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2005-4536'
                                                                        ],
-                                                             'description' => 'Mail::Audit module in libmail-audit-perl 2.1-5, when logging is enabled without a default log file specified, uses predictable log filenames, which allows local users to overwrite arbitrary files via a symlink attack on the [PID]-audit.log temporary file.',
+                                                             'description' => 'Mail::Audit module in libmail-audit-perl 2.1-5, when logging is enabled without a default log file specified, uses predictable log filenames, which allows local users to overwrite arbitrary files via a symlink attack on the [PID]-audit.log temporary file.
+',
                                                              'distribution' => 'Mail-Audit',
                                                              'fixed_versions' => undef,
                                                              'id' => 'CPANSA-Mail-Audit-2005-4536',
@@ -28787,7 +29097,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2002-1271'
                                                                         ],
-                                                              'description' => 'The Mail::Mailer Perl module in the perl-MailTools package 1.47 and earlier uses mailx as the default mailer, which allows remote attackers to execute arbitrary commands by inserting them into the mail body, which is then processed by mailx.',
+                                                              'description' => 'The Mail::Mailer Perl module in the perl-MailTools package 1.47 and earlier uses mailx as the default mailer, which allows remote attackers to execute arbitrary commands by inserting them into the mail body, which is then processed by mailx.
+',
                                                               'distribution' => 'Mail-Mailer',
                                                               'fixed_versions' => '>=1.51',
                                                               'id' => 'CPANSA-Mail-Mailer-2002-1271',
@@ -28814,7 +29125,8 @@ sub db {
                                                                   'cves' => [
                                                                               'CVE-2013-1437'
                                                                             ],
-                                                                  'description' => 'Eval injection vulnerability in the Module-Metadata module before 1.000015 for Perl allows remote attackers to execute arbitrary Perl code via the $Version value.',
+                                                                  'description' => 'Eval injection vulnerability in the Module-Metadata module before 1.000015 for Perl allows remote attackers to execute arbitrary Perl code via the $Version value.
+',
                                                                   'distribution' => 'Module-Metadata',
                                                                   'fixed_versions' => undef,
                                                                   'id' => 'CPANSA-Module-Metadata-2013-1437',
@@ -29545,7 +29857,8 @@ sub db {
                                                                           'cves' => [
                                                                                       'CVE-2009-5074'
                                                                                     ],
-                                                                          'description' => 'Unspecified vulnerability in the MojoX::Dispatcher::Static implementation in Mojolicious before 0.991250 has unknown impact and attack vectors.',
+                                                                          'description' => 'Unspecified vulnerability in the MojoX::Dispatcher::Static implementation in Mojolicious before 0.991250 has unknown impact and attack vectors.
+',
                                                                           'distribution' => 'MojoX-Dispatcher-Static',
                                                                           'fixed_versions' => '>0.991250',
                                                                           'id' => 'CPANSA-MojoX-Dispatcher-Static-2009-5074',
@@ -29670,7 +29983,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2010-4803'
                                                                         ],
-                                                              'description' => 'Mojolicious before 0.999927 does not properly implement HMAC-MD5 checksums, which has unspecified impact and remote attack vectors.',
+                                                              'description' => 'Mojolicious before 0.999927 does not properly implement HMAC-MD5 checksums, which has unspecified impact and remote attack vectors.
+',
                                                               'distribution' => 'Mojolicious',
                                                               'fixed_versions' => undef,
                                                               'id' => 'CPANSA-Mojolicious-2010-4803',
@@ -29687,7 +30001,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2010-4802'
                                                                         ],
-                                                              'description' => 'Commands.pm in Mojolicious before 0.999928 does not properly perform CGI environment detection, which has unspecified impact and remote attack vectors.',
+                                                              'description' => 'Commands.pm in Mojolicious before 0.999928 does not properly perform CGI environment detection, which has unspecified impact and remote attack vectors.
+',
                                                               'distribution' => 'Mojolicious',
                                                               'fixed_versions' => undef,
                                                               'id' => 'CPANSA-Mojolicious-2010-4802',
@@ -29706,7 +30021,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2011-1841'
                                                                         ],
-                                                              'description' => 'Cross-site scripting (XSS) vulnerability in the link_to helper in Mojolicious before 1.12 allows remote attackers to inject arbitrary web script or HTML via unspecified vectors.',
+                                                              'description' => 'Cross-site scripting (XSS) vulnerability in the link_to helper in Mojolicious before 1.12 allows remote attackers to inject arbitrary web script or HTML via unspecified vectors.
+',
                                                               'distribution' => 'Mojolicious',
                                                               'fixed_versions' => '>=1.12',
                                                               'id' => 'CPANSA-Mojolicious-2011-1841',
@@ -32784,7 +33100,8 @@ sub db {
                                                           'cves' => [
                                                                       'CVE-2007-3409'
                                                                     ],
-                                                          'description' => 'Net::DNS before 0.60, a Perl module, allows remote attackers to cause a denial of service (stack consumption) via a malformed compressed DNS packet with self-referencing pointers, which triggers an infinite loop.',
+                                                          'description' => 'Net::DNS before 0.60, a Perl module, allows remote attackers to cause a denial of service (stack consumption) via a malformed compressed DNS packet with self-referencing pointers, which triggers an infinite loop.
+',
                                                           'distribution' => 'Net-DNS',
                                                           'fixed_versions' => '>=0.,60',
                                                           'id' => 'CPANSA-Net-DNS-2007-3409',
@@ -32823,7 +33140,8 @@ sub db {
                                                           'cves' => [
                                                                       'CVE-2007-3377'
                                                                     ],
-                                                          'description' => 'Header.pm in Net::DNS before 0.60, a Perl module, (1) generates predictable sequence IDs with a fixed increment and (2) can use the same starting ID for all child processes of a forking server, which allows remote attackers to spoof DNS responses, as originally reported for qpsmtp and spamassassin.',
+                                                          'description' => 'Header.pm in Net::DNS before 0.60, a Perl module, (1) generates predictable sequence IDs with a fixed increment and (2) can use the same starting ID for all child processes of a forking server, which allows remote attackers to spoof DNS responses, as originally reported for qpsmtp and spamassassin.
+',
                                                           'distribution' => 'Net-DNS',
                                                           'fixed_versions' => '>=0.60',
                                                           'id' => 'CPANSA-Net-DNS-2007-3377',
@@ -34389,7 +34707,8 @@ sub db {
                                                                     'cves' => [
                                                                                 'CVE-2008-7319'
                                                                               ],
-                                                                    'description' => 'The Net::Ping::External extension through 0.15 for Perl does not properly sanitize arguments (e.g., invalid hostnames) containing shell metacharacters before use of backticks in External.pm, allowing for shell command injection and arbitrary command execution if untrusted input is used.',
+                                                                    'description' => 'The Net::Ping::External extension through 0.15 for Perl does not properly sanitize arguments (e.g., invalid hostnames) containing shell metacharacters before use of backticks in External.pm, allowing for shell command injection and arbitrary command execution if untrusted input is used.
+',
                                                                     'distribution' => 'Net-Ping-External',
                                                                     'fixed_versions' => undef,
                                                                     'id' => 'CPANSA-Net-Ping-External-2008-7319',
@@ -34482,7 +34801,8 @@ sub db {
                                                            'cves' => [
                                                                        'CVE-2008-2292'
                                                                      ],
-                                                           'description' => 'Buffer overflow in the __snprint_value function in snmp_get in Net-SNMP 5.1.4, 5.2.4, and 5.4.1, as used in SNMP.xs for Perl, allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a large OCTETSTRING in an attribute value pair (AVP).',
+                                                           'description' => 'Buffer overflow in the __snprint_value function in snmp_get in Net-SNMP 5.1.4, 5.2.4, and 5.4.1, as used in SNMP.xs for Perl, allows remote attackers to cause a denial of service (crash) and possibly execute arbitrary code via a large OCTETSTRING in an attribute value pair (AVP).
+',
                                                            'distribution' => 'Net-SNMP',
                                                            'fixed_versions' => '>=6.0.0',
                                                            'id' => 'CPANSA-Net-SNMP-2008-2292',
@@ -34526,7 +34846,8 @@ sub db {
                                                            'cves' => [
                                                                        'CVE-2005-2811'
                                                                      ],
-                                                           'description' => 'Untrusted search path vulnerability in Net-SNMP 5.2.1.2 and earlier, on Gentoo Linux, installs certain Perl modules with an insecure DT_RPATH, which could allow local users to gain privileges.',
+                                                           'description' => 'Untrusted search path vulnerability in Net-SNMP 5.2.1.2 and earlier, on Gentoo Linux, installs certain Perl modules with an insecure DT_RPATH, which could allow local users to gain privileges.
+',
                                                            'distribution' => 'Net-SNMP',
                                                            'fixed_versions' => undef,
                                                            'id' => 'CPANSA-Net-SNMP-2005-2811',
@@ -34541,7 +34862,8 @@ sub db {
                                                            'cves' => [
                                                                        'CVE-2014-2285'
                                                                      ],
-                                                           'description' => 'The perl_trapd_handler function in perl/TrapReceiver/TrapReceiver.xs in Net-SNMP 5.7.3.pre3 and earlier, when using certain Perl versions, allows remote attackers to cause a denial of service (snmptrapd crash) via an empty community string in an SNMP trap, which triggers a NULL pointer dereference within the newSVpv function in Perl.',
+                                                           'description' => 'The perl_trapd_handler function in perl/TrapReceiver/TrapReceiver.xs in Net-SNMP 5.7.3.pre3 and earlier, when using certain Perl versions, allows remote attackers to cause a denial of service (snmptrapd crash) via an empty community string in an SNMP trap, which triggers a NULL pointer dereference within the newSVpv function in Perl.
+',
                                                            'distribution' => '',
                                                            'fixed_versions' => undef,
                                                            'id' => 'CPANSA-Net-SNMP-2014-2285',
@@ -34669,7 +34991,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2005-0106'
                                                                        ],
-                                                             'description' => 'SSLeay.pm in libnet-ssleay-perl before 1.25 uses the /tmp/entropy file for entropy if a source is not set in the EGD_PATH variable, which allows local users to reduce the cryptographic strength of certain operations by modifying the file.',
+                                                             'description' => 'SSLeay.pm in libnet-ssleay-perl before 1.25 uses the /tmp/entropy file for entropy if a source is not set in the EGD_PATH variable, which allows local users to reduce the cryptographic strength of certain operations by modifying the file.
+',
                                                              'distribution' => 'Net-SSLeay',
                                                              'fixed_versions' => '>=1.25',
                                                              'id' => 'CPANSA-Net-SSLeay-2005-0106',
@@ -35010,7 +35333,8 @@ sub db {
                                                              'cves' => [
                                                                          'CVE-2005-1127'
                                                                        ],
-                                                             'description' => 'Format string vulnerability in the log function in Net::Server 0.87 and earlier, as used in Postfix Greylisting Policy Server (Postgrey) 1.18 and earlier, and possibly other products, allows remote attackers to cause a denial of service (crash) via format string specifiers that are not properly handled before being sent to syslog, as demonstrated using sender addresses to Postgrey.',
+                                                             'description' => 'Format string vulnerability in the log function in Net::Server 0.87 and earlier, as used in Postfix Greylisting Policy Server (Postgrey) 1.18 and earlier, and possibly other products, allows remote attackers to cause a denial of service (crash) via format string specifiers that are not properly handled before being sent to syslog, as demonstrated using sender addresses to Postgrey.
+',
                                                              'distribution' => 'Net-Server',
                                                              'fixed_versions' => '>0.87',
                                                              'id' => 'CPANSA-Net-Server-2005-1127',
@@ -35209,7 +35533,7 @@ sub db {
                                                         {
                                                           'affected_versions' => '<0.13',
                                                           'cves' => [],
-                                                          'description' => 'A depenpendant module SQL::Maker without strict mode is vulnerable to SQL injection.
+                                                          'description' => 'A dependant module SQL::Maker without strict mode is vulnerable to SQL injection.
 ',
                                                           'distribution' => 'Otogiri',
                                                           'fixed_versions' => '>=0.13',
@@ -35324,7 +35648,8 @@ sub db {
                                                       'cves' => [
                                                                   'CVE-2011-5060'
                                                                 ],
-                                                      'description' => 'The par_mktmpdir function in the PAR module before 1.003 for Perl creates temporary files in a directory with a predictable name without verifying ownership and permissions of this directory, which allows local users to overwrite files when another user extracts a PAR packed program, a different vulnerability in a different package than CVE-2011-4114.',
+                                                      'description' => 'The par_mktmpdir function in the PAR module before 1.003 for Perl creates temporary files in a directory with a predictable name without verifying ownership and permissions of this directory, which allows local users to overwrite files when another user extracts a PAR packed program, a different vulnerability in a different package than CVE-2011-4114.
+',
                                                       'distribution' => 'PAR',
                                                       'fixed_versions' => '>=1.003',
                                                       'id' => 'CPANSA-PAR-2011-5060',
@@ -36410,7 +36735,8 @@ sub db {
                                                                        'cves' => [
                                                                                    'CVE-2011-4115'
                                                                                  ],
-                                                                       'description' => 'Parallel::ForkManager module before 1.0.0 for Perl does not properly handle temporary files.',
+                                                                       'description' => 'Parallel::ForkManager module before 1.0.0 for Perl does not properly handle temporary files.
+',
                                                                        'distribution' => 'Parallel-ForkManager',
                                                                        'fixed_versions' => undef,
                                                                        'id' => 'CPANSA-Parallel-ForkManager-2011-4115',
@@ -36980,8 +37306,9 @@ sub db {
                                                           'cves' => [
                                                                       'CVE-2008-1652'
                                                                     ],
-                                                          'description' => 'Directory traversal vulnerability in the _serve_request_multiple function in lib/Perlbal/ClientHTTPBase.pm in Perlbal before 1.70, when concat get is enabled, allows remote attackers to read arbitrary files in a parent directory via a directory traversal sequence in an unspecified parameter.  NOTE: some of these details are obtained from third party information.',
-                                                          'distribution' => '',
+                                                          'description' => 'Directory traversal vulnerability in the _serve_request_multiple function in lib/Perlbal/ClientHTTPBase.pm in Perlbal before 1.70, when concat get is enabled, allows remote attackers to read arbitrary files in a parent directory via a directory traversal sequence in an unspecified parameter.  NOTE: some of these details are obtained from third party information.
+',
+                                                          'distribution' => 'Perlbal',
                                                           'fixed_versions' => 'Perlbal',
                                                           'id' => 'CPANSA-Perlbal-2008-1652',
                                                           'references' => [
@@ -37137,7 +37464,8 @@ sub db {
                                                         'cves' => [
                                                                     'CVE-2013-7284'
                                                                   ],
-                                                        'description' => 'The PlRPC module, possibly 0.2020 and earlier, for Perl uses the Storable module, which allows remote attackers to execute arbitrary code via a crafted request, which is not properly handled when it is deserialized.',
+                                                        'description' => 'The PlRPC module, possibly 0.2020 and earlier, for Perl uses the Storable module, which allows remote attackers to execute arbitrary code via a crafted request, which is not properly handled when it is deserialized.
+',
                                                         'distribution' => 'PlRPC',
                                                         'fixed_versions' => undef,
                                                         'id' => 'CPANSA-PlRPC-2013-7284',
@@ -37362,7 +37690,8 @@ sub db {
                                                                     'cves' => [
                                                                                 'CVE-2010-3438'
                                                                               ],
-                                                                    'description' => 'libpoe-component-irc-perl before v6.32 does not remove carriage returns and line feeds. This can be used to execute arbitrary IRC commands by passing an argument such as "some text\\rQUIT" to the \'privmsg\' handler, which would cause the client to disconnect from the server.',
+                                                                    'description' => 'libpoe-component-irc-perl before v6.32 does not remove carriage returns and line feeds. This can be used to execute arbitrary IRC commands by passing an argument such as \\"some text\\\\rQUIT\\" to the \'privmsg\' handler, which would cause the client to disconnect from the server.
+',
                                                                     'distribution' => 'Poe-Component-IRC',
                                                                     'fixed_versions' => undef,
                                                                     'id' => 'CPANSA-Poe-Component-IRC-2010-3438',
@@ -37385,7 +37714,8 @@ sub db {
                                                               'cves' => [
                                                                           'CVE-2013-7135'
                                                                         ],
-                                                              'description' => 'The Proc::Daemon module 0.14 for Perl uses world-writable permissions for a file that stores a process ID, which allows local users to have an unspecified impact by modifying this file.',
+                                                              'description' => 'The Proc::Daemon module 0.14 for Perl uses world-writable permissions for a file that stores a process ID, which allows local users to have an unspecified impact by modifying this file.
+',
                                                               'distribution' => 'Proc-Daemon',
                                                               'fixed_versions' => undef,
                                                               'id' => 'CPANSA-Proc-Daemon-2013-7135',
@@ -37503,7 +37833,8 @@ sub db {
                                                                     'cves' => [
                                                                                 'CVE-2011-4363'
                                                                               ],
-                                                                    'description' => 'ProcessTable.pm in the Proc::ProcessTable module 0.45 for Perl, when TTY information caching is enabled, allows local users to overwrite arbitrary files via a symlink attack on /tmp/TTYDEVS.',
+                                                                    'description' => 'ProcessTable.pm in the Proc::ProcessTable module 0.45 for Perl, when TTY information caching is enabled, allows local users to overwrite arbitrary files via a symlink attack on /tmp/TTYDEVS.
+',
                                                                     'distribution' => 'Proc-ProcessTable',
                                                                     'fixed_versions' => '>=0.47',
                                                                     'id' => 'CPANSA-Proc-ProcessTable-2011-4363',
@@ -38767,7 +39098,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2010-1447'
                                                                  ],
-                                                       'description' => 'The Safe (aka Safe.pm) module 2.26, and certain earlier versions, for Perl, as used in PostgreSQL 7.4 before 7.4.29, 8.0 before 8.0.25, 8.1 before 8.1.21, 8.2 before 8.2.17, 8.3 before 8.3.11, 8.4 before 8.4.4, and 9.0 Beta before 9.0 Beta 2, allows context-dependent attackers to bypass intended (1) Safe::reval and (2) Safe::rdo access restrictions, and inject and execute arbitrary code, via vectors involving subroutine references and delayed execution.',
+                                                       'description' => 'The Safe (aka Safe.pm) module 2.26, and certain earlier versions, for Perl, as used in PostgreSQL 7.4 before 7.4.29, 8.0 before 8.0.25, 8.1 before 8.1.21, 8.2 before 8.2.17, 8.3 before 8.3.11, 8.4 before 8.4.4, and 9.0 Beta before 9.0 Beta 2, allows context-dependent attackers to bypass intended (1) Safe::reval and (2) Safe::rdo access restrictions, and inject and execute arbitrary code, via vectors involving subroutine references and delayed execution.
+',
                                                        'distribution' => 'Safe',
                                                        'fixed_versions' => '>=2.27',
                                                        'id' => 'CPANSA-Safe-2010-1447',
@@ -38801,7 +39133,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2010-1168'
                                                                  ],
-                                                       'description' => 'The Safe (aka Safe.pm) module before 2.25 for Perl allows context-dependent attackers to bypass intended (1) Safe::reval and (2) Safe::rdo access restrictions, and inject and execute arbitrary code, via vectors involving implicitly called methods and implicitly blessed objects, as demonstrated by the (a) DESTROY and (b) AUTOLOAD methods, related to "automagic methods."',
+                                                       'description' => 'The Safe (aka Safe.pm) module before 2.25 for Perl allows context-dependent attackers to bypass intended (1) Safe::reval and (2) Safe::rdo access restrictions, and inject and execute arbitrary code, via vectors involving implicitly called methods and implicitly blessed objects, as demonstrated by the (a) DESTROY and (b) AUTOLOAD methods, related to "automagic methods."
+',
                                                        'distribution' => 'Safe',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-Safe-2010-1168',
@@ -38833,7 +39166,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2002-1323'
                                                                  ],
-                                                       'description' => 'Safe.pm 2.0.7 and earlier, when used in Perl 5.8.0 and earlier, may allow attackers to break out of safe compartments in (1) Safe::reval or (2) Safe::rdo using a redefined @_ variable, which is not reset between successive calls.',
+                                                       'description' => 'Safe.pm 2.0.7 and earlier, when used in Perl 5.8.0 and earlier, may allow attackers to break out of safe compartments in (1) Safe::reval or (2) Safe::rdo using a redefined @_ variable, which is not reset between successive calls.
+',
                                                        'distribution' => 'Safe',
                                                        'fixed_versions' => '>=2.08',
                                                        'id' => 'CPANSA-Safe-2002-1323',
@@ -39127,7 +39461,8 @@ sub db {
                                                                'cves' => [
                                                                            'CVE-2012-6143'
                                                                          ],
-                                                               'description' => 'Spoon::Cookie in the Spoon module 0.24 for Perl does not properly use the Storable::thaw function, which allows remote attackers to execute arbitrary code via a crafted request, which is not properly handled when it is deserialized.',
+                                                               'description' => 'Spoon::Cookie in the Spoon module 0.24 for Perl does not properly use the Storable::thaw function, which allows remote attackers to execute arbitrary code via a crafted request, which is not properly handled when it is deserialized.
+',
                                                                'distribution' => 'Spoon-Cookie',
                                                                'fixed_versions' => undef,
                                                                'id' => 'CPANSA-Spoon-Cookie-2012-6143',
@@ -40034,7 +40369,8 @@ sub db {
                                                             'cves' => [
                                                                         'CVE-2008-7315'
                                                                       ],
-                                                            'description' => 'UI-Dialog 1.09 and earlier allows remote attackers to execute arbitrary commands.',
+                                                            'description' => 'UI-Dialog 1.09 and earlier allows remote attackers to execute arbitrary commands.
+',
                                                             'distribution' => 'UI-Dialog',
                                                             'fixed_versions' => '>1.09',
                                                             'id' => 'CPANSA-UI-Dialog-2008-7315',
@@ -40152,7 +40488,8 @@ sub db {
                                                            'cves' => [
                                                                        'CVE-2012-1102'
                                                                      ],
-                                                           'description' => 'It was discovered that the XML::Atom Perl module before version 0.39 did not disable external entities when parsing XML from potentially untrusted sources. This may allow attackers to gain read access to otherwise protected resources, depending on how the library is used.',
+                                                           'description' => 'It was discovered that the XML::Atom Perl module before version 0.39 did not disable external entities when parsing XML from potentially untrusted sources. This may allow attackers to gain read access to otherwise protected resources, depending on how the library is used.
+',
                                                            'distribution' => 'XML-Atom',
                                                            'fixed_versions' => undef,
                                                            'id' => 'CPANSA-XML-Atom-2012-1102',
@@ -40399,7 +40736,8 @@ sub db {
                                                          'cves' => [
                                                                      'CVE-2014-5260'
                                                                    ],
-                                                         'description' => 'The (1) mkxmltype and (2) mkdtskel scripts in XML-DT before 0.64 allow local users to overwrite arbitrary files via a symlink attack on a /tmp/_xml_##### temporary file.',
+                                                         'description' => 'The (1) mkxmltype and (2) mkdtskel scripts in XML-DT before 0.64 allow local users to overwrite arbitrary files via a symlink attack on a /tmp/_xml_##### temporary file.
+',
                                                          'distribution' => 'XML-DT',
                                                          'fixed_versions' => undef,
                                                          'id' => 'CPANSA-XML-DT-2014-5260',
@@ -41235,7 +41573,8 @@ sub db {
                                                            'cves' => [
                                                                        'CVE-2016-9180'
                                                                      ],
-                                                           'description' => 'perl-XML-Twig: The option to `expand_external_ents`, documented as controlling external entity expansion in XML::Twig does not work. External entities are always expanded, regardless of the option\'s setting.',
+                                                           'description' => 'perl-XML-Twig: The option to `expand_external_ents`, documented as controlling external entity expansion in XML::Twig does not work. External entities are always expanded, regardless of the option\'s setting.
+',
                                                            'distribution' => 'XML-Twig',
                                                            'fixed_versions' => undef,
                                                            'id' => 'CPANSA-XML-Twig-2016-9180',
@@ -41497,7 +41836,8 @@ sub db {
                                                                'cves' => [
                                                                            'CVE-2014-9130'
                                                                          ],
-                                                               'description' => 'scanner.c in LibYAML 0.1.5 and 0.1.6, as used in the YAML-LibYAML (aka YAML-XS) module for Perl, allows context-dependent attackers to cause a denial of service (assertion failure and crash) via vectors involving line-wrapping.',
+                                                               'description' => 'scanner.c in LibYAML 0.1.5 and 0.1.6, as used in the YAML-LibYAML (aka YAML-XS) module for Perl, allows context-dependent attackers to cause a denial of service (assertion failure and crash) via vectors involving line-wrapping.
+',
                                                                'distribution' => 'YAML-LibYAML',
                                                                'fixed_versions' => '>=0.54',
                                                                'id' => 'CPANSA-YAML-LibYAML-2014-9130',
@@ -41542,7 +41882,8 @@ sub db {
                                                                'cves' => [
                                                                            'CVE-2012-1152'
                                                                          ],
-                                                               'description' => 'Multiple format string vulnerabilities in the error reporting functionality in the YAML::LibYAML (aka YAML-LibYAML and perl-YAML-LibYAML) module 0.38 for Perl allow remote attackers to cause a denial of service (process crash) via format string specifiers in a (1) YAML stream to the Load function, (2) YAML node to the load_node function, (3) YAML mapping to the load_mapping function, or (4) YAML sequence to the load_sequence function.',
+                                                               'description' => 'Multiple format string vulnerabilities in the error reporting functionality in the YAML::LibYAML (aka YAML-LibYAML and perl-YAML-LibYAML) module 0.38 for Perl allow remote attackers to cause a denial of service (process crash) via format string specifiers in a (1) YAML stream to the Load function, (2) YAML node to the load_node function, (3) YAML mapping to the load_mapping function, or (4) YAML sequence to the load_sequence function.
+',
                                                                'distribution' => 'YAML-LibYAML',
                                                                'fixed_versions' => '>=0.57',
                                                                'id' => 'CPANSA-YAML-LibYAML-2012-1152',
@@ -41983,7 +42324,8 @@ sub db {
                                                         'cves' => [
                                                                     'CVE-2001-0733'
                                                                   ],
-                                                        'description' => 'The #sinclude directive in Embedded Perl (ePerl) 2.2.14 and earlier allows a remote attacker to execute arbitrary code by modifying the \'sinclude\' file to point to another file that contains a #include directive that references a file that contains the code.',
+                                                        'description' => 'The #sinclude directive in Embedded Perl (ePerl) 2.2.14 and earlier allows a remote attacker to execute arbitrary code by modifying the \'sinclude\' file to point to another file that contains a #include directive that references a file that contains the code.
+',
                                                         'distribution' => 'ePerl',
                                                         'fixed_versions' => undef,
                                                         'id' => 'CPANSA-ePerl-2001-0733',
@@ -42894,7 +43236,8 @@ sub db {
                                                            'cves' => [
                                                                        'CVE-2011-2767'
                                                                      ],
-                                                           'description' => 'mod_perl 2.0 through 2.0.10 allows attackers to execute arbitrary Perl code by placing it in a user-owned .htaccess file, because (contrary to the documentation) there is no configuration option that permits Perl code for the administrator\'s control of HTTP request processing without also permitting unprivileged users to run Perl code in the context of the user account that runs Apache HTTP Server processes.',
+                                                           'description' => 'mod_perl 2.0 through 2.0.10 allows attackers to execute arbitrary Perl code by placing it in a user-owned .htaccess file, because (contrary to the documentation) there is no configuration option that permits Perl code for the administrator\'s control of HTTP request processing without also permitting unprivileged users to run Perl code in the context of the user account that runs Apache HTTP Server processes.
+',
                                                            'distribution' => 'mod_perl2',
                                                            'fixed_versions' => undef,
                                                            'id' => 'CPANSA-mod_perl2-2011-2767',
@@ -43499,7 +43842,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2016-6185'
                                                                  ],
-                                                       'description' => 'The XSLoader::load method in XSLoader in Perl does not properly locate .so files when called in a string eval, which might allow local users to execute arbitrary code via a Trojan horse library under the current working directory.',
+                                                       'description' => 'The XSLoader::load method in XSLoader in Perl does not properly locate .so files when called in a string eval, which might allow local users to execute arbitrary code via a Trojan horse library under the current working directory.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.24.0',
                                                        'id' => 'CPANSA-perl-2016-6185',
@@ -43528,7 +43872,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2015-8608'
                                                                  ],
-                                                       'description' => 'The VDir::MapPathA and VDir::MapPathW functions in Perl 5.22 allow remote attackers to cause a denial of service (out-of-bounds read) and possibly execute arbitrary code via a crafted (1) drive letter or (2) pInName argument.',
+                                                       'description' => 'The VDir::MapPathA and VDir::MapPathW functions in Perl 5.22 allow remote attackers to cause a denial of service (out-of-bounds read) and possibly execute arbitrary code via a crafted (1) drive letter or (2) pInName argument.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.24.0',
                                                        'id' => 'CPANSA-perl-2015-8608',
@@ -43547,7 +43892,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2011-2728'
                                                                  ],
-                                                       'description' => 'The bsd_glob function in the File::Glob module for Perl before 5.14.2 allows context-dependent attackers to cause a denial of service (crash) via a glob expression with the GLOB_ALTDIRFUNC flag, which triggers an uninitialized pointer dereference.',
+                                                       'description' => 'The bsd_glob function in the File::Glob module for Perl before 5.14.2 allows context-dependent attackers to cause a denial of service (crash) via a glob expression with the GLOB_ALTDIRFUNC flag, which triggers an uninitialized pointer dereference.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2011-2728',
@@ -43568,7 +43914,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2020-12723'
                                                                  ],
-                                                       'description' => 'regcomp.c in Perl before 5.30.3 allows a buffer overflow via a crafted regular expression because of recursive S_study_chunk calls.',
+                                                       'description' => 'regcomp.c in Perl before 5.30.3 allows a buffer overflow via a crafted regular expression because of recursive S_study_chunk calls.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.30.3',
                                                        'id' => 'CPANSA-perl-2020-12723',
@@ -43598,7 +43945,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2020-10878'
                                                                  ],
-                                                       'description' => 'Perl before 5.30.3 has an integer overflow related to mishandling of a "PL_regkind[OP(n)] == NOTHING" situation. A crafted regular expression could lead to malformed bytecode with a possibility of instruction injection.',
+                                                       'description' => 'Perl before 5.30.3 has an integer overflow related to mishandling of a "PL_regkind[OP(n)] == NOTHING" situation. A crafted regular expression could lead to malformed bytecode with a possibility of instruction injection.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.30.3',
                                                        'id' => 'CPANSA-perl-2020-10878',
@@ -43627,7 +43975,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2020-10543'
                                                                  ],
-                                                       'description' => 'Perl before 5.30.3 on 32-bit platforms allows a heap-based buffer overflow because nested regular expression quantifiers have an integer overflow.',
+                                                       'description' => 'Perl before 5.30.3 on 32-bit platforms allows a heap-based buffer overflow because nested regular expression quantifiers have an integer overflow.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.30.3',
                                                        'id' => 'CPANSA-perl-2020-10543',
@@ -43655,7 +44004,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2018-6798'
                                                                  ],
-                                                       'description' => 'An issue was discovered in Perl 5.22 through 5.26. Matching a crafted locale dependent regular expression can cause a heap-based buffer over-read and potentially information disclosure.',
+                                                       'description' => 'An issue was discovered in Perl 5.22 through 5.26. Matching a crafted locale dependent regular expression can cause a heap-based buffer over-read and potentially information disclosure.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.28',
                                                        'id' => 'CPANSA-perl-2018-6798',
@@ -43676,7 +44026,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2018-6797'
                                                                  ],
-                                                       'description' => 'An issue was discovered in Perl 5.18 through 5.26. A crafted regular expression can cause a heap-based buffer overflow, with control over the bytes written.',
+                                                       'description' => 'An issue was discovered in Perl 5.18 through 5.26. A crafted regular expression can cause a heap-based buffer overflow, with control over the bytes written.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.28',
                                                        'id' => 'CPANSA-perl-2018-6797',
@@ -43698,7 +44049,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2018-6913'
                                                                  ],
-                                                       'description' => 'Heap-based buffer overflow in the pack function in Perl before 5.26.2 allows context-dependent attackers to execute arbitrary code via a large item count.',
+                                                       'description' => 'Heap-based buffer overflow in the pack function in Perl before 5.26.2 allows context-dependent attackers to execute arbitrary code via a large item count.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.26.2',
                                                        'id' => 'CPANSA-perl-2018-6913',
@@ -43721,7 +44073,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2018-18314'
                                                                  ],
-                                                       'description' => 'Perl before 5.26.3 has a buffer overflow via a crafted regular expression that triggers invalid write operations.',
+                                                       'description' => 'Perl before 5.26.3 has a buffer overflow via a crafted regular expression that triggers invalid write operations.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.26.3',
                                                        'id' => 'CPANSA-perl-2018-18314',
@@ -43749,7 +44102,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2018-18313'
                                                                  ],
-                                                       'description' => 'Perl before 5.26.3 has a buffer over-read via a crafted regular expression that triggers disclosure of sensitive information from process memory.',
+                                                       'description' => 'Perl before 5.26.3 has a buffer over-read via a crafted regular expression that triggers disclosure of sensitive information from process memory.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.26.3',
                                                        'id' => 'CPANSA-perl-2018-18313',
@@ -43780,7 +44134,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2018-18312'
                                                                  ],
-                                                       'description' => 'Perl before 5.26.3 and 5.28.0 before 5.28.1 has a buffer overflow via a crafted regular expression that triggers invalid write operations.',
+                                                       'description' => 'Perl before 5.26.3 and 5.28.0 before 5.28.1 has a buffer overflow via a crafted regular expression that triggers invalid write operations.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.28.1',
                                                        'id' => 'CPANSA-perl-2018-18312',
@@ -43808,7 +44163,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2018-18311'
                                                                  ],
-                                                       'description' => 'Perl before 5.26.3 and 5.28.x before 5.28.1 has a buffer overflow via a crafted regular expression that triggers invalid write operations.',
+                                                       'description' => 'Perl before 5.26.3 and 5.28.x before 5.28.1 has a buffer overflow via a crafted regular expression that triggers invalid write operations.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.28.1',
                                                        'id' => 'CPANSA-perl-2018-18311',
@@ -43850,7 +44206,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2017-12883'
                                                                  ],
-                                                       'description' => 'Buffer overflow in the S_grok_bslash_N function in regcomp.c in Perl 5 before 5.24.3-RC1 and 5.26.x before 5.26.1-RC1 allows remote attackers to disclose sensitive information or cause a denial of service (application crash) via a crafted regular expression with an invalid \'\\N{U+...}\' escape.',
+                                                       'description' => 'Buffer overflow in the S_grok_bslash_N function in regcomp.c in Perl 5 before 5.24.3-RC1 and 5.26.x before 5.26.1-RC1 allows remote attackers to disclose sensitive information or cause a denial of service (application crash) via a crafted regular expression with an invalid \'\\\\N{U+...}\' escape.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.26.1',
                                                        'id' => 'CPANSA-perl-2017-12883',
@@ -43874,7 +44231,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2017-12837'
                                                                  ],
-                                                       'description' => 'Heap-based buffer overflow in the S_regatom function in regcomp.c in Perl 5 before 5.24.3-RC1 and 5.26.x before 5.26.1-RC1 allows remote attackers to cause a denial of service (out-of-bounds write) via a regular expression with a \'\\N{}\' escape and the case-insensitive modifier.',
+                                                       'description' => 'Heap-based buffer overflow in the S_regatom function in regcomp.c in Perl 5 before 5.24.3-RC1 and 5.26.x before 5.26.1-RC1 allows remote attackers to cause a denial of service (out-of-bounds write) via a regular expression with a \'\\\\N{}\' escape and the case-insensitive modifier.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.28.1',
                                                        'id' => 'CPANSA-perl-2017-12837',
@@ -43897,7 +44255,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2015-8853'
                                                                  ],
-                                                       'description' => 'The (1) S_reghop3, (2) S_reghop4, and (3) S_reghopmaybe3 functions in regexec.c in Perl before 5.24.0 allow context-dependent attackers to cause a denial of service (infinite loop) via crafted utf-8 data, as demonstrated by "a\\x80."',
+                                                       'description' => 'The (1) S_reghop3, (2) S_reghop4, and (3) S_reghopmaybe3 functions in regexec.c in Perl before 5.24.0 allow context-dependent attackers to cause a denial of service (infinite loop) via crafted utf-8 data, as demonstrated by "a\\x80."
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.24.0',
                                                        'id' => 'CPANSA-perl-2015-8853',
@@ -43924,7 +44283,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2013-1667'
                                                                  ],
-                                                       'description' => 'The rehash mechanism in Perl 5.8.2 through 5.16.x allows context-dependent attackers to cause a denial of service (memory consumption and crash) via a crafted hash key.',
+                                                       'description' => 'The rehash mechanism in Perl 5.8.2 through 5.16.x allows context-dependent attackers to cause a denial of service (memory consumption and crash) via a crafted hash key.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.26.1',
                                                        'id' => 'CPANSA-perl-2013-1667',
@@ -43960,7 +44320,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2011-0761'
                                                                  ],
-                                                       'description' => 'Perl 5.10.x allows context-dependent attackers to cause a denial of service (NULL pointer dereference and application crash) by leveraging an ability to inject arguments into a (1) getpeername, (2) readdir, (3) closedir, (4) getsockname, (5) rewinddir, (6) tell, or (7) telldir function call.',
+                                                       'description' => 'Perl 5.10.x allows context-dependent attackers to cause a denial of service (NULL pointer dereference and application crash) by leveraging an ability to inject arguments into a (1) getpeername, (2) readdir, (3) closedir, (4) getsockname, (5) rewinddir, (6) tell, or (7) telldir function call.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.12',
                                                        'id' => 'CPANSA-perl-2011-0761',
@@ -43980,7 +44341,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2010-4777'
                                                                  ],
-                                                       'description' => 'The Perl_reg_numbered_buff_fetch function in Perl 5.10.0, 5.12.0, 5.14.0, and other versions, when running with debugging enabled, allows context-dependent attackers to cause a denial of service (assertion failure and application exit) via crafted input that is not properly handled when using certain regular expressions, as demonstrated by causing SpamAssassin and OCSInventory to crash.',
+                                                       'description' => 'The Perl_reg_numbered_buff_fetch function in Perl 5.10.0, 5.12.0, 5.14.0, and other versions, when running with debugging enabled, allows context-dependent attackers to cause a denial of service (assertion failure and application exit) via crafted input that is not properly handled when using certain regular expressions, as demonstrated by causing SpamAssassin and OCSInventory to crash.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>5.14.0',
                                                        'id' => 'CPANSA-perl-2010-4777',
@@ -44001,7 +44363,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2010-1158'
                                                                  ],
-                                                       'description' => 'Integer overflow in the regular expression engine in Perl 5.8.x allows context-dependent attackers to cause a denial of service (stack consumption and application crash) by matching a crafted regular expression against a long string.',
+                                                       'description' => 'Integer overflow in the regular expression engine in Perl 5.8.x allows context-dependent attackers to cause a denial of service (stack consumption and application crash) by matching a crafted regular expression against a long string.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.10.0',
                                                        'id' => 'CPANSA-perl-2010-1158',
@@ -44021,7 +44384,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2009-3626'
                                                                  ],
-                                                       'description' => 'Perl 5.10.1 allows context-dependent attackers to cause a denial of service (application crash) via a UTF-8 character with a large, invalid codepoint, which is not properly handled during a regular-expression match.',
+                                                       'description' => 'Perl 5.10.1 allows context-dependent attackers to cause a denial of service (application crash) via a UTF-8 character with a large, invalid codepoint, which is not properly handled during a regular-expression match.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2009-3626',
@@ -44046,7 +44410,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2008-1927'
                                                                  ],
-                                                       'description' => 'Double free vulnerability in Perl 5.8.8 allows context-dependent attackers to cause a denial of service (memory corruption and crash) via a crafted regular expression containing UTF8 characters.  NOTE: this issue might only be present on certain operating systems.',
+                                                       'description' => 'Double free vulnerability in Perl 5.8.8 allows context-dependent attackers to cause a denial of service (memory corruption and crash) via a crafted regular expression containing UTF8 characters.  NOTE: this issue might only be present on certain operating systems.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2008-1927',
@@ -44100,7 +44465,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2005-3962'
                                                                  ],
-                                                       'description' => 'Integer overflow in the format string functionality (Perl_sv_vcatpvfn) in Perl 5.9.2 and 5.8.6 Perl allows attackers to overwrite arbitrary memory and possibly execute arbitrary code via format string specifiers with large values, which causes an integer wrap and leads to a buffer overflow, as demonstrated using format string vulnerabilities in Perl applications.',
+                                                       'description' => 'Integer overflow in the format string functionality (Perl_sv_vcatpvfn) in Perl 5.9.2 and 5.8.6 Perl allows attackers to overwrite arbitrary memory and possibly execute arbitrary code via format string specifiers with large values, which causes an integer wrap and leads to a buffer overflow, as demonstrated using format string vulnerabilities in Perl applications.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2005-3962',
@@ -44166,7 +44532,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2005-0156'
                                                                  ],
-                                                       'description' => 'Buffer overflow in the PerlIO implementation in Perl 5.8.0, when installed with setuid support (sperl), allows local users to execute arbitrary code by setting the PERLIO_DEBUG variable and executing a Perl script whose full pathname contains a long directory tree.',
+                                                       'description' => 'Buffer overflow in the PerlIO implementation in Perl 5.8.0, when installed with setuid support (sperl), allows local users to execute arbitrary code by setting the PERLIO_DEBUG variable and executing a Perl script whose full pathname contains a long directory tree.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2005-0156',
@@ -44195,7 +44562,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2005-0155'
                                                                  ],
-                                                       'description' => 'The PerlIO implementation in Perl 5.8.0, when installed with setuid support (sperl), allows local users to create arbitrary files via the PERLIO_DEBUG variable.',
+                                                       'description' => 'The PerlIO implementation in Perl 5.8.0, when installed with setuid support (sperl), allows local users to create arbitrary files via the PERLIO_DEBUG variable.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2005-0155',
@@ -44225,7 +44593,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2007-5116'
                                                                  ],
-                                                       'description' => 'Buffer overflow in the polymorphic opcode support in the Regular Expression Engine (regcomp.c) in Perl 5.8 allows context-dependent attackers to execute arbitrary code by switching from byte to Unicode (UTF) characters in a regular expression.',
+                                                       'description' => 'Buffer overflow in the polymorphic opcode support in the Regular Expression Engine (regcomp.c) in Perl 5.8 allows context-dependent attackers to execute arbitrary code by switching from byte to Unicode (UTF) characters in a regular expression.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2007-5116',
@@ -44292,7 +44661,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2012-5195'
                                                                  ],
-                                                       'description' => 'Heap-based buffer overflow in the Perl_repeatcpy function in util.c in Perl 5.12.x before 5.12.5, 5.14.x before 5.14.3, and 5.15.x before 15.15.5 allows context-dependent attackers to cause a denial of service (memory consumption and crash) or possibly execute arbitrary code via the \'x\' string repeat operator.',
+                                                       'description' => 'Heap-based buffer overflow in the Perl_repeatcpy function in util.c in Perl 5.12.x before 5.12.5, 5.14.x before 5.14.3, and 5.15.x before 15.15.5 allows context-dependent attackers to cause a denial of service (memory consumption and crash) or possibly execute arbitrary code via the \'x\' string repeat operator.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.16',
                                                        'id' => 'CPANSA-perl-2012-5195',
@@ -44322,7 +44692,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2016-2381'
                                                                  ],
-                                                       'description' => 'Perl might allow context-dependent attackers to bypass the taint protection mechanism in a child process via duplicate environment variables in envp.',
+                                                       'description' => 'Perl might allow context-dependent attackers to bypass the taint protection mechanism in a child process via duplicate environment variables in envp.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2016-2381',
@@ -44349,7 +44720,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2016-6185'
                                                                  ],
-                                                       'description' => 'The XSLoader::load method in XSLoader in Perl does not properly locate .so files when called in a string eval, which might allow local users to execute arbitrary code via a Trojan horse library under the current working directory.',
+                                                       'description' => 'The XSLoader::load method in XSLoader in Perl does not properly locate .so files when called in a string eval, which might allow local users to execute arbitrary code via a Trojan horse library under the current working directory.
+',
                                                        'distribution' => 'XSLoader-load',
                                                        'fixed_versions' => '>=5.25.2',
                                                        'id' => 'CPANSA-XSLoader-load-2016-6185',
@@ -44377,7 +44749,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2003-0900'
                                                                  ],
-                                                       'description' => 'Perl 5.8.1 on Fedora Core does not properly initialize the random number generator when forking, which makes it easier for attackers to predict random numbers.',
+                                                       'description' => 'Perl 5.8.1 on Fedora Core does not properly initialize the random number generator when forking, which makes it easier for attackers to predict random numbers.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2003-0900',
@@ -44392,7 +44765,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2013-7422'
                                                                  ],
-                                                       'description' => 'Integer underflow in regcomp.c in Perl before 5.20, as used in Apple OS X before 10.10.5 and other products, allows context-dependent attackers to execute arbitrary code or cause a denial of service (application crash) via a long digit string associated with an invalid backreference within a regular expression.',
+                                                       'description' => 'Integer underflow in regcomp.c in Perl before 5.20, as used in Apple OS X before 10.10.5 and other products, allows context-dependent attackers to execute arbitrary code or cause a denial of service (application crash) via a long digit string associated with an invalid backreference within a regular expression.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-2013-7422',
@@ -44412,7 +44786,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2015-8608'
                                                                  ],
-                                                       'description' => 'The VDir::MapPathA and VDir::MapPathW functions in Perl 5.22 allow remote attackers to cause a denial of service (out-of-bounds read) and possibly execute arbitrary code via a crafted (1) drive letter or (2) pInName argument.',
+                                                       'description' => 'The VDir::MapPathA and VDir::MapPathW functions in Perl 5.22 allow remote attackers to cause a denial of service (out-of-bounds read) and possibly execute arbitrary code via a crafted (1) drive letter or (2) pInName argument.
+',
                                                        'distribution' => 'VDir-MapPathA',
                                                        'fixed_versions' => '>=5.22.2',
                                                        'id' => 'CPANSA-VDir-MapPathA-2015-8608',
@@ -44430,7 +44805,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-2011-1487'
                                                                  ],
-                                                       'description' => 'The (1) lc, (2) lcfirst, (3) uc, and (4) ucfirst functions in Perl 5.10.x, 5.11.x, and 5.12.x through 5.12.3, and 5.13.x through 5.13.11, do not apply the taint attribute to the return value upon processing tainted input, which might allow context-dependent attackers to bypass the taint protection mechanism via a crafted string.',
+                                                       'description' => 'The (1) lc, (2) lcfirst, (3) uc, and (4) ucfirst functions in Perl 5.10.x, 5.11.x, and 5.12.x through 5.12.3, and 5.13.x through 5.13.11, do not apply the taint attribute to the return value upon processing tainted input, which might allow context-dependent attackers to bypass the taint protection mechanism via a crafted string.
+',
                                                        'distribution' => 'perl',
                                                        'fixed_versions' => '>=5.14',
                                                        'id' => 'CPANSA-perl-2011-1487',
@@ -44459,7 +44835,8 @@ sub db {
                                                        'cves' => [
                                                                    'CVE-1999-1386'
                                                                  ],
-                                                       'description' => 'Perl 5.004_04 and earlier follows symbolic links when running with the -e option, which allows local users to overwrite arbitrary files via a symlink attack on the /tmp/perl-eaXXXXX file.',
+                                                       'description' => 'Perl 5.004_04 and earlier follows symbolic links when running with the -e option, which allows local users to overwrite arbitrary files via a symlink attack on the /tmp/perl-eaXXXXX file.
+',
                                                        'distribution' => '',
                                                        'fixed_versions' => undef,
                                                        'id' => 'CPANSA-perl-1999-1386',
@@ -44470,6 +44847,27 @@ sub db {
                                                                        ],
                                                        'reported' => '1999-12-31',
                                                        'severity' => undef
+                                                     },
+                                                     {
+                                                       'affected_versions' => '>=5.24.0,<=5.26.0',
+                                                       'cves' => [
+                                                                   'CVE-2017-12814'
+                                                                 ],
+                                                       'description' => 'Stack-based buffer overflow in the CPerlHost::Add method in win32/perlhost.h in Perl before 5.24.3-RC1 and 5.26.x before 5.26.1-RC1 on Windows allows attackers to execute arbitrary code via a long environment variable.
+',
+                                                       'distribution' => 'perl',
+                                                       'fixed_versions' => undef,
+                                                       'id' => 'CPANSA-perl-2017-12814',
+                                                       'references' => [
+                                                                         'https://rt.perl.org/Public/Bug/Display.html?id=131665',
+                                                                         'https://perl5.git.perl.org/perl.git/log/refs/tags/v5.26.1-RC1',
+                                                                         'https://perl5.git.perl.org/perl.git/log/refs/tags/v5.24.3-RC1',
+                                                                         'http://www.securityfocus.com/bid/101051',
+                                                                         'https://security.netapp.com/advisory/ntap-20180426-0001/',
+                                                                         'https://www.oracle.com/security-alerts/cpujul2020.html'
+                                                                       ],
+                                                       'reported' => '2017-09-28',
+                                                       'severity' => 'critical'
                                                      }
                                                    ],
                                    'main_module' => 'perl',
@@ -46383,8 +46781,9 @@ sub db {
                                                         'cves' => [
                                                                     'CVE-1999-0034'
                                                                   ],
-                                                        'description' => 'Buffer overflow in suidperl (sperl), Perl 4.x and 5.x.',
-                                                        'distribution' => '',
+                                                        'description' => 'Buffer overflow in suidperl (sperl), Perl 4.x and 5.x.
+',
+                                                        'distribution' => 'sperl',
                                                         'fixed_versions' => undef,
                                                         'id' => 'CPANSA-sperl-1999-0034',
                                                         'references' => [],
@@ -46396,8 +46795,9 @@ sub db {
                                                         'cves' => [
                                                                     'CVE-1999-0462'
                                                                   ],
-                                                        'description' => 'suidperl in Linux Perl does not check the nosuid mount option on file systems, allowing local users to gain root access by placing a setuid script in a mountable file system, e.g. a CD-ROM or floppy disk.',
-                                                        'distribution' => '',
+                                                        'description' => 'suidperl in Linux Perl does not check the nosuid mount option on file systems, allowing local users to gain root access by placing a setuid script in a mountable file system, e.g. a CD-ROM or floppy disk.
+',
+                                                        'distribution' => 'sperl',
                                                         'fixed_versions' => undef,
                                                         'id' => 'CPANSA-sperl-1999-0462',
                                                         'references' => [
@@ -46411,8 +46811,9 @@ sub db {
                                                         'cves' => [
                                                                     'CVE-2000-0703'
                                                                   ],
-                                                        'description' => 'suidperl (aka sperl) does not properly cleanse the escape sequence "~!" before calling /bin/mail to send an error report, which allows local users to gain privileges by setting the "interactive" environmental variable and calling suidperl with a filename that contains the escape sequence.',
-                                                        'distribution' => '',
+                                                        'description' => 'suidperl (aka sperl) does not properly cleanse the escape sequence "~!" before calling /bin/mail to send an error report, which allows local users to gain privileges by setting the "interactive" environmental variable and calling suidperl with a filename that contains the escape sequence.
+',
+                                                        'distribution' => 'sperl',
                                                         'fixed_versions' => undef,
                                                         'id' => 'CPANSA-sperl-2000-0703',
                                                         'references' => [
@@ -47522,6 +47923,8 @@ sub db {
                              'GPIB::rmt' => 'GPIB',
                              'Getopt::Std' => 'perl',
                              'GitUtils' => 'perl',
+                             'Graphics::ColorNames' => 'Graphics-ColorNames',
+                             'Graphics::ColorNames::X' => 'Graphics-ColorNames',
                              'HTML::EP' => 'HTML-EP',
                              'HTML::EP::CGIEncryptForm' => 'HTML-EP',
                              'HTML::EP::EditTable' => 'HTML-EP',
