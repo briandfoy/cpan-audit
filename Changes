@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20220611 2022-06-12T22:58:50Z
+	* Use GNU tar instead of bsdtar. Upgrading macOS apparently breaks
+	the established way of avoiding weird Mac tarballs.
+	* Added a couple of ancient security reports to CPANSA.
+
 20220608 2022-06-08T15:08:53Z
 	* Update for the latest CVEs
 	* Now also tracks CVEs in perl too
