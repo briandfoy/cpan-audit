@@ -1,12 +1,12 @@
-# created by util/generate at Sun Jun 12 14:59:41 2022
-# cpan-security-advisory +3c3c009b42e6049f081bd1b13fd6e4fc60610c47
+# created by util/generate at Mon Jun 13 13:24:36 2022
+# cpan-security-advisory +3e767c2ab41322782d528297a24bed61f67ecc02
 #
 package CPAN::Audit::DB;
 
 use strict;
 use warnings;
 
-our $VERSION = '20220612';
+our $VERSION = '20220613';
 
 sub db {
     {
@@ -44000,14 +44000,14 @@ sub db {
                                                        'severity' => 'high'
                                                      },
                                                      {
-                                                       'affected_versions' => '>=5.22.0,<5.28',
+                                                       'affected_versions' => '>=5.22.0,<5.28.0',
                                                        'cves' => [
                                                                    'CVE-2018-6798'
                                                                  ],
                                                        'description' => 'An issue was discovered in Perl 5.22 through 5.26. Matching a crafted locale dependent regular expression can cause a heap-based buffer over-read and potentially information disclosure.
 ',
                                                        'distribution' => 'perl',
-                                                       'fixed_versions' => '>=5.28',
+                                                       'fixed_versions' => '>=5.28.0',
                                                        'id' => 'CPANSA-perl-2018-6798',
                                                        'references' => [
                                                                          'https://www.debian.org/security/2018/dsa-4172',
@@ -44022,14 +44022,14 @@ sub db {
                                                        'severity' => 'high'
                                                      },
                                                      {
-                                                       'affected_versions' => '>=5.18,<5.28',
+                                                       'affected_versions' => '>=5.18.0,<5.28.0',
                                                        'cves' => [
                                                                    'CVE-2018-6797'
                                                                  ],
                                                        'description' => 'An issue was discovered in Perl 5.18 through 5.26. A crafted regular expression can cause a heap-based buffer overflow, with control over the bytes written.
 ',
                                                        'distribution' => 'perl',
-                                                       'fixed_versions' => '>=5.28',
+                                                       'fixed_versions' => '>=5.28.0',
                                                        'id' => 'CPANSA-perl-2018-6797',
                                                        'references' => [
                                                                          'https://www.debian.org/security/2018/dsa-4172',
@@ -44316,14 +44316,14 @@ sub db {
                                                        'severity' => undef
                                                      },
                                                      {
-                                                       'affected_versions' => '>=5.10.0,<5.12',
+                                                       'affected_versions' => '>=5.10.0,<5.12.0',
                                                        'cves' => [
                                                                    'CVE-2011-0761'
                                                                  ],
                                                        'description' => 'Perl 5.10.x allows context-dependent attackers to cause a denial of service (NULL pointer dereference and application crash) by leveraging an ability to inject arguments into a (1) getpeername, (2) readdir, (3) closedir, (4) getsockname, (5) rewinddir, (6) tell, or (7) telldir function call.
 ',
                                                        'distribution' => 'perl',
-                                                       'fixed_versions' => '>=5.12',
+                                                       'fixed_versions' => '>=5.12.0',
                                                        'id' => 'CPANSA-perl-2011-0761',
                                                        'references' => [
                                                                          'http://www.securityfocus.com/bid/47766',
@@ -44528,7 +44528,7 @@ sub db {
                                                        'severity' => undef
                                                      },
                                                      {
-                                                       'affected_versions' => '5.8.0',
+                                                       'affected_versions' => '==5.8.0',
                                                        'cves' => [
                                                                    'CVE-2005-0156'
                                                                  ],
@@ -44558,7 +44558,7 @@ sub db {
                                                        'severity' => undef
                                                      },
                                                      {
-                                                       'affected_versions' => '5.8.0',
+                                                       'affected_versions' => '==5.8.0',
                                                        'cves' => [
                                                                    'CVE-2005-0155'
                                                                  ],
@@ -44657,14 +44657,14 @@ sub db {
                                                        'severity' => undef
                                                      },
                                                      {
-                                                       'affected_versions' => '<5.16',
+                                                       'affected_versions' => '<5.16.0',
                                                        'cves' => [
                                                                    'CVE-2012-5195'
                                                                  ],
                                                        'description' => 'Heap-based buffer overflow in the Perl_repeatcpy function in util.c in Perl 5.12.x before 5.12.5, 5.14.x before 5.14.3, and 5.15.x before 15.15.5 allows context-dependent attackers to cause a denial of service (memory consumption and crash) or possibly execute arbitrary code via the \'x\' string repeat operator.
 ',
                                                        'distribution' => 'perl',
-                                                       'fixed_versions' => '>=5.16',
+                                                       'fixed_versions' => '>=5.16.0',
                                                        'id' => 'CPANSA-perl-2012-5195',
                                                        'references' => [
                                                                          'http://perl5.git.perl.org/perl.git/commit/2709980d5a193ce6f3a16f0d19879a6560dcde44',
@@ -44745,7 +44745,7 @@ sub db {
                                                        'severity' => 'high'
                                                      },
                                                      {
-                                                       'affected_versions' => '5.8.1',
+                                                       'affected_versions' => '==5.8.1',
                                                        'cves' => [
                                                                    'CVE-2003-0900'
                                                                  ],
@@ -44761,7 +44761,7 @@ sub db {
                                                        'severity' => undef
                                                      },
                                                      {
-                                                       'affected_versions' => '<5.20',
+                                                       'affected_versions' => '<5.20.0',
                                                        'cves' => [
                                                                    'CVE-2013-7422'
                                                                  ],
@@ -44801,14 +44801,14 @@ sub db {
                                                        'severity' => 'critical'
                                                      },
                                                      {
-                                                       'affected_versions' => '<5.14',
+                                                       'affected_versions' => '<5.14.0',
                                                        'cves' => [
                                                                    'CVE-2011-1487'
                                                                  ],
                                                        'description' => 'The (1) lc, (2) lcfirst, (3) uc, and (4) ucfirst functions in Perl 5.10.x, 5.11.x, and 5.12.x through 5.12.3, and 5.13.x through 5.13.11, do not apply the taint attribute to the return value upon processing tainted input, which might allow context-dependent attackers to bypass the taint protection mechanism via a crafted string.
 ',
                                                        'distribution' => 'perl',
-                                                       'fixed_versions' => '>=5.14',
+                                                       'fixed_versions' => '>=5.14.0',
                                                        'id' => 'CPANSA-perl-2011-1487',
                                                        'references' => [
                                                                          'https://bugzilla.redhat.com/show_bug.cgi?id=692844',
