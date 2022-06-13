@@ -93,7 +93,6 @@ my %WriteMakefile = (
 	'TEST_REQUIRES' => {
 		'Capture::Tiny'   => '0',
 		'HTTP::Tiny'      => '0',
-		'IO::Interactive' => '0',
 		'JSON'            => '0',
 		'Test::More'      => '0.98',
 		},
@@ -103,6 +102,7 @@ my %WriteMakefile = (
 		'Module::CoreList'         => '5.20181020',
 		'Module::CPANfile'         => '0',
 		'Module::Extract::VERSION' => '0',
+		'IO::Interactive'          => '0',
 		'PerlIO::gzip'             => '0',
 		'Pod::Usage'               => '1.69',
 		},
