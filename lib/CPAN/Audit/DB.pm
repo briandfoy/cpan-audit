@@ -6,7 +6,7 @@ package CPAN::Audit::DB;
 use strict;
 use warnings;
 
-our $VERSION = '20220613';
+our $VERSION = '20220613.001';
 
 sub db {
     {
