@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20220613.001 2022-06-13T18:10:47Z
+	* Fix DB for Perl versions by specify all versions as semantic versions
+	(noted by Robert Rothenberg)
+
 20220611 2022-06-12T22:58:50Z
 	* Use GNU tar instead of bsdtar. Upgrading macOS apparently breaks
 	the established way of avoiding weird Mac tarballs.
