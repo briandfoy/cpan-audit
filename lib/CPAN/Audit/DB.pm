@@ -1,12 +1,12 @@
-# created by util/generate at Mon Jun 13 13:24:36 2022
-# cpan-security-advisory +3e767c2ab41322782d528297a24bed61f67ecc02
+# created by util/generate at Mon Jun 20 23:01:14 2022
+# cpan-security-advisory +fd67c575e4181beec5c10e08014bdc66097cbed7
 #
 package CPAN::Audit::DB;
 
 use strict;
 use warnings;
 
-our $VERSION = '20220613.001';
+our $VERSION = '20220620.001';
 
 sub db {
     {
@@ -11047,6 +11047,10 @@ sub db {
                                                              {
                                                                'date' => '2022-05-27T15:32:51',
                                                                'version' => '4.29'
+                                                             },
+                                                             {
+                                                               'date' => '2022-06-16T19:19:38',
+                                                               'version' => '4.30'
                                                              }
                                                            ]
                                            },
@@ -25142,6 +25146,93 @@ sub db {
                                                         }
                                                       ]
                                       },
+                       'IO-Compress-Brotli' => {
+                                                 'advisories' => [
+                                                                   {
+                                                                     'affected_versions' => '<=0.004001',
+                                                                     'cves' => [
+                                                                                 'CVE-2020-8927'
+                                                                               ],
+                                                                     'description' => 'A buffer overflow exists in the Brotli library versions prior to 1.0.8 where an attacker controlling the input length of a "one-shot" decompression request to a script can trigger a crash, which happens when copying over chunks of data larger than 2 GiB. It is recommended to update your Brotli library to 1.0.8 or later. If one cannot update, we recommend to use the "streaming" API as opposed to the "one-shot" API, and impose chunk size limits.
+',
+                                                                     'distribution' => 'IO-Compress-Brotli',
+                                                                     'fixed_versions' => undef,
+                                                                     'id' => 'CPANSA-IO-Compress-Brotli-2020-8927',
+                                                                     'references' => [
+                                                                                       'https://github.com/google/brotli/releases/tag/v1.0.9',
+                                                                                       'http://lists.opensuse.org/opensuse-security-announce/2020-09/msg00108.html',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MMBKACMLSRX7JJSKBTR35UOEP2WFR6QP/',
+                                                                                       'https://usn.ubuntu.com/4568-1/',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WW62OZEY2GHJL4JCOLJRBSRETXDHMWRK/',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/M4VCDOJGL6BK3HB4XRD2WETBPYX2ITF6/',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/J4E265WKWKYMK2RYYSIXBEGZTDY5IQE6/',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/W23CUADGMVMQQNFKHPHXVP7RPZJZNN6I/',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/356JOYTWW4BWSZ42SEFLV7NYHL3S3AEH/',
+                                                                                       'https://lists.debian.org/debian-lts-announce/2020/12/msg00003.html',
+                                                                                       'https://www.debian.org/security/2020/dsa-4801',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZXEQ3GQVELA2T4HNZG7VPMS2HDVXMJRG/',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/MQLM7ABVCYJLF6JRPF3M3EBXW63GNC27/',
+                                                                                       'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4TOGTZ2ZWDH662ZNFFSZVL3M5AJXV6JF/'
+                                                                                     ],
+                                                                     'reported' => '2020-09-15',
+                                                                     'reviewed_by' => [
+                                                                                        {
+                                                                                          'date' => '2022-06-15',
+                                                                                          'email' => 'rrwo@cpan.org',
+                                                                                          'name' => 'Robert Rothenberg'
+                                                                                        }
+                                                                                      ],
+                                                                     'severity' => 'medium'
+                                                                   }
+                                                                 ],
+                                                 'main_module' => 'IO::Compress::Brotli',
+                                                 'versions' => [
+                                                                 {
+                                                                   'date' => '2015-12-31T19:03:44',
+                                                                   'version' => '0.001'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2016-01-01T09:33:21',
+                                                                   'version' => '0.001001'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2016-08-27T23:37:42',
+                                                                   'version' => '0.002'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2016-09-08T22:12:55',
+                                                                   'version' => '0.002001'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2017-09-09T17:15:27',
+                                                                   'version' => '0.002_002'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2017-09-16T20:41:00',
+                                                                   'version' => '0.003'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2017-09-23T19:24:01',
+                                                                   'version' => '0.003_001'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2017-10-14T17:57:14',
+                                                                   'version' => '0.003_002'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2017-10-28T19:51:35',
+                                                                   'version' => '0.004'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2018-05-19T19:01:07',
+                                                                   'version' => '0.004001'
+                                                                 },
+                                                                 {
+                                                                   'date' => '2019-06-11T13:08:10',
+                                                                   'version' => '0.004_002'
+                                                                 }
+                                                               ]
+                                               },
                        'IO-Socket-SSL' => {
                                             'advisories' => [
                                                               {
@@ -27689,6 +27780,14 @@ sub db {
                                                      {
                                                        'date' => '2022-06-12T05:27:23',
                                                        'version' => '1.016'
+                                                     },
+                                                     {
+                                                       'date' => '2022-06-14T09:55:03',
+                                                       'version' => '1.017'
+                                                     },
+                                                     {
+                                                       'date' => '2022-06-19T12:04:12',
+                                                       'version' => '1.018'
                                                      }
                                                    ]
                                    },
@@ -43196,6 +43295,10 @@ sub db {
                                                           {
                                                             'date' => '2022-05-18T16:57:21',
                                                             'version' => '6.66'
+                                                          },
+                                                          {
+                                                            'date' => '2022-06-14T20:24:12',
+                                                            'version' => '6.67'
                                                           }
                                                         ]
                                         },
@@ -46771,6 +46874,10 @@ sub db {
                                                    {
                                                      'date' => '2022-05-28T02:33:40',
                                                      'version' => '5.037000'
+                                                   },
+                                                   {
+                                                     'date' => '2022-06-20T18:57:04',
+                                                     'version' => '5.037001'
                                                    }
                                                  ]
                                  },
@@ -47981,6 +48088,7 @@ sub db {
                              'I18N::LangTags::Detect' => 'perl',
                              'I18N::LangTags::List' => 'perl',
                              'I18N::Langinfo' => 'perl',
+                             'IO::Compress::Brotli' => 'IO-Compress-Brotli',
                              'IO::Socket::SSL' => 'IO-Socket-SSL',
                              'IO::Socket::SSL::Intercept' => 'IO-Socket-SSL',
                              'IO::Socket::SSL::OCSP_Cache' => 'IO-Socket-SSL',
@@ -47990,6 +48098,7 @@ sub db {
                              'IO::Socket::SSL::SSL_HANDLE' => 'IO-Socket-SSL',
                              'IO::Socket::SSL::Session_Cache' => 'IO-Socket-SSL',
                              'IO::Socket::SSL::Utils' => 'IO-Socket-SSL',
+                             'IO::Uncompress::Brotli' => 'IO-Compress-Brotli',
                              'IPC::Open2' => 'perl',
                              'IPC::Open3' => 'perl',
                              'IPTables::Parse' => 'IPTables-Parse',
