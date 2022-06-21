@@ -1,5 +1,11 @@
 Revision history for Perl extension CPAN-Audit
 
+20220620.001 2022-06-21T03:14:25Z
+	* Add CVE-2020-8927 for IO-Compress-Brotli (Robert Rothenberg)
+	briandfoy/cpan-security-advisory#18
+	* Fix to perl versions so they don't appear as if they are in 
+	the future (#4)
+
 20220613.001 2022-06-13T18:10:47Z
 	* Fix DB for Perl versions by specify all versions as semantic versions
 	(noted by Robert Rothenberg)
