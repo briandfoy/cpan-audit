@@ -1,5 +1,7 @@
 # Contributing
 
+If you have any questions, no matter how big or small, [raise an issue](https://github.com/briandfoy/cpan-audit).
+
 ## Updating the advisories
 
 The advisories are actually in a separate GitHub repo,
