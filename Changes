@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20220622.001 2022-06-22T20:59:18Z
+	* Advisories for Plack, DBD::SQLite from Robert Rothenberg
+	* Refactored and documented util/generated - can now output JSON,
+	although that probably isn't useful yet
+
 20220620.001 2022-06-21T03:14:25Z
 	* Add CVE-2020-8927 for IO-Compress-Brotli (Robert Rothenberg)
 	briandfoy/cpan-security-advisory#18
