@@ -49,7 +49,7 @@ jobs:
                 make disttest
                 make dist 2>/dev/null | grep Created | awk '{ print "ASSET_NAME=" $2 }' >> $GITHUB_ENV
             - name: version
-              run: echo "::set-output name=version::$(perl -le 'print $ARGV[0] =~ m/-(.*?).tar.gz/' *.tar.gz)"
+              run: echo "::set-output name=version::$(perl -le 'print $ARGV[0] =~ m/(.*?).tar.gz/' *.tar.gz)"
               id: version
             - name: release
               uses: actions/create-release@v1
