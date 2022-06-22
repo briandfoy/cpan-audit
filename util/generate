@@ -1,4 +1,6 @@
 #!/usr/bin/env perl
+use v5.26;
+use experimental qw(signatures);
 
 use strict;
 use warnings;
@@ -6,66 +8,140 @@ use warnings;
 use CPAN::DistnameInfo;
 use Data::Dumper;
 use File::Basename qw(basename);
+use File::Spec::Functions qw(catfile);
 use HTTP::Tiny;
 use JSON ();
 use PerlIO::gzip;
 use YAML::Tiny;
 
-local $Data::Dumper::Sortkeys = 1;
+run(@ARGV) unless caller;
 
-my @files = my @args = ($^O eq 'MSWin32') ? map { glob } @ARGV : @ARGV;
-die "Usage: <files>\n" unless @files;
+use Mojo::Util qw(dumper);
 
-my %db;
-foreach my $file (@files) {
-	print STDERR "Processing $file...\n";
-    my $yaml = YAML::Tiny->read($file)->[0];
+sub process_options ( @args ) {
+	state $rc = require Getopt::Long;
 
-    my $dist = basename $file;
-    $dist =~ s{^CPANSA-}{};
-    $dist =~ s{\.yml$}{};
+    my %results;
+    my %opts = (
+        'json|j'           => \ $results{json},
+        'output-file|o=s'  => \ $results{output_file},
+        'perl-module|pm|p' => \ $results{perl_module},
+        'quiet|q'          => \ $results{quiet},
+    );
 
-    $db{dists}->{$dist}->{advisories} = $yaml;
+	my $p = Getopt::Long::Parser->new();
+	$p->configure( qw(no_ignore_case) );
+	$p->getoptionsfromarray( \@args, %opts );
+
+    ( \%results, \@args );
 }
 
-provides( \%db );
-
-foreach my $dist ( keys %{ $db{dists} } ) {
-    $db{dists}->{$dist}->{versions} = [ all_releases($dist) ];
-    $db{dists}->{$dist}->{main_module} = release($dist)->{main_module};
+sub default_file () {
+	state $file = catfile(qw(lib CPAN Audit DB.pm));
+	$file;
 }
 
-# XXX: need to investigate why this shows up as utf8
-$db{dists}->{'perl'}->{main_module} = 'perl';
+sub run ( @args ) {
+    my( $opts, $leftover_args ) = process_options( @args );
 
-my $dump = Dumper( \%db );
-$dump =~ s{^\$VAR1\s*=\s*}{};
-$dump =~ s{}{};
+	*message = $opts->{quiet} ? sub ($m) {} : sub ($m) { print STDERR $m };
 
-my $submodule_dir = 'cpan-security-advisory';
+    my $files = get_file_list( $leftover_args );
+    die "Usage: <files>\n" unless @$files;
 
-my( $commit ) = split /\s+/, join '', grep { /\Q$submodule_dir/ } `git submodule status`;
+    my $out_fh = do {
+    	$opts->{output_file} = default_file() unless length $opts->{output_file};
+    	message( "Output file is <$opts->{output_file}>\n" );
+    	if( $opts->{output_file} eq '-' ) { \*STDOUT }
+        elsif( $opts->{output_file} ) {
+            open my $fh, '>:encoding(UTF-8)', $opts->{output_file}
+                or die "Could not open <$opts->{output_file}>: $!\n";
+            $fh;
+        }
+        else { \*STDOUT }
+    };
 
-my( $year, $month, $day ) = (localtime)[5,4,3];
-my( $version ) = sprintf '%4d%02d%02d', $year + 1900, $month + 1, $day;
+    my $db = process_files( $files );
 
-print <<"EOF";
-# created by $0 at @{[ scalar localtime]}
-# $submodule_dir $commit
-#
-package CPAN::Audit::DB;
+    my $string = do {
+        if( $opts->{perl_module} ) { stringify_data($db) }
+        elsif( $opts->{json} )     { JSON::encode_json($db) }
+        else                       { stringify_data($db) }
+    };
 
-use strict;
-use warnings;
-
-our \$VERSION = '$version';
-
-sub db {
-    $dump
+    print $out_fh $string;
 }
 
-1;
-EOF
+sub get_file_list ( $args ) {
+    unless( @$args and -e 'cpan-security-advisory/cpansa' ) {
+        warn "No arguments given: looking in cpan-security-advisory/cpansa\n";
+        @$args = glob( 'cpan-security-advisory/cpansa/*.yml' );
+    }
+
+    my @files = ($^O eq 'MSWin32') ? map { glob } @$args : @$args;
+
+    \@files;
+}
+
+sub process_files ( $files ) {
+    my %db;
+    foreach my $file ( $files->@* ) {
+        message( "Processing $file...\n" );
+        my $yaml = YAML::Tiny->read($file)->[0];
+
+        my $dist = basename $file;
+        $dist =~ s{\ACPANSA-}{};
+        $dist =~ s{\.yml\z}{};
+
+        $db{dists}->{$dist}->{advisories} = $yaml;
+    }
+
+    provides( \%db );
+
+    foreach my $dist ( keys %{ $db{dists} } ) {
+        $db{dists}->{$dist}->{versions} = [ all_releases($dist) ];
+        $db{dists}->{$dist}->{main_module} = release($dist)->{main_module};
+    }
+
+    # XXX: need to investigate why this shows up as utf8
+    $db{dists}->{'perl'}->{main_module} = 'perl';
+
+    \%db;
+}
+
+sub stringify_data ( $db ) {
+    local $Data::Dumper::Sortkeys = 1;
+    my $dump = Dumper( $db );
+    $dump =~ s{^\$VAR1\s*=\s*}{};
+    $dump =~ s{}{};
+
+    my $submodule_dir = 'cpan-security-advisory';
+
+    my( $commit ) = split /\s+/, join '',
+    	grep { /\Q$submodule_dir/ }
+    	`git submodule status` =~ s/\A\s+//r;
+
+    my( $year, $month, $day ) = (localtime)[5,4,3];
+    my( $version ) = sprintf '%4d%02d%02d', $year + 1900, $month + 1, $day;
+
+    my $string = <<~"EOF";
+    # created by $0 at @{[ scalar localtime]}
+    # $submodule_dir $commit
+    #
+    package CPAN::Audit::DB;
+
+    use strict;
+    use warnings;
+
+    our \$VERSION = '$version';
+
+    sub db {
+        $dump
+    }
+
+    1;
+    EOF
+}
 
 sub provides {
     my ($db) = @_;
@@ -73,11 +149,11 @@ sub provides {
     my $ua = HTTP::Tiny->new;
 
     my $details_file = '/tmp/02packages.details.txt.gz';
-	print STDERR "Downloading 02packages.details.txt.gz (this may take awhile)\n";
+    message( "Downloading 02packages.details.txt.gz (this may take awhile)\n" );
     $ua->mirror( 'http://www.cpan.org/modules/02packages.details.txt.gz',
         $details_file );
-	print STDERR "Downloaded 02packages.details.txt.gz\n";
-	print STDERR "Digesting 02packages.details.txt.gz (this may take awhile)\n";
+    message( "Downloaded 02packages.details.txt.gz\n" );
+    message( "Digesting 02packages.details.txt.gz (this may take awhile)\n" );
 
     open my $fh, '<:gzip', $details_file
       or die "Can't open '$details_file': $!";
