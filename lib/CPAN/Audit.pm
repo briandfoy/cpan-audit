@@ -10,6 +10,52 @@ use CPAN::Audit::Query;
 use CPAN::Audit::DB;
 use Module::CoreList;
 
+=head1 NAME
+
+util/generate - create the data for lib/CPAN/Audit/DB.pm
+
+=head1 SYNOPSIS
+
+	# usual operation, outputs to lib/CPAN/Audit/DB.pm
+	# gets data from cpan-security-advisory/cpansa/*.yml
+	% perl util/generate
+
+	# usual operation, outputs to lib/CPAN/Audit/DB.pm
+	# gets data from other_source/*.yml
+	% perl util/generate other_source/*.yml
+
+	# suppress progress messages
+	% perl util/generate -q
+	% perl util/generate --quiet
+
+	# output somewhere else
+	% perl util/generate -o some_other_file
+	% perl util/generate --output-file some_other_file
+
+	# output to stdout (- is a special file name)
+	% perl util/generate -o -
+
+	# output JSON instead of a Perl module (probably want to specify output)
+	% perl util/generate --json -o -
+
+=head1 DESCRIPTION
+
+This program chews through the CPAN security advisory reports and
+makes the L<CPAN::Audit::DB> module.
+
+=head1 AUTHOR
+
+Original author: Viacheslav Tykhanovskyi (C<vti@cpan.org>)
+
+Maintained by: brian d foy (C<bdfoy@cpan.org>)
+
+=head1 LICENSE
+
+L<CPAN::Audit> is dual-licensed under the GPL or the Artistic License.
+See the included F<LICENSE> file for details.
+
+=cut
+
 our $VERSION = "20220622.001";
 
 sub new {
