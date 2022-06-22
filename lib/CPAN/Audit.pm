@@ -10,7 +10,7 @@ use CPAN::Audit::Query;
 use CPAN::Audit::DB;
 use Module::CoreList;
 
-our $VERSION = "20220622.001";
+our $VERSION = "20220622.002";
 
 sub new {
     my( $class, %params ) = @_;
