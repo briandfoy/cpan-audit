@@ -1,12 +1,12 @@
-# created by util/generate at Mon Jun 20 23:01:14 2022
-# cpan-security-advisory +fd67c575e4181beec5c10e08014bdc66097cbed7
+# created by util/generate at Wed Jun 22 14:05:43 2022
+# cpan-security-advisory fe4c417af378e2bbf1ba2fe5b04751fbc33f4c3e
 #
 package CPAN::Audit::DB;
 
 use strict;
 use warnings;
 
-our $VERSION = '20220620.001';
+our $VERSION = '20220622.001';
 
 sub db {
     {
@@ -8742,6 +8742,10 @@ sub db {
                                                                 {
                                                                   'date' => '2022-05-14T14:24:32',
                                                                   'version' => '2.105'
+                                                                },
+                                                                {
+                                                                  'date' => '2022-06-21T21:19:21',
+                                                                  'version' => '2.200'
                                                                 }
                                                               ]
                                               },
@@ -13051,6 +13055,1768 @@ sub db {
                                                      }
                                                    ]
                                    },
+                       'DBD-SQLite' => {
+                                         'advisories' => [
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-15358'
+                                                                       ],
+                                                             'description' => 'In SQLite before 3.32.3, select.c mishandles query-flattener optimization, leading to a multiSelectOrderBy heap overflow because of misuse of transitive properties for constant propagation.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-15358',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/src/info/10fa79d00f8091e5',
+                                                                               'https://www.sqlite.org/src/timeline?p=version-3.32.3&bt=version-3.32.2',
+                                                                               'https://www.sqlite.org/src/tktview?name=8f157e8010',
+                                                                               'https://security.netapp.com/advisory/ntap-20200709-0001/',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://usn.ubuntu.com/4438-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                               'https://support.apple.com/kb/HT211931',
+                                                                               'https://support.apple.com/kb/HT211844',
+                                                                               'https://support.apple.com/kb/HT211850',
+                                                                               'https://support.apple.com/kb/HT211843',
+                                                                               'https://support.apple.com/kb/HT211847',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/19',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/22',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/20',
+                                                                               'http://seclists.org/fulldisclosure/2020/Dec/32',
+                                                                               'https://www.oracle.com/security-alerts/cpujan2021.html',
+                                                                               'https://support.apple.com/kb/HT212147',
+                                                                               'http://seclists.org/fulldisclosure/2021/Feb/14',
+                                                                               'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2022.html'
+                                                                             ],
+                                                             'reported' => '2020-06-27',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-13632'
+                                                                       ],
+                                                             'description' => 'ext/fts3/fts3_snippet.c in SQLite before 3.32.0 has a NULL pointer dereference via a crafted matchinfo() query.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-13632',
+                                                             'references' => [
+                                                                               'https://bugs.chromium.org/p/chromium/issues/detail?id=1080459',
+                                                                               'https://sqlite.org/src/info/a4dd148928ea65bd',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L7KXQWHIY2MQP4LNM6ODWJENMXYYQYBN/',
+                                                                               'https://security.netapp.com/advisory/ntap-20200608-0002/',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://security.FreeBSD.org/advisories/FreeBSD-SA-20:22.sqlite.asc',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2020-05-27',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-13631'
+                                                                       ],
+                                                             'description' => 'SQLite before 3.32.0 allows a virtual table to be renamed to the name of one of its shadow tables, related to alter.c and build.c.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-13631',
+                                                             'references' => [
+                                                                               'https://bugs.chromium.org/p/chromium/issues/detail?id=1080459',
+                                                                               'https://sqlite.org/src/info/eca0ba2cf4c0fdf7',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L7KXQWHIY2MQP4LNM6ODWJENMXYYQYBN/',
+                                                                               'https://security.netapp.com/advisory/ntap-20200608-0002/',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://security.FreeBSD.org/advisories/FreeBSD-SA-20:22.sqlite.asc',
+                                                                               'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                               'https://support.apple.com/kb/HT211931',
+                                                                               'https://support.apple.com/kb/HT211844',
+                                                                               'https://support.apple.com/kb/HT211850',
+                                                                               'https://support.apple.com/kb/HT211843',
+                                                                               'https://support.apple.com/kb/HT211952',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/19',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/22',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/20',
+                                                                               'https://support.apple.com/kb/HT211935',
+                                                                               'http://seclists.org/fulldisclosure/2020/Dec/32',
+                                                                               'https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2020-05-27',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-13630'
+                                                                       ],
+                                                             'description' => 'ext/fts3/fts3.c in SQLite before 3.32.0 has a use-after-free in fts3EvalNextRow, related to the snippet feature.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-13630',
+                                                             'references' => [
+                                                                               'https://bugs.chromium.org/p/chromium/issues/detail?id=1080459',
+                                                                               'https://sqlite.org/src/info/0d69f76f0865f962',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L7KXQWHIY2MQP4LNM6ODWJENMXYYQYBN/',
+                                                                               'https://security.netapp.com/advisory/ntap-20200608-0002/',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://security.FreeBSD.org/advisories/FreeBSD-SA-20:22.sqlite.asc',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                               'https://support.apple.com/kb/HT211931',
+                                                                               'https://support.apple.com/kb/HT211844',
+                                                                               'https://support.apple.com/kb/HT211850',
+                                                                               'https://support.apple.com/kb/HT211843',
+                                                                               'https://support.apple.com/kb/HT211952',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/19',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/22',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/20',
+                                                                               'https://support.apple.com/kb/HT211935',
+                                                                               'http://seclists.org/fulldisclosure/2020/Dec/32',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2020-05-27',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-13435'
+                                                                       ],
+                                                             'description' => 'SQLite through 3.32.0 has a segmentation fault in sqlite3ExprCodeTarget in expr.c.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-13435',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/src/info/7a5279a25c57adf1',
+                                                                               'https://security.netapp.com/advisory/ntap-20200528-0004/',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L7KXQWHIY2MQP4LNM6ODWJENMXYYQYBN/',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://security.FreeBSD.org/advisories/FreeBSD-SA-20:22.sqlite.asc',
+                                                                               'https://support.apple.com/kb/HT211931',
+                                                                               'https://support.apple.com/kb/HT211844',
+                                                                               'https://support.apple.com/kb/HT211850',
+                                                                               'https://support.apple.com/kb/HT211843',
+                                                                               'https://support.apple.com/kb/HT211952',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/19',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/22',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/20',
+                                                                               'https://support.apple.com/kb/HT211935',
+                                                                               'http://seclists.org/fulldisclosure/2020/Dec/32',
+                                                                               'https://www.oracle.com/security-alerts/cpuApr2021.html'
+                                                                             ],
+                                                             'reported' => '2020-05-24',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-13434'
+                                                                       ],
+                                                             'description' => 'SQLite through 3.32.0 has an integer overflow in sqlite3_str_vappendf in printf.c.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-13434',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/src/info/23439ea582241138',
+                                                                               'https://www.sqlite.org/src/info/d08d3405878d394e',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/05/msg00024.html',
+                                                                               'https://security.netapp.com/advisory/ntap-20200528-0004/',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/L7KXQWHIY2MQP4LNM6ODWJENMXYYQYBN/',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://security.FreeBSD.org/advisories/FreeBSD-SA-20:22.sqlite.asc',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://support.apple.com/kb/HT211931',
+                                                                               'https://support.apple.com/kb/HT211844',
+                                                                               'https://support.apple.com/kb/HT211850',
+                                                                               'https://support.apple.com/kb/HT211843',
+                                                                               'https://support.apple.com/kb/HT211952',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/19',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/22',
+                                                                               'http://seclists.org/fulldisclosure/2020/Nov/20',
+                                                                               'https://support.apple.com/kb/HT211935',
+                                                                               'http://seclists.org/fulldisclosure/2020/Dec/32',
+                                                                               'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2022.html'
+                                                                             ],
+                                                             'reported' => '2020-05-24',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-11656'
+                                                                       ],
+                                                             'description' => 'In SQLite through 3.31.1, the ALTER TABLE implementation has a use-after-free, as demonstrated by an ORDER BY clause that belongs to a compound SELECT statement.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-11656',
+                                                             'references' => [
+                                                                               'https://www3.sqlite.org/cgi/src/info/b64674919f673602',
+                                                                               'https://www.sqlite.org/src/info/d09f8c3621d5f7f8',
+                                                                               'https://security.netapp.com/advisory/ntap-20200416-0001/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://security.FreeBSD.org/advisories/FreeBSD-SA-20:22.sqlite.asc',
+                                                                               'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                               'https://www.oracle.com/security-alerts/cpujan2021.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                               'https://www.tenable.com/security/tns-2021-14',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2020-04-09',
+                                                             'severity' => 'critical'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-11655'
+                                                                       ],
+                                                             'description' => 'SQLite through 3.31.1 allows attackers to cause a denial of service (segmentation fault) via a malformed window-function query because the AggInfo object\'s initialization is mishandled.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-11655',
+                                                             'references' => [
+                                                                               'https://www3.sqlite.org/cgi/src/info/4a302b42c7bf5e11',
+                                                                               'https://www3.sqlite.org/cgi/src/tktview?name=af4556bb5c',
+                                                                               'https://security.netapp.com/advisory/ntap-20200416-0001/',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/05/msg00006.html',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://security.FreeBSD.org/advisories/FreeBSD-SA-20:22.sqlite.asc',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                               'https://www.oracle.com/security-alerts/cpujan2021.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                               'https://www.tenable.com/security/tns-2021-14',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2020-04-09',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.65_03',
+                                                             'cves' => [
+                                                                         'CVE-2020-9327'
+                                                                       ],
+                                                             'description' => 'In SQLite 3.31.1, isAuxiliaryVtabOperator allows attackers to trigger a NULL pointer dereference and segmentation fault because of generated column optimizations.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2020-9327',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/cgi/src/info/4374860b29383380',
+                                                                               'https://www.sqlite.org/cgi/src/info/abc473fb8fb99900',
+                                                                               'https://www.sqlite.org/cgi/src/info/9d0d4ab95dc0c56e',
+                                                                               'https://security.netapp.com/advisory/ntap-20200313-0002/',
+                                                                               'https://security.gentoo.org/glsa/202003-16',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuoct2020.html',
+                                                                               'https://www.oracle.com/security-alerts/cpujan2021.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuApr2021.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2020-02-21',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-20218'
+                                                                       ],
+                                                             'description' => 'selectExpander in select.c in SQLite 3.30.1 proceeds with WITH stack unwinding even after a parsing error.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-20218',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/a6c1a71cde082e09750465d5675699062922e387',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://security.gentoo.org/glsa/202007-26',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/12/msg00016.html'
+                                                                             ],
+                                                             'reported' => '2020-01-02',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19959'
+                                                                       ],
+                                                             'description' => 'ext/misc/zipfile.c in SQLite 3.30.1 mishandles certain uses of INSERT INTO in situations involving embedded \'\\\\0\' characters in filenames, leading to a memory-management error that can be detected by (for example) valgrind.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19959',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/1e490c4ca6b43a9cf8637d695907888349f69bec',
+                                                                               'https://github.com/sqlite/sqlite/commit/d8f2d46cbc9925e034a68aaaf60aad788d9373c1',
+                                                                               'https://security.netapp.com/advisory/ntap-20200204-0001/',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html'
+                                                                             ],
+                                                             'reported' => '2020-01-03',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19926',
+                                                                         'CVE-2019-19880'
+                                                                       ],
+                                                             'description' => 'multiSelect in select.c in SQLite 3.30.1 mishandles certain errors during parsing, as demonstrated by errors from sqlite3WindowRewrite() calls. NOTE: this vulnerability exists because of an incomplete fix for CVE-2019-19880.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19926',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/8428b3b437569338a9d1e10c4cd8154acbe33089',
+                                                                               'https://security.netapp.com/advisory/ntap-20200114-0003/',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00010.html',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00015.html',
+                                                                               'https://access.redhat.com/errata/RHSA-2020:0514',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00025.html',
+                                                                               'https://www.debian.org/security/2020/dsa-4638',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://usn.ubuntu.com/4298-2/',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-23',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '>=1.19_01,<1.63_03',
+                                                             'cves' => [
+                                                                         'CVE-2019-8457'
+                                                                       ],
+                                                             'description' => 'SQLite3 from 3.6.0 to and including 3.27.2 is vulnerable to heap out-of-bound read in the rtreenode() function when handling invalid rtree tables.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.63_04',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-8457',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/src/info/90acdbfce9c08858',
+                                                                               'https://www.sqlite.org/releaselog/3_28_0.html',
+                                                                               'https://usn.ubuntu.com/4004-1/',
+                                                                               'https://usn.ubuntu.com/4004-2/',
+                                                                               'https://security.netapp.com/advisory/ntap-20190606-0002/',
+                                                                               'https://usn.ubuntu.com/4019-1/',
+                                                                               'https://usn.ubuntu.com/4019-2/',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00074.html',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SJPFGA45DI4F5MCF2OAACGH3HQOF4G3M/',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/OPKYSWCOM3CL66RI76TYVIG6TJ263RXH/',
+                                                                               'https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html',
+                                                                               'https://www.oracle.com/security-alerts/cpujan2020.html',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://www.oracle.com/security-alerts/cpujul2020.html',
+                                                                               'https://kc.mcafee.com/corporate/index?page=content&id=SB10365'
+                                                                             ],
+                                                             'reported' => '2019-05-30',
+                                                             'severity' => 'critical'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '>=1.61_03,<1.63_03',
+                                                             'cves' => [
+                                                                         'CVE-2019-5018'
+                                                                       ],
+                                                             'description' => 'An exploitable use after free vulnerability exists in the window function functionality of Sqlite3 3.26.0. A specially crafted SQL command can cause a use after free vulnerability, potentially resulting in remote code execution. An attacker can send a malicious SQL command to trigger this vulnerability.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.63_04',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-5018',
+                                                             'references' => [
+                                                                               'https://talosintelligence.com/vulnerability_reports/TALOS-2019-0777',
+                                                                               'http://www.securityfocus.com/bid/108294',
+                                                                               'http://packetstormsecurity.com/files/152809/Sqlite3-Window-Function-Remote-Code-Execution.html',
+                                                                               'https://security.netapp.com/advisory/ntap-20190521-0001/',
+                                                                               'https://security.gentoo.org/glsa/201908-09',
+                                                                               'https://usn.ubuntu.com/4205-1/'
+                                                                             ],
+                                                             'reported' => '2019-05-10',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19925'
+                                                                       ],
+                                                             'description' => 'zipfileUpdate in ext/misc/zipfile.c in SQLite 3.30.1 mishandles a NULL pathname during an update of a ZIP archive.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19925',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/54d501092d88c0cf89bec4279951f548fb0b8618',
+                                                                               'https://security.netapp.com/advisory/ntap-20200114-0003/',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00010.html',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00015.html',
+                                                                               'https://access.redhat.com/errata/RHSA-2020:0514',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00025.html',
+                                                                               'https://www.debian.org/security/2020/dsa-4638',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-24',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19924'
+                                                                       ],
+                                                             'description' => 'SQLite 3.30.1 mishandles certain parser-tree rewriting, related to expr.c, vdbeaux.c, and window.c. This is caused by incorrect sqlite3WindowRewrite() error handling.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19924',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/8654186b0236d556aa85528c2573ee0b6ab71be3',
+                                                                               'https://security.netapp.com/advisory/ntap-20200114-0003/',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E',
+                                                                               'https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-24',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19923'
+                                                                       ],
+                                                             'description' => 'flattenSubquery in select.c in SQLite 3.30.1 mishandles certain uses of SELECT DISTINCT involving a LEFT JOIN in which the right-hand side is a view. This can cause a NULL pointer dereference (or incorrect results).
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19923',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/396afe6f6aa90a31303c183e11b2b2d4b7956b35',
+                                                                               'https://security.netapp.com/advisory/ntap-20200114-0003/',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00010.html',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00015.html',
+                                                                               'https://access.redhat.com/errata/RHSA-2020:0514',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00025.html',
+                                                                               'https://www.debian.org/security/2020/dsa-4638',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-24',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19880'
+                                                                       ],
+                                                             'description' => 'exprListAppendList in window.c in SQLite 3.30.1 allows attackers to trigger an invalid pointer dereference because constant integer values in ORDER BY clauses of window definitions are mishandled.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19880',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/75e95e1fcd52d3ec8282edb75ac8cd0814095d54',
+                                                                               'https://security.netapp.com/advisory/ntap-20200114-0001/',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00010.html',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00015.html',
+                                                                               'https://access.redhat.com/errata/RHSA-2020:0514',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2020-02/msg00025.html',
+                                                                               'https://www.debian.org/security/2020/dsa-4638',
+                                                                               'https://usn.ubuntu.com/4298-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-18',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<=1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19646'
+                                                                       ],
+                                                             'description' => 'pragma.c in SQLite through 3.30.1 mishandles NOT NULL in an integrity_check PRAGMA command in certain cases of generated columns.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19646',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/ebd70eedd5d6e6a890a670b5ee874a5eae86b4dd',
+                                                                               'https://github.com/sqlite/sqlite/commit/926f796e8feec15f3836aa0a060ed906f8ae04d3',
+                                                                               'https://www.sqlite.org/',
+                                                                               'https://security.netapp.com/advisory/ntap-20191223-0001/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://www.tenable.com/security/tns-2021-14',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-09',
+                                                             'severity' => 'critical'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<=1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19645'
+                                                                       ],
+                                                             'description' => 'alter.c in SQLite through 3.30.1 allows attackers to trigger infinite recursion via certain types of self-referential views in conjunction with ALTER TABLE statements.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19645',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/38096961c7cd109110ac21d3ed7dad7e0cb0ae06',
+                                                                               'https://security.netapp.com/advisory/ntap-20191223-0001/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://www.tenable.com/security/tns-2021-14',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-09',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19603'
+                                                                       ],
+                                                             'description' => 'SQLite 3.30.1 mishandles certain SELECT statements with a nonexistent VIEW, leading to an application crash.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19603',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/527cbd4a104cb93bf3994b3dd3619a6299a78b13',
+                                                                               'https://www.sqlite.org/',
+                                                                               'https://security.netapp.com/advisory/ntap-20191223-0001/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://lists.apache.org/thread.html/rc713534b10f9daeee2e0990239fa407e2118e4aa9e88a7041177497c@%3Cissues.guacamole.apache.org%3E',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-09',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19317'
+                                                                       ],
+                                                             'description' => 'lookupName in resolve.c in SQLite 3.30.1 omits bits from the colUsed bitmask in the case of a generated column, which allows attackers to cause a denial of service or possibly have unspecified other impact.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19317',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/522ebfa7cee96fb325a22ea3a2464a63485886a8',
+                                                                               'https://github.com/sqlite/sqlite/commit/73bacb7f93eab9f4bd5a65cbc4ae242acf63c9e3',
+                                                                               'https://security.netapp.com/advisory/ntap-20191223-0001/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-12-05',
+                                                             'severity' => 'critical'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19244'
+                                                                       ],
+                                                             'description' => 'sqlite3Select in select.c in SQLite 3.30.1 allows a crash if a sub-select uses both DISTINCT and window functions, and also has certain ORDER BY usage.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19244',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/e59c562b3f6894f84c715772c4b116d7b5c01348',
+                                                                               'https://usn.ubuntu.com/4205-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-11-25',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.65_02',
+                                                             'cves' => [
+                                                                         'CVE-2019-19242'
+                                                                       ],
+                                                             'description' => 'SQLite 3.30.1 mishandles pExpr->y.pTab, as demonstrated by the TK_COLUMN case in sqlite3ExprCodeTarget in expr.c.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.65_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2019-19242',
+                                                             'references' => [
+                                                                               'https://github.com/sqlite/sqlite/commit/57f7ece78410a8aae86aa4625fb7556897db384c',
+                                                                               'https://usn.ubuntu.com/4205-1/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://cert-portal.siemens.com/productcert/pdf/ssa-389290.pdf'
+                                                                             ],
+                                                             'reported' => '2019-11-27',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.61_01',
+                                                             'cves' => [
+                                                                         'CVE-2018-20506'
+                                                                       ],
+                                                             'description' => 'SQLite before 3.25.3, when the FTS3 extension is enabled, encounters an integer overflow (and resultant buffer overflow) for FTS3 queries in a "merge" operation that occurs after crafted changes to FTS3 shadow tables, allowing remote attackers to execute arbitrary code by leveraging the ability to run arbitrary SQL statements (such as in certain WebSQL use cases). This is a different vulnerability than CVE-2018-20346.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.61_01',
+                                                             'id' => 'CPANSA-DBD-SQLite-2018-20506',
+                                                             'references' => [
+                                                                               'https://support.apple.com/kb/HT209451',
+                                                                               'https://support.apple.com/kb/HT209450',
+                                                                               'https://support.apple.com/kb/HT209448',
+                                                                               'https://support.apple.com/kb/HT209447',
+                                                                               'https://support.apple.com/kb/HT209446',
+                                                                               'https://support.apple.com/kb/HT209443',
+                                                                               'https://sqlite.org/src/info/940f2adc8541a838',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/39',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/33',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/32',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/31',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/29',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/28',
+                                                                               'http://www.securityfocus.com/bid/106698',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/69',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/68',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/67',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/66',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/64',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/62',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00070.html',
+                                                                               'https://security.netapp.com/advisory/ntap-20190502-0004/',
+                                                                               'https://usn.ubuntu.com/4019-1/',
+                                                                               'https://usn.ubuntu.com/4019-2/',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://kc.mcafee.com/corporate/index?page=content&id=SB10365'
+                                                                             ],
+                                                             'reported' => '2019-04-03',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.59_02',
+                                                             'cves' => [
+                                                                         'CVE-2018-20505'
+                                                                       ],
+                                                             'description' => 'SQLite 3.25.2, when queries are run on a table with a malformed PRIMARY KEY, allows remote attackers to cause a denial of service (application crash) by leveraging the ability to run arbitrary SQL statements (such as in certain WebSQL use cases).
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.59_03',
+                                                             'id' => 'CPANSA-DBD-SQLite-2018-20505',
+                                                             'references' => [
+                                                                               'https://support.apple.com/kb/HT209451',
+                                                                               'https://support.apple.com/kb/HT209450',
+                                                                               'https://support.apple.com/kb/HT209448',
+                                                                               'https://support.apple.com/kb/HT209447',
+                                                                               'https://support.apple.com/kb/HT209446',
+                                                                               'https://support.apple.com/kb/HT209443',
+                                                                               'https://sqlite.org/src/info/1a84668dcfdebaf12415d',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/39',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/33',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/32',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/31',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/29',
+                                                                               'https://seclists.org/bugtraq/2019/Jan/28',
+                                                                               'http://www.securityfocus.com/bid/106698',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/69',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/68',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/67',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/66',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/64',
+                                                                               'http://seclists.org/fulldisclosure/2019/Jan/62',
+                                                                               'https://security.netapp.com/advisory/ntap-20190502-0004/',
+                                                                               'https://usn.ubuntu.com/4019-1/'
+                                                                             ],
+                                                             'reported' => '2019-04-03',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.61_01',
+                                                             'cves' => [
+                                                                         'CVE-2018-20346'
+                                                                       ],
+                                                             'description' => 'SQLite before 3.25.3, when the FTS3 extension is enabled, encounters an integer overflow (and resultant buffer overflow) for FTS3 queries that occur after crafted changes to FTS3 shadow tables, allowing remote attackers to execute arbitrary code by leveraging the ability to run arbitrary SQL statements (such as in certain WebSQL use cases), aka Magellan.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.61_01',
+                                                             'id' => 'CPANSA-DBD-SQLite-2018-20346',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/releaselog/3_25_3.html',
+                                                                               'https://www.mail-archive.com/sqlite-users@mailinglists.sqlite.org/msg113218.html',
+                                                                               'https://crbug.com/900910',
+                                                                               'https://chromium.googlesource.com/chromium/src/+/c368e30ae55600a1c3c9cb1710a54f9c55de786e',
+                                                                               'https://chromereleases.googleblog.com/2018/12/stable-channel-update-for-desktop.html',
+                                                                               'https://bugzilla.redhat.com/show_bug.cgi?id=1659677',
+                                                                               'https://bugzilla.redhat.com/show_bug.cgi?id=1659379',
+                                                                               'https://blade.tencent.com/magellan/index_en.html',
+                                                                               'https://access.redhat.com/articles/3758321',
+                                                                               'https://worthdoingbadly.com/sqlitebug/',
+                                                                               'https://sqlite.org/src/info/d44318f59044162e',
+                                                                               'https://sqlite.org/src/info/940f2adc8541a838',
+                                                                               'https://news.ycombinator.com/item?id=18685296',
+                                                                               'https://github.com/zhuowei/worthdoingbadly.com/blob/master/_posts/2018-12-14-sqlitebug.html',
+                                                                               'https://lists.debian.org/debian-lts-announce/2018/12/msg00012.html',
+                                                                               'https://www.synology.com/security/advisory/Synology_SA_18_61',
+                                                                               'http://www.securityfocus.com/bid/106323',
+                                                                               'https://www.freebsd.org/security/advisories/FreeBSD-EN-19:03.sqlite.asc',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00040.html',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2019-04/msg00070.html',
+                                                                               'https://security.gentoo.org/glsa/201904-21',
+                                                                               'https://usn.ubuntu.com/4019-1/',
+                                                                               'https://usn.ubuntu.com/4019-2/',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PU4NZ6DDU4BEM3ACM3FM6GLEPX56ZQXK/',
+                                                                               'https://support.apple.com/HT209448',
+                                                                               'https://support.apple.com/HT209447',
+                                                                               'https://support.apple.com/HT209446',
+                                                                               'https://support.apple.com/HT209451',
+                                                                               'https://support.apple.com/HT209443',
+                                                                               'https://support.apple.com/HT209450',
+                                                                               'https://www.oracle.com/security-alerts/cpuapr2020.html',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://kc.mcafee.com/corporate/index?page=content&id=SB10365'
+                                                                             ],
+                                                             'reported' => '2018-12-21',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<1.59_01',
+                                                             'cves' => [
+                                                                         'CVE-2018-8740'
+                                                                       ],
+                                                             'description' => 'In SQLite through 3.22.0, databases whose schema is corrupted using a CREATE TABLE AS statement could cause a NULL pointer dereference, related to build.c and prepare.c.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.59_01',
+                                                             'id' => 'CPANSA-DBD-SQLite-2018-8740',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/cgi/src/timeline?r=corrupt-schema',
+                                                                               'https://bugs.launchpad.net/ubuntu/+source/sqlite3/+bug/1756349',
+                                                                               'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=6964',
+                                                                               'https://www.sqlite.org/cgi/src/vdiff?from=1774f1c3baf0bc3d&to=d75e67654aa9620b',
+                                                                               'http://www.securityfocus.com/bid/103466',
+                                                                               'https://lists.debian.org/debian-lts-announce/2019/01/msg00009.html',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2019-05/msg00050.html',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PU4NZ6DDU4BEM3ACM3FM6GLEPX56ZQXK/',
+                                                                               'https://usn.ubuntu.com/4205-1/',
+                                                                               'https://usn.ubuntu.com/4394-1/',
+                                                                               'https://lists.debian.org/debian-lts-announce/2020/08/msg00037.html',
+                                                                               'https://lists.apache.org/thread.html/rf4c02775860db415b4955778a131c2795223f61cb8c6a450893651e4@%3Cissues.bookkeeper.apache.org%3E',
+                                                                               'https://lists.apache.org/thread.html/r58af02e294bd07f487e2c64ffc0a29b837db5600e33b6e698b9d696b@%3Cissues.bookkeeper.apache.org%3E'
+                                                                             ],
+                                                             'reported' => '2018-03-17',
+                                                             'severity' => 'high'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.55_06,<=1.55_03',
+                                                             'cves' => [
+                                                                         'CVE-2017-10989'
+                                                                       ],
+                                                             'description' => 'The getNodeSize function in ext/rtree/rtree.c in SQLite through 3.19.3, as used in GDAL and other products, mishandles undersized RTree blobs in a crafted database, leading to a heap-based buffer over-read or possibly unspecified other impact.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.55_07',
+                                                             'id' => 'CPANSA-DBD-SQLite-2017-10989',
+                                                             'references' => [
+                                                                               'https://sqlite.org/src/info/66de6f4a',
+                                                                               'https://bugs.launchpad.net/ubuntu/+source/sqlite3/+bug/1700937',
+                                                                               'https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=2405',
+                                                                               'https://sqlite.org/src/vpatch?from=0db20efe201736b3&to=66de6f4a9504ec26',
+                                                                               'http://marc.info/?l=sqlite-users&m=149933696214713&w=2',
+                                                                               'http://www.securityfocus.com/bid/99502',
+                                                                               'http://www.securitytracker.com/id/1039427',
+                                                                               'https://support.apple.com/HT208144',
+                                                                               'https://support.apple.com/HT208115',
+                                                                               'https://support.apple.com/HT208113',
+                                                                               'https://support.apple.com/HT208112',
+                                                                               'http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html',
+                                                                               'https://lists.debian.org/debian-lts-announce/2019/01/msg00009.html',
+                                                                               'http://lists.opensuse.org/opensuse-security-announce/2019-05/msg00050.html',
+                                                                               'https://usn.ubuntu.com/4019-1/',
+                                                                               'https://usn.ubuntu.com/4019-2/'
+                                                                             ],
+                                                             'reported' => '2017-07-07',
+                                                             'severity' => 'critical'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '>=1.51_04',
+                                                             'cves' => [
+                                                                         'CVE-2016-6153'
+                                                                       ],
+                                                             'description' => 'os_unix.c in SQLite before 3.13.0 improperly implements the temporary directory search algorithm, which might allow local users to obtain sensitive information, cause a denial of service (application crash), or have unspecified other impact by leveraging use of the current working directory for temporary files.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.51_05',
+                                                             'id' => 'CPANSA-DBD-SQLite-2016-6153',
+                                                             'references' => [
+                                                                               'http://www.openwall.com/lists/oss-security/2016/07/01/1',
+                                                                               'http://www.securityfocus.com/bid/91546',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/IGQTH7V45QVHFDXJAEECHEO3HHD644WZ/',
+                                                                               'https://www.korelogic.com/Resources/Advisories/KL-001-2016-003.txt',
+                                                                               'https://www.sqlite.org/releaselog/3_13_0.html',
+                                                                               'http://www.sqlite.org/cgi/src/info/67985761aa93fb61',
+                                                                               'http://www.openwall.com/lists/oss-security/2016/07/01/2',
+                                                                               'http://lists.opensuse.org/opensuse-updates/2016-08/msg00053.html',
+                                                                               'https://www.tenable.com/security/tns-2016-20',
+                                                                               'https://usn.ubuntu.com/4019-1/',
+                                                                               'https://usn.ubuntu.com/4019-2/',
+                                                                               'https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/PU4NZ6DDU4BEM3ACM3FM6GLEPX56ZQXK/'
+                                                                             ],
+                                                             'reported' => '2016-09-26',
+                                                             'severity' => 'medium'
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<=1.47_01',
+                                                             'cves' => [
+                                                                         'CVE-2015-3416'
+                                                                       ],
+                                                             'description' => 'The sqlite3VXPrintf function in printf.c in SQLite before 3.8.9 does not properly handle precision and width values during floating-point conversions, which allows context-dependent attackers to cause a denial of service (integer overflow and stack-based buffer overflow) or possibly have unspecified other impact via large integers in a crafted printf function call in a SELECT statement.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.47_02',
+                                                             'id' => 'CPANSA-DBD-SQLite-2015-3416',
+                                                             'references' => [
+                                                                               'http://www.sqlite.org/src/info/c494171f77dc2e5e04cb6d865e688448f04e5920',
+                                                                               'http://seclists.org/fulldisclosure/2015/Apr/31',
+                                                                               'http://www.debian.org/security/2015/dsa-3252',
+                                                                               'http://www.mandriva.com/security/advisories?name=MDVSA-2015:217',
+                                                                               'http://www.ubuntu.com/usn/USN-2698-1',
+                                                                               'https://support.apple.com/HT205267',
+                                                                               'http://lists.apple.com/archives/security-announce/2015/Sep/msg00008.html',
+                                                                               'http://lists.apple.com/archives/security-announce/2015/Sep/msg00005.html',
+                                                                               'https://support.apple.com/HT205213',
+                                                                               'http://www.oracle.com/technetwork/topics/security/bulletinapr2016-2952098.html',
+                                                                               'http://www.securitytracker.com/id/1033703',
+                                                                               'https://security.gentoo.org/glsa/201507-05',
+                                                                               'http://rhn.redhat.com/errata/RHSA-2015-1635.html',
+                                                                               'http://rhn.redhat.com/errata/RHSA-2015-1634.html',
+                                                                               'http://www.securityfocus.com/bid/74228',
+                                                                               'http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html'
+                                                                             ],
+                                                             'reported' => '2015-04-24',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<=1.47_01',
+                                                             'cves' => [
+                                                                         'CVE-2015-3415'
+                                                                       ],
+                                                             'description' => 'The sqlite3VdbeExec function in vdbe.c in SQLite before 3.8.9 does not properly implement comparison operators, which allows context-dependent attackers to cause a denial of service (invalid free operation) or possibly have unspecified other impact via a crafted CHECK clause, as demonstrated by CHECK(0&O>O) in a CREATE TABLE statement.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.47_02',
+                                                             'id' => 'CPANSA-DBD-SQLite-2015-3415',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/src/info/02e3c88fbf6abdcf3975fb0fb71972b0ab30da30',
+                                                                               'http://seclists.org/fulldisclosure/2015/Apr/31',
+                                                                               'http://www.debian.org/security/2015/dsa-3252',
+                                                                               'http://www.mandriva.com/security/advisories?name=MDVSA-2015:217',
+                                                                               'http://www.ubuntu.com/usn/USN-2698-1',
+                                                                               'https://support.apple.com/HT205267',
+                                                                               'http://lists.apple.com/archives/security-announce/2015/Sep/msg00008.html',
+                                                                               'http://lists.apple.com/archives/security-announce/2015/Sep/msg00005.html',
+                                                                               'https://support.apple.com/HT205213',
+                                                                               'http://www.oracle.com/technetwork/topics/security/bulletinapr2016-2952098.html',
+                                                                               'http://www.securitytracker.com/id/1033703',
+                                                                               'https://security.gentoo.org/glsa/201507-05',
+                                                                               'http://rhn.redhat.com/errata/RHSA-2015-1635.html',
+                                                                               'http://www.securityfocus.com/bid/74228',
+                                                                               'http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html'
+                                                                             ],
+                                                             'reported' => '2015-04-24',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => '<=1.47_01',
+                                                             'cves' => [
+                                                                         'CVE-2015-3414'
+                                                                       ],
+                                                             'description' => 'SQLite before 3.8.9 does not properly implement the dequoting of collation-sequence names, which allows context-dependent attackers to cause a denial of service (uninitialized memory access and application crash) or possibly have unspecified other impact via a crafted COLLATE clause, as demonstrated by COLLATE"""""""" at the end of a SELECT statement.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.47_02',
+                                                             'id' => 'CPANSA-DBD-SQLite-2015-3414',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/src/info/eddc05e7bb31fae74daa86e0504a3478b99fa0f2',
+                                                                               'http://seclists.org/fulldisclosure/2015/Apr/31',
+                                                                               'http://www.debian.org/security/2015/dsa-3252',
+                                                                               'http://www.mandriva.com/security/advisories?name=MDVSA-2015:217',
+                                                                               'http://www.ubuntu.com/usn/USN-2698-1',
+                                                                               'https://support.apple.com/HT205267',
+                                                                               'http://lists.apple.com/archives/security-announce/2015/Sep/msg00008.html',
+                                                                               'http://lists.apple.com/archives/security-announce/2015/Sep/msg00005.html',
+                                                                               'https://support.apple.com/HT205213',
+                                                                               'http://www.oracle.com/technetwork/topics/security/bulletinapr2016-2952098.html',
+                                                                               'http://www.securitytracker.com/id/1033703',
+                                                                               'https://security.gentoo.org/glsa/201507-05',
+                                                                               'http://rhn.redhat.com/errata/RHSA-2015-1635.html',
+                                                                               'http://www.securityfocus.com/bid/74228',
+                                                                               'http://www.oracle.com/technetwork/security-advisory/cpujul2018-4258247.html'
+                                                                             ],
+                                                             'reported' => '2015-04-24',
+                                                             'severity' => undef
+                                                           },
+                                                           {
+                                                             'affected_versions' => '1.47_01',
+                                                             'cves' => [
+                                                                         'CVE-2013-7443'
+                                                                       ],
+                                                             'description' => 'Buffer overflow in the skip-scan optimization in SQLite 3.8.2 allows remote attackers to cause a denial of service (crash) via crafted SQL statements.
+',
+                                                             'distribution' => 'DBD-SQLite',
+                                                             'fixed_versions' => '>=1.47_02',
+                                                             'id' => 'CPANSA-DBD-SQLite-2013-7443',
+                                                             'references' => [
+                                                                               'https://www.sqlite.org/src/info/520070ec7fbaac73eda0e0123596b7bb3e9a6897',
+                                                                               'https://bugs.launchpad.net/ubuntu/+source/sqlite3/+bug/1448758',
+                                                                               'https://www.sqlite.org/src/info/ac5852d6403c9c9628ca0aa7be135c702f000698',
+                                                                               'http://ubuntu.com/usn/usn-2698-1',
+                                                                               'http://www.openwall.com/lists/oss-security/2015/07/14/5',
+                                                                               'http://www.openwall.com/lists/oss-security/2015/07/15/4',
+                                                                               'http://www.securityfocus.com/bid/76089'
+                                                                             ],
+                                                             'reported' => '2015-08-12',
+                                                             'severity' => undef
+                                                           }
+                                                         ],
+                                         'main_module' => 'DBD::SQLite',
+                                         'versions' => [
+                                                         {
+                                                           'date' => '2002-02-19T18:56:55',
+                                                           'version' => '0.05'
+                                                         },
+                                                         {
+                                                           'date' => '2002-02-22T07:29:26',
+                                                           'version' => '0.06'
+                                                         },
+                                                         {
+                                                           'date' => '2002-02-23T11:19:51',
+                                                           'version' => '0.07'
+                                                         },
+                                                         {
+                                                           'date' => '2002-02-25T12:59:46',
+                                                           'version' => '0.08'
+                                                         },
+                                                         {
+                                                           'date' => '2002-02-27T19:46:01',
+                                                           'version' => '0.09'
+                                                         },
+                                                         {
+                                                           'date' => '2002-02-28T11:11:10',
+                                                           'version' => '0.10'
+                                                         },
+                                                         {
+                                                           'date' => '2002-03-13T12:16:23',
+                                                           'version' => '0.11'
+                                                         },
+                                                         {
+                                                           'date' => '2002-03-21T16:49:25',
+                                                           'version' => '0.12'
+                                                         },
+                                                         {
+                                                           'date' => '2002-03-26T22:39:39',
+                                                           'version' => '0.13'
+                                                         },
+                                                         {
+                                                           'date' => '2002-03-28T15:59:02',
+                                                           'version' => '0.14'
+                                                         },
+                                                         {
+                                                           'date' => '2002-04-02T10:48:10',
+                                                           'version' => '0.15'
+                                                         },
+                                                         {
+                                                           'date' => '2002-06-17T23:50:53',
+                                                           'version' => '0.16'
+                                                         },
+                                                         {
+                                                           'date' => '2002-06-26T13:59:05',
+                                                           'version' => '0.17'
+                                                         },
+                                                         {
+                                                           'date' => '2002-07-12T13:46:37',
+                                                           'version' => '0.18'
+                                                         },
+                                                         {
+                                                           'date' => '2002-08-13T22:19:45',
+                                                           'version' => '0.19'
+                                                         },
+                                                         {
+                                                           'date' => '2002-10-17T16:25:57',
+                                                           'version' => '0.20'
+                                                         },
+                                                         {
+                                                           'date' => '2002-10-18T07:08:42',
+                                                           'version' => '0.21'
+                                                         },
+                                                         {
+                                                           'date' => '2002-12-18T18:02:11',
+                                                           'version' => '0.22'
+                                                         },
+                                                         {
+                                                           'date' => '2002-12-29T16:25:29',
+                                                           'version' => '0.23'
+                                                         },
+                                                         {
+                                                           'date' => '2003-01-29T16:47:23',
+                                                           'version' => '0.24'
+                                                         },
+                                                         {
+                                                           'date' => '2003-03-06T22:24:48',
+                                                           'version' => '0.25'
+                                                         },
+                                                         {
+                                                           'date' => '2003-07-31T15:16:06',
+                                                           'version' => '0.26'
+                                                         },
+                                                         {
+                                                           'date' => '2003-08-18T20:17:31',
+                                                           'version' => '0.27'
+                                                         },
+                                                         {
+                                                           'date' => '2003-08-25T13:42:07',
+                                                           'version' => '0.28'
+                                                         },
+                                                         {
+                                                           'date' => '2003-12-05T15:42:05',
+                                                           'version' => '0.29'
+                                                         },
+                                                         {
+                                                           'date' => '2004-02-08T18:45:02',
+                                                           'version' => '0.30'
+                                                         },
+                                                         {
+                                                           'date' => '2004-02-14T19:18:16',
+                                                           'version' => '0.31'
+                                                         },
+                                                         {
+                                                           'date' => '2004-07-21T21:19:33',
+                                                           'version' => '1.00'
+                                                         },
+                                                         {
+                                                           'date' => '2004-08-01T04:49:09',
+                                                           'version' => '1.01'
+                                                         },
+                                                         {
+                                                           'date' => '2004-08-02T18:35:42',
+                                                           'version' => '1.02'
+                                                         },
+                                                         {
+                                                           'date' => '2004-08-09T15:43:59',
+                                                           'version' => '1.03'
+                                                         },
+                                                         {
+                                                           'date' => '2004-08-23T15:14:21',
+                                                           'version' => '1.04'
+                                                         },
+                                                         {
+                                                           'date' => '2004-09-10T15:46:34',
+                                                           'version' => '1.05'
+                                                         },
+                                                         {
+                                                           'date' => '2004-09-21T17:26:28',
+                                                           'version' => '1.06'
+                                                         },
+                                                         {
+                                                           'date' => '2004-10-12T09:07:33',
+                                                           'version' => '1.07'
+                                                         },
+                                                         {
+                                                           'date' => '2005-02-26T13:47:33',
+                                                           'version' => '1.08'
+                                                         },
+                                                         {
+                                                           'date' => '2005-06-20T15:42:32',
+                                                           'version' => '1.09'
+                                                         },
+                                                         {
+                                                           'date' => '2005-12-01T20:56:30',
+                                                           'version' => '1.10'
+                                                         },
+                                                         {
+                                                           'date' => '2005-12-02T19:13:29',
+                                                           'version' => '1.11'
+                                                         },
+                                                         {
+                                                           'date' => '2006-04-10T02:24:08',
+                                                           'version' => '1.12'
+                                                         },
+                                                         {
+                                                           'date' => '2006-09-08T05:02:06',
+                                                           'version' => '1.13'
+                                                         },
+                                                         {
+                                                           'date' => '2007-09-19T19:25:09',
+                                                           'version' => '1.14'
+                                                         },
+                                                         {
+                                                           'date' => '2009-03-27T11:11:41',
+                                                           'version' => '1.19_01'
+                                                         },
+                                                         {
+                                                           'date' => '2009-03-28T16:46:41',
+                                                           'version' => '1.19_02'
+                                                         },
+                                                         {
+                                                           'date' => '2009-03-30T21:58:59',
+                                                           'version' => '1.19_03'
+                                                         },
+                                                         {
+                                                           'date' => '2009-03-31T20:31:37',
+                                                           'version' => '1.19_04'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-02T04:24:12',
+                                                           'version' => '1.19_05'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-03T19:21:54',
+                                                           'version' => '1.19_06'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-04T00:49:42',
+                                                           'version' => '1.19_07'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-04T04:29:03',
+                                                           'version' => '1.19_08'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-05T03:16:37',
+                                                           'version' => '1.19_09'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-05T19:43:04',
+                                                           'version' => '1.19_10'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-07T14:00:36',
+                                                           'version' => '1.20'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-08T01:24:11',
+                                                           'version' => '1.21'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-08T02:05:13',
+                                                           'version' => '1.22_01'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-08T11:49:36',
+                                                           'version' => '1.22_02'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-09T09:40:39',
+                                                           'version' => '1.22_03'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-11T01:58:53',
+                                                           'version' => '1.22_04'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-14T15:52:05',
+                                                           'version' => '1.22_05'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-15T14:59:20',
+                                                           'version' => '1.22_06'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-16T05:40:28',
+                                                           'version' => '1.22_07'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-17T09:08:15',
+                                                           'version' => '1.22_08'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-19T09:53:00',
+                                                           'version' => '1.23'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-22T02:14:33',
+                                                           'version' => '1.24_01'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-23T00:50:02',
+                                                           'version' => '1.24_02'
+                                                         },
+                                                         {
+                                                           'date' => '2009-04-23T10:20:49',
+                                                           'version' => '1.25'
+                                                         },
+                                                         {
+                                                           'date' => '2009-05-05T06:04:00',
+                                                           'version' => '1.26_01'
+                                                         },
+                                                         {
+                                                           'date' => '2009-06-19T06:56:29',
+                                                           'version' => '1.26_02'
+                                                         },
+                                                         {
+                                                           'date' => '2009-08-12T06:01:13',
+                                                           'version' => '1.26_03'
+                                                         },
+                                                         {
+                                                           'date' => '2009-10-06T06:23:40',
+                                                           'version' => '1.26_04'
+                                                         },
+                                                         {
+                                                           'date' => '2009-10-15T04:05:19',
+                                                           'version' => '1.26_05'
+                                                         },
+                                                         {
+                                                           'date' => '2009-10-28T11:16:12',
+                                                           'version' => '1.26_06'
+                                                         },
+                                                         {
+                                                           'date' => '2009-11-16T01:47:37',
+                                                           'version' => '1.26_07'
+                                                         },
+                                                         {
+                                                           'date' => '2009-11-23T11:15:09',
+                                                           'version' => '1.27'
+                                                         },
+                                                         {
+                                                           'date' => '2009-12-23T11:44:07',
+                                                           'version' => '1.28_01'
+                                                         },
+                                                         {
+                                                           'date' => '2010-01-03T05:56:21',
+                                                           'version' => '1.28_02'
+                                                         },
+                                                         {
+                                                           'date' => '2010-01-08T09:14:18',
+                                                           'version' => '1.29'
+                                                         },
+                                                         {
+                                                           'date' => '2010-03-10T15:55:37',
+                                                           'version' => '1.30_01'
+                                                         },
+                                                         {
+                                                           'date' => '2010-03-30T11:45:57',
+                                                           'version' => '1.30_02'
+                                                         },
+                                                         {
+                                                           'date' => '2010-05-31T03:13:24',
+                                                           'version' => '1.30_03'
+                                                         },
+                                                         {
+                                                           'date' => '2010-08-25T09:25:41',
+                                                           'version' => '1.30_04'
+                                                         },
+                                                         {
+                                                           'date' => '2010-08-27T15:31:59',
+                                                           'version' => '1.30_05'
+                                                         },
+                                                         {
+                                                           'date' => '2010-09-09T01:49:17',
+                                                           'version' => '1.30_06'
+                                                         },
+                                                         {
+                                                           'date' => '2010-09-15T07:30:11',
+                                                           'version' => '1.31'
+                                                         },
+                                                         {
+                                                           'date' => '2010-12-10T05:14:51',
+                                                           'version' => '1.32_01'
+                                                         },
+                                                         {
+                                                           'date' => '2011-03-07T06:57:51',
+                                                           'version' => '1.32_02'
+                                                         },
+                                                         {
+                                                           'date' => '2011-05-12T05:05:38',
+                                                           'version' => '1.32_03'
+                                                         },
+                                                         {
+                                                           'date' => '2011-05-20T02:39:29',
+                                                           'version' => '1.32_04'
+                                                         },
+                                                         {
+                                                           'date' => '2011-05-30T07:39:31',
+                                                           'version' => '1.33'
+                                                         },
+                                                         {
+                                                           'date' => '2011-09-21T16:26:23',
+                                                           'version' => '1.34_01'
+                                                         },
+                                                         {
+                                                           'date' => '2011-10-21T06:13:45',
+                                                           'version' => '1.34_02'
+                                                         },
+                                                         {
+                                                           'date' => '2011-11-01T03:51:19',
+                                                           'version' => '1.34_03'
+                                                         },
+                                                         {
+                                                           'date' => '2011-11-29T00:16:47',
+                                                           'version' => '1.35'
+                                                         },
+                                                         {
+                                                           'date' => '2012-01-19T06:15:08',
+                                                           'version' => '1.36_01'
+                                                         },
+                                                         {
+                                                           'date' => '2012-02-23T04:11:05',
+                                                           'version' => '1.36_02'
+                                                         },
+                                                         {
+                                                           'date' => '2012-05-07T22:56:21',
+                                                           'version' => '1.36_03'
+                                                         },
+                                                         {
+                                                           'date' => '2012-05-19T09:46:14',
+                                                           'version' => '1.36_04'
+                                                         },
+                                                         {
+                                                           'date' => '2012-06-09T14:43:03',
+                                                           'version' => '1.37'
+                                                         },
+                                                         {
+                                                           'date' => '2012-09-24T10:18:25',
+                                                           'version' => '1.38_01'
+                                                         },
+                                                         {
+                                                           'date' => '2013-04-09T05:03:21',
+                                                           'version' => '1.38_02'
+                                                         },
+                                                         {
+                                                           'date' => '2013-05-21T05:14:23',
+                                                           'version' => '1.38_03'
+                                                         },
+                                                         {
+                                                           'date' => '2013-05-29T07:11:57',
+                                                           'version' => '1.38_04'
+                                                         },
+                                                         {
+                                                           'date' => '2013-05-31T04:39:53',
+                                                           'version' => '1.38_05'
+                                                         },
+                                                         {
+                                                           'date' => '2013-06-09T15:10:40',
+                                                           'version' => '1.39'
+                                                         },
+                                                         {
+                                                           'date' => '2013-07-28T05:31:53',
+                                                           'version' => '1.40'
+                                                         },
+                                                         {
+                                                           'date' => '2013-08-27T06:41:37',
+                                                           'version' => '1.41_01'
+                                                         },
+                                                         {
+                                                           'date' => '2013-08-29T18:53:29',
+                                                           'version' => '1.41_02'
+                                                         },
+                                                         {
+                                                           'date' => '2013-09-04T17:57:50',
+                                                           'version' => '1.41_03'
+                                                         },
+                                                         {
+                                                           'date' => '2014-01-12T01:19:09',
+                                                           'version' => '1.41_04'
+                                                         },
+                                                         {
+                                                           'date' => '2014-01-22T03:53:26',
+                                                           'version' => '1.41_05'
+                                                         },
+                                                         {
+                                                           'date' => '2014-02-12T02:53:38',
+                                                           'version' => '1.41_06'
+                                                         },
+                                                         {
+                                                           'date' => '2014-03-13T13:44:52',
+                                                           'version' => '1.41_07'
+                                                         },
+                                                         {
+                                                           'date' => '2014-03-19T15:29:13',
+                                                           'version' => '1.42'
+                                                         },
+                                                         {
+                                                           'date' => '2014-03-25T18:50:08',
+                                                           'version' => '1.43_01'
+                                                         },
+                                                         {
+                                                           'date' => '2014-03-25T19:58:13',
+                                                           'version' => '1.43_02'
+                                                         },
+                                                         {
+                                                           'date' => '2014-06-12T05:01:15',
+                                                           'version' => '1.43_03'
+                                                         },
+                                                         {
+                                                           'date' => '2014-07-21T01:13:47',
+                                                           'version' => '1.43_04'
+                                                         },
+                                                         {
+                                                           'date' => '2014-07-21T05:45:41',
+                                                           'version' => '1.43_05'
+                                                         },
+                                                         {
+                                                           'date' => '2014-07-22T00:31:31',
+                                                           'version' => '1.43_06'
+                                                         },
+                                                         {
+                                                           'date' => '2014-07-29T17:03:09',
+                                                           'version' => '1.43_07'
+                                                         },
+                                                         {
+                                                           'date' => '2014-08-21T09:01:11',
+                                                           'version' => '1.43_08'
+                                                         },
+                                                         {
+                                                           'date' => '2014-10-20T07:50:46',
+                                                           'version' => '1.43_09'
+                                                         },
+                                                         {
+                                                           'date' => '2014-10-22T14:15:00',
+                                                           'version' => '1.44'
+                                                         },
+                                                         {
+                                                           'date' => '2014-10-22T15:33:37',
+                                                           'version' => '1.45_01'
+                                                         },
+                                                         {
+                                                           'date' => '2014-10-23T08:21:27',
+                                                           'version' => '1.45_02'
+                                                         },
+                                                         {
+                                                           'date' => '2014-10-24T17:57:53',
+                                                           'version' => '1.45_03'
+                                                         },
+                                                         {
+                                                           'date' => '2014-10-28T08:28:00',
+                                                           'version' => '1.45_04'
+                                                         },
+                                                         {
+                                                           'date' => '2014-11-25T04:07:43',
+                                                           'version' => '1.45_05'
+                                                         },
+                                                         {
+                                                           'date' => '2014-11-26T08:52:49',
+                                                           'version' => '1.45_06'
+                                                         },
+                                                         {
+                                                           'date' => '2014-12-10T06:23:03',
+                                                           'version' => '1.46'
+                                                         },
+                                                         {
+                                                           'date' => '2015-02-17T07:00:46',
+                                                           'version' => '1.47_01'
+                                                         },
+                                                         {
+                                                           'date' => '2015-04-16T13:30:38',
+                                                           'version' => '1.47_02'
+                                                         },
+                                                         {
+                                                           'date' => '2015-04-16T14:45:00',
+                                                           'version' => '1.47_03'
+                                                         },
+                                                         {
+                                                           'date' => '2015-05-01T17:37:17',
+                                                           'version' => '1.47_04'
+                                                         },
+                                                         {
+                                                           'date' => '2015-05-08T13:49:32',
+                                                           'version' => '1.47_05'
+                                                         },
+                                                         {
+                                                           'date' => '2015-06-11T16:10:44',
+                                                           'version' => '1.48'
+                                                         },
+                                                         {
+                                                           'date' => '2015-08-04T11:18:05',
+                                                           'version' => '1.49_01'
+                                                         },
+                                                         {
+                                                           'date' => '2015-10-10T03:43:45',
+                                                           'version' => '1.49_02'
+                                                         },
+                                                         {
+                                                           'date' => '2015-11-05T05:52:27',
+                                                           'version' => '1.49_03'
+                                                         },
+                                                         {
+                                                           'date' => '2015-11-24T12:59:11',
+                                                           'version' => '1.49_04'
+                                                         },
+                                                         {
+                                                           'date' => '2016-01-11T13:32:43',
+                                                           'version' => '1.49_05'
+                                                         },
+                                                         {
+                                                           'date' => '2016-01-15T03:40:44',
+                                                           'version' => '1.49_06'
+                                                         },
+                                                         {
+                                                           'date' => '2016-01-21T01:11:59',
+                                                           'version' => '1.49_07'
+                                                         },
+                                                         {
+                                                           'date' => '2016-01-30T00:55:58',
+                                                           'version' => '1.49_08'
+                                                         },
+                                                         {
+                                                           'date' => '2016-02-10T15:04:42',
+                                                           'version' => '1.50'
+                                                         },
+                                                         {
+                                                           'date' => '2016-02-20T01:03:50',
+                                                           'version' => '1.51_01'
+                                                         },
+                                                         {
+                                                           'date' => '2016-02-20T01:49:29',
+                                                           'version' => '1.51_02'
+                                                         },
+                                                         {
+                                                           'date' => '2016-02-20T11:06:51',
+                                                           'version' => '1.51_03'
+                                                         },
+                                                         {
+                                                           'date' => '2016-03-07T04:33:35',
+                                                           'version' => '1.51_04'
+                                                         },
+                                                         {
+                                                           'date' => '2016-06-23T01:22:57',
+                                                           'version' => '1.51_05'
+                                                         },
+                                                         {
+                                                           'date' => '2016-10-15T00:21:14',
+                                                           'version' => '1.51_06'
+                                                         },
+                                                         {
+                                                           'date' => '2016-10-16T05:16:29',
+                                                           'version' => '1.51_07'
+                                                         },
+                                                         {
+                                                           'date' => '2016-11-15T13:02:35',
+                                                           'version' => '1.52'
+                                                         },
+                                                         {
+                                                           'date' => '2016-11-26T01:34:30',
+                                                           'version' => '1.53_01'
+                                                         },
+                                                         {
+                                                           'date' => '2016-12-24T02:36:45',
+                                                           'version' => '1.54'
+                                                         },
+                                                         {
+                                                           'date' => '2017-01-03T15:42:47',
+                                                           'version' => '1.55_01'
+                                                         },
+                                                         {
+                                                           'date' => '2017-01-07T16:49:21',
+                                                           'version' => '1.55_02'
+                                                         },
+                                                         {
+                                                           'date' => '2017-02-14T01:31:43',
+                                                           'version' => '1.55_03'
+                                                         },
+                                                         {
+                                                           'date' => '2017-11-21T17:07:32',
+                                                           'version' => '1.55_04'
+                                                         },
+                                                         {
+                                                           'date' => '2017-12-15T18:52:29',
+                                                           'version' => '1.55_05'
+                                                         },
+                                                         {
+                                                           'date' => '2018-01-27T07:33:51',
+                                                           'version' => '1.55_06'
+                                                         },
+                                                         {
+                                                           'date' => '2018-01-27T07:42:58',
+                                                           'version' => '1.55_07'
+                                                         },
+                                                         {
+                                                           'date' => '2018-02-28T09:01:25',
+                                                           'version' => '1.56'
+                                                         },
+                                                         {
+                                                           'date' => '2018-03-21T06:45:29',
+                                                           'version' => '1.57_01'
+                                                         },
+                                                         {
+                                                           'date' => '2018-03-28T11:56:19',
+                                                           'version' => '1.58'
+                                                         },
+                                                         {
+                                                           'date' => '2018-09-16T19:25:50',
+                                                           'version' => '1.59_01'
+                                                         },
+                                                         {
+                                                           'date' => '2018-09-30T06:09:34',
+                                                           'version' => '1.59_02'
+                                                         },
+                                                         {
+                                                           'date' => '2018-11-03T12:14:20',
+                                                           'version' => '1.59_03'
+                                                         },
+                                                         {
+                                                           'date' => '2018-12-01T02:42:29',
+                                                           'version' => '1.60'
+                                                         },
+                                                         {
+                                                           'date' => '2018-12-01T08:01:30',
+                                                           'version' => '1.61_01'
+                                                         },
+                                                         {
+                                                           'date' => '2018-12-01T09:10:18',
+                                                           'version' => '1.61_02'
+                                                         },
+                                                         {
+                                                           'date' => '2018-12-19T13:03:22',
+                                                           'version' => '1.61_03'
+                                                         },
+                                                         {
+                                                           'date' => '2018-12-22T06:37:21',
+                                                           'version' => '1.61_04'
+                                                         },
+                                                         {
+                                                           'date' => '2018-12-28T17:59:27',
+                                                           'version' => '1.62'
+                                                         },
+                                                         {
+                                                           'date' => '2019-01-25T22:31:45',
+                                                           'version' => '1.63_01'
+                                                         },
+                                                         {
+                                                           'date' => '2019-02-13T19:09:44',
+                                                           'version' => '1.63_02'
+                                                         },
+                                                         {
+                                                           'date' => '2019-02-14T16:56:40',
+                                                           'version' => '1.63_03'
+                                                         },
+                                                         {
+                                                           'date' => '2019-05-24T16:39:18',
+                                                           'version' => '1.63_04'
+                                                         },
+                                                         {
+                                                           'date' => '2019-07-11T17:50:51',
+                                                           'version' => '1.63_05'
+                                                         },
+                                                         {
+                                                           'date' => '2019-08-12T09:02:59',
+                                                           'version' => '1.64'
+                                                         },
+                                                         {
+                                                           'date' => '2020-01-18T01:56:18',
+                                                           'version' => '1.65_01'
+                                                         },
+                                                         {
+                                                           'date' => '2020-02-08T13:02:59',
+                                                           'version' => '1.65_02'
+                                                         },
+                                                         {
+                                                           'date' => '2020-07-26T16:42:08',
+                                                           'version' => '1.65_03'
+                                                         },
+                                                         {
+                                                           'date' => '2020-08-30T02:14:15',
+                                                           'version' => '1.66'
+                                                         },
+                                                         {
+                                                           'date' => '2020-11-24T12:57:56',
+                                                           'version' => '1.67_01'
+                                                         },
+                                                         {
+                                                           'date' => '2020-12-05T17:06:24',
+                                                           'version' => '1.67_02'
+                                                         },
+                                                         {
+                                                           'date' => '2021-03-30T21:37:13',
+                                                           'version' => '1.67_03'
+                                                         },
+                                                         {
+                                                           'date' => '2021-05-30T22:56:01',
+                                                           'version' => '1.67_04'
+                                                         },
+                                                         {
+                                                           'date' => '2021-06-12T23:39:11',
+                                                           'version' => '1.67_05'
+                                                         },
+                                                         {
+                                                           'date' => '2021-06-14T03:49:54',
+                                                           'version' => '1.67_06'
+                                                         },
+                                                         {
+                                                           'date' => '2021-06-19T00:57:41',
+                                                           'version' => '1.67_07'
+                                                         },
+                                                         {
+                                                           'date' => '2021-07-22T05:30:17',
+                                                           'version' => '1.68'
+                                                         },
+                                                         {
+                                                           'date' => '2021-07-29T21:09:19',
+                                                           'version' => '1.69_01'
+                                                         },
+                                                         {
+                                                           'date' => '2021-07-30T14:21:39',
+                                                           'version' => '1.69_02'
+                                                         },
+                                                         {
+                                                           'date' => '2021-08-01T10:20:33',
+                                                           'version' => '1.70'
+                                                         },
+                                                         {
+                                                           'date' => '2021-12-01T17:03:29',
+                                                           'version' => '1.71_01'
+                                                         },
+                                                         {
+                                                           'date' => '2022-01-06T20:51:05',
+                                                           'version' => '1.71_02'
+                                                         },
+                                                         {
+                                                           'date' => '2022-02-23T10:49:28',
+                                                           'version' => '1.71_03'
+                                                         },
+                                                         {
+                                                           'date' => '2022-02-26T00:59:40',
+                                                           'version' => '1.71_04'
+                                                         },
+                                                         {
+                                                           'date' => '2022-02-26T02:49:09',
+                                                           'version' => '1.71_05'
+                                                         },
+                                                         {
+                                                           'date' => '2022-03-12T02:54:15',
+                                                           'version' => '1.71_06'
+                                                         }
+                                                       ]
+                                       },
                        'DBD-mysql' => {
                                         'advisories' => [
                                                           {
@@ -37644,6 +39410,720 @@ sub db {
                                                     }
                                                   ]
                                   },
+                       'Plack' => {
+                                    'advisories' => [
+                                                      {
+                                                        'affected_versions' => '<1.0034',
+                                                        'cves' => [],
+                                                        'description' => 'Fixed a possible directory traversal with Plack::App::File on Win32.
+',
+                                                        'distribution' => 'Plack',
+                                                        'fixed_versions' => '>=1.0034',
+                                                        'id' => 'CPANSA-Plack-2015-02-02',
+                                                        'references' => [],
+                                                        'reported' => '2015-02-02'
+                                                      },
+                                                      {
+                                                        'affected_versions' => '<1.0031',
+                                                        'cves' => [],
+                                                        'description' => 'Plack::App::File would previously strip trailing slashes off provided paths. This in combination with the common pattern of serving files with Plack::Middleware::Static could allow an attacker to bypass a whitelist of generated files
+',
+                                                        'distribution' => 'Plack',
+                                                        'fixed_versions' => '>=1.0031',
+                                                        'id' => 'CPANSA-Plack-2014-08-01',
+                                                        'references' => [
+                                                                          'https://github.com/plack/Plack/pull/446'
+                                                                        ],
+                                                        'reported' => '2014-08-01'
+                                                      },
+                                                      {
+                                                        'affected_versions' => '<1.0016',
+                                                        'cves' => [],
+                                                        'description' => 'Fixed directory traversal bug in Plack::App::File on win32 environments
+',
+                                                        'distribution' => 'Plack',
+                                                        'fixed_versions' => '>=1.0016',
+                                                        'id' => 'CPANSA-Plack-2013-01-31',
+                                                        'references' => [],
+                                                        'reported' => '2013-01-31'
+                                                      }
+                                                    ],
+                                    'main_module' => 'Plack',
+                                    'versions' => [
+                                                    {
+                                                      'date' => '2009-10-13T07:21:14',
+                                                      'version' => '0.9000'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-13T07:59:20',
+                                                      'version' => '0.9001'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-14T18:28:32',
+                                                      'version' => '0.9002'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-19T02:19:08',
+                                                      'version' => '0.9003'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-21T05:59:54',
+                                                      'version' => '0.9004'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-22T03:55:53',
+                                                      'version' => '0.9005'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-23T08:22:57',
+                                                      'version' => '0.9006'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-25T00:49:12',
+                                                      'version' => '0.9007'
+                                                    },
+                                                    {
+                                                      'date' => '2009-10-27T21:20:52',
+                                                      'version' => '0.9008'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-08T04:51:25',
+                                                      'version' => '0.9009'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-12T07:23:02',
+                                                      'version' => '0.9010'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-12T11:57:16',
+                                                      'version' => '0.9011'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-17T21:48:12',
+                                                      'version' => '0.9012'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-19T02:29:16',
+                                                      'version' => '0.9013'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-21T05:54:55',
+                                                      'version' => '0.9014'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-26T08:39:53',
+                                                      'version' => '0.9015'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-29T07:41:55',
+                                                      'version' => '0.9016'
+                                                    },
+                                                    {
+                                                      'date' => '2009-11-29T08:40:10',
+                                                      'version' => '0.9017'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-03T08:52:20',
+                                                      'version' => '0.9018'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-06T06:01:48',
+                                                      'version' => '0.9019'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-07T10:39:46',
+                                                      'version' => '0.9020'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-08T22:32:02',
+                                                      'version' => '0.9021'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-13T19:03:10',
+                                                      'version' => '0.9022'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-17T21:22:18',
+                                                      'version' => '0.9023'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-19T20:28:45',
+                                                      'version' => '0.9024'
+                                                    },
+                                                    {
+                                                      'date' => '2009-12-26T01:16:08',
+                                                      'version' => '0.9025'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-01T01:38:39',
+                                                      'version' => '0.9026'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-04T00:36:24',
+                                                      'version' => '0.9027'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-06T02:44:35',
+                                                      'version' => '0.9028'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-08T03:13:27',
+                                                      'version' => '0.9029'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-09T21:17:38',
+                                                      'version' => '0.9030'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-11T19:34:54',
+                                                      'version' => '0.9031'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-29T22:44:12',
+                                                      'version' => '0.99_01'
+                                                    },
+                                                    {
+                                                      'date' => '2010-01-31T06:15:25',
+                                                      'version' => '0.99_02'
+                                                    },
+                                                    {
+                                                      'date' => '2010-02-04T00:15:09',
+                                                      'version' => '0.99_03'
+                                                    },
+                                                    {
+                                                      'date' => '2010-02-06T07:17:08',
+                                                      'version' => '0.99_04'
+                                                    },
+                                                    {
+                                                      'date' => '2010-02-10T20:55:18',
+                                                      'version' => '0.99_05'
+                                                    },
+                                                    {
+                                                      'date' => '2010-02-23T03:10:40',
+                                                      'version' => '0.9910'
+                                                    },
+                                                    {
+                                                      'date' => '2010-02-23T09:58:27',
+                                                      'version' => '0.9911'
+                                                    },
+                                                    {
+                                                      'date' => '2010-02-25T09:32:19',
+                                                      'version' => '0.9912'
+                                                    },
+                                                    {
+                                                      'date' => '2010-02-26T03:16:42',
+                                                      'version' => '0.9913'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-04T00:07:15',
+                                                      'version' => '0.9914'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-08T09:35:55',
+                                                      'version' => '0.9915'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-12T03:56:59',
+                                                      'version' => '0.9916'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-17T22:41:16',
+                                                      'version' => '0.9917'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-18T05:42:29',
+                                                      'version' => '0.9918'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-18T05:56:03',
+                                                      'version' => '0.9919'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-19T07:05:16',
+                                                      'version' => '0.9920'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-25T22:10:09',
+                                                      'version' => '0.99_21'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-26T02:51:33',
+                                                      'version' => '0.99_22'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-27T08:06:00',
+                                                      'version' => '0.99_23'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-27T20:36:26',
+                                                      'version' => '0.99_24'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-28T02:06:23',
+                                                      'version' => '0.9925'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-28T21:49:52',
+                                                      'version' => '0.9926'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-29T19:51:35',
+                                                      'version' => '0.9927'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-30T00:07:33',
+                                                      'version' => '0.9928'
+                                                    },
+                                                    {
+                                                      'date' => '2010-03-31T07:37:38',
+                                                      'version' => '0.9929'
+                                                    },
+                                                    {
+                                                      'date' => '2010-04-14T03:22:29',
+                                                      'version' => '0.9930'
+                                                    },
+                                                    {
+                                                      'date' => '2010-04-17T06:54:58',
+                                                      'version' => '0.9931'
+                                                    },
+                                                    {
+                                                      'date' => '2010-04-19T06:29:10',
+                                                      'version' => '0.9932'
+                                                    },
+                                                    {
+                                                      'date' => '2010-04-27T21:35:45',
+                                                      'version' => '0.9933'
+                                                    },
+                                                    {
+                                                      'date' => '2010-05-04T22:51:24',
+                                                      'version' => '0.9934'
+                                                    },
+                                                    {
+                                                      'date' => '2010-05-05T22:21:08',
+                                                      'version' => '0.9935'
+                                                    },
+                                                    {
+                                                      'date' => '2010-05-14T23:01:23',
+                                                      'version' => '0.9936'
+                                                    },
+                                                    {
+                                                      'date' => '2010-05-15T06:14:20',
+                                                      'version' => '0.9937'
+                                                    },
+                                                    {
+                                                      'date' => '2010-05-24T00:16:59',
+                                                      'version' => '0.9938'
+                                                    },
+                                                    {
+                                                      'date' => '2010-07-03T01:04:03',
+                                                      'version' => '0.9938'
+                                                    },
+                                                    {
+                                                      'date' => '2010-07-03T06:43:20',
+                                                      'version' => '0.9940'
+                                                    },
+                                                    {
+                                                      'date' => '2010-07-09T01:22:49',
+                                                      'version' => '0.9941'
+                                                    },
+                                                    {
+                                                      'date' => '2010-07-24T06:46:17',
+                                                      'version' => '0.9942'
+                                                    },
+                                                    {
+                                                      'date' => '2010-07-30T20:26:59',
+                                                      'version' => '0.9943'
+                                                    },
+                                                    {
+                                                      'date' => '2010-08-09T06:40:55',
+                                                      'version' => '0.9944'
+                                                    },
+                                                    {
+                                                      'date' => '2010-08-19T23:32:19',
+                                                      'version' => '0.9945'
+                                                    },
+                                                    {
+                                                      'date' => '2010-08-29T05:49:19',
+                                                      'version' => '0.9946'
+                                                    },
+                                                    {
+                                                      'date' => '2010-09-09T09:27:05',
+                                                      'version' => '0.9947'
+                                                    },
+                                                    {
+                                                      'date' => '2010-09-09T23:04:59',
+                                                      'version' => '0.9948'
+                                                    },
+                                                    {
+                                                      'date' => '2010-09-14T19:01:11',
+                                                      'version' => '0.9949'
+                                                    },
+                                                    {
+                                                      'date' => '2010-09-30T21:14:53',
+                                                      'version' => '0.9950'
+                                                    },
+                                                    {
+                                                      'date' => '2010-10-25T21:19:36',
+                                                      'version' => '0.9951'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-02T22:06:47',
+                                                      'version' => '0.9952'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-03T22:52:23',
+                                                      'version' => '0.9953'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-10T01:48:11',
+                                                      'version' => '0.9954'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-10T02:03:59',
+                                                      'version' => '0.9955'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-10T03:39:26',
+                                                      'version' => '0.9956'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-16T19:33:28',
+                                                      'version' => '0.9957'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-20T23:23:17',
+                                                      'version' => '0.9958'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-21T19:58:23',
+                                                      'version' => '0.9959'
+                                                    },
+                                                    {
+                                                      'date' => '2010-12-25T19:18:11',
+                                                      'version' => '0.9960'
+                                                    },
+                                                    {
+                                                      'date' => '2011-01-08T05:54:56',
+                                                      'version' => '0.9961'
+                                                    },
+                                                    {
+                                                      'date' => '2011-01-09T05:21:23',
+                                                      'version' => '0.9962'
+                                                    },
+                                                    {
+                                                      'date' => '2011-01-11T00:51:33',
+                                                      'version' => '0.9963'
+                                                    },
+                                                    {
+                                                      'date' => '2011-01-25T00:50:49',
+                                                      'version' => '0.9964'
+                                                    },
+                                                    {
+                                                      'date' => '2011-01-25T07:13:52',
+                                                      'version' => '0.9965'
+                                                    },
+                                                    {
+                                                      'date' => '2011-01-25T20:03:38',
+                                                      'version' => '0.9966'
+                                                    },
+                                                    {
+                                                      'date' => '2011-01-25T22:27:44',
+                                                      'version' => '0.9967'
+                                                    },
+                                                    {
+                                                      'date' => '2011-02-10T03:09:10',
+                                                      'version' => '0.9968'
+                                                    },
+                                                    {
+                                                      'date' => '2011-02-19T05:56:47',
+                                                      'version' => '0.9969'
+                                                    },
+                                                    {
+                                                      'date' => '2011-02-22T16:44:11',
+                                                      'version' => '0.9970'
+                                                    },
+                                                    {
+                                                      'date' => '2011-02-23T22:07:39',
+                                                      'version' => '0.9971'
+                                                    },
+                                                    {
+                                                      'date' => '2011-02-24T19:57:46',
+                                                      'version' => '0.9972'
+                                                    },
+                                                    {
+                                                      'date' => '2011-02-26T17:48:50',
+                                                      'version' => '0.9973'
+                                                    },
+                                                    {
+                                                      'date' => '2011-03-04T04:56:59',
+                                                      'version' => '0.9974'
+                                                    },
+                                                    {
+                                                      'date' => '2011-03-24T18:38:08',
+                                                      'version' => '0.99_75'
+                                                    },
+                                                    {
+                                                      'date' => '2011-04-09T01:29:10',
+                                                      'version' => '0.9976'
+                                                    },
+                                                    {
+                                                      'date' => '2011-05-01T19:24:37',
+                                                      'version' => '0.9977'
+                                                    },
+                                                    {
+                                                      'date' => '2011-05-04T18:31:01',
+                                                      'version' => '0.9978'
+                                                    },
+                                                    {
+                                                      'date' => '2011-05-17T16:59:59',
+                                                      'version' => '0.9979'
+                                                    },
+                                                    {
+                                                      'date' => '2011-06-07T03:29:28',
+                                                      'version' => '0.9980'
+                                                    },
+                                                    {
+                                                      'date' => '2011-07-19T00:35:19',
+                                                      'version' => '0.9981'
+                                                    },
+                                                    {
+                                                      'date' => '2011-07-19T20:14:06',
+                                                      'version' => '0.9982'
+                                                    },
+                                                    {
+                                                      'date' => '2011-09-27T17:23:29',
+                                                      'version' => '0.9983'
+                                                    },
+                                                    {
+                                                      'date' => '2011-10-03T16:57:23',
+                                                      'version' => '0.9984'
+                                                    },
+                                                    {
+                                                      'date' => '2011-10-31T20:17:46',
+                                                      'version' => '0.9985'
+                                                    },
+                                                    {
+                                                      'date' => '2012-03-12T18:29:44',
+                                                      'version' => '0.9986'
+                                                    },
+                                                    {
+                                                      'date' => '2012-05-10T05:13:38',
+                                                      'version' => '0.9987'
+                                                    },
+                                                    {
+                                                      'date' => '2012-05-11T10:27:33',
+                                                      'version' => '0.9988'
+                                                    },
+                                                    {
+                                                      'date' => '2012-06-21T20:49:15',
+                                                      'version' => '0.9989'
+                                                    },
+                                                    {
+                                                      'date' => '2012-07-18T18:17:16',
+                                                      'version' => '0.9990'
+                                                    },
+                                                    {
+                                                      'date' => '2012-07-20T00:30:44',
+                                                      'version' => '0.9991'
+                                                    },
+                                                    {
+                                                      'date' => '2012-07-20T02:12:14',
+                                                      'version' => '1.0000'
+                                                    },
+                                                    {
+                                                      'date' => '2012-07-26T23:28:35',
+                                                      'version' => '1.0001'
+                                                    },
+                                                    {
+                                                      'date' => '2012-08-14T00:09:45',
+                                                      'version' => '1.0002'
+                                                    },
+                                                    {
+                                                      'date' => '2012-08-29T20:49:18',
+                                                      'version' => '1.0003'
+                                                    },
+                                                    {
+                                                      'date' => '2012-09-20T02:21:25',
+                                                      'version' => '1.0004'
+                                                    },
+                                                    {
+                                                      'date' => '2012-10-09T20:37:58',
+                                                      'version' => '1.0005'
+                                                    },
+                                                    {
+                                                      'date' => '2012-10-18T23:10:01',
+                                                      'version' => '1.0006'
+                                                    },
+                                                    {
+                                                      'date' => '2012-10-21T06:23:22',
+                                                      'version' => '1.0007'
+                                                    },
+                                                    {
+                                                      'date' => '2012-10-23T01:54:12',
+                                                      'version' => '1.0008'
+                                                    },
+                                                    {
+                                                      'date' => '2012-10-23T07:59:59',
+                                                      'version' => '1.0009'
+                                                    },
+                                                    {
+                                                      'date' => '2012-11-02T20:33:36',
+                                                      'version' => '1.0010'
+                                                    },
+                                                    {
+                                                      'date' => '2012-11-11T19:09:23',
+                                                      'version' => '1.0011'
+                                                    },
+                                                    {
+                                                      'date' => '2012-11-14T20:02:29',
+                                                      'version' => '1.0012'
+                                                    },
+                                                    {
+                                                      'date' => '2012-11-15T03:49:43',
+                                                      'version' => '1.0013'
+                                                    },
+                                                    {
+                                                      'date' => '2012-12-03T18:30:20',
+                                                      'version' => '1.0014'
+                                                    },
+                                                    {
+                                                      'date' => '2013-01-10T23:23:32',
+                                                      'version' => '1.0015'
+                                                    },
+                                                    {
+                                                      'date' => '2013-01-31T21:28:36',
+                                                      'version' => '1.0016'
+                                                    },
+                                                    {
+                                                      'date' => '2013-02-08T03:43:51',
+                                                      'version' => '1.0017'
+                                                    },
+                                                    {
+                                                      'date' => '2013-03-08T18:47:51',
+                                                      'version' => '1.0018'
+                                                    },
+                                                    {
+                                                      'date' => '2013-04-02T01:39:27',
+                                                      'version' => '1.0019'
+                                                    },
+                                                    {
+                                                      'date' => '2013-04-02T02:39:03',
+                                                      'version' => '1.0020'
+                                                    },
+                                                    {
+                                                      'date' => '2013-04-02T18:21:32',
+                                                      'version' => '1.0021'
+                                                    },
+                                                    {
+                                                      'date' => '2013-04-02T19:38:30',
+                                                      'version' => '1.0022'
+                                                    },
+                                                    {
+                                                      'date' => '2013-04-08T18:14:06',
+                                                      'version' => '1.0023'
+                                                    },
+                                                    {
+                                                      'date' => '2013-05-01T17:07:27',
+                                                      'version' => '1.0024'
+                                                    },
+                                                    {
+                                                      'date' => '2013-06-12T20:10:31',
+                                                      'version' => '1.0025'
+                                                    },
+                                                    {
+                                                      'date' => '2013-06-13T06:01:17',
+                                                      'version' => '1.0026'
+                                                    },
+                                                    {
+                                                      'date' => '2013-06-14T04:31:09',
+                                                      'version' => '1.0027'
+                                                    },
+                                                    {
+                                                      'date' => '2013-06-15T08:44:43',
+                                                      'version' => '1.0028'
+                                                    },
+                                                    {
+                                                      'date' => '2013-08-22T21:06:25',
+                                                      'version' => '1.0029'
+                                                    },
+                                                    {
+                                                      'date' => '2013-11-23T07:55:52',
+                                                      'version' => '1.0030'
+                                                    },
+                                                    {
+                                                      'date' => '2014-08-01T20:20:15',
+                                                      'version' => '1.0031'
+                                                    },
+                                                    {
+                                                      'date' => '2014-10-04T18:14:01',
+                                                      'version' => '1.0032'
+                                                    },
+                                                    {
+                                                      'date' => '2014-10-23T20:32:28',
+                                                      'version' => '1.0033'
+                                                    },
+                                                    {
+                                                      'date' => '2015-02-02T20:44:19',
+                                                      'version' => '1.0034'
+                                                    },
+                                                    {
+                                                      'date' => '2015-04-16T08:09:20',
+                                                      'version' => '1.0035'
+                                                    },
+                                                    {
+                                                      'date' => '2015-06-03T19:03:39',
+                                                      'version' => '1.0036'
+                                                    },
+                                                    {
+                                                      'date' => '2015-06-19T17:02:08',
+                                                      'version' => '1.0037'
+                                                    },
+                                                    {
+                                                      'date' => '2015-11-25T20:37:51',
+                                                      'version' => '1.0038'
+                                                    },
+                                                    {
+                                                      'date' => '2015-12-06T11:29:40',
+                                                      'version' => '1.0039'
+                                                    },
+                                                    {
+                                                      'date' => '2016-04-01T16:58:21',
+                                                      'version' => '1.0040'
+                                                    },
+                                                    {
+                                                      'date' => '2016-09-25T21:25:47',
+                                                      'version' => '1.0041'
+                                                    },
+                                                    {
+                                                      'date' => '2016-09-29T05:38:42',
+                                                      'version' => '1.0042'
+                                                    },
+                                                    {
+                                                      'date' => '2017-02-22T03:02:05',
+                                                      'version' => '1.0043'
+                                                    },
+                                                    {
+                                                      'date' => '2017-04-27T17:48:20',
+                                                      'version' => '1.0044'
+                                                    },
+                                                    {
+                                                      'date' => '2017-12-31T20:42:50',
+                                                      'version' => '1.0045'
+                                                    },
+                                                    {
+                                                      'date' => '2018-02-10T07:52:31',
+                                                      'version' => '1.0046'
+                                                    },
+                                                    {
+                                                      'date' => '2018-02-10T09:25:30',
+                                                      'version' => '1.0047'
+                                                    },
+                                                    {
+                                                      'date' => '2020-11-30T00:21:36',
+                                                      'version' => '1.0048'
+                                                    }
+                                                  ]
+                                  },
                        'Plack-Middleware-Session' => {
                                                        'advisories' => [
                                                                          {
@@ -47676,6 +50156,15 @@ sub db {
                              'DBD::Proxy::db' => 'DBI',
                              'DBD::Proxy::dr' => 'DBI',
                              'DBD::Proxy::st' => 'DBI',
+                             'DBD::SQLite' => 'DBD-SQLite',
+                             'DBD::SQLite::Constants' => 'DBD-SQLite',
+                             'DBD::SQLite::GetInfo' => 'DBD-SQLite',
+                             'DBD::SQLite::VirtualTable' => 'DBD-SQLite',
+                             'DBD::SQLite::VirtualTable::Cursor' => 'DBD-SQLite',
+                             'DBD::SQLite::VirtualTable::FileContent' => 'DBD-SQLite',
+                             'DBD::SQLite::VirtualTable::FileContent::Cursor' => 'DBD-SQLite',
+                             'DBD::SQLite::VirtualTable::PerlData' => 'DBD-SQLite',
+                             'DBD::SQLite::VirtualTable::PerlData::Cursor' => 'DBD-SQLite',
                              'DBD::Sponge' => 'DBI',
                              'DBD::Sponge::db' => 'DBI',
                              'DBD::Sponge::dr' => 'DBI',
@@ -48072,6 +50561,8 @@ sub db {
                              'HTTP::Body::UrlEncoded' => 'HTTP-Body',
                              'HTTP::Body::XForms' => 'HTTP-Body',
                              'HTTP::Body::XFormsMultipart' => 'HTTP-Body',
+                             'HTTP::Message::PSGI' => 'Plack',
+                             'HTTP::Server::PSGI' => 'Plack',
                              'HTTP::Session2' => 'HTTP-Session2',
                              'HTTP::Session2::Base' => 'HTTP-Session2',
                              'HTTP::Session2::ClientStore' => 'HTTP-Session2',
@@ -49174,8 +51665,80 @@ sub db {
                              'Perlbal::UploadListener' => 'Perlbal',
                              'Perlbal::Util' => 'Perlbal',
                              'PhonyClipboard' => 'Clipboard',
+                             'Plack' => 'Plack',
+                             'Plack::App::CGIBin' => 'Plack',
+                             'Plack::App::Cascade' => 'Plack',
+                             'Plack::App::Directory' => 'Plack',
+                             'Plack::App::File' => 'Plack',
+                             'Plack::App::PSGIBin' => 'Plack',
+                             'Plack::App::URLMap' => 'Plack',
+                             'Plack::App::WrapCGI' => 'Plack',
+                             'Plack::Builder' => 'Plack',
+                             'Plack::Component' => 'Plack',
+                             'Plack::HTTPParser' => 'Plack',
+                             'Plack::HTTPParser::PP' => 'Plack',
+                             'Plack::Handler' => 'Plack',
+                             'Plack::Handler::Apache1' => 'Plack',
+                             'Plack::Handler::Apache2' => 'Plack',
+                             'Plack::Handler::Apache2::Registry' => 'Plack',
+                             'Plack::Handler::CGI' => 'Plack',
+                             'Plack::Handler::CGI::Writer' => 'Plack',
+                             'Plack::Handler::FCGI' => 'Plack',
+                             'Plack::Handler::HTTP::Server::PSGI' => 'Plack',
+                             'Plack::Handler::Standalone' => 'Plack',
+                             'Plack::LWPish' => 'Plack',
+                             'Plack::Loader' => 'Plack',
+                             'Plack::Loader::Delayed' => 'Plack',
+                             'Plack::Loader::Restarter' => 'Plack',
+                             'Plack::Loader::Shotgun' => 'Plack',
+                             'Plack::MIME' => 'Plack',
+                             'Plack::Middleware' => 'Plack',
+                             'Plack::Middleware::AccessLog' => 'Plack',
+                             'Plack::Middleware::AccessLog::Timed' => 'Plack',
+                             'Plack::Middleware::Auth::Basic' => 'Plack',
+                             'Plack::Middleware::BufferedStreaming' => 'Plack',
+                             'Plack::Middleware::Chunked' => 'Plack',
+                             'Plack::Middleware::Conditional' => 'Plack',
+                             'Plack::Middleware::ConditionalGET' => 'Plack',
+                             'Plack::Middleware::ContentLength' => 'Plack',
+                             'Plack::Middleware::ContentMD5' => 'Plack',
+                             'Plack::Middleware::ErrorDocument' => 'Plack',
+                             'Plack::Middleware::HTTPExceptions' => 'Plack',
+                             'Plack::Middleware::Head' => 'Plack',
+                             'Plack::Middleware::IIS6ScriptNameFix' => 'Plack',
+                             'Plack::Middleware::IIS7KeepAliveFix' => 'Plack',
+                             'Plack::Middleware::JSONP' => 'Plack',
+                             'Plack::Middleware::LighttpdScriptNameFix' => 'Plack',
+                             'Plack::Middleware::Lint' => 'Plack',
+                             'Plack::Middleware::Log4perl' => 'Plack',
+                             'Plack::Middleware::LogDispatch' => 'Plack',
+                             'Plack::Middleware::NullLogger' => 'Plack',
+                             'Plack::Middleware::RearrangeHeaders' => 'Plack',
+                             'Plack::Middleware::Recursive' => 'Plack',
+                             'Plack::Middleware::Refresh' => 'Plack',
+                             'Plack::Middleware::Runtime' => 'Plack',
                              'Plack::Middleware::Session' => 'Plack-Middleware-Session',
                              'Plack::Middleware::Session::Cookie' => 'Plack-Middleware-Session',
+                             'Plack::Middleware::SimpleContentFilter' => 'Plack',
+                             'Plack::Middleware::SimpleLogger' => 'Plack',
+                             'Plack::Middleware::StackTrace' => 'Plack',
+                             'Plack::Middleware::Static' => 'Plack',
+                             'Plack::Middleware::Writer' => 'Plack',
+                             'Plack::Middleware::XFramework' => 'Plack',
+                             'Plack::Middleware::XSendfile' => 'Plack',
+                             'Plack::Recursive::ForwardRequest' => 'Plack',
+                             'Plack::Request' => 'Plack',
+                             'Plack::Request::Upload' => 'Plack',
+                             'Plack::Response' => 'Plack',
+                             'Plack::Runner' => 'Plack',
+                             'Plack::Server' => 'Plack',
+                             'Plack::Server::Apache1' => 'Plack',
+                             'Plack::Server::Apache2' => 'Plack',
+                             'Plack::Server::CGI' => 'Plack',
+                             'Plack::Server::FCGI' => 'Plack',
+                             'Plack::Server::ServerSimple' => 'Plack',
+                             'Plack::Server::Standalone' => 'Plack',
+                             'Plack::Server::Standalone::Prefork' => 'Plack',
                              'Plack::Session' => 'Plack-Middleware-Session',
                              'Plack::Session::Cleanup' => 'Plack-Middleware-Session',
                              'Plack::Session::State' => 'Plack-Middleware-Session',
@@ -49185,6 +51748,18 @@ sub db {
                              'Plack::Session::Store::DBI' => 'Plack-Middleware-Session',
                              'Plack::Session::Store::File' => 'Plack-Middleware-Session',
                              'Plack::Session::Store::Null' => 'Plack-Middleware-Session',
+                             'Plack::TempBuffer' => 'Plack',
+                             'Plack::TempBuffer::Auto' => 'Plack',
+                             'Plack::TempBuffer::File' => 'Plack',
+                             'Plack::TempBuffer::PerlIO' => 'Plack',
+                             'Plack::Test' => 'Plack',
+                             'Plack::Test::MockHTTP' => 'Plack',
+                             'Plack::Test::Server' => 'Plack',
+                             'Plack::Test::Suite' => 'Plack',
+                             'Plack::Util' => 'Plack',
+                             'Plack::Util::Accessor' => 'Plack',
+                             'Plack::Util::IOWithPath' => 'Plack',
+                             'Plack::Util::Prototype' => 'Plack',
                              'Pod::Html' => 'perl',
                              'Pod::Html::Util' => 'perl',
                              'Pod::Simple::XHTML::LocalPodLinks' => 'perl',
