@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20220625.001 2022-06-25T19:44:05Z
+	* Updates to File::Slurp and JavaScript::Duktape(::XS)?
+	* New reports for Crypt
+
 20220624.001 2022-06-25T00:35:07Z
 	* reports for JavaScript-Duktape-XS, File-Slurp, RPC-XML, CBOX-XS,
 	IPC-Run, XML-Simple, Sys-Syslog, WWW-Mechanize, LWP, Imager, GD,
