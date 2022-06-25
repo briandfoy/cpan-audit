@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20220624.001 2022-06-25T00:35:07Z
+	* reports for JavaScript-Duktape-XS, File-Slurp, RPC-XML, CBOX-XS,
+	IPC-Run, XML-Simple, Sys-Syslog, WWW-Mechanize, LWP, Imager, GD,
+	CryptX, Mojolicious, all from Robert Rothenberg.
+
 20220622.002 2022-06-22T23:33:43Z
 	* I put the docs in the wrong file!
 
