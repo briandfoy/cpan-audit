@@ -26,5 +26,5 @@ jobs:
                 gpg --verify lib/CPAN/Audit/DB.pm.gpg lib/CPAN/Audit/DB.pm
             - name: Check selfie
               run: |
-                gpg --verify bdfoycpanorg-gpg-key-selfie.jpeg.gpg briandfoy-gpg-key-selfie.jpeg
-                gpg --verify briandfoypoboxcom-gpg-key-selfie.jpeg.gpg briandfoy-gpg-key-selfie.jpeg
+                gpg --verify images/bdfoycpanorg-gpg-key-selfie.jpeg.gpg images/briandfoy-gpg-key-selfie.jpeg
+                gpg --verify images/briandfoypoboxcom-gpg-key-selfie.jpeg.gpg images/briandfoy-gpg-key-selfie.jpeg
