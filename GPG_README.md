@@ -19,10 +19,9 @@ You can sign my personal and my CPAN::Audit key with your key:
 Then send those output files back to *briandfoy@pobox.com*. I will
 import them into my keyring and re-export my key to the keyserver.
 
-Here's a selfie with me holding up the two key fingerprints:
-
-![](images/briandfoy-gpg-key-selfie.jpeg)
-
-For the more cautious (not a bad thing here), we can arrange a way to
+Here's a selfie with me holding up the two key fingerprints. For the more cautious (not a bad thing here), we can arrange a way to
 verify that these keys belong to me and you are sending them to the right
 place.
+
+
+![](images/briandfoy-gpg-key-selfie.jpeg)
