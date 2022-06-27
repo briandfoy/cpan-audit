@@ -132,7 +132,8 @@ L<https://github.com/briandfoy/cpan-security-advisory>.
 
 C<cpan-audit> does not connect to anything, that is why it is
 important to keep it up to date. Every update of the internal database
-is released as a new version.
+is released as a new version. Ensure that you have the latest database
+by updating L<CPAN::Audit> frequently; the database can change daily.
 
 C<cpan-audit> can automatically detect dependencies from the following
 sources:

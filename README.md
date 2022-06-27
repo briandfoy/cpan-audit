@@ -43,10 +43,12 @@ Examples:
 
 `cpan-audit` is a command line application that checks the modules or distributions for known vulnerabilities. It is using
 its internal database that is automatically generated from a hand-picked database
-[https://github.com/vti/cpan-security-advisory](https://github.com/vti/cpan-security-advisory).
+[https://github.com/briandfoy/cpan-security-advisory](https://github.com/briandfoy/cpan-security-advisory).
 
-`cpan-audit` does not connect to anything, that is why it is important to keep it up to date. Every update of the internal
-database is released as a new version.
+`cpan-audit` does not connect to anything, that is why it is important
+to keep it up to date. Every update of the internal database is
+released as a new version. Ensure that you have the latest database by
+updating L<CPAN::Audit> frequently; the database can change daily.
 
 `cpan-audit` can automatically detect dependencies from the following sources:
 
