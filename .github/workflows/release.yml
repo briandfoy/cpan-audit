@@ -22,6 +22,16 @@ jobs:
             image: perl:${{ matrix.perl-version }}
         steps:
             - uses: actions/checkout@v2
+# Don't release if the signature for the database is bad
+            - name: setup GPG
+              run: |
+                sudo apt-get update
+                sudo apt-get -y install gnupg
+                gpg --keyserver keys.openpgp.org --recv-keys 75AAB42CBA0D7F37F0D6886DF83F8D5E878B6041 867D53B08E433DF401A06EF49A9C0FE7F64876BF
+            - uses: actions/checkout@v3
+            - name: Check DB
+              run: |
+                gpg --verify lib/CPAN/Audit/DB.pm.gpg lib/CPAN/Audit/DB.pm
 # Some older versions of Perl have trouble with hostnames in certs. I
 # haven't figured out why.
             - name: Setup environment
