@@ -5,6 +5,7 @@ use experimental qw(signatures);
 use strict;
 use warnings;
 
+use Carp qw(croak);
 use CPAN::DistnameInfo;
 use Data::Dumper;
 use File::Basename qw(basename);
@@ -13,6 +14,8 @@ use HTTP::Tiny;
 use JSON ();
 use PerlIO::gzip;
 use YAML::Tiny;
+
+use subs qw(config);
 
 =head1 NAME
 
@@ -67,19 +70,31 @@ use Mojo::Util qw(dumper);
 sub process_options ( @args ) {
 	state $rc = require Getopt::Long;
 
-    my %results;
+    my %results = (
+    	gpg_key     => $ENV{CPAN_AUDIT_GPG_KEY_FINGERPRINT},
+    	output_file => default_file(),
+    	);
+
     my %opts = (
+        'gpg-key|g=s'      => \ $results{gpg_key},
         'json|j'           => \ $results{json},
         'output-file|o=s'  => \ $results{output_file},
         'perl-module|pm|p' => \ $results{perl_module},
         'quiet|q'          => \ $results{quiet},
+        'module-version'   => \ $results{version},
     );
 
 	my $p = Getopt::Long::Parser->new();
 	$p->configure( qw(no_ignore_case) );
 	$p->getoptionsfromarray( \@args, %opts );
 
-    ( \%results, \@args );
+
+	say dumper( \%results );
+
+	*config = sub () { \%results };
+	$results{version} //= default_version();
+
+    \@args;
 }
 
 sub default_file () {
@@ -87,8 +102,35 @@ sub default_file () {
 	$file;
 }
 
+sub default_version () {
+	my $opts = config();
+    my( $year, $month, $day ) = (localtime)[5,4,3];
+
+	my $date = sprintf '%4d%02d%02d', $year + 1900, $month + 1, $day;
+	my( $previous_date, $previous_serial ) = get_previous_date_serial( $opts->{output_file} );
+say STDERR "PREVIOUS DATE: $previous_date PREVIOUS SERIAL: $previous_serial";
+
+	my $serial = sprintf '%03d', $previous_date == $date ? $previous_serial + 1 : 1;
+say STDERR "NEW SERIAL: $serial";
+say STDERR "NEW DATE: $date";
+
+	my $version = join '.', $date, $serial;
+say STDERR "NEW VERSION: $version";
+	return $version;
+}
+
+sub get_previous_date_serial ( $file ) {
+	open my $fh, '<:encoding(UTF-8)', $file or croak( "Could not read <$file>: $!" );
+	while( <$fh> ) {
+		next unless /VERSION\s*=\s*'(\d{8})\.(\d{3})'/;
+		return ( $1, 2 );
+	}
+	return;
+}
+
 sub run ( @args ) {
-    my( $opts, $leftover_args ) = process_options( @args );
+    my( $leftover_args ) = process_options( @args );
+	my $opts = config();
 
 	*message = $opts->{quiet} ? sub ($m) {} : sub ($m) { print STDERR $m };
 
@@ -96,7 +138,6 @@ sub run ( @args ) {
     die "Usage: <files>\n" unless @$files;
 
     my $out_fh = do {
-    	$opts->{output_file} = default_file() unless length $opts->{output_file};
     	message( "Output file is <$opts->{output_file}>\n" );
     	if( $opts->{output_file} eq '-' ) { \*STDOUT }
         elsif( $opts->{output_file} ) {
@@ -116,6 +157,8 @@ sub run ( @args ) {
     };
 
     print $out_fh $string;
+
+    output_gpg_signature( $string );
 }
 
 sub get_file_list ( $args ) {
@@ -127,6 +170,29 @@ sub get_file_list ( $args ) {
     my @files = ($^O eq 'MSWin32') ? map { glob } @$args : @$args;
 
     \@files;
+}
+
+sub output_gpg_signature ( $string ) {
+	my $opts = config();
+
+	return if $opts->{output_file} eq '-';
+	return unless defined $opts->{gpg_key};
+
+	my $gpg_file = $opts->{output_file} . '.gpg';
+
+	state $rc = require Encode;
+	my $octets = Encode::encode("UTF-8", $string);
+
+	my @command = ( 'gpg', '-o', $gpg_file, '-sb', '--armor', '-u', $opts->{gpg_key} );
+	say STDERR "COMMAND is @command";
+
+	open my $gpg_fh, '|-', @command;
+
+	print { $gpg_fh } $octets;
+
+	close $gpg_fh or croak "Problem making GPG signature: $!";
+
+	return 1;
 }
 
 sub process_files ( $files ) {
@@ -156,6 +222,8 @@ sub process_files ( $files ) {
 }
 
 sub stringify_data ( $db ) {
+	my $opts = config();
+
     local $Data::Dumper::Sortkeys = 1;
     my $dump = Dumper( $db );
     $dump =~ s{^\$VAR1\s*=\s*}{};
@@ -167,9 +235,6 @@ sub stringify_data ( $db ) {
     	grep { /\Q$submodule_dir/ }
     	`git submodule status` =~ s/\A\s+//r;
 
-    my( $year, $month, $day ) = (localtime)[5,4,3];
-    my( $version ) = sprintf '%4d%02d%02d', $year + 1900, $month + 1, $day;
-
     my $string = <<~"EOF";
     # created by $0 at @{[ scalar localtime]}
     # $submodule_dir $commit
@@ -179,7 +244,7 @@ sub stringify_data ( $db ) {
     use strict;
     use warnings;
 
-    our \$VERSION = '$version';
+    our \$VERSION = '$opts->{version}';
 
     sub db {
         $dump
