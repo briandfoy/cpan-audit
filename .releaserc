@@ -1,1 +1,3 @@
 cpan_user BDFOY
+gpg_signatures \
+	lib/CPAN/Audit/DB.pm lib/CPAN/Audit/DB.pm.gpg
