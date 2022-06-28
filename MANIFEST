@@ -1,8 +1,13 @@
 Changes
 CONTRIBUTING.md
 cpanfile
+GPG_README.md
+images/bdfoycpanorg-gpg-key-selfie.jpeg.gpg
+images/briandfoy-gpg-key-selfie.jpeg
+images/briandfoypoboxcom-gpg-key-selfie.jpeg.gpg
 lib/CPAN/Audit.pm
 lib/CPAN/Audit/DB.pm
+lib/CPAN/Audit/DB.pm.gpg
 lib/CPAN/Audit/Discover.pm
 lib/CPAN/Audit/Discover/Cpanfile.pm
 lib/CPAN/Audit/Discover/CpanfileSnapshot.pm
