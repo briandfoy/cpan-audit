@@ -1,5 +1,15 @@
 Revision history for Perl extension CPAN-Audit
 
+20220627.003 2022-06-29T15:44:34Z
+	* Updates for CPANSA-App-revealup, Mozilla-CA, Plack-Middleware-StaticShared,
+	and CPANSA-Socket (Robert Rothenberg)
+	* Starting to track which problems are embedded, non-Perl libraries
+	(Robert Rothenberg)
+	* The lib/CPAN/Audit/DB.pm file is now GPG-signed, although we don't do 
+	anything with that just yet. See GPG_README.md.
+	* There are several discussions on GitHub where people can note their
+	preferences on future development.
+
 20220625.001 2022-06-25T19:44:05Z
 	* Updates to File::Slurp and JavaScript::Duktape(::XS)?
 	* New reports for Crypt
