@@ -44,6 +44,7 @@ jobs:
             - name: Install dependencies
               run: |
                 sudo cpan -M https://www.cpan.org -T .
+                sudo make clean
             - name: Create distro
               run: |
                 perl Makefile.PL
