@@ -10,16 +10,8 @@ on:
         tags:
             - 'release-*'
 jobs:
-    perl:
-        runs-on: ${{ matrix.os }}
-        strategy:
-          matrix:
-            os:
-                - ubuntu-20.04
-            perl-version:
-                - 'latest'
-        container:
-            image: perl:${{ matrix.perl-version }}
+    release:
+        runs-on: ubuntu-20.04
         steps:
             - uses: actions/checkout@v2
 # Don't release if the signature for the database is bad
