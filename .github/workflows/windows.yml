@@ -26,6 +26,7 @@ on:
             - 'Changes'
             - 'LICENSE'
             - 'README.pod'
+            - '**.gpg'
         pull_request:
 
 jobs:
