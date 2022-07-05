@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20220705.001 2022-07-05T16:44:45Z
+	* check for simple "freshness" of DB with `cpan-audit -f`
+	* weekly update for the data - too many additions to list (thanks
+	to Robert Rothenberg)
+
 20220629.003 2022-06-29T17:56:53Z
 	* This is the same as the last release, where I forgot to update the
 	version in CPAN::Audit to match that in CPAN::Audit::DB.
