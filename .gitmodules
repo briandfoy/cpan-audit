@@ -1,0 +1,3 @@
+[submodule "cpan-security-advisory"]
+	path = cpan-security-advisory
+	url = https://github.com/briandfoy/cpan-security-advisory
