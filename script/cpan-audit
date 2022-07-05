@@ -112,7 +112,7 @@ Options:
     --perl          include perl advisories
     --quiet         be quiet
     --verbose       be verbose
-	--version       show the version and exit
+    --version       show the version and exit
 
 Examples:
 
