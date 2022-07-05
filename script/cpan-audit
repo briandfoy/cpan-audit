@@ -26,6 +26,11 @@ sub run {
 		exit(EXIT_NORMAL);
 		}
 
+	if( $opts->{fresh_check} ) {
+		require CPAN::Audit::FreshnessCheck;
+		CPAN::Audit::FreshnessCheck->import
+		}
+
 	my $command = shift @args;
 	$class->usage(EXIT_USAGE) unless defined $command;
 
@@ -54,6 +59,7 @@ sub process_options {
 	my %params;
 	my $params = {
 		'ascii'       => \$params{ascii},
+		'f|fresh'     => \$params{fresh_check},
 		'help|h'      => \$params{help},
 		'no-color'    => \$params{no_color},
 		'no-corelist' => \$params{no_corelist},
@@ -98,14 +104,15 @@ Commands:
 
 Options:
 
-    --ascii       use ascii output
-    --help|h      show the help message and exit
-    --no-color    switch off colors
-    --no-corelist ignore modules bundled with perl version
-    --perl        include perl advisories
-    --quiet       be quiet
-    --verbose     be verbose
-	--version     show the version and exit
+    --ascii         use ascii output
+    --freshcheck|f  check the database for freshness (CPAN::Audit::FreshnessCheck)
+    --help|h        show the help message and exit
+    --no-color      switch off colors
+    --no-corelist   ignore modules bundled with perl version
+    --perl          include perl advisories
+    --quiet         be quiet
+    --verbose       be verbose
+	--version       show the version and exit
 
 Examples:
 
@@ -134,6 +141,16 @@ C<cpan-audit> does not connect to anything, that is why it is
 important to keep it up to date. Every update of the internal database
 is released as a new version. Ensure that you have the latest database
 by updating L<CPAN::Audit> frequently; the database can change daily.
+You can use enable a warning for a possibly out-of-date database by
+adding C<--freshcheck>, which warns if the database version is older
+than a month:
+
+	% cpan-audit --freshcheck ...
+	% cpan-audit -f ...
+
+	% env CPAN_AUDIT_FRESH_DAYS=7 cpan-audit -f ...
+
+=head2 Finding dependencies
 
 C<cpan-audit> can automatically detect dependencies from the following
 sources:
