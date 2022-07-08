@@ -67,6 +67,7 @@ sub process_options {
 		'quiet|q'     => \$params{quiet},
 		'verbose|v'   => \$params{verbose},
 		'version'     => \$params{version},
+		'exclude=s@'  => \$params{exclude},
 		};
 
 	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params ) or $class->usage(EXIT_USAGE);
@@ -113,6 +114,7 @@ Options:
     --quiet         be quiet
     --verbose       be verbose
     --version       show the version and exit
+    --exclude <str> exclude/ignore the specified advisory/cve
 
 Examples:
 
@@ -127,6 +129,7 @@ Examples:
 
     cpan-audit installed
     cpan-audit installed local/
+    cpan-audit installed local/ --exclude CVE-2011-4116
 
     cpan-audit show CPANSA-Mojolicious-2018-03
 

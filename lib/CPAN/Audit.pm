@@ -5,6 +5,7 @@ use warnings;
 use version;
 use CPAN::Audit::Installed;
 use CPAN::Audit::Discover;
+use CPAN::Audit::Exclude;
 use CPAN::Audit::Version;
 use CPAN::Audit::Query;
 use CPAN::Audit::DB;
@@ -27,6 +28,7 @@ sub new {
 
     $self->{db}       = CPAN::Audit::DB->db;
 
+    $self->{exclude}  = CPAN::Audit::Exclude->new( exclude => $params{exclude} );
     $self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
     $self->{discover} = CPAN::Audit::Discover->new( db => $self->{db} );
 
@@ -146,12 +148,15 @@ sub command {
 
     if (%dists) {
         my $query = $self->{query};
+        my $exclude = $self->{exclude};
 
 		my $note = $command eq 'installed' ? 'have' : 'requires';
 
         foreach my $distname ( sort keys %dists ) {
             my $version_range = $dists{$distname};
             my @advisories = $query->advisories_for( $distname, $version_range );
+
+            @advisories = grep { !$exclude->is_excluded($_) } @advisories;
 
             $version_range = 'Any'
               if $version_range eq '' || $version_range eq '0';
