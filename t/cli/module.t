@@ -12,6 +12,14 @@ subtest 'command: module' => sub {
     isnt $exit,   0;
 };
 
+subtest 'command: module, with excluded result' => sub {
+    my ( $stdout, $stderr, $exit ) = TestCommand->command( 'module', 'Catalyst', '--exclude' => 'CPANSA-Catalyst-Runtime-2013-01' );
+
+    unlike $stdout, qr/CPANSA-Catalyst-Runtime-2013-01/;
+    is $stderr,   '';
+    is $exit,     0;
+};
+
 subtest 'command: unknown module' => sub {
     my ( $stdout, $stderr, $exit ) = TestCommand->command( 'module', 'Unknown' );
 
