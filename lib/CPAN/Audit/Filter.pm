@@ -1,3 +1,5 @@
+use v5.10;
+
 package CPAN::Audit::Filter;
 use strict;
 use warnings;
@@ -72,7 +74,7 @@ The values extracted from the hash are uppercased before use.
 sub excludes {
     my($self, $advisory) = @_;
 
-    return 0 unless keys %{$self->{exclude}};
+    return 0 unless keys %{$self->{excludes}};
 
     my @ids = map { uc } grep { defined } ($advisory->{id}, @{$advisory->{cves}});
 
@@ -93,8 +95,5 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =cut
-
-
-
 
 1;

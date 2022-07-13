@@ -28,7 +28,7 @@ sub new {
 
     $self->{db}       = CPAN::Audit::DB->db;
 
-    $self->{filter}   = CPAN::Audit::Filter->new( exclude => $self->{exclude} );
+    $self->{filter}   = CPAN::Audit::Filter->new( exclude => $args{exclude} );
     $self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
     $self->{discover} = CPAN::Audit::Discover->new( db => $self->{db} );
 
@@ -154,9 +154,9 @@ sub command {
 
         foreach my $distname ( sort keys %dists ) {
             my $version_range = $dists{$distname};
-            my @advisories = $query->advisories_for( $distname, $version_range );
-
-            @advisories = grep { !$filter->excludes($_) } @advisories;
+            my @advisories =
+                grep { ! $filter->excludes($_) }
+                $query->advisories_for( $distname, $version_range );
 
             $version_range = 'Any'
               if $version_range eq '' || $version_range eq '0';
