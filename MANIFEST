@@ -34,6 +34,7 @@ t/data/cpanfile/cpanfile
 t/data/installed/perl5/lib/perl5/Catalyst.pm
 t/discover/cpanfile.t
 t/discover/cpanfile_snapshot.t
+t/excludes.t
 t/installed.t
 t/lib/TestCommand.pm
 t/query.t

@@ -146,9 +146,9 @@ sub command {
 
     my $total_advisories = 0;
 
+    my $filter = $self->{filter};
     if (%dists) {
         my $query = $self->{query};
-        my $filter = $self->{filter};
 
         my $note = $command eq 'installed' ? 'have' : 'requires';
 
@@ -162,7 +162,7 @@ sub command {
               if $version_range eq '' || $version_range eq '0';
 
             if (@advisories) {
-            	my $inflect = scalar(@advisories) == 1 ? 'y' : 'ies';
+                my $inflect = scalar(@advisories) == 1 ? 'y' : 'ies';
                 $self->message( "__RED__%s ($note %s) has %d advisor${inflect}__RESET__",
                     $distname, $version_range, scalar(@advisories) );
 
@@ -177,11 +177,14 @@ sub command {
 
     if ($total_advisories) {
         $self->message( '__RED__Total advisories found: %d__RESET__', $total_advisories );
-
+        $self->message( '__RED__Total advisories ignored: %d__RESET__', $filter->ignored_count )
+            if $filter->ignored_count;
         return $total_advisories;
     }
     else {
         $self->message_info('__GREEN__No advisories found__RESET__');
+        $self->message( '__RED__Total advisories ignored: %d__RESET__', $filter->ignored_count )
+            if $filter->ignored_count;
         return 0;
     }
 }

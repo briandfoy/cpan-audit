@@ -48,6 +48,8 @@ sub new {
     my %excludes = map { uc($_) => 1 } @{ $params{exclude} };
     $self->{excludes} = \%excludes;
 
+    $self->{ignored} = {};
+
     return $self;
 }
 
@@ -79,11 +81,22 @@ sub excludes {
     my @ids = map { uc } grep { defined } ($advisory->{id}, @{$advisory->{cves}});
 
     foreach my $id ( @ids ) {
-        return 1 if $self->{excludes}{$id};
+        next unless $self->{excludes}{$id};
+        $self->{ignored}{$id}++;
+        return 1;
     }
 
     return 0;
 }
+
+=item * ignored_count
+
+Return the count of the advisories that were ignored. Each ID or CVE
+value only counts once.
+
+=cut
+
+sub ignored_count { scalar keys %{$_[0]->{ignored}} }
 
 =back
 
