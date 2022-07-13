@@ -61,14 +61,14 @@ sub find {
 }
 
 sub module_version {
-	require Module::Extract::VERSION;
+    require Module::Extract::VERSION;
     my( $file ) = @_;
 
-	my $version = Module::Extract::VERSION->parse_version_safely( $file );
+    my $version = Module::Extract::VERSION->parse_version_safely( $file );
 
-	if( eval { $version->can('numify') } ) {
-		$version = $version->numify;
-	}
+    if( eval { $version->can('numify') } ) {
+        $version = $version->numify;
+    }
 
     return "$version";
 }

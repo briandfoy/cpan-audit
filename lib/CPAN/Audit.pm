@@ -16,7 +16,7 @@ our $VERSION = '20220708.001';
 sub new {
     my( $class, %params ) = @_;
 
-	my @allowed_keys = qw(ascii db include_perl interactive no_corelist no_color quiet verbose version);
+    my @allowed_keys = qw(ascii db include_perl interactive no_corelist no_color quiet verbose version);
 
     my %args = map { $_, $params{$_} } @allowed_keys;
     my $self = bless \%args, $class;
@@ -121,10 +121,10 @@ sub command {
     elsif ( $command eq 'installed' ) {
         $self->message_info('Collecting all installed modules. This can take a while...');
 
-		my $verbose_callback = sub {
-			my ($info) = @_;
+        my $verbose_callback = sub {
+            my ($info) = @_;
             $self->message( '%s: %s-%s', $info->{path}, $info->{distname}, $info->{version} );
-		};
+        };
 
         my @deps = CPAN::Audit::Installed->new(
             db           => $self->{db},
@@ -150,7 +150,7 @@ sub command {
         my $query = $self->{query};
         my $exclude = $self->{exclude};
 
-		my $note = $command eq 'installed' ? 'have' : 'requires';
+        my $note = $command eq 'installed' ? 'have' : 'requires';
 
         foreach my $distname ( sort keys %dists ) {
             my $version_range = $dists{$distname};
