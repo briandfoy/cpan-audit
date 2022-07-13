@@ -11,7 +11,7 @@ lib/CPAN/Audit/DB.pm.gpg
 lib/CPAN/Audit/Discover.pm
 lib/CPAN/Audit/Discover/Cpanfile.pm
 lib/CPAN/Audit/Discover/CpanfileSnapshot.pm
-lib/CPAN/Audit/Exclude.pm
+lib/CPAN/Audit/Filter.pm
 lib/CPAN/Audit/FreshnessCheck.pm
 lib/CPAN/Audit/Installed.pm
 lib/CPAN/Audit/Query.pm

@@ -5,18 +5,18 @@ use warnings;
 use version;
 use CPAN::Audit::Installed;
 use CPAN::Audit::Discover;
-use CPAN::Audit::Exclude;
+use CPAN::Audit::Filter;
 use CPAN::Audit::Version;
 use CPAN::Audit::Query;
 use CPAN::Audit::DB;
 use Module::CoreList;
 
-our $VERSION = '20220708.001';
+our $VERSION = '20220713.001_001';
 
 sub new {
     my( $class, %params ) = @_;
 
-    my @allowed_keys = qw(ascii db include_perl interactive no_corelist no_color quiet verbose version);
+    my @allowed_keys = qw(ascii db exclude include_perl interactive no_corelist no_color quiet verbose version);
 
     my %args = map { $_, $params{$_} } @allowed_keys;
     my $self = bless \%args, $class;
@@ -28,7 +28,7 @@ sub new {
 
     $self->{db}       = CPAN::Audit::DB->db;
 
-    $self->{exclude}  = CPAN::Audit::Exclude->new( exclude => $params{exclude} );
+    $self->{filter}   = CPAN::Audit::Filter->new( exclude => $self->{exclude} );
     $self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
     $self->{discover} = CPAN::Audit::Discover->new( db => $self->{db} );
 
@@ -148,7 +148,7 @@ sub command {
 
     if (%dists) {
         my $query = $self->{query};
-        my $exclude = $self->{exclude};
+        my $filter = $self->{filter};
 
         my $note = $command eq 'installed' ? 'have' : 'requires';
 
@@ -156,7 +156,7 @@ sub command {
             my $version_range = $dists{$distname};
             my @advisories = $query->advisories_for( $distname, $version_range );
 
-            @advisories = grep { !$exclude->is_excluded($_) } @advisories;
+            @advisories = grep { !$filter->excludes($_) } @advisories;
 
             $version_range = 'Any'
               if $version_range eq '' || $version_range eq '0';
@@ -267,7 +267,7 @@ sub _print {
 1;
 __END__
 
-=encoding utf-8
+=encoding utf8
 
 =head1 NAME
 
