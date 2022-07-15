@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20220713.001_001 2022-07-15T16:38:39Z
+	* Try out a way to exclude some reports (say, like File::Temp)
+	from Graham TerMarsch (Github #5). This feature might change.
+	* No database updates in this release.
+
 20220708.001 2022-07-08T08:51:14Z
 	* Many more reports (thanks to Robert Rothenberg)
 
