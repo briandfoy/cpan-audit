@@ -4,7 +4,7 @@ use v5.10;
 
 =head1 NAME
 
-CPAN::Audit::Freshness
+CPAN::Audit::Freshness - check freshness of CPAN::Audit::DB
 
 =head1 SYNOPSIS
 
