@@ -2,6 +2,8 @@ package CPAN::Audit::FreshnessCheck;
 
 use v5.10;
 
+our $VERSION = '1.001';
+
 =head1 NAME
 
 CPAN::Audit::Freshness - check freshness of CPAN::Audit::DB
