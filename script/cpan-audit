@@ -93,7 +93,7 @@ cpan-audit - Audit CPAN modules
 
 =head1 SYNOPSIS
 
-cpan-audit [options] [command]
+cpan-audit [command] [options]
 
 Commands:
 
