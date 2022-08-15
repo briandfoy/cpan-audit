@@ -1,0 +1,4 @@
+# Comments are ignored
+
+# as well as blank lines (previous line)
+    CPANSA-CPAN-2009-01   # trailing comments are removed, as is leading/trailing whitespace

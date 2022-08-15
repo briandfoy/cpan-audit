@@ -22,6 +22,15 @@ subtest 'command: module, with excluded result' => sub {
     isnt $exit,   0;
 };
 
+subtest 'command: module, with excluded results from file' => sub {
+    my ( $stdout, $stderr, $exit ) = TestCommand->command( 'module', 'CPAN', '--exclude-file' => 't/data/excludes' );
+
+    unlike $stdout, qr/CPANSA-CPAN-2009-01/;
+    like $stdout, qr/CPANSA-CPAN-2020-16156/;
+    is $stderr,   '';
+    isnt $exit,   0;
+};
+
 subtest 'command: unknown module' => sub {
     my ( $stdout, $stderr, $exit ) = TestCommand->command( 'module', 'Unknown' );
 

@@ -68,6 +68,7 @@ sub process_options {
 		'verbose|v'   => \$params{verbose},
 		'version'     => \$params{version},
 		'exclude=s@'  => \$params{exclude},
+		'exclude-file=s@' => \$params{exclude_file},
 		};
 
 	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params ) or $class->usage(EXIT_USAGE);
@@ -115,6 +116,7 @@ Options:
     --verbose       be verbose
     --version       show the version and exit
     --exclude <str> exclude/ignore the specified advisory/cve (multiple)
+    --exclude-file <file> read exclude/ignore patterns from file
 
 Examples:
 
@@ -131,6 +133,7 @@ Examples:
     cpan-audit installed local/
     cpan-audit installed local/ --exclude CVE-2011-4116
     cpan-audit installed local/ --exclude CVE-2011-4116 --exclude CVE-2011-123
+    cpan-audit installed local/ --exclude-file ignored-cves.txt
 
     cpan-audit show CPANSA-Mojolicious-2018-03
 
