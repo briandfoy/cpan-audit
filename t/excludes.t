@@ -17,7 +17,11 @@ subtest 'no args' => sub {
 	};
 
 subtest 'one args' => sub {
+	my $warning;
+	local $SIG{__WARN__} = sub { $warning .= $_[0] };
 	my $filter = $class->new( 'excludes' );
+	# diag( "Warning was <$warning>" );
+	like( $warning, qr/Odd number/, 'Odd number of elements warns' );
 	isa_ok( $filter, $class );
 	can_ok( $filter, @instance_methods );
 	};
