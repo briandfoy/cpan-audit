@@ -16,16 +16,16 @@ Commands:
 
 Options:
 
-    --ascii         use ascii output
-    --freshcheck|f  check the database for freshness (CPAN::Audit::FreshnessCheck)
-    --help|h        show the help message and exit
-    --no-color      switch off colors
-    --no-corelist   ignore modules bundled with perl version
-    --perl          include perl advisories
-    --quiet         be quiet
-    --verbose       be verbose
-    --version       show the version and exit
-    --exclude <str> exclude/ignore the specified advisory/cve (multiple)
+    --ascii               use ascii output
+    --freshcheck|f        check the database for freshness (CPAN::Audit::FreshnessCheck)
+    --help|h              show the help message and exit
+    --no-color            switch off colors
+    --no-corelist         ignore modules bundled with perl version
+    --perl                include perl advisories
+    --quiet               be quiet
+    --verbose             be verbose
+    --version             show the version and exit
+    --exclude <str>       exclude/ignore the specified advisory/cve (multiple)
     --exclude-file <file> read exclude/ignore patterns from file
 
 Examples:
