@@ -16,7 +16,7 @@ our $VERSION = '20220729.001';
 sub new {
     my( $class, %params ) = @_;
 
-    my @allowed_keys = qw(ascii db exclude include_perl interactive no_corelist no_color quiet verbose version);
+    my @allowed_keys = qw(ascii db exclude exclude_file include_perl interactive no_corelist no_color quiet verbose version);
 
     my %args = map { $_, $params{$_} } @allowed_keys;
     my $self = bless \%args, $class;
@@ -24,6 +24,18 @@ sub new {
     if ( !$self->{interactive} ) {
         $self->{ascii}    = 1;
         $self->{no_color} = 1;
+    }
+
+    if ($self->{exclude_file}) {
+        foreach my $file (@{$self->{exclude_file}}) {
+            open my $fh, "<", $file or die "unable to open file [$file]: $!\n";
+            my @excludes =
+                grep { !/^\s*$/ }               # no blank lines
+                map  { s{^\s+|\s+$}{}g; $_ }    # strip leading/trailing whitespace
+                map  { s{#.*}{}; $_ }           # strip comments
+                <$fh>;
+            push @{$self->{exclude}}, @excludes;
+        }
     }
 
     $self->{db}       = CPAN::Audit::DB->db;

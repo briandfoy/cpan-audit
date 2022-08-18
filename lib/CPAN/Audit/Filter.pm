@@ -32,9 +32,9 @@ CPAN::Audit::Filter - manage the reports / CVEs to ignore
 
 =over 4
 
-=item * new( excludes => ARRAYREF )
+=item * new( exclude => ARRAYREF )
 
-The values in the array ref for C<excludes> are uppercased before
+The values in the array ref for C<exclude> are uppercased before
 they are stored.
 
 =cut

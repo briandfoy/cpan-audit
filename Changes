@@ -1,5 +1,7 @@
 Revision history for Perl extension CPAN-Audit
 
+	* Added feature to exclude multiple reports, via file.
+
 20220729.001 2022-07-29T06:29:54Z
 	* Added feature to exclude reports, mostly for those persistent
 	vulnerabilities, such as File::Temp, that won't go away.

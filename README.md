@@ -26,6 +26,7 @@ Options:
     --verbose       be verbose
     --version       show the version and exit
     --exclude <str> exclude/ignore the specified advisory/cve (multiple)
+    --exclude-file <file> read exclude/ignore patterns from file
 
 Examples:
 
@@ -42,6 +43,7 @@ Examples:
     cpan-audit installed local/
     cpan-audit installed local/ --exclude CVE-2011-4116
     cpan-audit installed local/ --exclude CVE-2011-4116 --exclude CVE-2011-123
+    cpan-audit installed local/ --exclude-file ignored-cves.txt
 
     cpan-audit show CPANSA-Mojolicious-2018-03
 
