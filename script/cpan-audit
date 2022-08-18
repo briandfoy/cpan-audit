@@ -58,16 +58,16 @@ sub process_options {
 
 	my %params;
 	my $params = {
-		'ascii'       => \$params{ascii},
-		'f|fresh'     => \$params{fresh_check},
-		'help|h'      => \$params{help},
-		'no-color'    => \$params{no_color},
-		'no-corelist' => \$params{no_corelist},
-		'perl'        => \$params{include_perl},
-		'quiet|q'     => \$params{quiet},
-		'verbose|v'   => \$params{verbose},
-		'version'     => \$params{version},
-		'exclude=s@'  => \$params{exclude},
+		'ascii'           => \$params{ascii},
+		'f|fresh'         => \$params{fresh_check},
+		'help|h'          => \$params{help},
+		'no-color'        => \$params{no_color},
+		'no-corelist'     => \$params{no_corelist},
+		'perl'            => \$params{include_perl},
+		'quiet|q'         => \$params{quiet},
+		'verbose|v'       => \$params{verbose},
+		'version'         => \$params{version},
+		'exclude=s@'      => \$params{exclude},
 		'exclude-file=s@' => \$params{exclude_file},
 		};
 
