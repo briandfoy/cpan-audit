@@ -1,6 +1,6 @@
 # brian's standard GitHub Actions Ubuntu config for Perl 5 modules
-# version 20220215.002
-# https://github.com/briandfoy/github_actions
+# version 20220825.001
+# https://github.com/briandfoy/github_workflows
 # https://github.com/features/actions
 # This file is licensed under the Artistic License 2.0
 name: ubuntu
@@ -19,14 +19,15 @@ on:
             # list all the files which are irrelevant to the tests
             # non-code, support files, docs, etc
             - '.appveyor.yml'
+            - '.gitattributes'
             - '.github/workflows/macos.yml'
             - '.github/workflows/windows.yml'
+            - '.github/workflows/release.yml'
             - '.gitignore'
             - '.releaserc'
             - 'Changes'
             - 'LICENSE'
             - 'README.pod'
-            - '**.gpg'
         pull_request:
 
 jobs:
@@ -35,8 +36,9 @@ jobs:
         strategy:
           matrix:
             os:
-                - ubuntu-20.04
+                - ubuntu-22.04
             perl-version:
+                - '5.8'
                 - '5.10'
                 - '5.12'
                 - '5.14'
@@ -49,18 +51,12 @@ jobs:
                 - '5.28'
                 - '5.30'
                 - '5.32'
+                - '5.34'
                 - 'latest'
         container:
             image: perl:${{ matrix.perl-version }}
         steps:
-# checkout needs a later git version to use submodules
-            - uses: actions/checkout@v3
-# The ubuntu runners are weird in a way I haven't figured out. They
-# can't easily get a version of git that can handle submodules.
-            - name: Get submodule
-              run: |
-                rm -rf cpan-security-advisory
-                git clone https://github.com/briandfoy/cpan-security-advisory.git
+            - uses: actions/checkout@v2
             - name: Platform check
               run: uname -a
             - name: Perl version check
@@ -87,7 +83,7 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                perl -e "print join q( ), (require q(./Makefile.PL))->all_modules" | xargs cpan -M https://www.cpan.org -T
+                cpan -M https://www.cpan.org -T .
             - name: Run tests
               run: |
                 perl Makefile.PL
