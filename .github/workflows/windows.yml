@@ -1,6 +1,6 @@
 # brian's standard GitHub Actions Windows config for Perl 5 modules
-# version 20220215.002
-# https://github.com/briandfoy/github_actions
+# version 20220825.001
+# https://github.com/briandfoy/github_workflows
 # https://github.com/features/actions
 # This file is licensed under the Artistic License 2.0
 name: windows
@@ -19,6 +19,8 @@ on:
             # list all the files which are irrelevant to the tests
             # non-code, support files, docs, etc
             - '.appveyor.yml'
+            - '.gitattributes'
+            - '.github/workflows/release.yml'
             - '.github/workflows/macos.yml'
             - '.github/workflows/linux.yml'
             - '.gitignore'
@@ -26,7 +28,6 @@ on:
             - 'Changes'
             - 'LICENSE'
             - 'README.pod'
-            - '**.gpg'
         pull_request:
 
 jobs:
@@ -55,7 +56,7 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                perl -e "print join q( ), (require q(./Makefile.PL))->all_modules" | xargs cpan -M https://www.cpan.org -T
+                cpan -M https://www.cpan.org -T .
                 cpan -M https://www.cpan.org -T Test::Manifest
             - name: Run tests
               run: |
