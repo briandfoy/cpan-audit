@@ -1,3 +1,8 @@
+# brian's standard GitHub Actions release config for Perl 5 modules
+# version 20220825.001
+# https://github.com/briandfoy/github_workflows
+# https://github.com/features/actions
+# This file is licensed under the Artistic License 2.0
 name: release
 
 on:
@@ -5,20 +10,18 @@ on:
         tags:
             - 'release-*'
 jobs:
-    release:
-        runs-on: ubuntu-20.04
+    perl:
+        runs-on: ${{ matrix.os }}
+        strategy:
+          matrix:
+            os:
+                - ubuntu-20.04
+            perl-version:
+                - 'latest'
+        container:
+            image: perl:${{ matrix.perl-version }}
         steps:
             - uses: actions/checkout@v2
-# Don't release if the signature for the database is bad
-            - name: setup GPG
-              run: |
-                sudo apt-get update
-                sudo apt-get -y install gnupg
-                gpg --keyserver keys.openpgp.org --recv-keys 75AAB42CBA0D7F37F0D6886DF83F8D5E878B6041 867D53B08E433DF401A06EF49A9C0FE7F64876BF
-            - uses: actions/checkout@v3
-            - name: Check DB
-              run: |
-                gpg --verify lib/CPAN/Audit/DB.pm.gpg lib/CPAN/Audit/DB.pm
 # Some older versions of Perl have trouble with hostnames in certs. I
 # haven't figured out why.
             - name: Setup environment
@@ -31,15 +34,15 @@ jobs:
 # Need HTTP::Tiny 0.055 or later.
             - name: Install cpanm and multiple modules
               run: |
-                curl -L https://cpanmin.us | sudo perl - App::cpanminus
-                cpanm --notest IO::Socket::SSL App::Cpan HTTP::Tiny ExtUtils::MakeMaker Test::Manifest
+                curl -L https://cpanmin.us | perl - App::cpanminus
+                cpanm --notest IO::Socket::SSL App::Cpan HTTP::Tiny
+                cpan -M https://www.cpan.org -T ExtUtils::MakeMaker Test::Manifest
 # Install the dependencies, again not testing them. This installs the
 # module in the current directory, so we end up installing the module,
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                sudo cpan -M https://www.cpan.org -T .
-                sudo make clean
+                cpan -M https://www.cpan.org -T .
             - name: Create distro
               run: |
                 perl Makefile.PL
@@ -60,11 +63,7 @@ jobs:
                 tag_name: ${{ github.ref }}
                 body_path: Changes
             - name: upload
-              uses: actions/upload-release-asset@v1
-              env:
-                GITHUB_TOKEN: ${{ github.token }}
+              uses: softprops/action-gh-release@v1
+              if: startsWith(github.ref, 'refs/tags/')
               with:
-                upload_url: ${{ steps.create_release.outputs.upload_url }}
-                asset_path: ${{ env.ASSET_NAME }}
-                asset_name: ${{ env.ASSET_NAME }}
-                asset_content_type: application/gzip
+                files: "*.tar.gz"
