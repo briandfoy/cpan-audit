@@ -61,6 +61,7 @@ sub process_options {
 		'ascii'           => \$params{ascii},
 		'f|fresh'         => \$params{fresh_check},
 		'help|h'          => \$params{help},
+		'json=s'          => \$params{json},
 		'no-color'        => \$params{no_color},
 		'no-corelist'     => \$params{no_corelist},
 		'perl'            => \$params{include_perl},

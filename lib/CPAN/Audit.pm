@@ -19,7 +19,7 @@ our $VERSION = '20220817.001';
 sub new {
     my( $class, %params ) = @_;
 
-    my @allowed_keys = qw(ascii db exclude exclude_file include_perl interactive no_corelist no_color quiet verbose version);
+    my @allowed_keys = qw(ascii db exclude exclude_file include_perl interactive no_corelist no_color quiet verbose version json);
 
     my %args = map { $_, $params{$_} } @allowed_keys;
     my $self = bless \%args, $class;
@@ -170,6 +170,9 @@ sub command {
     my $total_advisories = 0;
 
     my $filter = $self->{filter};
+
+    my %report;
+
     if (%dists) {
         my $query = $self->{query};
 
@@ -184,6 +187,17 @@ sub command {
             $version_range = 'Any'
               if $version_range eq '' || $version_range eq '0';
 
+            $total_advisories += @advisories;
+
+            if ( $self->{json} && @advisories ) {
+                $report{dists}->{$distname} = {
+                    advisories => \@advisories,
+                    version    => $version_range,
+                };
+
+                next;
+            }
+
             if (@advisories) {
                 my $inflect = scalar(@advisories) == 1 ? 'y' : 'ies';
                 $self->message( "__RED__%s ($note %s) has %d advisor${inflect}__RESET__",
@@ -193,9 +207,20 @@ sub command {
                     $self->print_advisory($advisory);
                 }
             }
-
-            $total_advisories += @advisories;
         }
+    }
+
+    if ( $self->{json} ) {
+        require JSON;
+
+        $report{total_advisories}   = $total_advisories;
+        $report{ignored_advisories} = $filter->ignored_count;
+
+        open my $json_fh, '>', $self->{json} or die $!;
+        print $json_fh  JSON->new->utf8(1)->pretty(1)->encode( \%report ) or die $!;
+        close $json_fh or die $!;
+
+        return $total_advisories || 0;
     }
 
     if ($total_advisories) {
