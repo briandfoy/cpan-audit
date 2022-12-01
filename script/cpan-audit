@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+use v5.10;
 use strict;
 use warnings;
 
@@ -14,17 +15,115 @@ use constant EXIT_NORMAL =>  0;
 use constant EXIT_USAGE  =>  2;
 use constant EXIT_BASE   => 64;
 
+my $output_table;
+BEGIN {
+	$output_table = {
+		text    => \&format_text,
+		dumper  => \&format_dump,
+		json    => \&format_json,
+		default => \&format_text,
+	};
+}
+
+sub format_advisory {
+    my ($advisory) = @_;
+    my $s = "  __BOLD__* $advisory->{id}__RESET__\n";
+       $s .= "    $advisory->{description}\n";
+
+    if ( $advisory->{affected_versions} ) {
+        $s .= "    Affected range: $advisory->{affected_versions}\n";
+    }
+
+    if ( $advisory->{fixed_versions} ) {
+        $s .=  "    Fixed range: $advisory->{fixed_versions}\n";
+    }
+
+    if ( $advisory->{cves} ) {
+        $s .=  "\n    CVEs: ";
+        $s .=  join ', ', @{ $advisory->{cves} };
+        $s .=  "\n";
+    }
+
+    if ( $advisory->{references} ) {
+        $s .=  "\n    References:\n";
+        foreach my $reference ( @{ $advisory->{references} || [] } ) {
+            $s .=  "    $reference\n";
+        }
+    }
+
+    $s .=  "\n";
+    return $s;
+}
+
+use Data::Dumper;
+sub dumper { Data::Dumper->new([@_])->Indent(1)->Sortkeys(1)->Terse(1)->Useqq(1)->Dump }
+sub format_dump {
+	my( $result ) = @_;
+	return dumper($result);
+}
+
+sub format_json {
+	state $rc = require JSON;
+	my( $result ) = @_;
+	return JSON::encode_json($result);
+}
+
+sub format_text {
+	my( $result, $opts ) = @_;
+	my $s = '';
+
+	foreach my $distname ( keys %{ $result->{dists} } ) {
+		my $advisories = $result->{dists}{$distname}{advisories};
+		$s .= sprintf("__RED__%s (%s %s) has %d advisor%s__RESET__\n",
+			$distname,
+			($result->{meta}{command} eq 'installed' ? 'have' : 'requires'),
+			$result->{dists}{$distname}{version},
+			scalar(@$advisories),
+			(scalar(@$advisories) == 1 ? 'y' : 'ies'),
+		);
+
+		foreach my $advisory ( @$advisories ) {
+			$s .= format_advisory( $advisory );
+		}
+	}
+
+	$s .= "\n" if length $s;
+
+    if ( $opts->{'no-color'} or $opts->{'ascii'} ) {
+        $s =~ s{__BOLD__}{}g;
+        $s =~ s{__GREEN__}{}g;
+        $s =~ s{__RED__}{}g;
+        $s =~ s{__RESET__}{}g;
+    }
+    else {
+        $s =~ s{__BOLD__}{\e[39;1m}g;
+        $s =~ s{__GREEN__}{\e[32m}g;
+        $s =~ s{__RED__}{\e[31m}g;
+        $s =~ s{__RESET__}{\e[0m}g;
+
+        $s .= "\e[0m" if length $s;
+    }
+
+	return $s;
+}
+
+sub output_version {
+	my( $exit_code ) = @_;
+	print "$0 version $VERSION using:\n\tCPAN::Audit     @{[ CPAN::Audit->VERSION ]}\n\tCPAN::Audit::DB @{[ CPAN::Audit::DB->VERSION ]}\n";
+	exit($exit_code);
+}
+
 sub run {
 	my( $class, @args ) = @_;
 
 	my( $opts ) = $class->process_options( \@args );
+	unless( ! $opts->{interactive} ) {
+		$opts->{ascii} = 1;
+		$opts->{no_color} //= 1;
+	}
 
-	$class->usage(EXIT_NORMAL) if $opts->{help};
-
-	if( $opts->{version} ) {
-		print "$0 version $VERSION using:\n\tCPAN::Audit     @{[ CPAN::Audit->VERSION ]}\n\tCPAN::Audit::DB @{[ CPAN::Audit::DB->VERSION ]}\n";
-		exit(EXIT_NORMAL);
-		}
+	$class->usage(EXIT_NORMAL)          if $opts->{help};
+	$class->output_version(EXIT_NORMAL) if $opts->{version};
 
 	if( $opts->{fresh_check} ) {
 		require CPAN::Audit::FreshnessCheck;
@@ -40,8 +139,28 @@ sub run {
 
 	my $audit = CPAN::Audit->new( %$opts, %extra );
 
-	my $advisory_count = $audit->command( $command, @args );
+	my $result = $audit->command( $command, @args );
 
+	if( @{ $result->{errors} } > 0 ) {
+		my $message = join "\n", map "Error: $_", @{ $result->{errors} };
+		unless( $opts->{'no-color'} ) {
+			$message = "\e[31m" . $message . "\e[0m"
+		}
+		print STDERR $message;
+		exit 255;
+	}
+
+	my( $output_type ) = grep { $opts->{$_} } qw(json);
+	my $sub = $output_table->{$output_type // 'default'};
+
+	my $output = $sub->( $result, $opts );
+	if( $command eq 'show' ) {
+		$output =~ s/\A.*\n//;
+	}
+
+	print $output;
+
+	my $advisory_count = $result->{meta}{total_advisories};
 	my $exit_code = do {
 		   if( $advisory_count == 0 ) { EXIT_NORMAL }
 		elsif( $advisory_count > 0  ) { EXIT_BASE + $advisory_count }
@@ -56,12 +175,12 @@ sub process_options {
 
 	my $options = {};
 
-	my %params;
+	my %params = ();
 	my $params = {
 		'ascii'           => \$params{ascii},
 		'f|fresh'         => \$params{fresh_check},
 		'help|h'          => \$params{help},
-		'json=s'          => \$params{json},
+		'json'            => \$params{json},
 		'no-color'        => \$params{no_color},
 		'no-corelist'     => \$params{no_corelist},
 		'perl'            => \$params{include_perl},
@@ -72,7 +191,8 @@ sub process_options {
 		'exclude-file=s@' => \$params{exclude_file},
 		};
 
-	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params ) or $class->usage(EXIT_USAGE);
+	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params )
+		or $class->usage(EXIT_USAGE);
 
 	\%params;
 	}
@@ -118,13 +238,13 @@ Options:
     --version             show the version and exit
     --exclude <str>       exclude/ignore the specified advisory/cve (multiple)
     --exclude-file <file> read exclude/ignore patterns from file
-    --json <file>         save audit results in JSON format in a file
+    --json                output JSON
 
 Examples:
 
     cpan-audit dist Catalyst-Runtime
     cpan-audit dist Catalyst-Runtime 7.0
-    cpan-audit dist Catalyst-Runtime >5.48
+    cpan-audit dist Catalyst-Runtime '>5.48'
 
     cpan-audit module Catalyst 7.0
 
@@ -136,7 +256,8 @@ Examples:
     cpan-audit installed local/ --exclude CVE-2011-4116
     cpan-audit installed local/ --exclude CVE-2011-4116 --exclude CVE-2011-123
     cpan-audit installed local/ --exclude-file ignored-cves.txt
-    cpan-audit installed --json audit.json
+
+    cpan-audit installed --json
 
     cpan-audit show CPANSA-Mojolicious-2018-03
 

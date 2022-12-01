@@ -19,15 +19,10 @@ our $VERSION = '20220817.001';
 sub new {
     my( $class, %params ) = @_;
 
-    my @allowed_keys = qw(ascii db exclude exclude_file include_perl interactive no_corelist no_color quiet verbose version json);
+    my @allowed_keys = qw(ascii db exclude exclude_file include_perl interactive no_corelist quiet verbose version);
 
     my %args = map { $_, $params{$_} } @allowed_keys;
     my $self = bless \%args, $class;
-
-    if ( !$self->{interactive} ) {
-        $self->{ascii}    = 1;
-        $self->{no_color} = 1;
-    }
 
     $self->_handle_exclude_file if $self->{exclude_file};
 
@@ -58,10 +53,128 @@ sub _handle_exclude_file {
         }
 }
 
+sub command_module {
+	my ( $self, $dists, $module, $version_range ) = @_;
+	return "Usage: module <module> [version-range]" unless $module;
+
+	my $distname = $self->{db}->{module2dist}->{$module};
+
+	if ( !$distname ) {
+		return "Module '$module' is not in database";
+	}
+
+	$dists->{$distname} = $version_range || '';
+
+	return;
+}
+
+sub command_release {
+	my ( $self, $dists, $distname, $version_range ) = @_;
+	return "Usage: dist|release <module> [version-range]"
+		unless $distname;
+
+	if ( !$self->{db}->{dists}->{$distname} ) {
+		return "Distribution '$distname' is not in database";
+	}
+
+	$dists->{$distname} = $version_range || '';
+
+	return;
+}
+
+sub command_show {
+	my ( $self, $dists, $advisory_id ) = @_;
+	return "Usage: show <advisory-id>" unless $advisory_id;
+
+	my ($release) = $advisory_id =~ m/^CPANSA-(.*?)-(\d+)-(\d+)$/;
+	return "Invalid advisory id" unless $release;
+
+	my $dist = $self->{db}->{dists}->{$release};
+	return "Unknown advisory id" unless $dist;
+
+	my ($advisory) =
+	  grep { $_->{id} eq $advisory_id } @{ $dist->{advisories} };
+	return "Unknown advisory id" unless $advisory;
+
+	my $distname = $advisory->{distribution} // 'Unknown distribution name';
+	$dists->{$distname}{advisories} = [ $advisory ];
+	$dists->{$distname}{version} = 'Any';
+
+	return;
+}
+
+sub command_deps {
+	my ($self, $dists, $path) = @_;
+	$path = '.' unless defined $path;
+
+	return "Usage: deps <path>" unless -d $path;
+
+	my @deps = $self->{discover}->discover($path);
+
+	$self->verbose( sprintf 'Discovered %d dependencies', scalar(@deps) );
+
+	foreach my $dep (@deps) {
+		my $dist = $dep->{dist}
+		  || $self->{db}->{module2dist}->{ $dep->{module} };
+		next unless $dist;
+
+		$dists->{$dist} = $dep->{version};
+	}
+
+	return;
+}
+
+sub command_installed {
+	my ($self, $dists, @args) = @_;
+
+	$self->verbose('Collecting all installed modules. This can take a while...');
+
+	my $verbose_callback = sub {
+		my ($info) = @_;
+		$self->message( sprintf '%s: %s-%s', $info->{path}, $info->{distname}, $info->{version} );
+	};
+
+	my @deps = CPAN::Audit::Installed->new(
+		db           => $self->{db},
+		include_perl => $self->{include_perl},
+		( $self->{verbose} ? ( cb => $verbose_callback ) : () ),
+	)->find(@args);
+
+	foreach my $dep (@deps) {
+		my $dist = $dep->{dist}
+		  || $self->{db}->{module2dist}->{ $dep->{module} };
+		next unless $dist;
+
+		$dists->{ $dep->{dist} } = $dep->{version};
+	}
+
+	return;
+}
+
 sub command {
+	state $command_table = {
+		dependencies => 'command_deps',
+		deps         => 'command_deps',
+		installed    => 'command_installed',
+		module       => 'command_module',
+		release      => 'command_release',
+		dist         => 'command_dist',
+		show         => 'command_show',
+	};
+
     my( $self, $command, @args ) = @_;
 
-    my %dists;
+    my %report = (
+    	meta => {
+    		command          => $command,
+    		args             => [ @args ],
+    		cpan_audit       => { version => $VERSION },
+    		total_advisories => 0,
+    	},
+    	errors => [],
+    	dists => {},
+    );
+	my $dists = $report{dists};
 
     if (!$self->{no_corelist}
         && (   $command eq 'dependencies'
@@ -75,244 +188,80 @@ sub command {
             while ( my ( $mod, $ver ) = each %$core ) {
                 my $dist = $self->{db}{module2dist}{$mod} or next;
 
-                $dists{$dist} = $ver if version->parse($ver) > $dists{$dist};
+                $dists->{$dist} = $ver if version->parse($ver) > $dists->{$dist};
             }
         }
     }
 
-    if ( $command eq 'module' ) {
-        my ( $module, $version_range ) = @args;
-        $self->fatal("Usage: module <module> [version-range]") unless $module;
-
-        my $distname = $self->{db}->{module2dist}->{$module};
-
-        if ( !$distname ) {
-            $self->message("__GREEN__Module '$module' is not in database");
-            return 0;
-        }
-
-        $dists{$distname} = $version_range || '';
-    }
-    elsif ( $command eq 'release' || $command eq 'dist' ) {
-        my ( $distname, $version_range ) = @args;
-        $self->fatal("Usage: dist|release <module> [version-range]")
-          unless $distname;
-
-        if ( !$self->{db}->{dists}->{$distname} ) {
-            $self->message("__GREEN__Distribution '$distname' is not in database");
-            return 0;
-        }
-
-        $dists{$distname} = $version_range || '';
-    }
-    elsif ( $command eq 'show' ) {
-        my ($advisory_id) = @args;
-        $self->fatal("Usage: show <advisory-id>") unless $advisory_id;
-
-        my ($release) = $advisory_id =~ m/^CPANSA-(.*?)-(\d+)-(\d+)$/;
-        $self->fatal("Invalid advisory id") unless $release;
-
-        my $dist = $self->{db}->{dists}->{$release};
-        $self->fatal("Unknown advisory id") unless $dist;
-
-        my ($advisory) =
-          grep { $_->{id} eq $advisory_id } @{ $dist->{advisories} };
-        $self->fatal("Unknown advisory id") unless $advisory;
-
-        $self->print_advisory($advisory);
-
-        return 0;
-    }
-    elsif ( $command eq 'dependencies' || $command eq 'deps' ) {
-        my ($path) = @args;
-        $path = '.' unless defined $path;
-
-        $self->fatal("Usage: deps <path>") unless -d $path;
-
-        my @deps = $self->{discover}->discover($path);
-
-        $self->message( 'Discovered %d dependencies', scalar(@deps) );
-
-        foreach my $dep (@deps) {
-            my $dist = $dep->{dist}
-              || $self->{db}->{module2dist}->{ $dep->{module} };
-            next unless $dist;
-
-            $dists{$dist} = $dep->{version};
-        }
-    }
-    elsif ( $command eq 'installed' ) {
-        $self->message_info('Collecting all installed modules. This can take a while...');
-
-        my $verbose_callback = sub {
-            my ($info) = @_;
-            $self->message( '%s: %s-%s', $info->{path}, $info->{distname}, $info->{version} );
-        };
-
-        my @deps = CPAN::Audit::Installed->new(
-            db           => $self->{db},
-            include_perl => $self->{include_perl},
-            ( $self->{verbose} ? ( cb => $verbose_callback ) : () ),
-        )->find(@args);
-
-        foreach my $dep (@deps) {
-            my $dist = $dep->{dist}
-              || $self->{db}->{module2dist}->{ $dep->{module} };
-            next unless $dist;
-
-            $dists{ $dep->{dist} } = $dep->{version};
-        }
+    if ( exists $command_table->{$command} ) {
+    	my $method = $command_table->{$command};
+    	push @{ $report{errors} }, $self->$method( $dists, @args );
+    	return \%report if $command eq 'show';
     }
     else {
-        $self->fatal("Error: unknown command: $command. See -h");
+        push @{ $report{errors} }, "unknown command: $command. See -h";
     }
 
-    my $total_advisories = 0;
-
-    my $filter = $self->{filter};
-
-    my %report;
-
-    if (%dists) {
+    if (%$dists) {
         my $query = $self->{query};
 
-        my $note = $command eq 'installed' ? 'have' : 'requires';
-
-        foreach my $distname ( sort keys %dists ) {
-            my $version_range = $dists{$distname};
+        foreach my $distname ( keys %$dists ) {
+            my $version_range = $dists->{$distname};
             my @advisories =
-                grep { ! $filter->excludes($_) }
+                grep { ! $self->{filter}->excludes($_) }
                 $query->advisories_for( $distname, $version_range );
 
             $version_range = 'Any'
               if $version_range eq '' || $version_range eq '0';
 
-            $total_advisories += @advisories;
+            $report{meta}{total_advisories} += @advisories;
 
-            if ( $self->{json} && @advisories ) {
-                $report{dists}->{$distname} = {
+            if ( @advisories ) {
+                $dists->{$distname} = {
                     advisories => \@advisories,
                     version    => $version_range,
                 };
-
-                next;
             }
-
-            if (@advisories) {
-                my $inflect = scalar(@advisories) == 1 ? 'y' : 'ies';
-                $self->message( "__RED__%s ($note %s) has %d advisor${inflect}__RESET__",
-                    $distname, $version_range, scalar(@advisories) );
-
-                foreach my $advisory (@advisories) {
-                    $self->print_advisory($advisory);
-                }
+            else {
+            	delete $dists->{$distname}
             }
         }
     }
 
-    if ( $self->{json} ) {
-        require JSON;
-
-        $report{total_advisories}   = $total_advisories;
-        $report{ignored_advisories} = $filter->ignored_count;
-
-        open my $json_fh, '>', $self->{json} or die $!;
-        print $json_fh  JSON->new->utf8(1)->pretty(1)->encode( \%report ) or die $!;
-        close $json_fh or die $!;
-
-        return $total_advisories || 0;
-    }
-
-    if ($total_advisories) {
-        $self->message( '__RED__Total advisories found: %d__RESET__', $total_advisories );
-        $self->message( '__RED__Total advisories ignored: %d__RESET__', $filter->ignored_count )
-            if $filter->ignored_count;
-        return $total_advisories;
-    }
-    else {
-        $self->message_info('__GREEN__No advisories found__RESET__');
-        $self->message( '__RED__Total advisories ignored: %d__RESET__', $filter->ignored_count )
-            if $filter->ignored_count;
-        return 0;
-    }
+	return \%report;
 }
 
 sub message_info {
     my $self = shift;
-
     return if $self->{quiet};
-
     $self->message(@_);
 }
 
-sub message {
-    my $self = shift;
-
-    $self->_print( *STDOUT, @_ );
+sub verbose {
+    my ( $self, $message ) = @_;
+    $self->_print( *STDERR, $message );
 }
 
-sub fatal {
-    my $self = shift;
-    my ( $msg, @args ) = @_;
-
-    $self->_print( *STDERR, "Error: $msg", @args );
-    exit 255;
-}
-
-sub print_advisory {
-    my $self = shift;
-    my ($advisory) = @_;
-
-    $self->message("  __BOLD__* $advisory->{id}");
-
-    print "    $advisory->{description}\n";
-
-    if ( $advisory->{affected_versions} ) {
-        print "    Affected range: $advisory->{affected_versions}\n";
-    }
-
-    if ( $advisory->{fixed_versions} ) {
-        print "    Fixed range: $advisory->{fixed_versions}\n";
-    }
-
-    if ( $advisory->{cves} ) {
-        print "\n    CVEs: ";
-        print join ', ', @{ $advisory->{cves} };
-        print "\n";
-    }
-
-    if ( $advisory->{references} ) {
-        print "\n    References:\n";
-        foreach my $reference ( @{ $advisory->{references} || [] } ) {
-            print "    $reference\n";
-        }
-    }
-
-    print "\n";
-}
 
 sub _print {
-    my $self = shift;
-    my ( $fh, $format, @params ) = @_;
-
-    my $msg = @params ? ( sprintf( $format, @params ) ) : ($format);
+    my ( $self, $fh, $message ) = @_;
 
     if ( $self->{no_color} ) {
-        $msg =~ s{__BOLD__}{}g;
-        $msg =~ s{__GREEN__}{}g;
-        $msg =~ s{__RED__}{}g;
-        $msg =~ s{__RESET__}{}g;
+        $message =~ s{__BOLD__}{}g;
+        $message =~ s{__GREEN__}{}g;
+        $message =~ s{__RED__}{}g;
+        $message =~ s{__RESET__}{}g;
     }
     else {
-        $msg =~ s{__BOLD__}{\e[39;1m}g;
-        $msg =~ s{__GREEN__}{\e[32m}g;
-        $msg =~ s{__RED__}{\e[31m}g;
-        $msg =~ s{__RESET__}{\e[0m}g;
+        $message =~ s{__BOLD__}{\e[39;1m}g;
+        $message =~ s{__GREEN__}{\e[32m}g;
+        $message =~ s{__RED__}{\e[31m}g;
+        $message =~ s{__RESET__}{\e[0m}g;
 
-        $msg .= "\e[0m";
+        $message .= "\e[0m" if length $message;
     }
 
-    print $fh "$msg\n";
+    print $fh "$message\n";
 }
 
 1;

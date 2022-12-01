@@ -7,10 +7,11 @@ use TestCommand;
 # exclude CVE-2011-4116 explicitly. It's a known issue in File::Temp wrt symlinks.
 # It should be safe to use the module the way we use it though.
 subtest 'command: deps' => sub {
-    my ( $stdout, $stderr, $exit ) = TestCommand->command('deps', '.', '--exclude', 'CVE-2011-4116');
+    my ( $stdout, $stderr, $exit ) =
+    	TestCommand->command('deps', '.', '--exclude', 'CVE-2011-4116');
 
-    like $stdout, qr/Discovered \d+ dependencies/;
-    is $stderr,   '';
+    like $stderr, qr/Discovered \d+ dependencies/;
+    is "$stdout",   '';
     is $exit,     0;
 };
 
