@@ -7,7 +7,7 @@ sub command {
     my( $class, @args ) = @_;
 
     my ( $stdout, $stderr, $exit ) = capture {
-        system $^X, 'script/cpan-audit', '--no-corelist', @args;
+        system $^X, '-Ilib', 'script/cpan-audit', '--no-corelist', @args;
     };
 
     return ( $stdout, $stderr, $exit );
