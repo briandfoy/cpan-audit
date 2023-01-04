@@ -233,8 +233,8 @@ Options:
     --no-color            switch off colors
     --no-corelist         ignore modules bundled with perl version
     --perl                include perl advisories
-    --quiet               be quiet
-    --verbose             be verbose
+    --quiet               be quiet (overrules --verbose)
+    --verbose             be verbose (off if --quiet in effect)
     --version             show the version and exit
     --exclude <str>       exclude/ignore the specified advisory/cve (multiple)
     --exclude-file <file> read exclude/ignore patterns from file

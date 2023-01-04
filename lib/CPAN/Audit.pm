@@ -239,6 +239,7 @@ sub message_info {
 
 sub verbose {
     my ( $self, $message ) = @_;
+    return if $self->{quiet};
     $self->_print( *STDERR, $message );
 }
 
