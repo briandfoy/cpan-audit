@@ -33,7 +33,7 @@ Examples:
 
     cpan-audit dist Catalyst-Runtime
     cpan-audit dist Catalyst-Runtime 7.0
-    cpan-audit dist Catalyst-Runtime >5.48
+    cpan-audit dist Catalyst-Runtime '>5.48'
 
     cpan-audit module Catalyst 7.0
 
