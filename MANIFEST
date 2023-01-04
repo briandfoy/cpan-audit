@@ -37,6 +37,7 @@ t/discover/cpanfile.t
 t/discover/cpanfile_snapshot.t
 t/excludes.t
 t/installed.t
+t/json.t
 t/lib/TestCommand.pm
 t/query.t
 t/test_manifest
