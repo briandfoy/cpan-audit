@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20230104.001 2023-01-04T20:58:18Z
+	* Add --json to get output in JSON (Renée Bäcker, #24)
+	* Updated for latest advisories
+
 20220817.001 2022-08-18T22:27:26Z
 	* Added the --exclude-file option to cpan-audit (Graham TerMarsch)
 	* No database updates just yet as we straighten out some things in
