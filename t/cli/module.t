@@ -15,7 +15,6 @@ subtest 'command: module' => sub {
 
 subtest 'command: module, with excluded result' => sub {
     my ( $stdout, $stderr, $exit ) = TestCommand->command( 'module', 'CPAN', '--exclude' => 'CPANSA-CPAN-2009-01' );
-
     unlike $stdout, qr/CPANSA-CPAN-2009-01/;
     like $stdout, qr/CPANSA-CPAN-2020-16156/;
     is $stderr,   '';
@@ -45,12 +44,13 @@ subtest 'command: module, with excluded results from non-existent file' => sub {
     isnt $exit,   0;
 };
 
+use Data::Dumper;
 subtest 'command: unknown module' => sub {
     my ( $stdout, $stderr, $exit ) = TestCommand->command( 'module', 'Unknown' );
 
-    like $stdout, qr/Module 'Unknown' is not in database/;
-    is $stderr,   '';
-    is $exit,     0;
+    like $stderr, qr/Module 'Unknown' is not in database/;
+    is $stdout,  '';
+    isnt $exit,   0;
 };
 
 subtest 'command: invalid invocation' => sub {

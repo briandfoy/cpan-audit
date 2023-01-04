@@ -34,16 +34,16 @@ subtest 'command: module, with excluded results from file' => sub {
 subtest 'command: unknown release' => sub {
     my ( $stdout, $stderr, $exit ) = TestCommand->command( 'release', 'Unknown' );
 
-    like $stdout, qr/Distribution 'Unknown' is not in database/;
-    is $stderr,   '';
-    is $exit,     0;
+    like $stderr, qr/Distribution 'Unknown' is not in database/;
+    is $stdout,   '';
+    isnt $exit,    0;
 };
 
 subtest 'command: invalid invocation' => sub {
     my ( $stdout, $stderr, $exit ) = TestCommand->command( 'release' );
 
-    is $stdout,   '';
     like $stderr, qr/Error: Usage: /;
+    is $stdout,   '';
     isnt $exit,   0;
 };
 

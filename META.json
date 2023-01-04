@@ -32,6 +32,7 @@
       "runtime" : {
          "requires" : {
             "CPAN::DistnameInfo" : "0",
+            "JSON" : "0",
             "Module::CPANfile" : "0",
             "Module::CoreList" : "5.20181020",
             "PerlIO::gzip" : "0",
@@ -43,7 +44,7 @@
          "requires" : {
             "Capture::Tiny" : "0",
             "HTTP::Tiny" : "0",
-            "JSON" : "0",
+            "File::Temp" : "0",
             "Test::More" : "0.98"
          }
       }
