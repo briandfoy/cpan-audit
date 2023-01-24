@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20230104.001 2023-01-24T19:56:41Z
+	* January update
+
 20230104.001 2023-01-04T20:58:18Z
 	* Add --json to get output in JSON (Renée Bäcker, #24)
 	* Updated for latest advisories
