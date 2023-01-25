@@ -70,7 +70,7 @@ hacks/
 .proverc
 Build.PL
 minil.toml
-
+CPAN-Audit-2*
 .gitmodules
 cpan-security-advisory/
 

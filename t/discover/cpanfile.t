@@ -4,7 +4,7 @@ use Test::More;
 use CPAN::Audit::Discover::Cpanfile;
 
 subtest 'discover' => sub {
-    my @deps = _build()->discover('t/data/cpanfile/cpanfile');
+    my @deps = _build()->discover('t/data/cpanfiles/cpanfile');
 
     is_deeply \@deps,
       [

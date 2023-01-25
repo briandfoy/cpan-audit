@@ -18,7 +18,7 @@ subtest 'json file' => sub {
     );
 
     my( $stdout, $stderr, $exit ) = capture {
-        $audit->command(qw[deps t/data/cpanfile/]);
+        $audit->command(qw[deps t/data/cpanfiles/cpanfile]);
     };
 
     like $stdout, qr/Discovered 1 dependencies/;
