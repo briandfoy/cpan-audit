@@ -14,7 +14,7 @@ use CPAN::Audit::Version;
 use CPAN::Audit::Query;
 use CPAN::Audit::DB;
 
-our $VERSION = '20230104.001';
+our $VERSION = '20230125.001_001';
 
 sub new {
     my( $class, %params ) = @_;
@@ -187,8 +187,7 @@ sub command {
         if ( my $core = $Module::CoreList::version{$]} ) {
             while ( my ( $mod, $ver ) = each %$core ) {
                 my $dist = $self->{db}{module2dist}{$mod} or next;
-
-                $dists->{$dist} = $ver if version->parse($ver) > $dists->{$dist};
+                $dists->{$dist} = $ver if( ! defined $dists->{$dist} or version->parse($ver) > $dists->{$dist} );
             }
         }
     }

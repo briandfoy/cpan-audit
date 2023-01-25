@@ -7,7 +7,7 @@ use IO::Interactive qw(is_interactive);
 
 use CPAN::Audit;
 
-our $VERSION = "1.201";
+our $VERSION = "1.202";
 
 __PACKAGE__->run( @ARGV ) unless caller;
 
@@ -193,6 +193,8 @@ sub process_options {
 
 	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params )
 		or $class->usage(EXIT_USAGE);
+
+	$params{quiet} = 1 if $params{json};
 
 	\%params;
 	}

@@ -1,5 +1,6 @@
 ./discover/cpanfile.t
 ./discover/cpanfile_snapshot.t
+./json.t
 ./version.t
 ./query.t
 ./cli/deps.t

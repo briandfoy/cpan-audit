@@ -30,7 +30,7 @@ t/cli/module.t
 t/cli/release.t
 t/cli/show.t
 t/data/carton/cpanfile.snapshot
-t/data/cpanfile/cpanfile
+t/data/cpanfiles/cpanfile
 t/data/excludes
 t/data/installed/perl5/lib/perl5/Catalyst.pm
 t/discover/cpanfile.t

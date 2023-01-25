@@ -1,39 +1,50 @@
 use strict;
 use warnings;
 use lib 'lib', 't/lib';
+
 use Capture::Tiny qw(capture);
-use CPAN::Audit::DB;
-use CPAN::Audit;
-use CPAN::Audit::Discover;
-use File::Temp qw(tempfile);
+use JSON;
+
 use Test::More;
 
-subtest 'json file' => sub {
-    my ($temp_fh, $json_file) = tempfile( 'tempXXXXX', SUFFIX => '.json', UNLINK => 0 );
-    close $temp_fh;
+my $class = "CPAN::Audit";
 
-    my $audit = CPAN::Audit->new(
-        json        => $json_file,
-        no_corelist => $json_file,
-    );
+subtest 'setup' => sub {
+	use_ok( $class ) or BAIL_OUT( "$class did not compile: $@" );
+	};
 
+subtest 'json, corelist' => sub {
     my( $stdout, $stderr, $exit ) = capture {
-        $audit->command(qw[deps t/data/cpanfile/]);
-    };
+        system( $^X, '-Ilib', 'script/cpan-audit', '--json', 'deps', 't/data/cpanfiles' );
+    	};
 
-    like $stdout, qr/Discovered 1 dependencies/;
-    is $stderr,   '';
-    is $exit,     1;
+    unlike $stdout, qr/Discovered \d+/;
+    is $stderr, '';
 
-    my $json = do { local ( @ARGV, $/ ) = $json_file; <> };
-    like $json, qr/CPANSATest/;
+    my $result_hash = JSON::decode_json( $stdout );
+    isa_ok( $result_hash, ref {} );
+    isa_ok( $result_hash->{meta}, ref {} );
+    ok( $result_hash->{meta}{total_advisories} >= 1, "found one or more advisories" );
+	};
 
-    unlink $json_file;
-};
+subtest 'json, no corelist' => sub {
+    my( $stdout, $stderr, $exit ) = capture {
+        system( $^X, '-Ilib', 'script/cpan-audit', '--json', '--no-corelist', 'deps', 't/data/cpanfiles' );
+    	};
+
+    unlike $stdout, qr/Discovered \d+/;
+    is $stderr, '';
+
+    my $result_hash = JSON::decode_json( $stdout );
+    isa_ok( $result_hash, ref {} );
+    isa_ok( $result_hash->{meta}, ref {} );
+    is( $result_hash->{meta}{total_advisories}, 1, "found exactly one advisory" );
+	};
 
 done_testing;
 
-{
+BEGIN {
+	use CPAN::Audit::DB;
     no warnings 'redefine';
 
     sub CPAN::Audit::DB::db {
