@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20230125.001_002 2023-01-25T19:18:38Z
+	* Github #34 - missing message() method (Robert Rothenberg)
+
 20230125.001_001 2023-01-25T18:03:16Z
 	* Fix json testing bug (Robert Rothenberg, #35)
 	* no updates to DB
