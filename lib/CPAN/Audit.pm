@@ -131,7 +131,7 @@ sub command_installed {
 
 	my $verbose_callback = sub {
 		my ($info) = @_;
-		$self->message( sprintf '%s: %s-%s', $info->{path}, $info->{distname}, $info->{version} );
+		$self->verbose( sprintf '%s: %s-%s', $info->{path}, $info->{distname}, $info->{version} );
 	};
 
 	my @deps = CPAN::Audit::Installed->new(
@@ -228,12 +228,6 @@ sub command {
     }
 
 	return \%report;
-}
-
-sub message_info {
-    my $self = shift;
-    return if $self->{quiet};
-    $self->message(@_);
 }
 
 sub verbose {
