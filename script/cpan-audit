@@ -194,6 +194,8 @@ sub process_options {
 	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params )
 		or $class->usage(EXIT_USAGE);
 
+	$params{quiet} = 1 if $params{json};
+
 	\%params;
 	}
 
