@@ -187,8 +187,7 @@ sub command {
         if ( my $core = $Module::CoreList::version{$]} ) {
             while ( my ( $mod, $ver ) = each %$core ) {
                 my $dist = $self->{db}{module2dist}{$mod} or next;
-
-                $dists->{$dist} = $ver if version->parse($ver) > $dists->{$dist};
+                $dists->{$dist} = $ver if( ! defined $dists->{$dist} or version->parse($ver) > $dists->{$dist} );
             }
         }
     }
