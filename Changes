@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20230202.003 2023-02-03T02:48:17Z
+	* Advisories for Apache-Session-Browseable and Apache-Session-LDAP
+
 20230125.002 2023-01-26T00:55:49Z
 	* fixes a test and a missing method. The previous 202301* releases
 	are no good.
