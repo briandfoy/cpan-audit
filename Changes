@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20230205.001 2023-02-05T14:20:15Z
+	* fix test that checks for exit value of advisory count. Max is now
+	126 so we don't bump into 127.
+
 20230202.003 2023-02-03T02:48:17Z
 	* Advisories for Apache-Session-Browseable and Apache-Session-LDAP
 
