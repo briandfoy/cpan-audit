@@ -19,7 +19,7 @@ subtest 'Github #34 - no message method' => sub {
 	# there shouldn't be that many. It certainly shouldn't exit with
 	# 255.
     ok(
-    	$exit >= 64 && $exit <= 100,
+    	$exit >= 64 && $exit <= 126,
     	'installed --verbose does not have a run time fatal error'
     	) or diag( "exit value was <$exit>" );
 };

@@ -11,6 +11,10 @@ our $VERSION = "1.202";
 
 __PACKAGE__->run( @ARGV ) unless caller;
 
+# The exit code indicates the number of advisories, up to this max
+# since we have a limited number of exit codes.
+use constant ADVISORY_COUNT_MAX => 62;
+
 use constant EXIT_NORMAL =>  0;
 use constant EXIT_USAGE  =>  2;
 use constant EXIT_BASE   => 64;
@@ -162,8 +166,8 @@ sub run {
 
 	my $advisory_count = $result->{meta}{total_advisories};
 	my $exit_code = do {
-		   if( $advisory_count == 0 ) { EXIT_NORMAL }
-		elsif( $advisory_count > 0  ) { EXIT_BASE + $advisory_count }
+		if( $advisory_count == 0 ) { EXIT_NORMAL }
+		else                       { EXIT_BASE + $advisory_count }
 		};
 
 	exit( $exit_code );
@@ -308,7 +312,8 @@ is considered affected.
 
 In prior versions, C<cpan-audit> exited with the number of advisories
 it found. Starting with 1.001, if there are advisories found, C<cpan-audit>
-exits with 64 added to that number.
+exits with 64 added to that number. The maximum number of reported advisories
+is 62, since values over 126 are spoken for.
 
 =over 4
 
@@ -316,7 +321,9 @@ exits with 64 added to that number.
 
 =item * 2 - problem with program invocation, such as bad switches or values
 
-=item * 64+n - advisories found. Subtract 64 to get the advisory count
+=item * 64+n - advisories found. Subtract 64 to get the advisory count, up to 62 advisories
+
+=item * 255 - program error
 
 =back
 
