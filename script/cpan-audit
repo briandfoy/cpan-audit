@@ -296,11 +296,11 @@ sources:
 
 =item C<Carton>
 
-Parses C<cpanfile.snapshot> file and checks the distribution versions.
+Parses F<cpanfile.snapshot> file and checks the distribution versions.
 
-=item C<cpanfile>
+=item F<cpanfile>
 
-Parses C<cpanfile> taking into account the required versions.
+Parses F<cpanfile> taking into account the required versions.
 
 =back
 
