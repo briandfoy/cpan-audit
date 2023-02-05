@@ -165,6 +165,8 @@ sub run {
 	print $output;
 
 	my $advisory_count = $result->{meta}{total_advisories};
+	$advisory_count = ADVISORY_COUNT_MAX if $advisory_count > ADVISORY_COUNT_MAX;
+
 	my $exit_code = do {
 		if( $advisory_count == 0 ) { EXIT_NORMAL }
 		else                       { EXIT_BASE + $advisory_count }
