@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20230308.001 2023-03-08T23:49:32Z
+	* Latest database with some new reports and some fixes to existing
+	reports. Thanks to Salve Nilsen, Robert Rothenberg, and others for
+	the updates.
+
 20230205.001 2023-02-05T14:20:15Z
 	* fix test that checks for exit value of advisory count. Max is now
 	126 so we don't bump into 127.
