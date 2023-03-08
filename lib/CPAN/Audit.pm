@@ -158,7 +158,7 @@ sub command {
 		installed    => 'command_installed',
 		module       => 'command_module',
 		release      => 'command_release',
-		dist         => 'command_dist',
+		dist         => 'command_release',
 		show         => 'command_show',
 	};
 
