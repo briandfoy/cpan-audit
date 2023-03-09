@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20230309.002 2023-03-09T10:13:33Z
+	* Data cleansing for HTTP::Daemon and App::cpanminus. Thanks to 
+	Salve Nilsen and Robert Rothenberg.
+
 20230309.001 2023-03-09T06:44:23Z
 	* Make the 'dist' option do the same thing as 'release', from
 	Salve Nilsen.
