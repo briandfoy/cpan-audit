@@ -5,11 +5,27 @@ use Test::More;
 use TestCommand;
 
 subtest 'help is printed' => sub {
-    my ( $stdout, $stderr, $exit ) = TestCommand->command();
+	my @args = ( [], [qw(--help)] );
+	foreach my $args ( @args ) {
+		subtest "help is printed with <@$args>" => sub {
+			local $ENV{PERL5OPTS} = do { no warnings; "-w $ENV{PERL5OPTS}" };
+			my ( $stdout, $stderr, $exit ) = TestCommand->command(@$args);
 
-    is $stdout,   '';
-    like $stderr, qr/Usage:.*cpan-audit/ms;
-    isnt $exit,   0;
+			is $stdout,   '';
+			like $stderr, qr/Usage:.*cpan-audit/ms;
+			unlike $stderr, qr/^Argument "main" isn't numeric/m; # GitHub #41
+			is $exit, 2;
+			};
+		}
+};
+
+subtest 'version is printed' => sub {
+	local $ENV{PERL5OPTS} = do { no warnings; "-w $ENV{PERL5OPTS}" };
+    my ( $stdout, $stderr, $exit ) = TestCommand->command('--version');
+
+    like $stdout, qr/cpan-audit version \d+\.\d+/;
+    unlike $stderr, qr/^Argument "main" isn't numeric/m; # GitHub #41
+    is $exit,   0;
 };
 
 subtest 'Github #34 - no message method' => sub {
