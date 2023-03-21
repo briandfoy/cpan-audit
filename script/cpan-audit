@@ -112,7 +112,7 @@ sub format_text {
 }
 
 sub output_version {
-	my( undef, $exit_code ) = @_;
+	my( $class, $exit_code ) = @_;
 	print "$0 version $VERSION using:\n\tCPAN::Audit     @{[ CPAN::Audit->VERSION ]}\n\tCPAN::Audit::DB @{[ CPAN::Audit::DB->VERSION ]}\n";
 	exit($exit_code);
 }
@@ -209,7 +209,7 @@ sub usage {
 	require Pod::Usage;
 	require FindBin;
 
-	my( undef, $exit_code ) = @_;
+	my( $class, $exit_code ) = @_;
 	no warnings qw(once);
 	Pod::Usage::pod2usage( -input => $FindBin::Bin . "/" . $FindBin::Script );
 	exit( $exit_code );
