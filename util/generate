@@ -50,6 +50,17 @@ util/generate - create the data for lib/CPAN/Audit/DB.pm
 This program chews through the CPAN security advisory reports and
 makes the L<CPAN::Audit::DB> module.
 
+=head1 DEPENDENCIES
+
+Aside from L<CPAN::Audit>'s dependencies, this program also
+requires you to install the following dependencies:
+
+=over 4
+
+=item * L<Mojolicious>
+
+=back
+
 =head1 AUTHOR
 
 Original author: Viacheslav Tykhanovskyi (C<vti@cpan.org>)
