@@ -122,7 +122,7 @@ sub default_version () {
 	my( $previous_date, $previous_serial ) = get_previous_date_serial( $opts->{output_file} );
 say STDERR "PREVIOUS DATE: $previous_date PREVIOUS SERIAL: $previous_serial";
 
-	my $serial = sprintf '%03d', $previous_date == $date ? $previous_serial + 1 : 1;
+	my $serial = sprintf '%03d', $previous_date eq $date ? $previous_serial + 1 : 1;
 say STDERR "NEW SERIAL: $serial";
 say STDERR "NEW DATE: $date";
 
@@ -137,7 +137,7 @@ sub get_previous_date_serial ( $file ) {
 		next unless /VERSION\s*=\s*'(\d{8})\.(\d{3})'/;
 		return ( $1, $2 );
 	}
-	return;
+	return ('N/A', 'N/A');
 }
 
 sub run ( @args ) {
