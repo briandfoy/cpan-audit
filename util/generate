@@ -135,7 +135,7 @@ sub get_previous_date_serial ( $file ) {
 	open my $fh, '<:encoding(UTF-8)', $file or croak( "Could not read <$file>: $!" );
 	while( <$fh> ) {
 		next unless /VERSION\s*=\s*'(\d{8})\.(\d{3})'/;
-		return ( $1, 2 );
+		return ( $1, $2 );
 	}
 	return;
 }
