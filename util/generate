@@ -332,7 +332,8 @@ sub all_releases {
                     fields => [ 'date', 'version' ],
                     filter => {
                         term => { distribution => $distribution }
-                    }
+                    },
+                    sort => ['date'],
                 }
             )
         }
@@ -341,9 +342,7 @@ sub all_releases {
     die "unable to retrieve data for $distribution ($response->{status})" unless $response->{success};
     my $content_json = JSON::decode_json( $response->{content} );
 
-    my @results =
-      sort { $a->{date} cmp $b->{date} }
-      map  { $_->{fields} } @{ $content_json->{hits}->{hits} };
+    my @results = map  { $_->{fields} } @{ $content_json->{hits}->{hits} };
     return unless @results;
 
     return @results;
