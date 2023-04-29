@@ -168,6 +168,7 @@ sub run ( @args ) {
         else                       { stringify_data($db) }
     };
 
+    message("\nwriting to " . ($opts->{output_file} && $opts->{output_file} ne '-' ? $opts->{output_file} : 'STDOUT') . "\n");
     print $out_fh $string;
 
     output_gpg_signature( $string );
