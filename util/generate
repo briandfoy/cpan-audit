@@ -159,7 +159,9 @@ sub run ( @args ) {
 		else					   { stringify_data($db) }
 	};
 
-	print $out_fh $string;
+	my $target = defined $opts->{output_file} && $opts->{output_file} ne '-' ? $opts->{output_file} : 'STDOUT';
+    message("writing to $target\n");
+    print { $out_fh } $string;
 
 	output_gpg_signature( $string );
 }
