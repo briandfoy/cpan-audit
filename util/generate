@@ -221,8 +221,27 @@ sub process_files ( $files ) {
     provides( \%db );
 
     foreach my $dist ( keys %{ $db{dists} } ) {
-        $db{dists}->{$dist}->{versions} = [ all_releases($dist) ];
-        $db{dists}->{$dist}->{main_module} = release($dist)->{main_module};
+        my @releases = all_releases($dist);
+        if (!@releases) {
+            warn "no releases found on CPAN for '$dist'\n";
+            next;
+        }
+        message('.');
+
+        # try to fetch the latest release, according to MetaCPAN.
+        # if there is no 'latest' tag, grab the last item (because
+        # the list is ordered by date).
+        my ($main_module, @versions);
+        foreach my $release (@releases) {
+            push @versions, { date => $release->{date}, version => $release->{version} };
+            if ($release->{status} eq 'latest') {
+                $main_module = $release->{main_module};
+            }
+        }
+        $main_module = $releases[-1]->{main_module} unless $main_module;
+
+        $db{dists}->{$dist}->{versions} = \@versions;
+        $db{dists}->{$dist}->{main_module} = $main_module;
     }
 
     # XXX: need to investigate why this shows up as utf8
@@ -307,18 +326,6 @@ sub provides {
     close $fh;
 }
 
-sub release {
-    my ($distribution) = @_;
-
-    my $response = HTTP::Tiny->new->get(
-        'http://fastapi.metacpan.org/v1/release/' . $distribution );
-
-    die "unable to retrieve data for $distribution ($response->{status})" unless $response->{success};
-    my $content_json = JSON::decode_json( $response->{content} );
-
-    return $content_json;
-}
-
 sub all_releases {
     my ($distribution) = @_;
 
@@ -329,7 +336,7 @@ sub all_releases {
             content => JSON::encode_json(
                 {
                     size   => 5000,
-                    fields => [ 'date', 'version' ],
+                    fields => [ 'date', 'version', 'status', 'main_module' ],
                     filter => {
                         term => { distribution => $distribution }
                     },
