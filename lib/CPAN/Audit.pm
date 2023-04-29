@@ -104,12 +104,12 @@ sub command_show {
 }
 
 sub command_deps {
-	my ($self, $dists, $path) = @_;
-	$path = '.' unless defined $path;
+	my ($self, $dists, $dir) = @_;
+	$dir = '.' unless defined $dir;
 
-	return "Usage: deps <dir>" unless -d $path;
+	return "Usage: deps <dir>" unless -d $dir;
 
-	my @deps = $self->{discover}->discover($path);
+	my @deps = $self->{discover}->discover($dir);
 
 	$self->verbose( sprintf 'Discovered %d dependencies', scalar(@deps) );
 
