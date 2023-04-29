@@ -107,7 +107,7 @@ sub command_deps {
 	my ($self, $dists, $path) = @_;
 	$path = '.' unless defined $path;
 
-	return "Usage: deps <path>" unless -d $path;
+	return "Usage: deps <dir>" unless -d $path;
 
 	my @deps = $self->{discover}->discover($path);
 
