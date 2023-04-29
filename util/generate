@@ -313,6 +313,7 @@ sub release {
     my $response = HTTP::Tiny->new->get(
         'http://fastapi.metacpan.org/v1/release/' . $distribution );
 
+    die "unable to retrieve data for $distribution ($response->{status})" unless $response->{success};
     my $content_json = JSON::decode_json( $response->{content} );
 
     return $content_json;
@@ -337,6 +338,7 @@ sub all_releases {
         }
     );
 
+    die "unable to retrieve data for $distribution ($response->{status})" unless $response->{success};
     my $content_json = JSON::decode_json( $response->{content} );
 
     my @results =
