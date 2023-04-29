@@ -204,10 +204,16 @@ sub process_files ( $files ) {
 		message( "Processing $file...\n" );
 		my $yaml = YAML::Tiny->read($file)->[0];
 
-		my $dist = basename $file;
-		$dist =~ s{\ACPANSA-}{};
-		$dist =~ s{\.yml\z}{};
+		my @dists_in_file = map { $_->{distribution} } $yaml->@*;
+		if( @dists_in_file == 0 ) {
+			warn "There were no distributions declared in the records in <$file>\n";
+			next FILE;
+		}
+		elsif( @dists_in_file > 1 ) {
+			warn "There were more than one distribution declared in the records in <$file>\n";
+		}
 
+		my( $dist ) = @dists_in_file;
 		$db{dists}->{$dist}->{advisories} = $yaml;
 	}
 
