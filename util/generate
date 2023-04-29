@@ -214,10 +214,7 @@ sub process_files ( $files ) {
         message( "Processing $file...\n" );
         my $yaml = YAML::Tiny->read($file)->[0];
 
-        my $dist = basename $file;
-        $dist =~ s{\ACPANSA-}{};
-        $dist =~ s{\.yml\z}{};
-
+        my $dist = $yaml->[0]{distribution} or die "distribution name not found on report $file";
         $db{dists}->{$dist}->{advisories} = $yaml;
     }
 
