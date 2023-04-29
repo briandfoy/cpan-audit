@@ -14,6 +14,7 @@ use HTTP::Tiny;
 use JSON ();
 use PerlIO::gzip;
 use YAML::Tiny;
+use File::Temp;
 
 use subs qw(config);
 
@@ -270,7 +271,8 @@ sub provides {
 
     my $ua = HTTP::Tiny->new;
 
-    my $details_file = '/tmp/02packages.details.txt.gz';
+    my $tmpdir = File::Temp::tempdir();
+    my $details_file = File::Spec->catfile($tmpdir, '02packages.details.txt.gz');
     message( "Downloading 02packages.details.txt.gz (this may take awhile)\n" );
     $ua->mirror( 'http://www.cpan.org/modules/02packages.details.txt.gz',
         $details_file );
