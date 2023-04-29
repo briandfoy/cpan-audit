@@ -50,17 +50,6 @@ util/generate - create the data for lib/CPAN/Audit/DB.pm
 This program chews through the CPAN security advisory reports and
 makes the L<CPAN::Audit::DB> module.
 
-=head1 DEPENDENCIES
-
-Aside from L<CPAN::Audit>'s dependencies, this program also
-requires you to install the following dependencies:
-
-=over 4
-
-=item * L<Mojolicious>
-
-=back
-
 =head1 AUTHOR
 
 Original author: Viacheslav Tykhanovskyi (C<vti@cpan.org>)
@@ -76,7 +65,7 @@ See the included F<LICENSE> file for details.
 
 run(@ARGV) unless caller;
 
-use Mojo::Util qw(dumper);
+sub dumper { Data::Dumper->new([@_])->Indent(1)->Sortkeys(1)->Terse(1)->Useqq(1)->Dump }
 
 sub process_options ( @args ) {
 	state $rc = require Getopt::Long;
