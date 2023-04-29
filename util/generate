@@ -228,7 +228,7 @@ sub process_files ( $files ) {
     # XXX: need to investigate why this shows up as utf8
     $db{dists}->{'perl'}->{main_module} = 'perl';
 
-    \%db;
+    return \%db;
 }
 
 sub stringify_data ( $db ) {
