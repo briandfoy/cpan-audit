@@ -213,8 +213,7 @@ sub process_files ( $files ) {
     foreach my $file ( $files->@* ) {
         message( "Processing $file...\n" );
         my $yaml = YAML::Tiny->read($file)->[0];
-
-        my $dist = $yaml->[0]{distribution} or die "distribution name not found on report $file";
+        my $dist = $yaml->[0]{distribution} or next;
         $db{dists}->{$dist}->{advisories} = $yaml;
     }
 
