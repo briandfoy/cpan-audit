@@ -65,10 +65,12 @@ See the included F<LICENSE> file for details.
 
 run(@ARGV) unless caller;
 
-sub dumper { Data::Dumper->new([@_])->Indent(1)->Sortkeys(1)->Terse(1)->Useqq(1)->Dump }
+sub dumper { 
+    Data::Dumper->new([@_])->Indent(1)->Sortkeys(1)->Terse(1)->Useqq(1)->Dump 
+}
 
 sub process_options ( @args ) {
-	state $rc = require Getopt::Long;
+    state $rc = require Getopt::Long;
 
     my %results = (
     	gpg_key     => $ENV{CPAN_AUDIT_GPG_KEY_FINGERPRINT},
