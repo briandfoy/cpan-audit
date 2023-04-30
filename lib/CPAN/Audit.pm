@@ -110,14 +110,12 @@ sub command_modules {
 	foreach my $module ( @modules ) {
 		my ($name, $version) = split /;/, $module;
 
-		my $distname = $self->{db}->{module2dist}->{$name};
+		my $failed = $self->command_module( $dists, $name, $version || '' );
 
-		if ( !$distname ) {
+		if ( $failed ) {
 			$self->verbose( "Module '$name' is not in database" );
 			next;
 		}
-
-		$dists->{$distname} = $version || '';
 	}
 
 	return;
