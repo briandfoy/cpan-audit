@@ -222,7 +222,8 @@ sub process_files ( $files ) {
     foreach my $dist ( keys %{ $db{dists} } ) {
         my @releases = all_releases($dist);
         if (!@releases) {
-            warn "no releases found on CPAN for '$dist'\n";
+            warn "no releases found on CPAN for '$dist'. Removing\n";
+            delete $db{dists}{$dist};
             next;
         }
         message('.');
