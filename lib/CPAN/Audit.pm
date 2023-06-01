@@ -17,40 +17,40 @@ use CPAN::Audit::DB;
 our $VERSION = '20230309.004';
 
 sub new {
-    my( $class, %params ) = @_;
+	my( $class, %params ) = @_;
 
-    my @allowed_keys = qw(ascii db exclude exclude_file include_perl interactive no_corelist quiet verbose version);
+	my @allowed_keys = qw(ascii db exclude exclude_file include_perl interactive no_corelist quiet verbose version);
 
-    my %args = map { $_, $params{$_} } @allowed_keys;
-    my $self = bless \%args, $class;
+	my %args = map { $_, $params{$_} } @allowed_keys;
+	my $self = bless \%args, $class;
 
-    $self->_handle_exclude_file if $self->{exclude_file};
+	$self->_handle_exclude_file if $self->{exclude_file};
 
-    $self->{db}       = CPAN::Audit::DB->db;
+	$self->{db}       = CPAN::Audit::DB->db;
 
-    $self->{filter}   = CPAN::Audit::Filter->new( exclude => $args{exclude} );
-    $self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
-    $self->{discover} = CPAN::Audit::Discover->new( db => $self->{db} );
+	$self->{filter}   = CPAN::Audit::Filter->new( exclude => $args{exclude} );
+	$self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
+	$self->{discover} = CPAN::Audit::Discover->new( db => $self->{db} );
 
-    return $self;
+	return $self;
 }
 
 sub _handle_exclude_file {
-    my( $self ) = @_;
+	my( $self ) = @_;
 
-    foreach my $file (@{$self->{exclude_file}}) {
-        my $fh;
-        unless( open $fh, "<", $file ) {
-            carp "unable to open exclude_file [$file]: $!\n";
-            return;
-        }
-        my @excludes =
-            grep { !/^\s*$/ }               # no blank lines
-            map  { s{^\s+|\s+$}{}g; $_ }    # strip leading/trailing whitespace
-            map  { s{#.*}{}; $_ }           # strip comments
-            <$fh>;
-        push @{$self->{exclude}}, @excludes;
-        }
+	foreach my $file (@{$self->{exclude_file}}) {
+		my $fh;
+		unless( open $fh, "<", $file ) {
+			carp "unable to open exclude_file [$file]: $!\n";
+			return;
+		}
+		my @excludes =
+			grep { !/^\s*$/ }               # no blank lines
+			map  { s{^\s+|\s+$}{}g; $_ }    # strip leading/trailing whitespace
+			map  { s{#.*}{}; $_ }           # strip comments
+			<$fh>;
+		push @{$self->{exclude}}, @excludes;
+		}
 }
 
 sub command_module {
@@ -162,100 +162,100 @@ sub command {
 		show         => 'command_show',
 	};
 
-    my( $self, $command, @args ) = @_;
+	my( $self, $command, @args ) = @_;
 
-    my %report = (
-    	meta => {
-    		command          => $command,
-    		args             => [ @args ],
-    		cpan_audit       => { version => $VERSION },
-    		total_advisories => 0,
-    	},
-    	errors => [],
-    	dists => {},
-    );
+	my %report = (
+		meta => {
+			command          => $command,
+			args             => [ @args ],
+			cpan_audit       => { version => $VERSION },
+			total_advisories => 0,
+		},
+		errors => [],
+		dists => {},
+	);
 	my $dists = $report{dists};
 
-    if (!$self->{no_corelist}
-        && (   $command eq 'dependencies'
-            || $command eq 'deps'
-            || $command eq 'installed' )
-        )
-    {
-        # Find core modules for this perl version first.
-        # This way explictly installed versions will overwrite.
-        if ( my $core = $Module::CoreList::version{$]} ) {
-            while ( my ( $mod, $ver ) = each %$core ) {
-                my $dist = $self->{db}{module2dist}{$mod} or next;
-                $dists->{$dist} = $ver if( ! defined $dists->{$dist} or version->parse($ver) > $dists->{$dist} );
-            }
-        }
-    }
+	if (!$self->{no_corelist}
+		&& (   $command eq 'dependencies'
+			|| $command eq 'deps'
+			|| $command eq 'installed' )
+		)
+	{
+		# Find core modules for this perl version first.
+		# This way explictly installed versions will overwrite.
+		if ( my $core = $Module::CoreList::version{$]} ) {
+			while ( my ( $mod, $ver ) = each %$core ) {
+				my $dist = $self->{db}{module2dist}{$mod} or next;
+				$dists->{$dist} = $ver if( ! defined $dists->{$dist} or version->parse($ver) > $dists->{$dist} );
+			}
+		}
+	}
 
-    if ( exists $command_table->{$command} ) {
-    	my $method = $command_table->{$command};
-    	push @{ $report{errors} }, $self->$method( $dists, @args );
-    	return \%report if $command eq 'show';
-    }
-    else {
-        push @{ $report{errors} }, "unknown command: $command. See -h";
-    }
+	if ( exists $command_table->{$command} ) {
+		my $method = $command_table->{$command};
+		push @{ $report{errors} }, $self->$method( $dists, @args );
+		return \%report if $command eq 'show';
+	}
+	else {
+		push @{ $report{errors} }, "unknown command: $command. See -h";
+	}
 
-    if (%$dists) {
-        my $query = $self->{query};
+	if (%$dists) {
+		my $query = $self->{query};
 
-        foreach my $distname ( keys %$dists ) {
-            my $version_range = $dists->{$distname};
-            my @advisories =
-                grep { ! $self->{filter}->excludes($_) }
-                $query->advisories_for( $distname, $version_range );
+		foreach my $distname ( keys %$dists ) {
+			my $version_range = $dists->{$distname};
+			my @advisories =
+				grep { ! $self->{filter}->excludes($_) }
+				$query->advisories_for( $distname, $version_range );
 
-            $version_range = 'Any'
-              if $version_range eq '' || $version_range eq '0';
+			$version_range = 'Any'
+			  if $version_range eq '' || $version_range eq '0';
 
-            $report{meta}{total_advisories} += @advisories;
+			$report{meta}{total_advisories} += @advisories;
 
-            if ( @advisories ) {
-                $dists->{$distname} = {
-                    advisories => \@advisories,
-                    version    => $version_range,
-                };
-            }
-            else {
-            	delete $dists->{$distname}
-            }
-        }
-    }
+			if ( @advisories ) {
+				$dists->{$distname} = {
+					advisories => \@advisories,
+					version    => $version_range,
+				};
+			}
+			else {
+				delete $dists->{$distname}
+			}
+		}
+	}
 
 	return \%report;
-}
+	}
 
-sub verbose {
-    my ( $self, $message ) = @_;
-    return if $self->{quiet};
-    $self->_print( *STDERR, $message );
-}
+	sub verbose {
+	my ( $self, $message ) = @_;
+	return if $self->{quiet};
+	$self->_print( *STDERR, $message );
+	}
 
 
-sub _print {
-    my ( $self, $fh, $message ) = @_;
+	sub _print {
+	my ( $self, $fh, $message ) = @_;
 
-    if ( $self->{no_color} ) {
-        $message =~ s{__BOLD__}{}g;
-        $message =~ s{__GREEN__}{}g;
-        $message =~ s{__RED__}{}g;
-        $message =~ s{__RESET__}{}g;
-    }
-    else {
-        $message =~ s{__BOLD__}{\e[39;1m}g;
-        $message =~ s{__GREEN__}{\e[32m}g;
-        $message =~ s{__RED__}{\e[31m}g;
-        $message =~ s{__RESET__}{\e[0m}g;
+	if ( $self->{no_color} ) {
+		$message =~ s{__BOLD__}{}g;
+		$message =~ s{__GREEN__}{}g;
+		$message =~ s{__RED__}{}g;
+		$message =~ s{__RESET__}{}g;
+	}
+	else {
+		$message =~ s{__BOLD__}{\e[39;1m}g;
+		$message =~ s{__GREEN__}{\e[32m}g;
+		$message =~ s{__RED__}{\e[31m}g;
+		$message =~ s{__RESET__}{\e[0m}g;
 
-        $message .= "\e[0m" if length $message;
-    }
+		$message .= "\e[0m" if length $message;
+	}
 
-    print $fh "$message\n";
+	print $fh "$message\n";
 }
 
 1;
@@ -269,7 +269,7 @@ CPAN::Audit - Audit CPAN distributions for known vulnerabilities
 
 =head1 SYNOPSIS
 
-    use CPAN::Audit;
+	use CPAN::Audit;
 
 =head1 DESCRIPTION
 
