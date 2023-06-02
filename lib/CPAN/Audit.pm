@@ -110,7 +110,7 @@ sub command_modules {
 	foreach my $module ( @modules ) {
 		my ($name, $version) = split /;/, $module;
 
-		my $failed = $self->command_module( $dists, $name, $version || '' );
+		my $failed = $self->command_module( $dists, $name, $version // '' );
 
 		if ( $failed ) {
 			$self->verbose( $failed );
