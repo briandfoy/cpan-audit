@@ -257,7 +257,7 @@ sub process_files ( $files ) {
 			warn "no releases found on CPAN for '$dist'\n";
 			next;
 		}
-		message('.');
+		message "Processing $dist";
 
 		# try to fetch the latest release, according to MetaCPAN.
 		# if there is no 'latest' tag, grab the last item (because
