@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20230601.001 2023-06-02T01:21:17Z
+	* Database update up to 2023-06-01
+	* Many improvements to util/generate from the Perl Toolchain Summit
+	and garu
+
 20230309.004 2023-03-09T12:01:45Z
 	* Fix the GPG signature
 
