@@ -176,7 +176,7 @@ sub run ( @args ) {
 	};
 
 	my $target = defined $opts->{output_file} && $opts->{output_file} ne '-' ? $opts->{output_file} : 'STDOUT';
-    message("writing to $target\n");
+    message "writing to $target";
     print { $out_fh } $string;
 
 	output_gpg_signature( $string );
