@@ -113,7 +113,7 @@ sub command_modules {
 		my $failed = $self->command_module( $dists, $name, $version || '' );
 
 		if ( $failed ) {
-			$self->verbose( "Module '$name' is not in database" );
+			$self->verbose( $failed );
 			next;
 		}
 	}
