@@ -27,12 +27,14 @@ t/cli.t
 t/cli/deps.t
 t/cli/installed.t
 t/cli/module.t
+t/cli/modules.t
 t/cli/release.t
 t/cli/show.t
 t/data/carton/cpanfile.snapshot
 t/data/cpanfiles/cpanfile
 t/data/excludes
 t/data/installed/perl5/lib/perl5/Catalyst.pm
+t/data/modules_excludes
 t/discover/cpanfile.t
 t/discover/cpanfile_snapshot.t
 t/excludes.t

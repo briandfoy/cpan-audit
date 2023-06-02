@@ -4,9 +4,10 @@
 ./version.t
 ./query.t
 ./cli/deps.t
-./cli/release.t
-./cli/show.t
 ./cli/installed.t
 ./cli/module.t
+./cli/modules.t
+./cli/release.t
+./cli/show.t
 ./cli.t
 ./installed.t
