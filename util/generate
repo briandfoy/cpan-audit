@@ -183,6 +183,8 @@ sub run ( @args ) {
 }
 
 sub get_file_list ( $args ) {
+	message "Updating submodules";
+	system 'git', 'submodule', 'update', '--remote';
 	unless( @$args and -e 'cpan-security-advisory/cpansa' ) {
 		debug 'No arguments given fo: looking in cpan-security-advisory/cpansa';
 		@$args = glob( 'cpan-security-advisory/cpansa/*.yml' );
