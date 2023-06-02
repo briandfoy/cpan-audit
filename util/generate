@@ -226,6 +226,7 @@ sub process_files ( $files ) {
 
 		my %dists_in_file;
 		my $n = 0;
+
 		foreach my $record ( $yaml->@* ) {
 			$n++;
 			my $id = $record->{id};
@@ -284,6 +285,9 @@ sub process_files ( $files ) {
 sub stringify_data ( $db ) {
 	my $opts = config();
 
+	state $rc = require Data::Dumper;
+
+	no warnings 'once';
 	local $Data::Dumper::Sortkeys = 1;
 	my $dump = Data::Dumper::Dumper( $db );
 	$dump =~ s{^\$VAR1\s*=\s*}{};
