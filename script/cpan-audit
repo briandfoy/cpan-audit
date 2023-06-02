@@ -195,6 +195,7 @@ sub process_options {
 		'version'         => \$params{version},
 		'exclude=s@'      => \$params{exclude},
 		'exclude-file=s@' => \$params{exclude_file},
+		'modules=s@'      => \$params{modules},
 		};
 
 	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params )
@@ -228,6 +229,7 @@ cpan-audit [command] [options]
 Commands:
 
     module         [version range]    audit module with optional version range (all by default)
+    modules        [version range]    audit module list with optional version range (all by default)
     dist|release   [version range]    audit distribution with optional version range (all by default)
     deps           [directory]        audit dependencies from the directory (. by default)
     installed                         audit all installed modules
@@ -255,6 +257,8 @@ Examples:
     cpan-audit dist Catalyst-Runtime '>5.48'
 
     cpan-audit module Catalyst 7.0
+
+    cpan-audit modules "Catalyst;7.0" "Mojolicious;>8.40,<9.20"
 
     cpan-audit deps .
     cpan-audit deps /path/to/distribution

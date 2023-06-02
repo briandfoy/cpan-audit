@@ -103,6 +103,24 @@ sub command_show {
 	return;
 }
 
+sub command_modules {
+	my ($self, $dists, @modules) = @_;
+	return "Usage: modules '<module>[,version-range]' '<module>[,version-range]'" unless @modules;
+
+	foreach my $module ( @modules ) {
+		my ($name, $version) = split /;/, $module;
+
+		my $failed = $self->command_module( $dists, $name, $version || '' );
+
+		if ( $failed ) {
+			$self->verbose( "Module '$name' is not in database" );
+			next;
+		}
+	}
+
+	return;
+}
+
 sub command_deps {
 	my ($self, $dists, $dir) = @_;
 	$dir = '.' unless defined $dir;
@@ -157,6 +175,7 @@ sub command {
 		deps         => 'command_deps',
 		installed    => 'command_installed',
 		module       => 'command_module',
+		modules      => 'command_modules',
 		release      => 'command_release',
 		dist         => 'command_release',
 		show         => 'command_show',
