@@ -63,7 +63,7 @@ sub command_module {
 		return "Module '$module' is not in database";
 	}
 
-	$dists->{$distname} = $version_range || '';
+	$dists->{$distname} = $version_range // '';
 
 	return;
 }
@@ -77,7 +77,7 @@ sub command_release {
 		return "Distribution '$distname' is not in database";
 	}
 
-	$dists->{$distname} = $version_range || '';
+	$dists->{$distname} = $version_range // '';
 
 	return;
 }
