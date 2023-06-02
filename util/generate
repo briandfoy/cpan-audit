@@ -84,36 +84,33 @@ sub dumper {
 	Data::Dumper->new([@_])->Indent(1)->Sortkeys(1)->Terse(1)->Useqq(1)->Dump
 }
 
-sub process_options ( @args ) {
-	state $rc = require Getopt::Long;
 
-	my %results = (
-		debug       => 0,
-		gpg_key     => $ENV{CPAN_AUDIT_GPG_KEY_FINGERPRINT},
-		output_file => default_file(),
-		);
-	*config = sub () { \%results };
+sub all_releases {
+	my ($distribution) = @_;
 
-	my %opts = (
-		'debug|d'          => \ $results{debug},
-		'gpg-key|g=s'      => \ $results{gpg_key},
-		'json|j'           => \ $results{json},
-		'module-version'   => \ $results{version},
-		'output-file|o=s'  => \ $results{output_file},
-		'perl-module|pm|p' => \ $results{perl_module},
-		'quiet|q'          => \ $results{quiet},
+	my $response = HTTP::Tiny->new->post(
+		'http://fastapi.metacpan.org/v1/release/_search',
+		{
+			headers => { 'Content-Type' => 'application/json' },
+			content => JSON::encode_json(
+				{
+					size   => 5000,
+					fields => [ qw(date version status main_module) ],
+					filter => {
+						term => { distribution => $distribution }
+					},
+					sort => ['date'],
+				}
+			)
+		}
 	);
 
-	my $p = Getopt::Long::Parser->new();
-	$p->configure( qw(no_ignore_case) );
-	$p->getoptionsfromarray( \@args, %opts );
+	my $content_json = JSON::decode_json( $response->{content} );
 
+	my @results = map  { $_->{fields} } @{ $content_json->{hits}->{hits} };
+	return unless @results;
 
-	debug dumper( \%results );
-
-	$results{version} //= default_version();
-
-	\@args;
+	return @results;
 }
 
 sub default_file () {
@@ -138,50 +135,6 @@ sub default_version () {
 	return $version;
 }
 
-sub get_previous_date_serial ( $file ) {
-	open my $fh, '<:encoding(UTF-8)', $file or croak( "Could not read <$file>: $!" );
-	while( <$fh> ) {
-		next unless /VERSION\s*=\s*'(\d{8})\.(\d{3})'/;
-		return ( $1, $2 );
-	}
-	return;
-}
-
-sub run ( @args ) {
-	my( $leftover_args ) = process_options( @args );
-	my $opts = config();
-
-	*message = $opts->{quiet} ? sub ($m) {} : sub ($m) { _message *STDOUT, $m };
-
-	my $files = get_file_list( $leftover_args );
-	die "Usage: <files>\n" unless @$files;
-
-	my $out_fh = do {
-		message "Output file will be <$opts->{output_file}>";
-		if( $opts->{output_file} eq '-' ) { \*STDOUT }
-		elsif( $opts->{output_file} ) {
-			open my $fh, '>:encoding(UTF-8)', $opts->{output_file}
-				or die "Could not open <$opts->{output_file}>: $!\n";
-			$fh;
-		}
-		else { \*STDOUT }
-	};
-
-	my $db = process_files( $files );
-
-	my $string = do {
-		if( $opts->{perl_module} ) { stringify_data($db) }
-		elsif( $opts->{json} )	   { JSON::encode_json($db) }
-		else					   { stringify_data($db) }
-	};
-
-	my $target = defined $opts->{output_file} && $opts->{output_file} ne '-' ? $opts->{output_file} : 'STDOUT';
-    message "writing to $target";
-    print { $out_fh } $string;
-
-	output_gpg_signature( $string );
-}
-
 sub get_file_list ( $args ) {
 	message "Updating submodules";
 	system 'git', 'submodule', 'update', '--remote';
@@ -193,6 +146,15 @@ sub get_file_list ( $args ) {
 	my @files = ($^O eq 'MSWin32') ? map { glob } @$args : @$args;
 
 	\@files;
+}
+
+sub get_previous_date_serial ( $file ) {
+	open my $fh, '<:encoding(UTF-8)', $file or croak( "Could not read <$file>: $!" );
+	while( <$fh> ) {
+		next unless /VERSION\s*=\s*'(\d{8})\.(\d{3})'/;
+		return ( $1, $2 );
+	}
+	return;
 }
 
 sub output_gpg_signature ( $string ) {
@@ -282,40 +244,36 @@ sub process_files ( $files ) {
 	\%db;
 }
 
-sub stringify_data ( $db ) {
-	my $opts = config();
+sub process_options ( @args ) {
+	state $rc = require Getopt::Long;
 
-	state $rc = require Data::Dumper;
+	my %results = (
+		debug       => 0,
+		gpg_key     => $ENV{CPAN_AUDIT_GPG_KEY_FINGERPRINT},
+		output_file => default_file(),
+		);
+	*config = sub () { \%results };
 
-	no warnings 'once';
-	local $Data::Dumper::Sortkeys = 1;
-	my $dump = Data::Dumper::Dumper( $db );
-	$dump =~ s{^\$VAR1\s*=\s*}{};
-	$dump =~ s{}{};
+	my %opts = (
+		'debug|d'          => \ $results{debug},
+		'gpg-key|g=s'      => \ $results{gpg_key},
+		'json|j'           => \ $results{json},
+		'module-version'   => \ $results{version},
+		'output-file|o=s'  => \ $results{output_file},
+		'perl-module|pm|p' => \ $results{perl_module},
+		'quiet|q'          => \ $results{quiet},
+	);
 
-	my $submodule_dir = 'cpan-security-advisory';
+	my $p = Getopt::Long::Parser->new();
+	$p->configure( qw(no_ignore_case) );
+	$p->getoptionsfromarray( \@args, %opts );
 
-	my( $commit ) = split /\s+/, join '',
-		grep { /\Q$submodule_dir/ }
-		`git submodule status` =~ s/\A\s+//r;
 
-	my $string = <<~"EOF";
-		# created by $0 at @{[ scalar localtime]}
-		# $submodule_dir $commit
-		#
-		package CPAN::Audit::DB;
+	debug dumper( \%results );
 
-		use strict;
-		use warnings;
+	$results{version} //= default_version();
 
-		our \$VERSION = '$opts->{version}';
-
-		sub db {
-			$dump
-		}
-
-		1;
-		EOF
+	\@args;
 }
 
 sub provides {
@@ -361,30 +319,73 @@ sub provides {
 	close $fh;
 }
 
-sub all_releases {
-	my ($distribution) = @_;
+sub run ( @args ) {
+	my( $leftover_args ) = process_options( @args );
+	my $opts = config();
 
-	my $response = HTTP::Tiny->new->post(
-		'http://fastapi.metacpan.org/v1/release/_search',
-		{
-			headers => { 'Content-Type' => 'application/json' },
-			content => JSON::encode_json(
-				{
-					size   => 5000,
-					fields => [ qw(date version status main_module) ],
-					filter => {
-						term => { distribution => $distribution }
-					},
-					sort => ['date'],
-				}
-			)
+	*message = $opts->{quiet} ? sub ($m) {} : sub ($m) { _message *STDOUT, $m };
+
+	my $files = get_file_list( $leftover_args );
+	die "Usage: <files>\n" unless @$files;
+
+	my $out_fh = do {
+		message "Output file will be <$opts->{output_file}>";
+		if( $opts->{output_file} eq '-' ) { \*STDOUT }
+		elsif( $opts->{output_file} ) {
+			open my $fh, '>:encoding(UTF-8)', $opts->{output_file}
+				or die "Could not open <$opts->{output_file}>: $!\n";
+			$fh;
 		}
-	);
+		else { \*STDOUT }
+	};
 
-	my $content_json = JSON::decode_json( $response->{content} );
+	my $db = process_files( $files );
 
-	my @results = map  { $_->{fields} } @{ $content_json->{hits}->{hits} };
-	return unless @results;
+	my $string = do {
+		if( $opts->{perl_module} ) { stringify_data($db) }
+		elsif( $opts->{json} )	   { JSON::encode_json($db) }
+		else					   { stringify_data($db) }
+	};
 
-	return @results;
+	my $target = defined $opts->{output_file} && $opts->{output_file} ne '-' ? $opts->{output_file} : 'STDOUT';
+    message "writing to $target";
+    print { $out_fh } $string;
+
+	output_gpg_signature( $string );
+}
+
+sub stringify_data ( $db ) {
+	my $opts = config();
+
+	state $rc = require Data::Dumper;
+
+	no warnings 'once';
+	local $Data::Dumper::Sortkeys = 1;
+	my $dump = Data::Dumper::Dumper( $db );
+	$dump =~ s{^\$VAR1\s*=\s*}{};
+	$dump =~ s{}{};
+
+	my $submodule_dir = 'cpan-security-advisory';
+
+	my( $commit ) = split /\s+/, join '',
+		grep { /\Q$submodule_dir/ }
+		`git submodule status` =~ s/\A\s+//r;
+
+	my $string = <<~"EOF";
+		# created by $0 at @{[ scalar localtime]}
+		# $submodule_dir $commit
+		#
+		package CPAN::Audit::DB;
+
+		use strict;
+		use warnings;
+
+		our \$VERSION = '$opts->{version}';
+
+		sub db {
+			$dump
+		}
+
+		1;
+		EOF
 }
