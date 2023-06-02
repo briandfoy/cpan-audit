@@ -251,7 +251,7 @@ sub process_files ( $files ) {
 
 	provides( \%db );
 
-	foreach my $dist ( keys $db{dists}->%* ) {
+	foreach my $dist ( sort keys $db{dists}->%* ) {
 		my @releases = all_releases($dist);
 		if (!@releases) {
 			warn "no releases found on CPAN for '$dist'\n";
