@@ -54,7 +54,7 @@ sub _handle_exclude_file {
 }
 
 sub command_module {
-	my ( $self, $dists, $listed, $module, $version_range ) = @_;
+	my ( $self, $dists, $queried, $module, $version_range ) = @_;
 	return "Usage: module <module> [version-range]" unless $module;
 
 	my $distname = $self->{db}->{module2dist}->{$module};
@@ -63,14 +63,14 @@ sub command_module {
 		return "Module '$module' is not in database";
 	}
 
-	push @{ $listed->{$distname} }, $module;
+	push @{ $queried->{$distname} }, $module;
 	$dists->{$distname} = $version_range // '';
 
 	return;
 }
 
 sub command_release {
-	my ( $self, $dists, $listed, $distname, $version_range ) = @_;
+	my ( $self, $dists, $queried, $distname, $version_range ) = @_;
 	return "Usage: dist|release <module> [version-range]"
 		unless $distname;
 
@@ -84,7 +84,7 @@ sub command_release {
 }
 
 sub command_show {
-	my ( $self, $dists, $listed, $advisory_id ) = @_;
+	my ( $self, $dists, $queried, $advisory_id ) = @_;
 	return "Usage: show <advisory-id>" unless $advisory_id;
 
 	my ($release) = $advisory_id =~ m/^CPANSA-(.*?)-(\d+)-(\d+)$/;
@@ -105,13 +105,13 @@ sub command_show {
 }
 
 sub command_modules {
-	my ($self, $dists, $listed, @modules) = @_;
+	my ($self, $dists, $queried, @modules) = @_;
 	return "Usage: modules '<module>[,version-range]' '<module>[,version-range]'" unless @modules;
 
 	foreach my $module ( @modules ) {
 		my ($name, $version) = split /;/, $module;
 
-		my $failed = $self->command_module( $dists, $listed, $name, $version // '' );
+		my $failed = $self->command_module( $dists, $queried, $name, $version // '' );
 
 		if ( $failed ) {
 			$self->verbose( $failed );
@@ -123,7 +123,7 @@ sub command_modules {
 }
 
 sub command_deps {
-	my ($self, $dists, $listed, $dir) = @_;
+	my ($self, $dists, $queried, $dir) = @_;
 	$dir = '.' unless defined $dir;
 
 	return "Usage: deps <dir>" unless -d $dir;
@@ -137,7 +137,7 @@ sub command_deps {
 		  || $self->{db}->{module2dist}->{ $dep->{module} };
 		next unless $dist;
 
-		push @{ $listed->{$dist} }, $dep->{module} if !$dep->{dist};
+		push @{ $queried->{$dist} }, $dep->{module} if !$dep->{dist};
 
 		$dists->{$dist} = $dep->{version};
 	}
@@ -146,7 +146,7 @@ sub command_deps {
 }
 
 sub command_installed {
-	my ($self, $dists, $listed, @args) = @_;
+	my ($self, $dists, $queried, @args) = @_;
 
 	$self->verbose('Collecting all installed modules. This can take a while...');
 
@@ -197,7 +197,7 @@ sub command {
 		dists => {},
 	);
 	my $dists  = $report{dists};
-	my $listed = {};
+	my $queried = {};
 
 	if (!$self->{no_corelist}
 		&& (   $command eq 'dependencies'
@@ -217,7 +217,7 @@ sub command {
 
 	if ( exists $command_table->{$command} ) {
 		my $method = $command_table->{$command};
-		push @{ $report{errors} }, $self->$method( $dists, $listed, @args );
+		push @{ $report{errors} }, $self->$method( $dists, $queried, @args );
 		return \%report if $command eq 'show';
 	}
 	else {
@@ -240,9 +240,9 @@ sub command {
 
 			if ( @advisories ) {
 				$dists->{$distname} = {
-					advisories     => \@advisories,
-					version        => $version_range,
-					listed_modules => $listed->{$distname} || [],
+					advisories      => \@advisories,
+					version         => $version_range,
+					queried_modules => $queried->{$distname} || [],
 				};
 			}
 			else {
