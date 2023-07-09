@@ -314,6 +314,97 @@ It is assumed that if the required version of the module is less than
 a version of a release with a known vulnerability fix, then the module
 is considered affected.
 
+=head2 JSON data
+
+If you request JSON output, the data looks like
+
+    {
+      "meta" : {
+          ... meta information ...
+      "dists": {
+        "<distribution1>": {
+          ... distribution info ...
+        }
+      }
+      "errors" : [
+        ... list of errors - if any ...
+      ]
+    }
+
+=head3 Meta information
+
+The meta data contains information about the run of C<cpan-audit>.
+
+    {
+      "args": [
+        "Mojo::File",
+        "Mojo::UserAgent",
+        "LWP::UserAgent"
+      ],
+      "cpan_audit": {
+        "version": "20230601.002"
+      },
+      "total_advisories": 19,
+      "command": "modules"
+    }
+
+These information are shown
+
+=over 4
+
+=item * cpan_audit
+
+The version of C<cpan_audit> that is used for the audit
+
+=item * command
+
+The command of C<cpan_audit> that was run
+
+=item * args
+
+Arguments for the command
+
+=item * total_advisories
+
+Number of found advisories
+
+=back
+
+=head3 Distribtion information
+
+For each distribution where at least one advisory was found, the JSON
+looks like:
+
+      "version": "Any",
+      "advisories": [
+        {
+          ... advisory data as in the audit database ...
+        },
+	... more advisories ...
+      ]
+
+The advisory data is basically the data from the database. So this depends
+on what is known for the given advisory.
+
+The distribution information contains
+
+=over 4
+
+=item * version
+
+The version (range) that is checked for advisories
+
+=item * queried_modules
+
+The modules listed in I<cpanfile> or passed to C<module> or C<modules> command
+and that belongs to the distribution.
+
+=item * advisories
+
+A list of all vulnerabilities found for the version range
+
+=back
+
 =head2 Exit values
 
 In prior versions, C<cpan-audit> exited with the number of advisories
