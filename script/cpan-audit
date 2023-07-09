@@ -7,7 +7,7 @@ use IO::Interactive qw(is_interactive);
 
 use CPAN::Audit;
 
-our $VERSION = "1.301";
+our $VERSION = "1.401";
 
 __PACKAGE__->run( @ARGV ) unless caller;
 
@@ -375,29 +375,36 @@ Number of found advisories
 For each distribution where at least one advisory was found, the JSON
 looks like:
 
+    "Dist-Name": {
+      "queried_modules": [
+        "Queried::Namespace"
+      ],
       "version": "Any",
       "advisories": [
         {
           ... advisory data as in the audit database ...
         },
-	... more advisories ...
+	  ... more advisories ...
       ]
+    },
 
 The advisory data is basically the data from the database. So this depends
 on what is known for the given advisory.
 
-The distribution information contains
+The distribution information contains:
 
 =over 4
 
 =item * version
 
-The version (range) that is checked for advisories
+The version (range) that is checked for advisories. If there's no
+version specified, all versions are checked and the version is report
+as "Any".
 
 =item * queried_modules
 
-The modules listed in I<cpanfile> or passed to C<module> or C<modules> command
-and that belongs to the distribution.
+The actual namespaces queried, either from the command line or another
+source, such as a F<cpanfile>.
 
 =item * advisories
 
