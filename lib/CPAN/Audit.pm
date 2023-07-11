@@ -106,7 +106,7 @@ sub command_show {
 
 sub command_modules {
 	my ($self, $dists, $queried, @modules) = @_;
-	return "Usage: modules '<module>[,version-range]' '<module>[,version-range]'" unless @modules;
+	return "Usage: modules '<module>[;version-range]' '<module>[;version-range]'" unless @modules;
 
 	foreach my $module ( @modules ) {
 		my ($name, $version) = split /;/, $module;
