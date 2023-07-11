@@ -370,7 +370,7 @@ Number of found advisories
 
 =back
 
-=head3 Distribtion information
+=head3 Distribution information
 
 For each distribution where at least one advisory was found, the JSON
 looks like:
