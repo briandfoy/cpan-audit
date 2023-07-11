@@ -26,7 +26,7 @@ sub new {
 
 	$self->_handle_exclude_file if $self->{exclude_file};
 
-	$self->{db}       = CPAN::Audit::DB->db;
+	$self->{db}     //= CPAN::Audit::DB->db;
 
 	$self->{filter}   = CPAN::Audit::Filter->new( exclude => $args{exclude} );
 	$self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
