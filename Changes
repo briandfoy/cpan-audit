@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20231129.001 2023-11-29T20:14:52Z
+	* Update for 2023-11-29. This includes the CVE-2023-47038 and 
+	CVE-2023-47039, both on perl.
+
 20230826.001 2023-08-26T08:48:19Z
 	* Update for CVE-2022-48522 (perl)
 
