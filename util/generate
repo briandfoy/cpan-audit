@@ -54,7 +54,7 @@ makes the L<CPAN::Audit::DB> module.
 
 Original author: Viacheslav Tykhanovskyi (C<vti@cpan.org>)
 
-Maintained by: brian d foy (C<bdfoy@cpan.org>)
+Maintained by: brian d foy (C<briandfoy@pobox.com>)
 
 =head1 LICENSE
 
