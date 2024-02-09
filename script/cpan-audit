@@ -238,7 +238,7 @@ Commands:
 Options:
 
     --ascii               use ascii output
-    --freshcheck|f        check the database for freshness (CPAN::Audit::FreshnessCheck)
+    --fresh|f             check the database for freshness (CPAN::Audit::FreshnessCheck)
     --help|h              show the help message and exit
     --no-color            switch off colors
     --no-corelist         ignore modules bundled with perl version
@@ -285,10 +285,10 @@ important to keep it up to date. Every update of the internal database
 is released as a new version. Ensure that you have the latest database
 by updating L<CPAN::Audit> frequently; the database can change daily.
 You can use enable a warning for a possibly out-of-date database by
-adding C<--freshcheck>, which warns if the database version is older
+adding C<--fresh>, which warns if the database version is older
 than a month:
 
-	% cpan-audit --freshcheck ...
+	% cpan-audit --fresh ...
 	% cpan-audit -f ...
 
 	% env CPAN_AUDIT_FRESH_DAYS=7 cpan-audit -f ...
