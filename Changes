@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20240209.001 2024-02-09T22:44:28Z
+	* Fix docs for the --fresh option (mariominati22, #56)
+	* This release is under the new PAUSE ID BRIANDFOY.
+
 20240117.001 2024-01-17T18:00:26Z
 	* Update for Spreadsheet::ParseXLSX XXE bug. (GitHub #134)
 
