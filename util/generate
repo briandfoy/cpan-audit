@@ -185,7 +185,6 @@ sub process_files ( $files ) {
 	foreach my $file ( $files->@* ) {
 		message "Reading $file";
 		my $yaml = YAML::Tiny->read($file)->[0];
-		my $n = scalar $yaml->@*;
 		message "\tFound $n reports";
 		my %dists_in_file;
 		my $n = 0;
@@ -210,7 +209,6 @@ sub process_files ( $files ) {
 		}
 
 		my( $dist ) = keys %dists_in_file;
-		my $n = scalar $yaml->@*;
 
 		if( exists $db{dists}{$dist}{advisories} ) {
 			warn "\tAlready have advisories for $dist\n";
