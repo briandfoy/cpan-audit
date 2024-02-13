@@ -168,8 +168,9 @@ sub run {
 	$advisory_count = ADVISORY_COUNT_MAX if $advisory_count > ADVISORY_COUNT_MAX;
 
 	my $exit_code = do {
-		if( $advisory_count == 0 ) { EXIT_NORMAL }
-		else                       { EXIT_BASE + $advisory_count }
+                if( $opts->{exitnormal} )     { EXIT_NORMAL }
+		elsif( $advisory_count == 0 ) { EXIT_NORMAL }
+		else                          { EXIT_BASE + $advisory_count }
 		};
 
 	exit( $exit_code );
@@ -196,6 +197,7 @@ sub process_options {
 		'exclude=s@'      => \$params{exclude},
 		'exclude-file=s@' => \$params{exclude_file},
 		'modules=s@'      => \$params{modules},
+                'exitnormal'      => \$params{exitnormal},
 		};
 
 	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params )
@@ -246,6 +248,7 @@ Options:
     --quiet               be quiet (overrules --verbose)
     --verbose             be verbose (off if --quiet in effect)
     --version             show the version and exit
+    --exitnormal          allways exit with normal exit code (0)
     --exclude <str>       exclude/ignore the specified advisory/cve (multiple)
     --exclude-file <file> read exclude/ignore patterns from file
     --json                output JSON
@@ -270,6 +273,8 @@ Examples:
     cpan-audit installed local/ --exclude-file ignored-cves.txt
 
     cpan-audit installed --json
+
+    cpan-audit installed --json --exitnormal
 
     cpan-audit show CPANSA-Mojolicious-2018-03
 
@@ -417,7 +422,10 @@ A list of all vulnerabilities found for the version range
 In prior versions, C<cpan-audit> exited with the number of advisories
 it found. Starting with 1.001, if there are advisories found, C<cpan-audit>
 exits with 64 added to that number. The maximum number of reported advisories
-is 62, since values over 126 are spoken for.
+is 62, since values over 126 are spoken for. 
+If the option C<--exitnormal> is set C<cpan-audit> exits always wioth a normal
+exit code (0). This allows to use C<cpan-audit> in build environments together
+with bash exit mode activated (C<set -e>).
 
 =over 4
 
