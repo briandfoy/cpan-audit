@@ -40,13 +40,13 @@ subtest 'Github #34 - no message method' => sub {
     	) or diag( "exit value was <$exit>" );
 };
 
-subtest 'exitnormal option sets exitvalue to 0' => sub {
-    my ( $stdout, $stderr, $exit ) = TestCommand->command('installed', '--exitnormal');
+subtest 'exit-zero option sets exitvalue to 0' => sub {
+    my ( $stdout, $stderr, $exit ) = TestCommand->command('installed', '--exit-zero');
 
 	# should exit with 0.
     ok(
     	$exit == 0,
-    	'installed --exitnormal exits with a normal exit value (0)'
+    	'installed --exit-zero exits with a normal exit value (0)'
     	) or diag( "exit value was <$exit>" );
 };
 
