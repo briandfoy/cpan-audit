@@ -16,6 +16,7 @@ __PACKAGE__->run( @ARGV ) unless caller;
 use constant ADVISORY_COUNT_MAX => 62;
 
 use constant EXIT_NORMAL =>  0;
+use constant EXIT_ZERO   =>  0;
 use constant EXIT_USAGE  =>  2;
 use constant EXIT_BASE   => 64;
 
@@ -168,7 +169,7 @@ sub run {
 	$advisory_count = ADVISORY_COUNT_MAX if $advisory_count > ADVISORY_COUNT_MAX;
 
 	my $exit_code = do {
-                if( $opts->{exitnormal} )     { EXIT_NORMAL }
+                if( $opts->{exit_zero} )      { EXIT_ZERO }
 		elsif( $advisory_count == 0 ) { EXIT_NORMAL }
 		else                          { EXIT_BASE + $advisory_count }
 		};
@@ -197,7 +198,7 @@ sub process_options {
 		'exclude=s@'      => \$params{exclude},
 		'exclude-file=s@' => \$params{exclude_file},
 		'modules=s@'      => \$params{modules},
-                'exitnormal'      => \$params{exitnormal},
+                'exit-zero'       => \$params{exit_zero},
 		};
 
 	my $ret = Getopt::Long::GetOptionsFromArray( $args, $options, %$params )
@@ -248,7 +249,7 @@ Options:
     --quiet               be quiet (overrules --verbose)
     --verbose             be verbose (off if --quiet in effect)
     --version             show the version and exit
-    --exitnormal          allways exit with normal exit code (0)
+    --exit-zero           allways exit with normal exit code (0)
     --exclude <str>       exclude/ignore the specified advisory/cve (multiple)
     --exclude-file <file> read exclude/ignore patterns from file
     --json                output JSON
@@ -274,7 +275,7 @@ Examples:
 
     cpan-audit installed --json
 
-    cpan-audit installed --json --exitnormal
+    cpan-audit installed --json --exit-zero
 
     cpan-audit show CPANSA-Mojolicious-2018-03
 
@@ -423,7 +424,7 @@ In prior versions, C<cpan-audit> exited with the number of advisories
 it found. Starting with 1.001, if there are advisories found, C<cpan-audit>
 exits with 64 added to that number. The maximum number of reported advisories
 is 62, since values over 126 are spoken for. 
-If the option C<--exitnormal> is set C<cpan-audit> exits always wioth a normal
+If the option C<--exit-zero> is set C<cpan-audit> exits always with a normal
 exit code (0). This allows to use C<cpan-audit> in build environments together
 with bash exit mode activated (C<set -e>).
 
