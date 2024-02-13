@@ -249,7 +249,7 @@ Options:
     --quiet               be quiet (overrules --verbose)
     --verbose             be verbose (off if --quiet in effect)
     --version             show the version and exit
-    --exit-zero           allways exit with normal exit code (0)
+    --exit-zero           always exit with 0 even if advisories are reported
     --exclude <str>       exclude/ignore the specified advisory/cve (multiple)
     --exclude-file <file> read exclude/ignore patterns from file
     --json                output JSON
@@ -423,20 +423,21 @@ A list of all vulnerabilities found for the version range
 In prior versions, C<cpan-audit> exited with the number of advisories
 it found. Starting with 1.001, if there are advisories found, C<cpan-audit>
 exits with 64 added to that number. The maximum number of reported advisories
-is 62, since values over 126 are spoken for. 
+is 62, since values over 126 are spoken for.
+
 If the option C<--exit-zero> is set C<cpan-audit> exits always with a normal
 exit code (0). This allows to use C<cpan-audit> in build environments together
 with bash exit mode activated (C<set -e>).
 
 =over 4
 
-=item * 0 - normal operation
+=item * 0 - no advisories found
 
 =item * 2 - problem with program invocation, such as bad switches or values
 
 =item * 64+n - advisories found. Subtract 64 to get the advisory count, up to 62 advisories
 
-=item * 255 - program error
+=item * 255 - unspecified program error
 
 =back
 
