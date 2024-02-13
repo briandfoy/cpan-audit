@@ -169,7 +169,7 @@ sub run {
 	$advisory_count = ADVISORY_COUNT_MAX if $advisory_count > ADVISORY_COUNT_MAX;
 
 	my $exit_code = do {
-                if( $opts->{exit_zero} )      { EXIT_ZERO }
+		if( $opts->{exit_zero} )      { EXIT_ZERO }
 		elsif( $advisory_count == 0 ) { EXIT_NORMAL }
 		else                          { EXIT_BASE + $advisory_count }
 		};
