@@ -87,25 +87,31 @@ sub dumper {
 
 sub all_releases {
 	my ($distribution) = @_;
+	my $tries = 0;
 
-	my $response = HTTP::Tiny->new->post(
-		'http://fastapi.metacpan.org/v1/release/_search',
-		{
-			headers => { 'Content-Type' => 'application/json' },
-			content => JSON::encode_json(
-				{
-					size   => 5000,
-					fields => [ qw(date version status main_module) ],
-					filter => {
-						term => { distribution => $distribution }
-					},
-					sort => ['date'],
-				}
-			)
+	my $content_json;
+	FETCH: {
+		sleep $tries * 10;
+		my $response = HTTP::Tiny->new->post(
+			'http://fastapi.metacpan.org/v1/release/_search',
+			{
+				headers => { 'Content-Type' => 'application/json' },
+				content => JSON::encode_json(
+					{
+						size   => 5000,
+						fields => [ qw(date version status main_module) ],
+						filter => {
+							term => { distribution => $distribution }
+						},
+						sort => ['date'],
+					}
+				)
+			}
+		);
+
+		$content_json = eval { JSON::decode_json( $response->{content} ) };
+		redo FETCH unless $tries++ > 3;
 		}
-	);
-
-	my $content_json = JSON::decode_json( $response->{content} );
 
 	my @results = map  { $_->{fields} } @{ $content_json->{hits}->{hits} };
 	return unless @results;
@@ -185,7 +191,7 @@ sub process_files ( $files ) {
 	foreach my $file ( $files->@* ) {
 		message "Reading $file";
 		my $yaml = YAML::Tiny->read($file)->[0];
-		message "\tFound $n reports";
+		message sprintf "\tFound %d reports", scalar $yaml->@*;
 		my %dists_in_file;
 		my $n = 0;
 
