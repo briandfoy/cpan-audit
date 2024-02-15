@@ -84,7 +84,6 @@ sub dumper {
 	Data::Dumper->new([@_])->Indent(1)->Sortkeys(1)->Terse(1)->Useqq(1)->Dump
 }
 
-
 sub all_releases {
 	my ($distribution) = @_;
 	my $tries = 0;
