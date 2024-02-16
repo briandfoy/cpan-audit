@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20240215.001 2024-02-16T04:10:22Z
+	* data update for 2024-02-15
+	* add --exit-zero option to always exit with unix true even if there
+	are advisories (#57 from Mario Minati)
+
 20240209.001 2024-02-10T06:44:21Z
 	* Fix docs for the --fresh option (mariominati22, #56)
 
