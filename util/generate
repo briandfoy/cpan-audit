@@ -91,6 +91,7 @@ sub all_releases {
 	my $content_json;
 	FETCH: {
 		sleep $tries * 10;
+		debug( "Try $tries for $distribution" );
 		my $response = HTTP::Tiny->new->post(
 			'http://fastapi.metacpan.org/v1/release/_search',
 			{
@@ -109,6 +110,7 @@ sub all_releases {
 		);
 
 		$content_json = eval { JSON::decode_json( $response->{content} ) };
+		last if $content_json;
 		redo FETCH unless $tries++ > 3;
 		}
 
@@ -228,12 +230,12 @@ sub process_files ( $files ) {
 	provides( \%db );
 
 	foreach my $dist ( sort keys $db{dists}->%* ) {
+		message "Processing $dist";
 		my @releases = all_releases($dist);
 		if (!@releases) {
 			warn "no releases found on CPAN for '$dist'\n";
 			next;
 		}
-		message "Processing $dist";
 
 		# try to fetch the latest release, according to MetaCPAN.
 		# if there is no 'latest' tag, grab the last item (because
@@ -280,7 +282,6 @@ sub process_options ( @args ) {
 	my $p = Getopt::Long::Parser->new();
 	$p->configure( qw(no_ignore_case) );
 	$p->getoptionsfromarray( \@args, %opts );
-
 
 	debug dumper( \%results );
 
