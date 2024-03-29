@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20240329.002 2024-03-29T12:08:01Z
+	* Data update for 2024-03-29
+
 20240318.001 2024-03-19T01:54:37Z
 	* Data update for 2024-03-18
 	* CVE-2013-4184 for Data::UUID is resolved by 1.227
