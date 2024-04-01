@@ -1,5 +1,10 @@
 Revision history for Perl extension CPAN-Audit
 
+20240401.001 2024-04-01T11:50:11Z
+	* data update for 2024-04-01
+	* fix data issue for Mojolicious report (briandfoy/cpan-security-advisory#149)
+	(Timothy Legge)
+
 20240329.002 2024-03-29T12:08:01Z
 	* Data update for 2024-03-29
 
