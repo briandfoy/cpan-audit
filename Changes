@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20240401.002 2024-04-01T12:27:17Z
+	* Fix some incorrect data in CPANSA-HTTP-Body-2013-4407 (CVE report
+	is wrong). From Stig in briandfoy/cpan-security-advisory#150 .
+
 20240401.001 2024-04-01T11:50:11Z
 	* data update for 2024-04-01
 	* fix data issue for Mojolicious report (briandfoy/cpan-security-advisory#149)
