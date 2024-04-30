@@ -96,7 +96,7 @@ jobs:
             - name: Show cpanm failures
               if:  ${{ failure() }}
               run: |
-                cat /home/runner/.cpanm/work/*/build.log
+                cat /github/home/.cpanm/work/*/build.log
             - name: Run tests
               run: |
                 perl Makefile.PL
