@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20240503.001 2024-05-03T17:25:39Z
+	* Data update for 2024-05-03; inlcudes CVE-2024-4140 for Email::MIME
+
 20240430.001 2024-04-30T23:00:42Z
 	* data update for 2024-04-30
 	* includes CVE-2024-2467 - Crypt::OpenSSL::RSA
