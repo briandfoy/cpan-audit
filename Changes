@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20240615.002 2024-06-15T15:57:57Z
+	* update the POSIX::2008 advisories
+
 20240615.001 2024-06-15T05:41:25Z
 	* Data update for 2024-06-15
 	* Added advisory for POSIX::2008 (briandfoy/cpan-security-advisory#154)
