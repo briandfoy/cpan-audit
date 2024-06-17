@@ -9,7 +9,7 @@ on:
             - 'lib/CPAN/Audit/DB.pm'
             - 'briandfoy-gpg-key-selfie.jpeg'
             - '**.gpg'
-        pull_request:
+    pull_request:
 
 jobs:
     gpg:

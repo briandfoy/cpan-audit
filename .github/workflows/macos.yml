@@ -37,7 +37,7 @@ on:
             - 'Changes'
             - 'LICENSE'
             - 'README.pod'
-        pull_request:
+    pull_request:
 
 jobs:
     perl:
