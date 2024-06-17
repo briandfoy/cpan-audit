@@ -48,14 +48,20 @@ jobs:
             os:
                 - ubuntu-22.04
             perl-version:
-                - '5.22'
-                - '5.24'
-                - '5.26'
-                - '5.28'
-                - '5.30'
-                - '5.32'
-                - '5.34'
-                - '5.36'
+                - '5.10-buster'
+                - '5.12-buster'
+                - '5.14-buster'
+                - '5.16-buster'
+                - '5.18-buster'
+                - '5.20-buster'
+                - '5.22-buster'
+                - '5.24-buster'
+                - '5.26-buster'
+                - '5.28-buster'
+                - '5.30-bullseye'
+                - '5.32-bullseye'
+                - '5.34-bullseye'
+                - '5.36-bookworm'
                 - 'latest'
         container:
             image: perl:${{ matrix.perl-version }}
