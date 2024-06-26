@@ -1,5 +1,5 @@
 # brian's standard GitHub Actions Windows config for Perl 5 modules
-# version 20240130.001
+# version 20240524.001
 # https://github.com/briandfoy/github_workflows
 # https://github.com/features/actions
 # This file is licensed under the Artistic License 2.0
@@ -98,8 +98,10 @@ jobs:
                 perl Makefile.PL
                 make disttest
                 make clean
-# And, coverage reports
+# And, coverage reports. Windows Devel::Coverage can't handle threads,
+# so set the env var WINDOWS_SKIP_COVERAGE to skip this part.
             - name: Run coverage tests
+              if: env.WINDOWS_SKIP_COVERAGE != 0
               env:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
