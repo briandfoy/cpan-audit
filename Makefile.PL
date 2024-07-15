@@ -105,7 +105,6 @@ my %WriteMakefile = (
 		'IO::Interactive'          => '0',
 		'JSON'                     => '0',
 		'PerlIO::gzip'             => '0',
-		'Pod::Usage'               => '1.69',
 		},
 
 	'META_MERGE' => {
