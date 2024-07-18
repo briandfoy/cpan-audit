@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20240718.001 2024-07-18T17:32:37Z
+	* data update, and fix for briandfoy/cpan-security-advisory#157
+
 20240715.001 2024-07-15T05:54:32Z
 	* data update for 2024-07-15
 
