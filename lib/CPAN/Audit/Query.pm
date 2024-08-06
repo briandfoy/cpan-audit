@@ -54,7 +54,13 @@ sub advisories_for {
 
 sub _includes {
 	my( $range, $version ) = @_;
-	my $rc = CPAN::Audit::Version->in_range( $version, $range );
-	}
+	$range = [$range] unless ref $range;
+	my $rc = 0;
+	foreach my $r ( $range->@* ) {
+		no warnings 'uninitialized';
+	    $rc += CPAN::Audit::Version->in_range( $version, $r );
+		}
+	return $rc;
+}
 
 1;
