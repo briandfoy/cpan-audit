@@ -1,13 +1,7 @@
 Changes
 CONTRIBUTING.md
 cpanfile
-GPG_README.md
-images/bdfoycpanorg-gpg-key-selfie.jpeg.gpg
-images/briandfoy-gpg-key-selfie.jpeg
-images/briandfoypoboxcom-gpg-key-selfie.jpeg.gpg
 lib/CPAN/Audit.pm
-lib/CPAN/Audit/DB.pm
-lib/CPAN/Audit/DB.pm.gpg
 lib/CPAN/Audit/Discover.pm
 lib/CPAN/Audit/Discover/Cpanfile.pm
 lib/CPAN/Audit/Discover/CpanfileSnapshot.pm
@@ -20,7 +14,6 @@ LICENSE
 Makefile.PL
 MANIFEST			This list of files
 MANIFEST.SKIP
-META.json
 README.md
 script/cpan-audit
 t/cli.t
@@ -46,4 +39,3 @@ t/queried_modules.t
 t/query.t
 t/test_manifest
 t/version.t
-util/generate

@@ -12,7 +12,7 @@ use CPAN::Audit::Discover;
 use CPAN::Audit::Filter;
 use CPAN::Audit::Version;
 use CPAN::Audit::Query;
-use CPAN::Audit::DB;
+use CPANSA::DB;
 
 our $VERSION = '20240731.001';
 
@@ -26,7 +26,7 @@ sub new {
 
 	$self->_handle_exclude_file if $self->{exclude_file};
 
-	$self->{db}     //= CPAN::Audit::DB->db;
+	$self->{db}     //= CPANSA::DB->db;
 
 	$self->{filter}   = CPAN::Audit::Filter->new( exclude => $args{exclude} );
 	$self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
@@ -252,16 +252,16 @@ sub command {
 	}
 
 	return \%report;
-	}
+}
 
-	sub verbose {
+sub verbose {
 	my ( $self, $message ) = @_;
 	return if $self->{quiet};
 	$self->_print( *STDERR, $message );
-	}
+}
 
 
-	sub _print {
+sub _print {
 	my ( $self, $fh, $message ) = @_;
 
 	if ( $self->{no_color} ) {

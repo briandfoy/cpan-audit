@@ -98,6 +98,7 @@ my %WriteMakefile = (
 		},
 
 	'PREREQ_PM'     => {
+	    'CPANSA::DB'               => '20240805.001',
 		'CPAN::DistnameInfo'       => '0',
 		'Module::CoreList'         => '5.20181020',
 		'Module::CPANfile'         => '0',
