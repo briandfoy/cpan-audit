@@ -1,5 +1,12 @@
 Revision history for Perl extension CPAN-Audit
 
+20240824.003 2024-08-24T06:51:28Z
+	* data update for 2024-08-24
+	* now uses the v2 version of the cpan-security-advisory, which allows
+	for arrays of values for affected_versions and fixed versions.
+	* this is the first step toward breaking out the CPAN::Audit::DB module
+	into a separate distribution
+
 20240824.001 2024-08-23T16:06:49Z
 	* data update for 2024-08-24
 	* some additional reports for Image::ExifTool
