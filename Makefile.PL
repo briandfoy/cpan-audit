@@ -77,6 +77,8 @@ my %WriteMakefile = (
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'       => 'perl_5',
 
+	'DIR' => [],
+
 	'CONFIGURE_REQUIRES' => {
 		'ExtUtils::MakeMaker'   => '6.64',
 		'File::Spec::Functions' => '0',
