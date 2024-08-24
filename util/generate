@@ -23,11 +23,11 @@ util/generate - create the data for lib/CPAN/Audit/DB.pm
 
 =head1 SYNOPSIS
 
-	# usual operation, outputs to lib/CPAN/Audit/DB.pm
-	# gets data from cpan-security-advisory/cpansa/*.yml
+	# usual operation, outputs to lib/CPANSA/DB.pm
+	# gets data from .../cpansa/*.yml
 	% perl util/generate
 
-	# usual operation, outputs to lib/CPAN/Audit/DB.pm
+	# usual operation, outputs to lib/CPANSA/DB.pm
 	# gets data from other_source/*.yml
 	% perl util/generate other_source/*.yml
 
@@ -58,7 +58,7 @@ Maintained by: brian d foy (C<briandfoy@pobox.com>)
 
 =head1 LICENSE
 
-L<CPAN::Audit> is dual-licensed under the GPL or the Artistic License.
+L<CPAN::Audit::DB> is dual-licensed under the GPL or the Artistic License.
 See the included F<LICENSE> file for details.
 
 =cut
@@ -156,7 +156,7 @@ sub get_file_list ( $args ) {
 }
 
 sub get_previous_date_serial ( $file ) {
-	open my $fh, '<:encoding(UTF-8)', $file or croak( "Could not read <$file>: $!" );
+	open my $fh, '<:encoding(UTF-8)', $file or return (-1, 0);
 	while( <$fh> ) {
 		next unless /VERSION\s*=\s*'(\d{8})\.(\d{3})'/;
 		return ( $1, $2 );
@@ -192,30 +192,14 @@ sub process_files ( $files ) {
 	foreach my $file ( $files->@* ) {
 		message "Reading $file";
 		my $yaml = YAML::Tiny->read($file)->[0];
-		message sprintf "\tFound %d reports", scalar $yaml->@*;
+		message sprintf "\tFound %d reports", scalar $yaml->{advisories}->@*;
 		my %dists_in_file;
 		my $n = 0;
 
-		foreach my $record ( $yaml->@* ) {
-			$n++;
-			my $id = $record->{id};
-			warn "Missing distribution key in record $n ($id)\n" unless exists $record->{distribution};
-			warn "Undefined distribution key in record $n ($id)\n" unless defined $record->{distribution};
-			warn "Empty distribution key in record $n ($id)\n" unless length $record->{distribution};
-
-			$dists_in_file{ $record->{distribution} }++;
-			}
-
-		if( keys %dists_in_file == 0 ) {
-			warn "There were no distributions declared in the records in <$file>\n";
-			next FILE;
-		}
-		elsif( keys %dists_in_file > 1 ) {
-			my @dists = map { length ? $_ : '<not defined or empty>' } keys %dists_in_file;
-			warn "There were more than one distribution declared in the records in <$file>: @dists\n";
-		}
-
-		my( $dist ) = keys %dists_in_file;
+		warn "Missing distribution key in $file\n" unless exists $yaml->{distribution};
+		warn "Undefined distribution key in $file\n" unless defined $yaml->{distribution};
+		warn "Empty distribution key in $file\n" unless length $yaml->{distribution};
+		my $dist = $yaml->{distribution};
 
 		if( exists $db{dists}{$dist}{advisories} ) {
 			warn "\tAlready have advisories for $dist\n";
@@ -224,7 +208,14 @@ sub process_files ( $files ) {
 			$db{dists}{$dist}{advisories} = [];
 		}
 
-		push $db{dists}{$dist}{advisories}->@*, $yaml->@*;
+		foreach my $advisory ( $yaml->{advisories}->@* ) {
+			$advisory->{distribution} = $dist;
+			$advisory->{darkpan} = 'true' if( exists $yaml->{darkpan} && $yaml->{darkpan} eq 'true' );
+			$advisory->{url} = $yaml->{url} if defined $yaml->{url};
+
+			delete $advisory->{github_security_advisory};
+			push $db{dists}{$dist}{advisories}->@*, $advisory;
+		}
 	}
 
 	provides( \%db );
@@ -379,16 +370,27 @@ sub stringify_data ( $db ) {
 	$dump =~ s{^\$VAR1\s*=\s*}{};
 	$dump =~ s{}{};
 
-	my $submodule_dir = 'cpan-security-advisory';
 
-	my( $commit ) = split /\s+/, join '',
-		grep { /\Q$submodule_dir/ }
-		`git submodule status` =~ s/\A\s+//r;
+	my( $commit ) = `git rev-parse HEAD`;
+	chomp ($commit);
 
 	my $string = <<~"EOF";
 		# created by $0 at @{[ scalar localtime]}
-		# $submodule_dir $commit
+		# cpan-security-advisory $commit
 		#
+
+		=encoding utf8
+
+		=head1 NAME
+
+		CPAN::Audit::DB - the CPAN Security Advisory data as a Perl data structure, mostly for CPAN::Audit
+
+		=head1 SYNOPSIS
+
+		=head1 DESCRIPTION
+
+		=cut
+
 		package CPAN::Audit::DB;
 
 		use strict;
@@ -396,10 +398,20 @@ sub stringify_data ( $db ) {
 
 		our \$VERSION = '$opts->{version}';
 
+		=over 4
+
+		=item * db
+
+		Returns the hashref of all the CPANSA reports
+
+		=back
+
+		=cut
+
 		sub db {
 			$dump
 		}
 
-		1;
+		__PACKAGE__;
 		EOF
 }
