@@ -45,6 +45,7 @@ sub format_advisory {
     if ( $advisory->{fixed_versions} ) {
     	my @v = ref $advisory->{fixed_versions} ? $advisory->{fixed_versions}->@* : $advisory->{fixed_versions};
     	my $first = shift @v;
+    	$first //= '';
         $s .= "    Fixed range:    $first\n";
         $s .= "                    $_\n" for @v;
     }
