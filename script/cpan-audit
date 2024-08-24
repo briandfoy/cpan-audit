@@ -36,14 +36,14 @@ sub format_advisory {
        $s .= "    $advisory->{description}\n";
 
     if ( $advisory->{affected_versions} ) {
-    	my @v = ref $advisory->{affected_versions} ? $advisory->{affected_versions}->@* : $advisory->{affected_versions};
+    	my @v = ref $advisory->{affected_versions} ? @{$advisory->{affected_versions}} : $advisory->{affected_versions};
     	my $first = shift @v;
         $s .= "    Affected range: $first\n";
         $s .= "                    $_\n" for @v;
     }
 
     if ( $advisory->{fixed_versions} ) {
-    	my @v = ref $advisory->{fixed_versions} ? $advisory->{fixed_versions}->@* : $advisory->{fixed_versions};
+    	my @v = ref $advisory->{fixed_versions} ? @{$advisory->{fixed_versions}} : $advisory->{fixed_versions};
     	my $first = shift @v;
     	$first //= '';
         $s .= "    Fixed range:    $first\n";

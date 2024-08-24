@@ -56,7 +56,7 @@ sub _includes {
 	my( $range, $version ) = @_;
 	$range = [$range] unless ref $range;
 	my $rc = 0;
-	foreach my $r ( $range->@* ) {
+	foreach my $r ( @$range ) {
 		no warnings 'uninitialized';
 	    $rc += CPAN::Audit::Version->in_range( $version, $r );
 		}
