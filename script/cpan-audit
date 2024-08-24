@@ -36,11 +36,17 @@ sub format_advisory {
        $s .= "    $advisory->{description}\n";
 
     if ( $advisory->{affected_versions} ) {
-        $s .= "    Affected range: $advisory->{affected_versions}\n";
+    	my @v = ref $advisory->{affected_versions} ? $advisory->{affected_versions}->@* : $advisory->{affected_versions};
+    	my $first = shift @v;
+        $s .= "    Affected range: $first\n";
+        $s .= "                    $_\n" for @v;
     }
 
     if ( $advisory->{fixed_versions} ) {
-        $s .=  "    Fixed range: $advisory->{fixed_versions}\n";
+    	my @v = ref $advisory->{fixed_versions} ? $advisory->{fixed_versions}->@* : $advisory->{fixed_versions};
+    	my $first = shift @v;
+        $s .= "    Fixed range:    $first\n";
+        $s .= "                    $_\n" for @v;
     }
 
     if ( $advisory->{cves} ) {
@@ -114,7 +120,7 @@ sub format_text {
 
 sub output_version {
 	my( $class, $exit_code ) = @_;
-	print "$0 version $VERSION using:\n\tCPAN::Audit     @{[ CPAN::Audit->VERSION ]}\n\tCPAN::Audit::DB @{[ CPAN::Audit::DB->VERSION ]}\n";
+	print "$0 version $VERSION using:\n\tCPAN::Audit @{[ CPAN::Audit->VERSION ]}\n\tCPANSA::DB  @{[ CPANSA::DB->VERSION ]}\n";
 	exit($exit_code);
 }
 
