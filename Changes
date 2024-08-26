@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20240826.002 2024-08-26T06:11:07Z
+	* data update for 2024-08-26
+	* new report for Mozilla::CA (briandfoy/cpan-security-advisory#161)
+
 20240824.003 2024-08-24T06:51:28Z
 	* data update for 2024-08-24
 	* now uses the v2 version of the cpan-security-advisory, which allows
