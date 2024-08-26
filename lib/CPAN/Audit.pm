@@ -26,13 +26,43 @@ sub new {
 
 	$self->_handle_exclude_file if $self->{exclude_file};
 
-	$self->{db}     //= CPAN::Audit::DB->db;
+	$self->{db} //= $self->_get_db(%args);
 
 	$self->{filter}   = CPAN::Audit::Filter->new( exclude => $args{exclude} );
 	$self->{query}    = CPAN::Audit::Query->new( db => $self->{db} );
 	$self->{discover} = CPAN::Audit::Discover->new( db => $self->{db} );
 
 	return $self;
+}
+
+sub _get_db {
+	my( $self, %params ) = @_;
+
+	if ( $params{'json_db'} ) {
+		my $data = do {
+			local $/;
+			open my($fh), '<:raw', $params{'json_db'}
+				or die "could not read file <$params{json_db}>\n";
+			<$fh>;
+		};
+		state $rc = require JSON;
+
+		my $decoded = eval { JSON::decode_json($data) };
+		die "could not decode JSON from <$params{json_db}>: @_\n" unless defined $decoded;
+		return $decoded;
+	}
+
+	my $rc = eval { require CPANSA::DB };
+	if ( $rc ) {
+		return CPANSA::DB->db;
+	}
+
+	$rc = eval { require CPAN::Audit::DB };
+	if ( $rc ) {
+		return CPAN::Audit::DB->db;
+	}
+
+	die "could not find a CPANSA database in CPANSA::DB or CPAN::Audit::DB\n";
 }
 
 sub _handle_exclude_file {
