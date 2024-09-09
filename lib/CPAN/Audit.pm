@@ -199,6 +199,8 @@ sub command_installed {
 		$dists->{ $dep->{dist} } = $dep->{version};
 	}
 
+	map { $_ = "==$_" } values %$dists;
+
 	return;
 }
 
