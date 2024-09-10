@@ -539,7 +539,7 @@ is considered affected.
 
 =head2 JSON data
 
-If you request JSON output, the data looks like
+If you request JSON output, the data looks like:
 
     {
       "meta" : {
@@ -571,7 +571,7 @@ The meta data contains information about the run of C<cpan-audit>.
       "command": "modules"
     }
 
-These information are shown
+These information are shown:
 
 =over 4
 
@@ -643,7 +643,7 @@ exits with 64 added to that number. The maximum number of reported advisories
 is 62, since values over 126 are spoken for.
 
 If the option C<--exit-zero> is set C<cpan-audit> exits always with a normal
-exit code (0). This allows to use C<cpan-audit> in build environments together
+exit code (0). This allows you to use C<cpan-audit> in build environments together
 with bash exit mode activated (C<set -e>).
 
 =over 4
