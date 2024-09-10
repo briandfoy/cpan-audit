@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20240911.001_01 2024-09-10T16:51:05Z
+	* check `cpan-audit dist perl 5.024004` for #62
+
 20240910.001 2024-09-10T15:07:37Z
 	* data update for 2024-09-10
 	* fix --version message for cpan-audit so it does not show warning
