@@ -121,7 +121,14 @@ sub format_text {
 
 sub output_version {
 	my( $class, $exit_code ) = @_;
-	print "$0 version $VERSION using:\n\tCPAN::Audit @{[ CPAN::Audit->VERSION ]}\n\tCPANSA::DB  @{[ CPANSA::DB->VERSION ]}\n";
+	print <<"HERE";
+$0 version $VERSION using:
+\tCPAN::Audit      @{[ CPAN::Audit->VERSION ]}
+\tCPAN::Audit::DB  @{[ CPAN::Audit::DB->VERSION // '<not installed>' ]}
+\tCPANSA::DB       @{[ CPANSA::DB->VERSION // '<not installed>' ]}
+
+HERE
+
 	exit($exit_code);
 }
 
