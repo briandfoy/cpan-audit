@@ -14,7 +14,7 @@ use CPAN::Audit::Version;
 use CPAN::Audit::Query;
 use CPAN::Audit::DB;
 
-our $VERSION = '20240910.001';
+our $VERSION = '20240911.001_01';
 
 sub new {
 	my( $class, %params ) = @_;
