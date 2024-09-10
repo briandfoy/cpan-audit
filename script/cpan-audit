@@ -121,11 +121,12 @@ sub format_text {
 
 sub output_version {
 	my( $class, $exit_code ) = @_;
+
 	print <<"HERE";
 $0 version $VERSION using:
 \tCPAN::Audit      @{[ CPAN::Audit->VERSION ]}
 \tCPAN::Audit::DB  @{[ CPAN::Audit::DB->VERSION // '<not installed>' ]}
-\tCPANSA::DB       @{[ CPANSA::DB->VERSION // '<not installed>' ]}
+\tCPANSA::DB       @{[ ( eval { require CPANSA::DB } && CPANSA::DB->VERSION) // '<not installed>' ]}
 
 HERE
 
@@ -187,6 +188,8 @@ sub run {
 		elsif( $advisory_count == 0 ) { EXIT_NORMAL }
 		else                          { EXIT_BASE + $advisory_count }
 		};
+
+say STDERR dumper(\%INC);
 
 	exit( $exit_code );
 	}
