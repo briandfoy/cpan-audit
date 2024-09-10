@@ -53,6 +53,7 @@ versions in ARRAY_REF that are in RANGE. This is really a filter
 on ARRAY_REF using the values for which C<in_range> returns true.
 
 	my @matching = $cav->affected_versions( \@versions, $range );
+
 =cut
 
 BEGIN {
@@ -125,6 +126,8 @@ sub in_range {
 	return $result;
 	}
 }
+
+=back
 
 =head1 LICENSE
 
