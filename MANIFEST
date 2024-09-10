@@ -25,6 +25,7 @@ README.md
 script/cpan-audit
 t/cli.t
 t/cli/deps.t
+t/cli/dist.t
 t/cli/installed.t
 t/cli/module.t
 t/cli/modules.t
