@@ -189,8 +189,6 @@ sub run {
 		else                          { EXIT_BASE + $advisory_count }
 		};
 
-say STDERR dumper(\%INC);
-
 	exit( $exit_code );
 	}
 
