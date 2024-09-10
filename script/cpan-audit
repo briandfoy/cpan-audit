@@ -7,7 +7,7 @@ use IO::Interactive qw(is_interactive);
 
 use CPAN::Audit;
 
-our $VERSION = "1.502";
+our $VERSION = "1.503";
 
 __PACKAGE__->run( @ARGV ) unless caller;
 
