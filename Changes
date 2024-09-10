@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20240910.001 2024-09-10T15:07:37Z
+	* data update for 2024-09-10
+	* fix --version message for cpan-audit so it does not show warning
+
 20240908.001 2024-09-09T08:35:55Z
 	* Data upate for 2024-09-08. This inclues CVE-2024-45321 for 
 	App::cpanminus.
