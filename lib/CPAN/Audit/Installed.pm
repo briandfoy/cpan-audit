@@ -15,7 +15,7 @@ sub find {
 	my $self = shift;
 	my (@inc) = @_;
 
-	@inc = @INC unless @inc;
+	@inc = grep !/^\.$/, @INC unless @inc;
 	@inc = grep { defined && -d $_ } map { Cwd::realpath($_) } @inc;
 
 	my %seen;
