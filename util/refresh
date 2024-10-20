@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git submodule update --remote
+perl -Ilib util/generate
