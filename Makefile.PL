@@ -69,7 +69,7 @@ POSTAMBLE
 }
 
 my %WriteMakefile = (
-	'MIN_PERL_VERSION' => '5.010001',
+	'MIN_PERL_VERSION' => '5.012',
 
 	'NAME'          => $module,
 	'AUTHOR'        => 'Viacheslav Tykhanovskyi <viacheslav.t@gmail.com>',
