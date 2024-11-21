@@ -9,6 +9,7 @@ requires 'Module::CoreList', '5.20181020';
 requires 'Module::Extract::VERSION';
 requires 'PerlIO::gzip';
 requires 'version';
+requires 'CPANSA::DB';
 
 on 'test' => sub {
     requires 'Capture::Tiny', '0.24';
