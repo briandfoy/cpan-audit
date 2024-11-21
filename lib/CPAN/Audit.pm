@@ -12,7 +12,7 @@ use CPAN::Audit::Discover;
 use CPAN::Audit::Filter;
 use CPAN::Audit::Version;
 use CPAN::Audit::Query;
-use CPAN::Audit::DB;
+use CPANSA::DB;
 
 our $VERSION = '20241020.001';
 
