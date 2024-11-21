@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20241121.001_001 2024-11-21T22:45:15Z
+	* test release to move CPAN::Audit::DB to a separate module so it
+	can be updated independently. 
+
 20240911.001_01 2024-09-10T16:51:05Z
 	* check `cpan-audit dist perl 5.024004` for #62
 
