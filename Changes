@@ -1,5 +1,19 @@
 Revision history for Perl extension CPAN-Audit
 
+20241208.001 2024-12-08T21:10:30Z
+	* The database of advisories now exists as a separate distribution so
+	it can update itself frequently without requiring new releases of this
+	distribution. The code will look for CPANSA::DB or CPAN::Audit::DB, and
+	the CPAN::Audit::DB now comes with CPANSA:DB. CPAN::Audit::DB will
+	eventually be phased out.
+	* The `installed` command now looks only at the versions you have 
+	installed. This changes the comparison from '>=' to '=='. (#62)
+	* The default range operator is now `==` instead of `>=`. You can 
+	always specify which way you want the check to work by using an
+	explicit range operator
+	* Since these are significant changes, please report any weird
+	situations that might arise.
+
 20241121.001_001 2024-11-21T22:45:15Z
 	* test release to move CPAN::Audit::DB to a separate module so it
 	can be updated independently. 
