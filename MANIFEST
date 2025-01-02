@@ -17,6 +17,7 @@ MANIFEST.SKIP
 META.json
 README.md
 script/cpan-audit
+SECURITY.md
 t/cli.t
 t/cli/deps.t
 t/cli/dist.t
