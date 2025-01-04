@@ -80,7 +80,7 @@ jobs:
 # but that's not a big deal.
             - name: Install dependencies
               run: |
-                cpanm --notest --installdeps --with-suggests --with-recommends .
+                cpanm --notest --installdeps --with-suggests --with-recommends . ${{ vars.EXTRA_CPAN_MODULES }}
 # This makes the distribution and tests it, but assumes by the time we
 # got here, everything else was already tested.
             - name: Create distro
