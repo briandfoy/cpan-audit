@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20250103.001 2025-01-04T02:17:20Z
+	* refresh distro and move to BRIANDFOY
+
 20241208.001 2024-12-08T21:10:30Z
 	* The database of advisories now exists as a separate distribution so
 	it can update itself frequently without requiring new releases of this
