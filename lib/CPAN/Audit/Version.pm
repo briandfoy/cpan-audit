@@ -140,7 +140,7 @@ it under the same terms as Perl itself.
 
 Viacheslav Tykhanovskyi E<lt>viacheslav.t@gmail.comE<gt>
 
-=back
+=cut
 
 
 1;
