@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20250109.001 2025-01-10T04:10:05Z
+	* pod fix from the Debian crew (#65)
+
 20250103.001 2025-01-04T02:17:20Z
 	* refresh distro and move to BRIANDFOY
 
