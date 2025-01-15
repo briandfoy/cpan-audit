@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20250115.001 2025-01-15T18:12:43Z
+	* remove YAML::Tiny build dependency left over from distributing 
+	the database in the same distro (#66)
+
 20250109.001 2025-01-10T04:10:05Z
 	* pod fix from the Debian crew (#65)
 
