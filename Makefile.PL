@@ -85,7 +85,6 @@ my %WriteMakefile = (
 		},
 
 	'BUILD_REQUIRES' => {
-		'YAML::Tiny'            => '0',
 		},
 
 	'EXE_FILES' => [
