@@ -244,6 +244,7 @@ sub command {
 				my $dist = $self->{db}{module2dist}{$mod} or next;
 				$dists->{$dist} = $ver if( ! defined $dists->{$dist} or version->parse($ver) > $dists->{$dist} );
 			}
+			delete $dists->{perl};
 		}
 	}
 
