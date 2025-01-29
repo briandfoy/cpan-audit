@@ -196,8 +196,10 @@ sub command_installed {
 		  || $self->{db}->{module2dist}->{ $dep->{module} };
 		next unless $dist;
 
-		$dists->{ $dep->{dist} } = '==' . $dep->{version};
+		$dists->{ $dep->{dist} } = $dep->{version};
 	}
+
+	$_ = "==$_" for values %$dists;
 
 	return;
 }
