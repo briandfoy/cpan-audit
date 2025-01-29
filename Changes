@@ -18,9 +18,6 @@ Revision history for Perl extension CPAN-Audit
 	eventually be phased out.
 	* The `installed` command now looks only at the versions you have 
 	installed. This changes the comparison from '>=' to '=='. (#62)
-	* The default range operator is now `==` instead of `>=`. You can 
-	always specify which way you want the check to work by using an
-	explicit range operator
 	* Since these are significant changes, please report any weird
 	situations that might arise.
 
