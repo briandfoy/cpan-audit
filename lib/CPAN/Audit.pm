@@ -159,6 +159,7 @@ sub command_deps {
 	return "Usage: deps <dir>" unless -d $dir;
 
 	my @deps = $self->{discover}->discover($dir);
+	push @deps, { dist => 'perl', version => $] } if $self->{include_perl};
 
 	$self->verbose( sprintf 'Discovered %d dependencies', scalar(@deps) );
 
