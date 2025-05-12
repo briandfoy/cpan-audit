@@ -2,6 +2,7 @@
 use v5.10;
 use strict;
 use warnings;
+use open qw(:std :encoding(UTF-8));
 
 use IO::Interactive qw(is_interactive);
 
