@@ -9,7 +9,7 @@ subtest 'command: modules' => sub {
 
     like $stdout, qr/CPANSA-CPAN-2009-01/;
     like $stdout, qr/CPANSA-CPAN-2020-16156/;
-    is $stderr,   '';
+    is $stderr,   '' or diag( "STDOUT:---\n$stdout\n---\n" );
     isnt $exit,   0;
 };
 
@@ -19,7 +19,7 @@ subtest 'command: modules with two modules' => sub {
     like $stdout, qr/CPANSA-CPAN-2009-01/;
     like $stdout, qr/CPANSA-CPAN-2020-16156/;
     like $stdout, qr/CPANSA-Mojolicious-2022-03/;
-    is $stderr,   '';
+    is $stderr,   '' or diag( "STDOUT:---\n$stdout\n---\n" );
     isnt $exit,   0;
 };
 
@@ -28,7 +28,7 @@ subtest 'command: modules, with excluded result' => sub {
     unlike $stdout, qr/CPANSA-CPAN-2009-01/;
     like $stdout, qr/CPANSA-CPAN-2020-16156/;
     unlike $stdout, qr/CPANSA-Mojolicious-2022-03/;
-    is $stderr,   '';
+    is $stderr,   '' or diag( "STDOUT:---\n$stdout\n---\n" );
     isnt $exit,   0;
 };
 
@@ -40,7 +40,7 @@ subtest 'command: modules, with excluded results from file' => sub {
     unlike $stdout, qr/CPANSA-CPAN-2009-01/;
     like $stdout, qr/CPANSA-CPAN-2020-16156/;
     unlike $stdout, qr/CPANSA-Mojolicious-2022-03/;
-    is $stderr,   '';
+    is $stderr,   '' or diag( "STDOUT:---\n$stdout\n---\n" );
     isnt $exit,   0;
 };
 
