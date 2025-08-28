@@ -220,7 +220,10 @@ sub command {
 		meta => {
 			command          => $command,
 			args             => [ @args ],
-			cpan_audit       => { version => $VERSION },
+			cpan_audit       => {
+				version => $VERSION,
+				db      => $CPANSA::DB::VERSION,
+			},
 			total_advisories => 0,
 		},
 		errors => [],
