@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20250829.001 2025-08-29T03:00:32Z
+	* add the CPANSA::DB version to the meta data
+
 20250115.001 2025-01-15T18:12:43Z
 	* remove YAML::Tiny build dependency left over from distributing 
 	the database in the same distro (#66)
