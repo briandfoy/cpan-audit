@@ -76,3 +76,5 @@ cpan-security-advisory/
 
 
 \.gitattributes\b
+
+.downstream.json
