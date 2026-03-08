@@ -106,7 +106,7 @@ my %WriteMakefile = (
 		'IO::Interactive'          => '0',
 		'JSON'                     => '0',
 		'PerlIO::gzip'             => '0',
-		'CPANSA::DB'               => '20241121.001',
+		'CPANSA::DB'               => '20260308.006',
 		},
 
 	'META_MERGE' => {
