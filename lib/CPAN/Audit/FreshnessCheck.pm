@@ -2,7 +2,7 @@ package CPAN::Audit::FreshnessCheck;
 
 use v5.10;
 
-our $VERSION = '1.001';
+our $VERSION = '1.002';
 
 =head1 NAME
 
