@@ -126,7 +126,7 @@ sub output_version {
 	print <<"HERE";
 $0 version $VERSION using:
 \tCPAN::Audit      @{[ CPAN::Audit->VERSION ]}
-\tCPAN::Audit::DB  @{[ CPAN::Audit::DB->VERSION // '<not installed>' ]}
+\tCPAN::Audit::DB  @{[ CPAN::Audit::DB->VERSION // '<not installed>' ]} (deprecated)
 \tCPANSA::DB       @{[ ( eval { require CPANSA::DB } && CPANSA::DB->VERSION) // '<not installed>' ]}
 
 HERE

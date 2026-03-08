@@ -44,10 +44,10 @@ subtest 'json, no corelist' => sub {
 done_testing;
 
 BEGIN {
-	use CPAN::Audit::DB;
+	use CPANSA::DB;
     no warnings 'redefine';
 
-    sub CPAN::Audit::DB::db {
+    sub CPANSA::DB::db {
         my $db = {
             'dists' => {
                 'Catalyst-Runtime' => {

@@ -27,8 +27,8 @@ CPAN::Audit::Query - filter the database for advisories that interest you
 =item * new(HASH)
 
 The only parameter is the hash reference from L<CPAN::Audit::DB> or
-L<CPANSA::DB>. With no C<db> parameter, it uses the empty hash, which
-means that you'll find no advisories.
+L<CPANSA::DB> (deprecated). With no C<db> parameter, it uses the empty hash,
+which means that you'll find no advisories.
 
 =cut
 
