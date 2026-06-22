@@ -30,6 +30,7 @@ t/data/carton/cpanfile.snapshot
 t/data/cpanfiles/cpanfile
 t/data/excludes
 t/data/installed/perl5/lib/perl5/Catalyst.pm
+t/data/installed/perl5/lib/perl5/DBD/Pg.pm
 t/data/modules_excludes
 t/data/queried_modules/cpanfile
 t/discover/cpanfile.t
