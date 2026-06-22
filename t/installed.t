@@ -6,7 +6,7 @@ use CPAN::Audit::Installed;
 subtest 'installed' => sub {
     my @deps = _build(
         db => {
-            module2dist => { Catalyst  => 'Catalyst-Runtime' },
+            module2dist => { Catalyst => 'Catalyst-Runtime' },
             dists       => {
                 'Catalyst-Runtime' => {
                     main_module => 'Catalyst',
