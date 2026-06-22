@@ -58,7 +58,7 @@ sub _get_db {
 	}
 
 	$rc = eval {
-		warn "CPAN::Audit::DB is deprecated. Use CPANSA::DB instead.\n";
+		warn "CPAN::Audit::DB is deprecated. Use CPANSA::DB instead. CPAN::Audit::DB will be removed in January 2027.\n";
 		require CPAN::Audit::DB
 		};
 	if ( $rc ) {
