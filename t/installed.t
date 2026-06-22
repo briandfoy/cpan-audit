@@ -6,10 +6,7 @@ use CPAN::Audit::Installed;
 subtest 'installed' => sub {
     my @deps = _build(
         db => {
-            module2dist => {
-                Catalyst  => 'Catalyst-Runtime',
-                'DBD::Pg' => 'DBD-Pg',
-            },
+            module2dist => { Catalyst  => 'Catalyst-Runtime' },
             dists       => {
                 'Catalyst-Runtime' => {
                     main_module => 'Catalyst',
@@ -18,11 +15,7 @@ subtest 'installed' => sub {
                             id => 'CPANSA-Catalyst-2018-01'
                         }
                     ]
-                },
-                'DBD-Pg' => {
-                    main_module => 'DBD::Pg',
-                    advisories => [ ],
-                },
+                }
             }
         }
     )->find('t/data/installed');
