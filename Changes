@@ -1,5 +1,9 @@
 Revision history for Perl extension CPAN-Audit
 
+20260622.001 2026-06-22T19:52:04Z
+	* fix warning when a version could not be found in a module (Matthias Bethke, #76)
+	* CPAN::Audit::DB support will be removed in January 2027
+
 20260308.002 2026-03-08T15:22:06Z
 	* CPAN::Audit::DB is deprecated in favor of CPANSA::DB
 	* CPAN::Audit::DB support will be removed in Fall 2026
