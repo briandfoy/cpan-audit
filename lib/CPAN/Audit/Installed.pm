@@ -70,7 +70,7 @@ sub module_version {
 		$version = $version->numify;
 	}
 
-	return defined $version ? $verison : '';
+	return defined $version ? $version : '';
 }
 
 sub module_from_file {
