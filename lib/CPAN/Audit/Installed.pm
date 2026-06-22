@@ -4,7 +4,7 @@ use warnings;
 use File::Find ();
 use Cwd        ();
 
-our $VERSION = "1.001";
+our $VERSION = "1.002";
 
 sub new {
 	my( $class, %params ) = @_;
