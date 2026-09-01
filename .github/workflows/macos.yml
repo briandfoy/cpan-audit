@@ -1,5 +1,5 @@
 # brian's standard GitHub Actions macOS config for Perl 5 modules
-# version 20250914.001
+# version 20260831.001
 # https://github.com/briandfoy/github_workflows
 # https://github.com/features/actions
 # This file is licensed under the Artistic License 2.0
@@ -45,6 +45,7 @@ on:
             - '**'
             - '!**appveyor**'
             - '!**circleci**'
+            - '!**freebsd**'
             - '!**linux**'
             - '!**notest**'
             - '!**release**'
@@ -89,10 +90,12 @@ jobs:
             - name: Perl version check
               run: perl -V
 # reload the cache so we don't need to reinstall modules, This can save
-# several minutes.
+# several minutes. But, if this fails, don't kill the build. We'll have to
+# install
             - name: Load cache
               id: perl-modules-cache-restore
-              uses: actions/cache/restore@v4
+              continue-on-error: true
+              uses: actions/cache/restore@v6
               with:
                 key: ${{ runner.os }}-perl-modules
                 path: |
@@ -103,6 +106,7 @@ jobs:
 # do what so many people want
             - name: Delete cache
               id: delete-cache
+              continue-on-error: true
               env:
                 GH_TOKEN: ${{ github.token }}
               run: |
@@ -172,7 +176,8 @@ jobs:
 # Now always save the Perl modules in case we updated some versions
             - name: Save cache
               id: perl-modules-cache-save
-              uses: actions/cache/save@v4
+              continue-on-error: true
+              uses: actions/cache/save@v6
               if: always()
               with:
                 key: ${{ steps.perl-modules-cache-restore.outputs.cache-primary-key }}
