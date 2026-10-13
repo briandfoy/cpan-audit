@@ -177,7 +177,7 @@ sub run {
 	my $output = $sub->( $result, $opts );
 	if( $command eq 'show' ) {
 		$output =~ s/\A.*\n//;
-	}
+		}
 
 	print $output;
 
