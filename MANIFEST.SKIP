@@ -77,8 +77,10 @@ cpan-security-advisory/
 
 \.gitattributes\b
 
-.downstream.json
+^\.downstream\.json
 
-.downstream.json
-cpan_tester_reports
+^cpan_tester_reports/
 \.claude/
+^AGENTS\.md
+^CLAUDE\.md
+^\.claude
