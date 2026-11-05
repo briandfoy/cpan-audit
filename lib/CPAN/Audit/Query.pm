@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use CPAN::Audit::Version;
 
-our $VERSION = "1.002";
+our $VERSION = "1.003";
 
 =encoding utf8
 
