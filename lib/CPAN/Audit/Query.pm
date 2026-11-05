@@ -50,11 +50,11 @@ sub new {
 
 Returns a list of advisories for DISTNAME in VERSION_RANGE.
 
-	my @advisories = $query->advisories_for( 'Business::ISBN', '1.23' );
+	my @advisories = $query->advisories_for( 'Business-ISBN', '1.23' );
 
-	my @advisories = $query->advisories_for( 'Business::ISBN', '>1.23,<2.45' );
+	my @advisories = $query->advisories_for( 'Business-ISBN', '>1.23,<2.45' );
 
-	my @advisories = $query->advisories_for( 'Business::ISBN', '<1.23' );
+	my @advisories = $query->advisories_for( 'Business-ISBN', '<1.23' );
 
 =cut
 
