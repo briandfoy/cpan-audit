@@ -1,5 +1,8 @@
 Revision history for Perl extension CPAN-Audit
 
+20261105.001 2026-11-05T14:26:20Z
+	* doc update for advisories_for (#79)
+
 20261013.002 2026-10-13T13:09:37Z
 	* require a newer Module::Extract::VERSION to handle some odd modules
 
